@@ -2,8 +2,6 @@
 
 Your goal is to add tag functionality to the movie app. Users should be able to add tags to their favorite movies, and be able to see a page with all the tags users have added.
 
-##Create a tags page
-
 * **Create Tags table**
 	* attributes (columns):
 		* tag
