@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs%> 
+	<a href="/" class="backBTN container">BACK</a>
+		<% movies.forEach(function(movie, idx){ %>
+			<div class="container">
+				<div class="well">
+					<a href="movies/<%= movie.imdbID %>">
+						<h1> Title: <%= movie.Title %> </h1>
+					</a>
+					<p>  Year: <%= movie.Year %> </p>
+					<p> ID: <%= movie.imdbID %> </p>
+					<p> Poster URL: <%= movie.Poster %> </p>
+				</div>
+			</div>
+
+	<% }) %> 
+
+<% include ../partials/footer.ejs%> 
