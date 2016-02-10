@@ -1,0 +1,13 @@
+<div class="wrapper-results">
+	<div id="list-results">
+		<h1>Search results</h1>
+		<% movie.Search.forEach(function(movie) { %>
+			<h2>
+				<a href="/details/<%= movie.imdbID %>">
+					<%= movie.Title %>
+				</a>
+			</h2>
+		<% }); %>
+	</div>
+</div>
+	
