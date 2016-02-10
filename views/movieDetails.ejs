@@ -1,15 +1,8 @@
-<!-- <ol class="breadcrumb">
-	<li><a href="/">Home</a></li>
-	<li><a href="&larr;">Back to your search results</a></li>
-</ol> -->
-
-<h1>Movie details</h1>
-	<p>
-		Year: <%= movie.Year %>
-	</p>
-	<p>
-		Rated: <%= movie.Rated %>
-	</p>
-	<p>
-		IMDB Rating: <%= movie.imdbRating %>
-	</p>
+<div class="wrapper-results">
+	<div class="movie-details">
+		<h1> <%= movie.Title %> </h1>
+		<p><b>Year:</b> <%= movie.Year %></p>
+		<p><b>Rated:</b> <%= movie.Rated %></p>
+		<p><b>IMDB Rating:</b> <%= movie.imdbRating %></p>
+	</div>
+</div>
