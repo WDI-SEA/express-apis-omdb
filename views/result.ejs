@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OMDB Search</title>
+</head>
+<body>
+
+  <h1>Here are your results.</h1>
+
+<%  result.Search.forEach(function(result) {  %>
+
+  <div>
+    <a href="/movie/<%=result.imdbID%>"> <%= result.Title %> <span> <%= result.Year %> </span></a>
+  </div>
+
+<% }); %>
+
+
+</body>
+</html>
