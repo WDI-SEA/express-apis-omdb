@@ -1,16 +1,20 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
+var bodyParser = require('body-parser');
 var request = require('request');
 
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(_dirname = "/static"));
+console.log(_dirname); // its a variable that node sets that gives you an absolute path to the directory you're in
+//express.static wants an absolute path
+
+var ejsLayout = require ("express-ejs-layouts");
+app.use(ejsLayout);
 
 
 //////////////////////////////////////////////////////////
-
-
 
 app.get("/", function(req,res) {
   res.render('index.ejs');
@@ -28,19 +32,20 @@ app.get("/result", function(req, res) {
 				res.render("result.ejs", {
 					movies: JSON.parse(body)
 				})
+
 			}
 		})
 })
 
 //route that takes parameters of imdbID in the url
-app.get("/movies/:imbdId", function(req,res) {
-	var id = req.params.imdbId;
+app.get("/movies/:imbdID", function(req,res) {
+	var id = req.params.imbdID;
 	request(
 		'http://www.omdbapi.com/?i='+ id, function(error, response, body) {
 			if (!error && response.statusCode == 200) {
 				res.render('show.ejs', {
 					movies: JSON.parse(body)
-				});
+				})
 			}
 		})
 });
