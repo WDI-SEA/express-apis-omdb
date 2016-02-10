@@ -1,0 +1,15 @@
+<div class="jumbotron blackText">
+  <h1><%= movieResult.Title %></h1>
+  <p><strong>Year</strong> - <%= movieResult.Year %>, <strong>Rated</strong> <%= movieResult.Rated %><br>
+     <strong>Released</strong> - <%= movieResult.Released %><br>
+     <strong>Runtime</strong> - <%= movieResult.Runtime %><br><strong>Genre</strong> - <%= movieResult.Genre %><br>
+     <strong>Director</strong> - <%= movieResult.Director %> <br><strong>Writer</strong> - <%= movieResult.Writer %><br>
+     <strong>Actors</strong> - <%= movieResult.Actors %><br><strong>Plot</strong> - <%= movieResult.Plot %><br>
+     <strong>Awards</strong> - <%= movieResult.Awards %><br><strong></strong><br>
+     <strong>Metascore</strong> - <%= movieResult.Metascore %>
+     
+
+	 
+  <p><a class="btn btn-primary btn-lg" href="/show?search=<%=searchValue%>" role="button">Back</a></p>
+</div>
+
