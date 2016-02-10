@@ -1,10 +1,12 @@
 <% include ../partials/header.ejs %>
-	<div class="container">
+	<div class="wrapper">
 		<form action="/results" name="movie-search" method="GET">
-			<label for="title">Search movies by title:</label>
-			<input type="text" name="title">
 
-			<input type="submit">
+			<label for="title">OMDB Movie Search</label>
+			<br />
+			<input type="text" name="title" placeholder="Enter title" class="search-box">
+			<br/ >
+			<input type="submit" class="search-button" value="Go">
 		</form>
 	</div>
 <% include ../partials/footer.ejs %>

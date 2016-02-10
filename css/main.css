@@ -1,0 +1,52 @@
+body {
+	background-image: url('movie-clapper-board.jpg');
+	/*background-color: tan;*/
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.wrapper {
+	/*background-color: tan;*/
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	/*opacity: .7;*/
+	width: 800px;
+	height: 300px;
+	font-size: 18px;	
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 80px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	color: #007f80;
+	text-shadow: rgba(255,255,255,0.5) 0px 5px 2px;
+/*	-webkit-text-stroke-width: .05px;
+   	-webkit-text-stroke-color: black;*/
+}
+
+.search-box {
+	font-size: 20px;
+	width: 400px;
+	/*border: 5px solid #007f80;*/
+	padding: 10px;
+	margin: 0 0 10px 0;
+	background: white;
+	color: #007f80;
+}
+
+.search-button {
+	background-color: #007f80;
+	border-radius: 12px;
+	font-size: 16px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	padding: 8px;
+	color: white;
+	width: 75px;
+}

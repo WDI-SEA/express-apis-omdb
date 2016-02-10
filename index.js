@@ -8,6 +8,10 @@ app.use(ejsLayouts);
 
 var request = require('request');
 
+var path = require('path');
+app.use(express.static(path.join(__dirname, 'css')));
+app.use(express.static(path.join(__dirname, 'images')));
+
 app.get('/', function(req, res) {
 	res.render('movieSearchForm/index.ejs');
 })
