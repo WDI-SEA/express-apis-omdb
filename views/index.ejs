@@ -2,8 +2,10 @@
 
 <p class="lead">This site uses The Open Movie Database (OMDb) API to allow you to search for movie information. Please use the form below to search for the movie of your choice.</p>
 
-<form action="/results" method="GET" class="inline">
-	<label>Movie Title:</label>
-	<input type="text" name="search" placeholder="Movie">
-	<button type="submit" class="btn btn-success">Search</button>
-</form>
+<div class="form-group">
+	<form action="/movies" method="GET">
+		<label>Movie Title:</label>
+		<input type="text" name="q" placeholder="ex: Hackers">
+		<button type="submit" class="btn btn-success">Search</button>
+	</form>
+</div>
