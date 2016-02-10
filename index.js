@@ -26,7 +26,7 @@ app.get("/result", function(req, res) {
 app.get("/movie/:id", function(req, res) {
   var movieID = req.params.id;
 
-  request('http://www.omdbapi.com/?i='+movieID, function(error, response, body) {
+  request('http://www.omdbapi.com/?plot=full&tomatoes=true&i='+movieID, function(error, response, body) {
     if(!error && response.statusCode == 200) {
       res.render("movie.ejs", {
         movie: JSON.parse(body)
