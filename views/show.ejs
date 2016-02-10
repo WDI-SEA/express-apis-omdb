@@ -1,0 +1,14 @@
+<div class="container">
+	<div class = "well">
+		<h3> Movie Title: <%= movieData.Title %></h3>
+		<h3> Year: <%=movieData.Year%></h3>
+		<h3> Rating: <%=movieData.Rated%></h3>
+		<h3> Runtime: <%=movieData.Runtime%></h3>
+		<h3> Director: <%=movieData.Director%></h3>
+		<h3> Actor: <%=movieData.Actors%></h3>
+		<h3> IMDB Rating: </h3>
+		 <% for(var i = 1; i <= parseInt(movieData.imdbRating); i++){%>
+									<img src="/star.jpeg" width="50" height="50">
+									<%};%>
+	</div>
+</div>
