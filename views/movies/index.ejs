@@ -1,0 +1,36 @@
+<!-- views/movies/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+    
+
+        
+    <h1>Movie search results:</h1>
+
+    <% var movies = JSON.parse(movieDetails) %>
+    <% var movieList = movies.Search %>
+    <% movieList.forEach(function(movie) { %>
+        <div class="well">
+            <a href="/movies/:<%= movie.imdbID %>"><h4><%= movie.Title %></h4></a>
+            <h5><%= movie.Year %></h5>
+        </div>
+    <%});%>
+        
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

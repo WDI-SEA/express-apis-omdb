@@ -1,0 +1,30 @@
+<!-- views/partials/header.ejs -->
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="glyphicon glyphicon glyphicon-search"></span>
+                OMDB Search
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav">
+ <!--            <li><a href="/">Home</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/articles/new">Submit Stupidity Here</a></li>
+            <li><a href="/about">About</a></nli>
+            <li><a href="/contact">(Don't) Contact Us</a></li> -->
+
+        </ul>
+
+        <form id="search" action="/movies" class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input name="search" type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-inverse">Submit</button>
+            </form>
+      
+    </div>
+</nav>

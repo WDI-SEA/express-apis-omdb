@@ -1,0 +1,29 @@
+{
+  "name": "express-apis-omdb",
+  "version": "1.0.0",
+  "description": "express api omdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnuzum/express-apis-omdb.git"
+  },
+  "keywords": [
+    "movies"
+  ],
+  "author": "dnuzum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnuzum/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/dnuzum/express-apis-omdb#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-ejs-layouts": "^2.0.0",
+    "request": "^2.69.0"
+  }
+}
