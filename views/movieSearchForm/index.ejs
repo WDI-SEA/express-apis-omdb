@@ -1,0 +1,10 @@
+<% include ../partials/header.ejs %>
+	<div class="container">
+		<form action="/results" name="movie-search" method="GET">
+			<label for="title">Search movies by title:</label>
+			<input type="text" name="title">
+
+			<input type="submit">
+		</form>
+	</div>
+<% include ../partials/footer.ejs %>
