@@ -1,0 +1,26 @@
+<% include ./partials/header.ejs %>
+
+<div class='container'>
+	<div class='page-header'>
+		<h1><%= movieDat.Title %></h1>
+	</div>
+
+
+		<% for(field in movieDat) { %>
+			<% if (field !== 'Poster' ) { %>
+			<% if (field !== 'Type' ) { %>
+			<% if (field !== 'Response' ) { %>
+			
+				<p class="detField">
+				<%= field%>: <%= movieDat[field]%>
+				</p>
+			<% } %>	
+			<% } %>
+			<% } %>
+			
+
+		<% } %> 
+		
+</div>
+
+<% include ./partials/footer.ejs %>
