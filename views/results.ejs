@@ -1,0 +1,12 @@
+
+<div class="container">
+	<div class="text-center">
+		<h3>Search Results</h3>
+	</div>
+			<% movielist.Search.forEach(function(movie){ %>
+				<div class="well well-sm">
+					<h4><a href="/results/<%=movie.imdbID%>"> <%= movie.Title%></a></h4>
+				</div>
+			<% }); %>
+				
+</div>
