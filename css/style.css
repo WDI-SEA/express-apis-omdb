@@ -1,15 +1,25 @@
+body {
+	background-image: url(/images/cinema.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+
+.blackText {
+	color: black;
+}
+
 #title {
 	text-align: center;
 	width: 30em;
-	margin: 0 auto;
+	margin: 20em auto 0 auto;
+	
 }
 
 #searchfield {
 	margin: 0 auto;
 	width: 22em;
+
 }
 
-#backBtn {
-	top: 5em;
-	left: 5em;
-}

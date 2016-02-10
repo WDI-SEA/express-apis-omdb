@@ -1,9 +1,9 @@
 	
   <div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
   <div class="container">
-    <h1>Movies</h1>
+    <h1 style="color: white">Movies</h1>
     <% movieResult.Search.forEach(function(movie) { %>
-      <div class="well">
+      <div class="well" >
         <h3>
           <a href="/show/movie/<%= movie.imdbID %>">
           <%= movie.Title %>
