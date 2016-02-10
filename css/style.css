@@ -1,0 +1,17 @@
+body {
+	background-image: url("hollywood.jpg");
+	font-family: sans-serif;
+	text-align: center;
+	background-size: cover;
+	color: black;
+
+
+}
+h1 {
+	font-family: limelight;
+}
+p {
+	helvetica;
+	color: black;
+	font-size: 22px;
+}
