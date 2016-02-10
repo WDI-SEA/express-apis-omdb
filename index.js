@@ -24,7 +24,8 @@ app.get("/movies", function(req, res){
 app.get("/movies/:imbdId", function(req, res) {
  	request('http://www.omdbapi.com/?i='+req.params.imbdId, function(error, response, body) {
  		if (!error && response.statusCode == 200) {
- 			res.render("movies/show.ejs", {movieData: JSON.parse(body)});
+ 			body = JSON.parse(body);
+ 			res.render("movies/show.ejs", {movieData: body});
 		}
 	});
 });

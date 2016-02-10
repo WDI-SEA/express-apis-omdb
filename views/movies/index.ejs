@@ -21,7 +21,7 @@
     <% var movieList = movies.Search %>
     <% movieList.forEach(function(movie) { %>
         <div class="well">
-            <a href="/movies/:<%= movie.imdbID %>"><h4><%= movie.Title %></h4></a>
+            <a href="/movies/<%= movie.imdbID %>"><h4><%= movie.Title %></h4></a>
             <h5><%= movie.Year %></h5>
         </div>
     <%});%>

@@ -12,20 +12,21 @@
     </header>
 
     <main>
-
+        <% var movie = movieData %>
+        <% console.log(movie) %>
         <div class="well">
            <FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
-            <h3>Title: <%= movieData.Title %> </h3>
-            <p>Year: <%= movieData.Year %> </p>
-            <p>Rating: <%= movieData.Rated %> </p>
-            <p>Release Date: <%= movieData.Released %> </p>
-            <p>Runtime: <%= movieData.Runtime %> </p>
-            <p>Genre: <%= movieData.Genre %> </p>
-            <p>Director: <%= movieData.Dircector %> </p>
-            <p>Writer: <%= movieData.Year %> </p>
-            <p>Actors: <%= movieData.Actors %> </p>
-            <p>Awards: <%= movieData.Awards %> </p>
-            <p>Plot: <%= movieData.Plot %> </p>
+            <h3>Title: <%= movie.Title %> </h3>
+            <p>Year: <%= movie.Year %> </p>
+            <p>Rating: <%= movie.Rated %> </p>
+            <p>Release Date: <%= movie.Released %> </p>
+            <p>Runtime: <%= movie.Runtime %> </p>
+            <p>Genre: <%= movie.Genre %> </p>
+            <p>Director: <%= movie.Dircector %> </p>
+            <p>Writer: <%= movie.Year %> </p>
+            <p>Actors: <%= movie.Actors %> </p>
+            <p>Awards: <%= movie.Awards %> </p>
+            <p>Plot: <%= movie.Plot %> </p>
 
         </div>
     </main>
