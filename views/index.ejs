@@ -1,11 +1,17 @@
 <% include ./partials/header.ejs %>
 
-<h1>Find-a-Flick!</h1>
-<form action="results">
-  <div class="mdl-textfield mdl-js-textfield">
-    <input name="search" class="mdl-textfield__input" type="text">
-    <label class="mdl-textfield__label">Text...</label>
-  </div>
-</form>
+<div class="container">
+	<div class="row intro">  
+	    <h1>Find-a-Flick</h1>
+	    <p>Enter a movie title and press 'enter' to get more information</p>
+	    <form class="col l12" action="results">
+		    <div class="row">
+		    	<div class="input-field col l10 offset-l1">
+		    	    <input id="input" name="search" class="validate" type="text" autofocus>
+		    	</div>
+		    </div>
+	    </form>
+    </div>
+</div>
 
 <% include ./partials/footer.ejs %>

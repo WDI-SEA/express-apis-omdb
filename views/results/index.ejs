@@ -3,13 +3,24 @@
 <h1>Results:</h1>
 <% movies.Search.forEach(function(movie) { %>
 
-	<h3>
-		<a href="/movie/<%= movie.imdbID %>">
-			<%= movie.Title %>
-		</a>	
-	</h3>
-	<p>Year: <%= movie.Year %></p>
-	<p>IMDB ID: <%= movie.imdbID %></p>
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card hoverable blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= movie.Title %></span>
+          <p>Year: <%= movie.Year %></p>
+		<p>IMDB ID: <%= movie.imdbID %></p>
+        </div>
+        <div class="card-action">
+          <a href="/movie/<%= movie.imdbID %>">
+			More Details
+		  </a>	
+        </div>
+      </div>
+    </div>
+ </div>
+            
+
 
 <% }); %>
 
