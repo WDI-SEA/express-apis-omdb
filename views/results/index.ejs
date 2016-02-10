@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+
+<h1>Results:</h1>
+<% movies.Search.forEach(function(movie) { %>
+
+	<h3>
+		<a href="/movie/<%= movie.imdbID %>">
+			<%= movie.Title %>
+		</a>	
+	</h3>
+	<p>Year: <%= movie.Year %></p>
+	<p>IMDB ID: <%= movie.imdbID %></p>
+
+<% }); %>
+
+<% include ../partials/footer.ejs %>
