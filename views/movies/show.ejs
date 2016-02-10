@@ -1,0 +1,39 @@
+<!-- views/movies/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <% var movie = movieData %>
+        <% console.log(movie) %>
+        <div class="well">
+           <FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+            <h3>Title: <%= movie.Title %> </h3>
+            <p>Year: <%= movie.Year %> </p>
+            <p>Rating: <%= movie.Rated %> </p>
+            <p>Release Date: <%= movie.Released %> </p>
+            <p>Runtime: <%= movie.Runtime %> </p>
+            <p>Genre: <%= movie.Genre %> </p>
+            <p>Director: <%= movie.Dircector %> </p>
+            <p>Writer: <%= movie.Year %> </p>
+            <p>Actors: <%= movie.Actors %> </p>
+            <p>Awards: <%= movie.Awards %> </p>
+            <p>Plot: <%= movie.Plot %> </p>
+
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>
