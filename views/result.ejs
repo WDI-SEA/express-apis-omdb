@@ -8,8 +8,7 @@
 
  <% var movie = movies.Search %>
  <% movie.forEach(function(movie) { %>
-<a href="/show/<%= movie.imbdID%>"><h3><%= movie.Title %></h3></a>
- <h3><%= movie.Year %></h3>
+<a href="/show/<%= movie.imdbID %>"><h3><%= movie.Title %></h3></a><h3><%= movie.Year %></h3>
 <% }) %>
 
 </body>

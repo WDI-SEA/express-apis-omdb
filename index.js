@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
+var db = require('./models');
+
 
 app.set('view engine', 'ejs');
 
@@ -38,8 +40,8 @@ app.get("/result", function(req, res) {
 })
 
 //route that takes parameters of imdbID in the url
-app.get("/movies/:imbdID", function(req,res) {
-	var id = req.params.imbdID;
+app.get("/show/:id", function(req, res) {
+	var id = req.params.id;
 	request(
 		'http://www.omdbapi.com/?i='+ id, function(error, response, body) {
 			if (!error && response.statusCode == 200) {
@@ -51,8 +53,27 @@ app.get("/movies/:imbdID", function(req,res) {
 });
 
 
+//adds to favorites database
+app.post('/favorites', function(req,res) {
+	console.log(req.body)
+	var favorite = req.body ;
+	if (favorite.title) {
+		db.favorite.create({ imdb: favorite.imdbId, year: favorite.year, title: favorite.title }).then(function(something) {
+			res.redirect('/show/'+favorite.imdbId);
+		}) 
+
+	} else {
+		res.send('Not a real movie.')
+	}
+})
 
 
+//favorites page
+app.get('/favorites', function(req,res) {
+	db.favorite.findAll().then(function(fave) { 
+		res.render('favorites.ejs', {fave:fave });
+	})
+})
 
 
 app.listen(3000);
