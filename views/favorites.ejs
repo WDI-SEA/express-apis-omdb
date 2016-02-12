@@ -11,7 +11,12 @@
 </head>
 <body>
 
-<%- body %>
-
-</body>
-</html>
+<div class="container">
+<h1>Your Favorites</h1>
+<% fav.forEach(function(film) { %>
+	<div class="well">
+		<h3><a href="/movies/<%= film.imdbId %>"><%= film.title %></a><br>
+		<small><%= film.year %></small></h3>
+	</div>
+</div>
+<% }); %>

@@ -1,5 +1,10 @@
 var express = require('express');
+var db = require('./models');
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+var favorites = require("./controllers/favorites")
+app.use("/favorites", favorites);
 
 app.set("view engine", "ejs");
 app.use('/static', express.static('public'));
