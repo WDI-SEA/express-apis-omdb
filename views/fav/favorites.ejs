@@ -1,0 +1,11 @@
+<h1>Behold! My FAVORITE movies!</h1>
+
+<div>
+  <% favorites.forEach(function(favorites) { %>
+
+  <h3> <%= favorites.title %> (<%= favorites.year %>) </h3>
+
+  <h5> <%= favorites.plot %> </h5>
+
+  <%  }); %>
+</div>

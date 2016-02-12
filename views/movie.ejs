@@ -1,0 +1,9 @@
+<h1>Here are your results.</h1>
+
+<%  movies.forEach(function(movies) {  %>
+
+<div>
+  <a href="<%= '/movies/' + movies.imdbID %>"> <%= movies.Title %> <span> <%= movies.Year %> </span></a>
+</div>
+
+<% }); %>
