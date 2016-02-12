@@ -1,0 +1,35 @@
+<!-- views/favorites/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+    
+    <div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
+        
+    <h1>Your favorites:</h1>
+
+    <% fav.forEach(function(fav) { %>
+        <div class="well">
+        <a href="/movies/<%= movie.imdbID %>"><h3><%= movie.Title %></h3></a>
+        <p><%= movie.year %></p>
+        </div>
+    <%});%>
+    
+        
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

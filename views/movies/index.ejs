@@ -23,6 +23,12 @@
         <div class="well">
             <a href="/movies/<%= movie.imdbID %>"><h4><%= movie.Title %></h4></a>
             <h5><%= movie.Year %></h5>
+            <form action="/favorites" method="POST">
+                <input type="hidden" name="title" value="<%= movie.Title %>" />
+                <input type="hidden" name="imdbID" value="<%= movie.imdbID %>" />
+                <input type="hidden" name="year" value="<%= movie.Year %>" />
+                <p><a class="btn btn-primary btn-lg" role="button">Add to Favorites</a></p>
+            </form>
         </div>
     <%});%>
         
