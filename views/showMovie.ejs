@@ -1,0 +1,19 @@
+<h1><%= movie.Title %><br>
+<small>Released: <%= movie.Year %></small></h1>
+
+<div class="well">
+	<p class="lead">Genre: <%= movie.Genre %></p>
+	<p class="lead">Director: <%= movie.Director %></p>
+	<p class="lead">Starring: <%= movie.Actors %></p>
+	<p class="lead">Plot: <%= movie.Plot %></p>
+	<img src="<%= movie.Poster %>" />
+</div>
+
+<form action="/favorites" method="POST">
+	<input type="hidden" name="favtitle" value="<%= movie.Title %>" />
+	<input type="hidden" name="favyear" value="<%= movie.Year %>" />
+	<input type="hidden" name="favimdb" value="<%= movie.imdbID %>" />
+	<button type="submit" class="btn btn-danger">Add to Favorites!</button>
+</form>
+
+
