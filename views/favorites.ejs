@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+  	<link href='https://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h2>Favorites</h2>
+<div class="container">
+<% favmovie.forEach(function(movie) {%>
+
+<p><a href="movies/<%= movie.imdbid %>"><%= movie.title %></a>   <%= movie.year %></p>
+
+<% }); %>
+<div class="homediv"><a class="white" href="/">&larr;Home</a></div>	
+</div>
+</body>
+</html>

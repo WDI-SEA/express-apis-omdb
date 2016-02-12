@@ -8,12 +8,16 @@
 <body>
 <h1>Movie Search Results</h1>
 
-<% movies.Search.forEach(function(movies) {%>
+<% movies.forEach(function(movies) {%>
 
-<a href="/movies/<%= movies.imdbID%>"><p><%= movies.Title %></p></a>
+<a class="white" href="<%= '/movies/' + movies.imdbID%>"><p><%= movies.Title %></p></a>
 
 <% }); %>
 
+<a class="white" href="/">&larr;Home</a>
 
+<form method="GET" action="/favorites">
+	<button type="submit">Your Favorites</button>
+</form>
 </body>
 </html>

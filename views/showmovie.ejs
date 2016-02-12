@@ -12,7 +12,16 @@
 		<p><%= movies.Runtime %></p>	
 		<p><%= movies.Genre %></p>	
 		<p><%= movies.Plot %></p>
-		<a href="/">&larr;Home</a>			
+		<p><%= movies.Actors %></p>
+		<img src="<%= movies.Poster %>"/>
+	<form action="/favorites" method="POST">
+		<button type="submit">Add to Favorites</button>	
+		<input type="hidden" name="favTitle" value="<%= movies.Title %>"/>
+		<input type="hidden" name="favYear" value="<%= movies.Year %>"/>
+		<input type="hidden" name="favImdb" value="<%= movies.imdbID %>"/>
+	</form>
+		<div class="homediv"><a class="white" href="/">&larr;Home</a></div>	
+		<form method="GET" action="/favorites"> <button type="submit">Your Favorites</button>
 	</div>
 </body>
 </html>
