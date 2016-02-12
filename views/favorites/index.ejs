@@ -1,0 +1,18 @@
+<div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
+  <div class="container">
+    <h1 style="color: grey">Favorite Movies</h1>
+    <% fav.forEach(function(movie) { %>
+      <div class="well" >
+        <h3>
+          <%= movie.title %>
+        </h3>
+        <p>
+          <%= movie.year %>
+        </p>
+        <p>
+          <%= movie.imdbId %>
+        </p>
+      </div>
+    <% }); %>
+  </div>
+
