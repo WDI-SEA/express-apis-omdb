@@ -7,9 +7,18 @@
      <strong>Actors</strong> - <%= movieResult.Actors %><br><strong>Plot</strong> - <%= movieResult.Plot %><br>
      <strong>Awards</strong> - <%= movieResult.Awards %><br><strong></strong><br>
      <strong>Metascore</strong> - <%= movieResult.Metascore %>
+     <input id="input-id" type="number" class="rating" min=0 max=5 step=0.5 data-size="lg" >
+
      
 
 	 
   <p><a class="btn btn-primary btn-lg" href="/show?search=<%=searchValue%>" role="button">Back</a></p>
+  <form action="/favorites" method="POST">
+    <input type="hidden" name="title" value="<%= movieResult.Title %>" />
+    <input type="hidden" name="imdbID" value="<%= movieResult.imdbID %>" />
+    <input type="hidden" name="year" value="<%= movieResult.Year %>" />
+    <p><a class="btn btn-primary btn-lg" role="button">Add to Favorites</a></p>
+  </form>
+  
 </div>
 
