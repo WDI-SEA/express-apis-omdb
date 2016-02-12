@@ -10,5 +10,13 @@
 		 <% for(var i = 1; i <= parseInt(movieData.imdbRating); i++){%>
 									<img src="/star.jpeg" width="50" height="50">
 									<%};%>
+
 	</div>
-</div>
+		<img src="<%= movieData.Poster %> "/>
+		<form action="/favorites" method="POST">
+			<input type="hidden" name="title"	value="<%= movieData.Title%>"/>
+			<input type="hidden" name="year"	value="<%= movieData.Year%>"/>
+			<input type="hidden" name="imdbID" value="<%= movieData.imdbID%>"/>						
+			<button type="submit" id="favorite">Add to Favorites</button>
+		</form>
+	</div>
