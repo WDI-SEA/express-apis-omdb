@@ -1,0 +1,8 @@
+<h1 class='text-center'>Favorites:</h1>
+<div class='well'>
+	<% favorites.forEach(function(movie){ %>
+		<p>Title: <%=movie.title%></p>
+		<p>imdbID: <%=movie.imdbCode%></p>
+		<p>Year: <%=movie.year%></p>
+<% }); %>
+</div>
