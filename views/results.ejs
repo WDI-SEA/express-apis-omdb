@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+  	<link href='https://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h1>Movie Search Results</h1>
+
+<% movies.forEach(function(movies) {%>
+
+<a class="white" href="<%= '/movies/' + movies.imdbID%>"><p><%= movies.Title %></p></a>
+
+<% }); %>
+
+<a class="white" href="/">&larr;Home</a>
+
+<form method="GET" action="/favorites">
+	<button type="submit">Your Favorites</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+	background-image: url("hollywood.jpg");
+	font-family: sans-serif;
+	text-align: center;
+	background-size: cover;
+	color: black;
+
+
+}
+h1 {
+	font-family: limelight;
+}
+p {
+	helvetica;
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
+}
+button {
+	background-color: darkgoldenrod;
+	margin: 10px;
+}
+
+.white {
+	color: gold;
+	font-weight: bolder;
+	font-size: 20px;
+}
+#favorites {
+	margin: 10px;
+	color: gold;
+	background-color: slategrey;
+
+}
+
+.homediv {
+	text-outline: 2px 1px black;
+}
