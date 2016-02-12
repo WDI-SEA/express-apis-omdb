@@ -1,18 +1,16 @@
 <div class='container text-center'>
-	<div class='well in-line'>
-		<p>Title:</p>
-	 	<h1><%= movieData.Title %></h1>
-	</div>
-	<div class='well in-line'>
-		<p>Plot:</p>
-		<h2><%= movieData.Plot %></h2>
+	<div class='well movies'>
+		<h1>Title:</h1>
+	 	<h3><%= movieData.Title %></h3>
+		<h1>Plot:</h1>
+		<h3><%= movieData.Plot %></h3>
 	</div>
 	<form action="/favorites" method="POST" role="form">
 		<div class="form-group">
 			<input type="hidden" id="imdbID" name="imdbID" value= "<%= movieData.imdbID %>">
 			<input type="hidden" id="title" name="title" value= "<%= movieData.Title %>">
 			<input type="hidden" id="year" name="year" value= "<%= movieData.Year %>">
-		<button type="submit" class="btn btn-primary favorite">Submit</button>
+		<button type="submit" class="btn btn-primary favorite">Add to Favorites</button>
 	</form>
 	
 </div>

@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 	res.render('index');
 })
 
-app.get('/results', function(req, res){
+app.get('/movies', function(req, res){
 	var searchTerm = req.query.q ? req.query.q : '';
 
 	request('http://www.omdbapi.com/?s=' + searchTerm, function(error, response, body){
