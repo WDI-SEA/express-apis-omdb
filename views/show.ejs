@@ -1,0 +1,35 @@
+<% include ./partials/header.ejs %>
+
+<div class='container'>
+	<div class='page-header'>
+		<h1><%= movieDat.Title %></h1>
+	</div>
+
+
+		<% for(field in movieDat) { %>
+			<% if (field !== 'Poster' ) { %>
+			<% if (field !== 'Type' ) { %>
+			<% if (field !== 'Response' ) { %>
+			
+				<p class="detField">
+				<%= field%>: <%= movieDat[field]%>
+				</p>
+			<% } %>	
+			<% } %>
+			<% } %>
+			
+
+		<% } %> 
+		
+		<form method="POST" action="/favorites" id="addMov">
+		<input name='imdbID' id="imID" type='hidden' value="<%= movieDat.imdbID%>" />
+		<input name='title' type='hidden' value="<%= movieDat.Title %>" />
+		<input name='year' type='hidden' value="<%= movieDat.Year%>" />
+		<button id="addFav" class="btn btn-primary" type='submit'>Add to Favorites</button>
+		</form>
+
+		
+		
+</div>
+
+<% include ./partials/footer.ejs %>

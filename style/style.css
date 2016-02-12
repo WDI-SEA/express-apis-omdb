@@ -1,0 +1,37 @@
+body {
+	background-image: url(../images/film.png);
+	background-size: cover;
+}
+
+.page-header{
+	width: 100% !important;
+	height: 100px;
+	background-color: white;
+	opacity: .75;
+	text-align: center;
+}
+
+#searchForm{
+	
+}
+
+.container {
+	margin-bottom: 100px;
+}
+
+.well {
+	height: 10vh;
+	padding-top: 0;
+}
+
+.well2 {
+	height: 6em;
+}
+
+.well2 h3{
+	margin-top: .5em;
+}
+
+.detField {
+	font-family: 'Fjalla One', sans-serif;
+}
