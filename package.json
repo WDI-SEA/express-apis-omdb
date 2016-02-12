@@ -1,0 +1,29 @@
+{
+  "name": "express-apis-omdb",
+  "version": "1.0.0",
+  "description": "We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aheitzen/express-apis-omdb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aheitzen/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/aheitzen/express-apis-omdb#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-ejs-layouts": "^2.0.0",
+    "pg": "^4.4.4",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.69.0",
+    "sequelize": "^3.19.2"
+  }
+}
