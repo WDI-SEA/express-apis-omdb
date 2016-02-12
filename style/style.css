@@ -24,6 +24,14 @@ body {
 	padding-top: 0;
 }
 
+.well2 {
+	height: 6em;
+}
+
+.well2 h3{
+	margin-top: .5em;
+}
+
 .detField {
 	font-family: 'Fjalla One', sans-serif;
 }

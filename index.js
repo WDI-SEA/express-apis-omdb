@@ -1,7 +1,13 @@
 var express = require('express');
+var db = require('./models');
 var request = require('request');
 var bodyParser = require('body-parser');
 var app=express();
+
+app.use(bodyParser.urlencoded({extended: false}));
+
+var favorites = require("./controllers/favorites");
+app.use("/favorites", favorites);
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));
@@ -50,6 +56,8 @@ app.get('/show/:id', function(req, res){
 
 	});
 } );
+
+
 
 
 

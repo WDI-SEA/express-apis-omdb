@@ -20,6 +20,15 @@
 			
 
 		<% } %> 
+		<p><%= movieDat.imdbID%></p>
+		<form method="POST" action="/favorites%>" id="addMov">
+		<input name='imdbID' id="imID" type='hidden' value="<%= movieDat.imdbID%>" />
+		<input name='title' type='hidden' value="<%= movieDat.Title %>" />
+		<input name='year' type='hidden' value="<%= movieDat.Year%>" />
+		<button id="addFav" class="btn btn-primary" type='submit'>Add to Favorites</button>
+		</form>
+
+		
 		
 </div>
 
