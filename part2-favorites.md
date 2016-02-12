@@ -35,9 +35,11 @@ npm install sequelize pg pg-hstore --save
 
 Both of the above routes should be created in a `controllers/favorites.js` to keep things orgainzed.
 
+Additionally, it may be beneficial to have each **Add to Favorites** button submit a form with hidden inputs, in order to submit the imdbID, title, and year.
+
 ##Recommended Model
 
 
 **Model name:** favorite
 
-**Attributes:** imdbId, title, year, poster
+**Attributes:** imdbId, title, year
