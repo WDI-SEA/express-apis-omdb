@@ -5,7 +5,14 @@
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4"><%= movieInfo.Title %><i class="material-icons right">more_vert</i></span>
-      <p><a href="/">Go back home</a></p>
+
+      <form method="POST" action="/favorites/<%= movieInfo.imdbID %>">
+        <input type="hidden" name="favId" value="<%= movieInfo.imdbID %>">
+        <input type="hidden" name="favTitle" value="<%= movieInfo.Title %>">
+        <input type="hidden" name="favYear" value="<%= movieInfo.Year %>">
+        <button type="submit">Add to favorites</button>
+      </form>
+    
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
