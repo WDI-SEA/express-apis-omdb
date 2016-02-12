@@ -1,38 +1,64 @@
 var express = require('express');
+var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
+var request = require("request");
 var app = express();
 
 app.set('view engine', 'ejs');
+app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/static'));
 
-var request = require("request");
+
 
 app.get("/", function(req, res) {
   res.render('index.ejs');
 });
 
-app.get("/result", function(req, res) {
-  var id = req.query.q;
+// app.get('/movies', function(req, res) {
+//   var query = req.query.q;
+//   request('http://www.omdbapi.com/?s=' + query, function(err, response, body) {
+//     var data = JSON.parse(body);
+//     if (!err && response.statusCode === 200 && data.Search) {
+//       res.render('movies', {movies: data.Search,
+//                             q: query});
+//     } else {
+//       res.render('error');
+//     }
+//   });
+// });
 
-  request('http://www.omdbapi.com/?s='+id, function(error, response, body) {
-    if(!error && response.statusCode == 200) {
-      res.render('result.ejs', {
-        result: JSON.parse(body)
-      });
+
+app.get("/movies", function(req, res) {
+  var query = req.query.q;
+  request('http://www.omdbapi.com/?s='+query, function(error, response, body) {
+    var data = JSON.parse(body);
+    if(!error && response.statusCode == 200 && data.Search) {
+      res.render('movie', {movies: data.Search,
+                            q: query});
+    } else {
+      res.render('error');
     }
   });
 });
 
-app.get("/movie/:id", function(req, res) {
-  var movieID = req.params.id;
+// app.get('/movies/:imdbID', function(req, res) {
+//   var searchQuery = req.query.q ? req.query.q : '';
+//   var imdbID = req.params.imdbID;
+//   request('http://www.omdbapi.com/?i=' + imdbID, function(err, response, body) {
+//     res.render('movieShow', {movie: JSON.parse(body),
+//                              q: searchQuery});
+//   });
+// });
 
-  request('http://www.omdbapi.com/?plot=full&tomatoes=true&i='+movieID, function(error, response, body) {
-    if(!error && response.statusCode == 200) {
-      res.render("movie.ejs", {
-        movie: JSON.parse(body)
-      });
-    };
+app.get("/movies/:imdbID", function(req, res) {
+  var searchQuery = req.query.q ? req.query.q : '';
+  var imdbID = req.params.imdbID;
+  request('http://www.omdbapi.com/?plot=full&tomatoes=true&i='+imdbID, function(error, response, body) {
+    res.render("movieShow", {
+      movie: JSON.parse(body),
+      q: searchQuery
+    });
   });
 });
 
