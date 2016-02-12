@@ -6,4 +6,12 @@
 <h1>Runtime: <%= movie.Runtime %></h1>
 <h1>Genre: <%= movie.Genre %></h1>
 <h1>Director: <%= movie.Director %></h1>
+<h1>Plot: <%= movie.Plot %></h1>
 </div>
+
+<form action="/favorites" method='POST'>
+	<input type="hidden" name="title" value='<%= movie.Title%>'>
+	<input type="hidden" name="year" value='<%= movie.Year%>'>
+	<input type='hidden' name='imdbid' value= '<%= movie.imdbId %>'>
+	<button type="submit">Add to favorites</button>
+</form>

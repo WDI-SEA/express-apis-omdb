@@ -5,10 +5,9 @@
 <% movieList.forEach(function(movie) { %>
 
 	<div class="well">
-	<a href="/movie/<%= movie.imdbID%>"><h3><%= movie.Title %></h3></a>
+	<a href="/movie/<%= movie.imdbID%>">
+	<h3><%= movie.Title %></h3></a>
 	<h3><%= movie.Year %></h3>
 	</div>
-
-
 
 	<%}) %>
