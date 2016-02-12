@@ -33,6 +33,14 @@ npm install sequelize pg pg-hstore --save
 | GET | /favorites | favorites/index.ejs | List all favorites in the favorites model. (READ) |
 | POST | /favorites/:imdbid | none. redirects to /movies/:imdbid | Adds a movie to the database (CREATE a favorite) |
 
+form:
+
+two routes get route and post route these are the paths.
+post route = body parser allows request to take a form data in form of 'req.body'
+Put both routesd in controller OR throw it in index.js
+
+method = /favorites/:imdbid use EJS to inject the imdbid
+
 Both of the above routes should be created in a `controllers/favorites.js` to keep things orgainzed.
 
 ##Recommended Model
