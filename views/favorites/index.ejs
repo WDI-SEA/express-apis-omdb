@@ -1,0 +1,28 @@
+<% include ../partials/header.ejs %>
+
+<h1>Favorites:</h1>
+
+<% films.forEach(function(movie) { %>
+
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card hoverable blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= movie.title %></span>
+          <p>Year: <%= movie.year %></p>
+          <p>IMDB ID: <%= movie.imdbCode %></p>
+        </div>
+        <div class="card-action">
+          <a href="/movie/<%= movie.imdbCode %>">
+          More Details
+          </a>  
+        </div>
+      </div>
+    </div>
+ </div>
+            
+
+
+<% }); %>
+
+<% include ../partials/footer.ejs %>
