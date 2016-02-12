@@ -1,5 +1,6 @@
 <h1> <% fave.forEach(function(thing){ %>
-	<p> <%=	thing.title; %> </p>
-	<p> <%	thing.year; %> </p>
-	<p> <%	thing.imdb; }) %> </p>
+	<p><a href="show/<%= thing.imdb %>"> <%= thing.title; %> </a> </p>
+	<p> <%=	thing.year; %> </p>
+	<p> <%=	thing.imdb; %> </p>
+	<% }); %>
 	 </h1>
