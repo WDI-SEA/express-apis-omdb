@@ -21,7 +21,7 @@ div.intro {
 	padding-bottom: 8%;
 }
 
-button {
+#rootButton {
 	position: relative;
 	top: 20vh;
 }

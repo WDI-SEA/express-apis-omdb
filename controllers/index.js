@@ -1,6 +1,8 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var request = require('request');
+var db = require('../models');
 
 
 router.get('/:id', function(req, res) {
