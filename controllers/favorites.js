@@ -14,7 +14,7 @@ router.post('/', function(req, res){
 			imdbCode: favorite.imdbID,
 			year: favorite.year,
 			title: favorite.title
-		}).then(function(pussycatdoll){
+		}).then(function(pussy){
 			res.redirect('/movie/' + favorite.imdbID);
 		})
 	}else{
