@@ -1,0 +1,25 @@
+<h1><%= movie.Title %></h1>
+
+<div class="well">
+  <p><%= movie.Plot %></p>
+   <p><%= movie.Year %></p>
+  <p><img src="<%= movie.Poster %>"></p>
+</div>
+
+<form action="/favorites" method="POST">
+	<button type="submit">Add to favorites</button>
+	<legend>Form title</legend>
+		<p><%= movie.title %></p>
+		<p><%= movie.year %></p>
+	<div class="form-group">
+		<label for="">label</label>
+	<input type="text" class="form-control" name="id" id="" value="<%= movie.imdbID %>" />
+	<input type="text" class="form-control" name="title" id="" value="<%= movie.Title %>" />
+	<input type="text" class="form-control" name="year" value="<%= movie.Year %>" />
+	</div>
+
+	
+
+
+<!-- Back to Search Button!-->
+<a href="<%= '/movies/?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
