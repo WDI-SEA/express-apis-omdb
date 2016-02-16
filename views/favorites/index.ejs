@@ -17,10 +17,11 @@
         
     <h1>Your favorites:</h1>
 
-    <% fav.forEach(function(fav) { %>
+    <% fav.forEach(function(movie) { %>
         <div class="well">
-        <a href="/movies/<%= movie.imdbID %>"><h3><%= movie.Title %></h3></a>
+        <a href="/movies/<%= movie.imdbId %>"><h3><%= movie.title %></h3></a>
         <p><%= movie.year %></p>
+        <a href="/favorites/<%= movie.id %>/comments"<button type="button" class="btn btn-default">Comments</button></a>
         </div>
     <%});%>
     

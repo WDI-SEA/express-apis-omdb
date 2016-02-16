@@ -1,0 +1,46 @@
+<!-- views/favorites/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+    
+    <div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
+        
+    <h1><%= favorite.title %></h1>
+
+    <form method="POST">
+        <div class="form-group">
+            <input type="text" name="commentAuthor" class="form-control" placeholder="Your name"></input>
+        </div>
+        <div class="form-group">
+            <textarea name="commentText" class="form-control" placeholder="What do you think?"></textarea>
+        </div>
+        <div class="form-group">    
+            <input type="submit" class="form-control" placeholder="submit"></input>
+        </div>
+    </form>
+
+    <% favorite.comments.forEach(function(comment) { %>
+        <div class="well">
+            <p><%= comment.commentText %></p>
+            <p>- <%= comment.commentAuthor %></p>
+       <% }); %>
+    
+        
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

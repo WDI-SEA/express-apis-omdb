@@ -3,11 +3,16 @@ var bodyParser = require("body-parser");
 var app = express();
 var db = require("./models");
 var request = require("request");
-var favorites = require("./controllers/favorites.js")
+var router = express.Router();
 var searchResult;
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: false}));
+// app.use("/movies/", require("./controllers/favorites.js"));
+// app.use("/movies/:imdbId", require("./controllers/favorites.js"));
+app.use("/favorites", require("./controllers/favorites.js"));
+
+app.use("/random", require("./controllers/random.js"));
 
 
 // Home page
@@ -33,10 +38,6 @@ app.get("/movies/:imbdId", function(req, res) {
 	});
 });
 
-app.get("/favorites", function(req, res){
-	db.favorite.findAll().then(function(movie){
-		res.render("favorites/index.ejs", {movie:movie})
-	});
-});
+
 
 app.listen(4000);

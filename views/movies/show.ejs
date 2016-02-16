@@ -15,6 +15,7 @@
         <% var movie = movieData %>
         <% console.log(movie) %>
         <div class="well">
+            
            <FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
             <h3>Title: <%= movie.Title %> </h3>
             <p>Year: <%= movie.Year %> </p>
@@ -27,13 +28,13 @@
             <p>Actors: <%= movie.Actors %> </p>
             <p>Awards: <%= movie.Awards %> </p>
             <p>Plot: <%= movie.Plot %> </p>
-            <form action="/favorites" method="POST">
+        </div>
+        <form action="/favorites" method="POST">
                 <input type="hidden" name="title" value="<%= movie.Title %>" />
                 <input type="hidden" name="imdbID" value="<%= movie.imdbID %>" />
                 <input type="hidden" name="year" value="<%= movie.Year %>" />
-                <p><a class="btn btn-primary btn-lg" role="button">Add to Favorites</a></p>
-            </form>
-        </div>
+                <input type="submit" class="btn btn-primary btn-lg" value="Add to favorties">
+        </form>
     </main>
 
     <footer>
