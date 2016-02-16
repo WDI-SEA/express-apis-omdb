@@ -4,10 +4,10 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 var favorites = require("./controllers/favorites")
-app.use("/favorites", favorites);
+app.use("/favorites", favorites);  //It is not necessary to declare this path as a variable.
 
 app.set("view engine", "ejs");
-app.use('/static', express.static('public'));
+app.use(express.static(__dirname + '/static'));
 
 var ejsLayouts = require("express-ejs-layouts");
 app.use(ejsLayouts);

@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var db = require('../models');
 // current directory : localhost:3000/favorites
-
+// router.use(express.static(__dirname + '/static'));
 
 /// localhost:3000/favorites/
 router.get("/", function(req, res) {
