@@ -1,10 +1,9 @@
 <% include ../partials/header.ejs %>
 	<h1>Favorites</h1>
 	<% favorites.forEach(function(movie) { %>
-		<h2> <%= movie.Title %> </h2>
+		<a href="/favorites/<%= movie.id %>/comments" class="btn btn-primary">Comments</a>
+		<a href="/favorites/<%= movie.id %>/tags" class="btn btn-primary">Add a tag</a>
+		<h4><b>Title:</b> <%= movie.title %></h4>
 		<p><b>Year:</b> <%= movie.year %></p>
-		<p><b>Rated:</b> <%= movie.title %></p>
-		<p><b>IMDB Rating:</b> <%= movie.poster %></p>
-		<p><b>Plot:</b> <%= movie.imdbId %></p>
 	<% }); %>
 <% include ../partials/footer.ejs %>

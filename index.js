@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 var db = require("./models");
 app.set('view engine', 'ejs');
-// app.use(bodyParser.urlencoded{extended: false}));
-
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
 var ejsLayouts = require('express-ejs-layouts');
 app.use(ejsLayouts);
 
@@ -12,11 +12,6 @@ var request = require('request');
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'css')));
 app.use(express.static(path.join(__dirname, 'images')));
-
-
-var favCtrl = require('./controllers/favorites.js');
-app.use('/favorites', favCtrl);
-
 
 app.get('/', function(req, res) {
 	res.render('movieSearchForm/index.ejs');
@@ -55,23 +50,99 @@ app.get('/details/:id', function(req, res) {
 	);
 });
 
+app.get('/favorites', function(req, res) {
+	db.favorite.findAll({
+		order: 'title ASC'
+	}).then(function(favorites) {
+		// console.log(favorites);
+		res.render('./favorites/index.ejs', {
+			favorites: favorites
+		});
+	});
+});
 
-// app.post('/favorites', function(req, res) {
-// 	var data = req.body;
-// 	db.omdb_app.create({
-// 		imdbID: data.imdbID,
-// 		title: data.Title,
-// 		year: data.Year,
-// 		poster: data.Poster,
-// 	}).then(function(){
-// 		res.redirect('/favorites/index.ejs');
-// 	})
+
+// see comments
+app.get('/favorites/:id/comments', function(req, res) {
+	db.favorite.findById(req.params.id).then(function(favorites) {
+		favorites.getComments().then(function(comments) {
+			// console.log(comments);
+			res.render('comments.ejs', {
+				favorites: favorites,
+				comments: comments
+			});
+		});
+	});
+});
+
+//post comments, save as above but use app.post
+
+app.get('/favorites/:id/tags', function(req, res) {
+	db.favorite.findById(req.params.id).then(function(favorites) {
+		favorites.getTags().then(function(tags) {
+			console.log(tags);
+			res.render('addTag.ejs', {
+				favorites: favorites
+			});
+		});
+	});
+});
+
+app.post('/favorites/:id/tags', function(req, res) {
+	db.tag.findOrCreate({
+		where: {
+			tag: req.body.tag,
+			favoriteId: req.params.id
+		}
+	}).spread(function(tag, created) {
+		db.favorite.findById(req.params.id).then(function(favorite) {
+			favorite.addTag(tag).then(function() {
+				res.redirect('/favorites/' + req.params.id + '/tags');
+			});
+		});
+	});
+});
+
+
+
+// app.get('/tags/:id', function(req, res) {
+// 	var tagId = req.params.id;
+// 	// console.log(tagId);
+// 	db.tag.findById(tagId).then(function(tag) {
+// 		tag.getFavorites().then(function(favorites) {
+// 			res.render('tagShowMovies', {
+// 				favorites: favorites,
+// 				tag: tag 
+// 			});
+// 		});
+// 	});
+// 	// .then(function(favorites) {
+// 	// 	console.log(favorites);
+// 	// 	res.render('tagShowMovies.ejs', {
+// 	// 		favorites: favorites
+// 	// 	});
+// 	// });
 // });
 
+app.get('/tags', function(req, res) {
+	db.tag.findAll().then(function(tags) {
+		// console.log(tags);
+		res.render('allTags.ejs', {
+			tags: tags
+		});
+	});
+});
 
-// need app.use controllers/favorites.js here
-
-
+app.get('/tag/:id', function(req, res) {
+	db.tag.findAll({
+		where: {favoriteId: id},
+		include: [db.favorite]
+	}).then(function(favorites) {
+		res.render('tagShowMovies', {
+			favorites: favorites
+		})
+	});
+});
 
 var movieSearchFormCtrl = require('./controllers/movieSearchForm');
 app.use('/', movieSearchFormCtrl);

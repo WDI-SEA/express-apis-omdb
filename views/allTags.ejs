@@ -1,0 +1,4 @@
+<h1>All Tags</h1>
+<% tags.forEach(function(tag) { %>
+	<a href="localhost:3000/tag/<%= tag.favoriteId %>"><h4><%= tag.tag %></h4></a>
+<% }); %>
