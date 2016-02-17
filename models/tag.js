@@ -1,13 +1,13 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Tags = sequelize.define('Tags', {
+  var tag = sequelize.define('tag', {
     tag: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.tag.belongsToMany(models.favorite, {through: 'favoritesTags'})
       }
     }
   });
-  return Tags;
+  return tag;
 };

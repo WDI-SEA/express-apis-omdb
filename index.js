@@ -100,5 +100,21 @@ app.post('/favorites/:id/comments', function(req,res) {
 	});
 });
 
+
+app.get('/tags', function(req,res) {
+	db.tag.findAll().then(function(tag) {
+		res.render('tags.ejs', {tag: tag})
+	})
+})
+
+app.post('/tags', function(req,res) {
+	db.tag.findOrCreate(tag).spread(function(tags) {
+		tags.createTag(
+			{tag: req.body.tag,
+			tagId: req.body.id }
+		)
+	});
+});
+
 app.listen(3000);
 console.log("woot!");
