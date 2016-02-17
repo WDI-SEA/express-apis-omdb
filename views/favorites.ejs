@@ -1,6 +1,11 @@
-<h1> <% fave.forEach(function(thing){ %>
-	<p><a href="show/<%= thing.imdb %>"> <%= thing.title; %> </a> </p>
-	<p> <%=	thing.year; %> </p>
-	<p> <%=	thing.imdb; %> </p>
+<h1> Favorites </h1>
+
+<% fave.forEach(function(thing){ %> 
+		<h2><a href="show/<%= thing.imdb %>"> Title: <%= thing.title %> </a> </h2>
+		<p> Year:  <%=	thing.year %> </p>
+		<p> IMDB number:  <%=	thing.imdb %> </p>
+		<form>
+			<a href= "/favorites/<%=thing.id %>/comments" class="btn btn-primary"> Comment </a>
+		</form>
 	<% }); %>
-	 </h1>
+	  

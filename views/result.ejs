@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Results page</title>
-</head>
-<body>
-	<h1>Search results </h1>
+<h1>Search results </h1>
 
  <% var movie = movies.Search %>
  <% movie.forEach(function(movie) { %>
 <a href="/show/<%= movie.imdbID %>"><h3><%= movie.Title %></h3></a><h3><%= movie.Year %></h3>
-<% }) %>
-
-</body>
-</html>
+<% }); %>
