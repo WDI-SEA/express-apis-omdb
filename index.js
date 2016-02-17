@@ -34,4 +34,7 @@ app.use('/movie', require('./controllers'));
 //controllers for linking to favorites
 app.use('/favorites', require('./controllers/favorites.js'));
 
+//class example
+app.use("/random", require("./controllers/random"));
+
 app.listen(3000);

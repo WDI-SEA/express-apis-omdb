@@ -26,6 +26,11 @@ div.intro {
 	top: 20vh;
 }
 
+#favoritesButton {
+	position: relative;
+	top: 25vh;
+}
+
 .hidden {
 	display: none;
 }

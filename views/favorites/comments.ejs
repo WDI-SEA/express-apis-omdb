@@ -1,0 +1,19 @@
+<% include ../partials/header.ejs %>
+<h1>Comments</h1>
+<h2>imdbID: <%= id %></h2>
+
+<ul>
+	<% arr.forEach(function() { %>
+
+		<li>Author: <%= arr.author %></li>
+		<li>Comment: <%= arr.text %></li>
+
+	<% }); %>
+</ul>
+
+<form action="comments" method="POST">
+	<input name="newComment" placeholder="New Comment" />
+	<input name="name" placeholder="Name" />
+	<button type="submit" class="waves-effect waves-light btn">Submit</button>
+</form>
+<% include ../partials/footer.ejs %>
