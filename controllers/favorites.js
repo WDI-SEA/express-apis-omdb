@@ -49,5 +49,47 @@ router.post('/:id/comments', function(req, res){
 		res.redirect('/favorites/' + req.params.id + '/comments');
 	})
 });
+router.get('tags/:id', function(req, res){
+	var id = req.params.id;
+	db.tag.findById(id).then(function(tag){
+		res.render('/tagsfilter', {tags: tag});
+	});
+});
+
+router.get('/tags', function(req, res){
+	var id = req.params.id;
+	db.tag.findAll({where: {tagId: id}}).then(function(tags){
+		res.render('tagsall', {tags: tags});
+	});
+});
+
+
+router.get('/:id/tags', function(req, res){
+	var id = req.params.id;
+	db.favorite.find({
+		where: {id: id},
+		include: [db.tag]
+	}).then(function(fav){
+		res.render('tags.ejs', {favorite: fav});
+	});
+});
+
+router.post('/:id/tags', function(req, res){
+	var id = req.params.id
+	var tag = req.body.tag;
+	db.favorite.find({where: {id: id}}).then(function(movie){
+		db.tag.findOrCreate({where: {
+		tag: tag,
+		favoriteId: id},
+		include: [db.favorite]
+	}).spread(function(newTag){
+		db.favoritesTags.findOrCreate({where: {tagId: newTag.id,
+			favoriteId: movie.id}})
+	}).spread(function(){
+				res.redirect('tagsall');	
+			});
+		});
+	});
+
 
 module.exports = router;
