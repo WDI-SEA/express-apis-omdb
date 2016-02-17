@@ -1,9 +1,14 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var comment = sequelize.define('comment', {
-    commentText: DataTypes.TEXT,
     commentAuthor: DataTypes.STRING,
-    favoriteId: DataTypes.INTEGER
+    favoriteId: DataTypes.INTEGER,
+    commentText: { 
+    type: DataTypes.TEXT,
+    validate: {
+      len: [20, 200] 
+    }
+  }  
   }, {
     classMethods: {
       associate: function(models) {

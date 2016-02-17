@@ -56,7 +56,9 @@ router.post('/:id/comments', function(req, res){
 		favoriteId: req.params.id,
 		commentAuthor: req.body.commentAuthor
 	}).then(function() {
-		res.redirect('/favorites/' + req.params.id + '/comments');
+			res.redirect('/favorites/' + req.params.id + '/comments');
+	}).catch(function(){
+		res.render("error");
 	});
 });
 
