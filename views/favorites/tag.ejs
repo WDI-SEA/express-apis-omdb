@@ -1,0 +1,49 @@
+<!-- views/favorites/tag.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+    
+    <div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
+        
+    <h1>Add tags for <%= favorite.title %></h1>
+
+    <form method="POST">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="form-group">
+                <input type="text" name="movieTag" class="form-control" placeholder="Tag"></input>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> 
+            <div class="form-group">    
+                <input type="submit" class="form-control" placeholder="submit"></input>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <% favorite.tags.forEach(function(tag) { %>
+        <div class="well">
+            <span class="label label-primary"><%= tag.name %></span>
+       <% }); %>
+        
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>
