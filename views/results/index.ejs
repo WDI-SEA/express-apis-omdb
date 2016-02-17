@@ -1,0 +1,30 @@
+<% include ../partials/header.ejs %>
+
+<a href="/">
+  <button class="btn waves-effect waves-light" type="submit">Home</button>
+</a>
+<h1>Results:</h1>
+<% movies.Search.forEach(function(movie) { %>
+
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card hoverable blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= movie.Title %></span>
+          <p>Year: <%= movie.Year %></p>
+		      <p>IMDB ID: <%= movie.imdbID %></p>
+        </div>
+        <div class="card-action">
+          <a href="/movie/<%= movie.imdbID %>">
+    			More Details
+    		  </a>	
+        </div>
+      </div>
+    </div>
+ </div>
+            
+
+
+<% }); %>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,58 @@
+div.intro {
+	text-align: center;
+}
+
+.intro h1 {
+	font-family: 'Modak', cursive;
+	font-size: 8em;
+	margin-bottom: 0;
+}
+
+.intro p {
+	position: relative;
+	top: -5vh;
+}
+
+#input {
+	font-size: 5em;
+	text-align: center;
+	position: relative;
+	top: 20vh;
+	padding-bottom: 8%;
+}
+
+#rootButton {
+	position: relative;
+	top: 20vh;
+}
+
+#favoritesButton {
+	position: relative;
+	top: 25vh;
+}
+
+.hidden {
+	display: none;
+}
+
+@media (max-width: 600px) {
+	.show {
+		display: none;
+	}
+
+	button.hidden {
+		display: block;
+		margin: 0 auto;
+	}
+
+	p.hidden {
+		display: block;
+		position: relative;
+		text-align: center;
+		top: -5vh;
+	}
+
+	#input {
+		padding-bottom: 12%;
+	}
+}

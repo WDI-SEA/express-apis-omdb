@@ -1,0 +1,20 @@
+<% include ../partials/header.ejs %>
+
+<h3><%= movieData.Title %></h3>
+<form action="/favorites" method="POST">
+	<input type="hidden" name="imdbID" value="<%= movieData.imdbID %>" />
+	<input type="hidden" name="title" value="<%= movieData.Title %>" />
+	<input type="hidden" name="year" value="<%= movieData.Year %>" />
+	<button id="favoriteButton" class="btn waves-effect waves-light" type="submit" name="action">Add to Favorites
+	  <i class="material-icons right">send</i>
+	</button>
+</form>
+<p>Year: <%= movieData.Year %></p>
+<p>Runtime: <%= movieData.Runtime %></p>
+<p>Genre: <%= movieData.Genre %></p>
+<p>Director: <%= movieData.Director %></p>
+<p>Year: <%= movieData.Year %></p>
+<p>Actors: <%= movieData.Actors %></p>
+<p>Awards: <%= movieData.Awards %></p>
+
+<% include ../partials/footer.ejs %>

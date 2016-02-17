@@ -1,0 +1,24 @@
+<% include ./partials/header.ejs %>
+
+<div class="container">
+	<div class="row intro">  
+	    <h1>Find-a-Flick</h1>
+	    <p class="show">Enter a movie title and press 'enter' to get more information</p>
+	    <p class="hidden">Enter a movie title and press 'submit' to get more information</p>
+	    <form class="col l12" action="results">
+		    <div class="row">
+		    	<div class="input-field col l10 offset-l1">
+		    	    <input id="input" name="q" class="validate" type="text" autofocus>
+		    	    <button id="rootButton" class="btn waves-effect waves-light hidden" type="submit" name="action">Submit
+					  <i class="material-icons right">send</i>
+					</button>
+		    	</div>
+		    </div>
+	    </form>
+	    <form action="favorites">
+	    	<button id="favoritesButton" class="btn waves-effect waves-light" type="submit" name="action">Favorites</button>
+	    </form>
+    </div>
+</div>
+
+<% include ./partials/footer.ejs %>

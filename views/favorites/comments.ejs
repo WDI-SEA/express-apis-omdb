@@ -1,0 +1,23 @@
+<% include ../partials/header.ejs %>
+
+<a href="/favorites">
+	<button class="btn waves-effect waves-light" type="submit" name="action" action="favorites">Back to Favorites</button>
+</a>
+<h1>Comments</h1>
+<h2>Movie: <%= favorite.title %></h2>
+
+<ul>
+	<% favorite.comments.forEach(function(comment) { %>
+
+		<li>Author: <%= comment.author %></li>
+		<li>Comment: <%= comment.text %></li>
+
+	<% }); %>
+</ul>
+
+<form action="comments" method="POST">
+	<input name="newComment" placeholder="New Comment" />
+	<input name="name" placeholder="Name" />
+	<button type="submit" class="waves-effect waves-light btn">Submit</button>
+</form>
+<% include ../partials/footer.ejs %>
