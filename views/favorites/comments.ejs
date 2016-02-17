@@ -3,10 +3,10 @@
 <h2>imdbID: <%= id %></h2>
 
 <ul>
-	<% arr.forEach(function() { %>
+	<% arr.forEach(function(comment) { %>
 
-		<li>Author: <%= arr.author %></li>
-		<li>Comment: <%= arr.text %></li>
+		<li>Author: <%= comment.author %></li>
+		<li>Comment: <%= comment.text %></li>
 
 	<% }); %>
 </ul>

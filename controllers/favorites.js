@@ -33,8 +33,8 @@ router.get('/:id/comments', function(req, res) {
 		where: {
 			imdbCode: id
 		}
-	}).then(function(arr) {
-		res.render('favorites/comments', {arr: arr, id: id});
+	}).then(function(allComments) {
+		res.render('favorites/comments', {arr: allComments, id: id});
 	});
 });
 
