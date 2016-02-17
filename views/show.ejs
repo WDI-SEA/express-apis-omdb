@@ -1,0 +1,14 @@
+
+	<h1><%= movies.Title %></h1>
+ 		<p><%= movies.Runtime %></p>	
+ 		<p><%= movies.Plot %></p>
+ 		<p><img src="<%= movies.Poster %>"/> </p>
+
+	<form method='POST' action='/favorites'>
+		<label for="favorite"> Favorite Movie </label>
+		<input type="hidden" value= "<%= movies.Title %>" id="title" name="title">
+		<input type="hidden" value= "<%= movies.Year %>" id="year" name="year">
+		<input type="hidden" value= "<%= movies.imdbID %>" id="imdbId" name="imdbId">
+		<button type='submit'>Submit favorite movie</button>
+	</form>
+

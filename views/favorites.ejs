@@ -1,0 +1,16 @@
+<h1> Favorites </h1>
+
+<% fave.forEach(function(thing){ %> 
+		<h2><a href="show/<%= thing.imdb %>"> Title: <%= thing.title %> </a> </h2>
+		<p> Year:  <%=	thing.year %> </p>
+		<p> IMDB number:  <%=	thing.imdb %> </p>
+		<form>
+			<a href= "/favorites/<%=thing.id %>/comments" class="btn btn-primary"> Comment </a>
+		</form>
+		<form method='POST' action='/tags'>
+			<input placeholder="add tag" type='text' name='tag'>
+			<input type="hidden" value= "<%= thing.id %>" name="id">
+			<input type="submit">
+		</form>
+	<% }); %>
+	  

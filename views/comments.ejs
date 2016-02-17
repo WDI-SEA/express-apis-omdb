@@ -1,0 +1,14 @@
+<h1> <%=favorites.title %> </h1>
+
+<form method="POST" action='/favorites/<%= favorites.id %>/comments'>
+	<input type='text' placeholder='put comment here' name='text'>
+	<input type='text' placeholder='write name here' name='author'>
+	<input type='submit'>
+</form>
+
+<% favorites.comments.forEach(function(comment) { %>
+	<h2> <%= comment.text %> </h2>
+	<p> <%= comment.author %> </p>
+
+	<% }); %>
+
