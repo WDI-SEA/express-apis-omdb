@@ -1,0 +1,6 @@
+<div class="container">
+	<h3>All Tags</h3>
+	<% tags.forEach(function(tag){%>
+		<div class="well">
+		<h4><a href="/tags/<%=tag.id%>"><%= tag.tag%></a></h4>
+<%});%>

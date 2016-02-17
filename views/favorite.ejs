@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="text-center">
+		<h3>Your Favorites</h3>
+	</div>
+		<% fave.forEach(function(movie){ %>
+			<div class='well'>
+				<h3> <a href="results/<%=movie.imdbId %>"><%= movie.title%></a></h3>
+				<p> <%= movie.year%></p>
+				<form action="/favorites/<%= movie.id%>/comments" method="GET">
+					<button type="submit" class="btn btn-primary">Comment</button>
+				</form>
+					<form action="/favorites/<%= movie.id%>/tags" method="GET">
+					<button type="submit" class="btn btn-primary">Tag</button>
+				</form>
+				
+			</div>
+		<%})%>		
+	</div>
+</div>

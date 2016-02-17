@@ -1,0 +1,11 @@
+<div class="container">
+	<h3>Tags</h3>
+	<div class="well">
+		<form action="/favorites/<%= favorite.id%>/tags" method="POST">
+			<input type="hidden" name="id" value="<%= favorite.id %>"/>	
+			<input type="text" name="tag" placeholder="enter tag">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+</div>

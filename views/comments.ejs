@@ -1,0 +1,20 @@
+<div class='container text-center'>
+	<div class = 'well'>
+		<h3>Comments</h3>
+		<form action="/favorites/<%= favorite.id%>/comments" method="POST">
+			<input type="hidden" name="id" value="<%= id %>"/>	
+			<input type="text" name="comment" placeholder="enter comment">
+			<input type="text" name="name" placeholder="enter your name">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>
+	<div clas="container">
+		<% favorite.comments.forEach(function(comment){ %>
+		<div class="well">
+		<p><%= comment.comment %></p>
+		<p>- <%= comment.name %></p>
+
+			<%})%>
+</div>
+</div>
