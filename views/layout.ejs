@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>OMDB Movies</title>
+</head>
+<body style="background-color: #A3ED61">
+	<header>
+	  <nav>
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">Katlyn Buffum's Movie Search</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/favorites">Favorites</a></li>
+	        <li><a href="/">Home</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	</header>
+
+	<main>
+		<div class="container">
+			<%- body %>
+		</div>
+	</main>
+
+	<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Katlyn Buffum</h5>
+                <p class="grey-text text-lighten-4">I am a junior developer and this is my movie search page.  You can search for movies and get their OMDB information!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a href="https://github.com/k-buffum" class="grey-text text-lighten-3">GitHub</a></li>
+                  <li><a href="https://twitter.com/elephantpeace10" class="grey-text text-lighten-3">Twitter</a></li>
+                  <li><a href="https://www.facebook.com/katlyn.buffum" class="grey-text text-lighten-3">Facebook</a></li>
+                  <li><a href="https://www.linkedin.com/in/katlyn-buffum-9891b8b1" class="grey-text text-lighten-3">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            	© 2016 Katlyn Buffum
+            </div>
+          </div>
+    </footer>
+</body>
+</html>

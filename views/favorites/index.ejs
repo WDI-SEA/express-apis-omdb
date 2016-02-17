@@ -1,0 +1,18 @@
+<div class="container">
+	<h1>Favorite Movies</h1>
+		<% favorites.forEach(function(favorite) { %>
+			<div class="well">
+				<h3>
+					<a href="/results/<%= favorite.imdbCode %>">
+						<ul>
+							<li><%= favorite.title %></li>
+							<li><%= favorite.year %></li>
+							<li>IMDB Code: <%= favorite.imdbCode %></li>
+						</ul>
+					</a>
+					<a href="/favorites/<%= favorite.imdbCode %>/comments">Comments</a>
+      				<a href="/favorites/<%= favorite.imdbCode %>/tags">Add a tag</a>
+				</h3>
+			</div>
+		<% }); %>
+</div>
