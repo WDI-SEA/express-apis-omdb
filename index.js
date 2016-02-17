@@ -13,19 +13,6 @@ app.get('/', function(req, res){
 	res.render('index');
 })
 
-app.get('/movies', function(req, res){
-	var searchTerm = req.query.q ? req.query.q : '';
-
-	request('http://www.omdbapi.com/?s=' + searchTerm, function(error, response, body){
-		if(!error && response.statusCode == 200){
-			var movieList = JSON.parse(body);
-			res.render("results", {movieList: movieList,
-														 searchTerm: searchTerm});
-		}else{
-			res.render('error');
-		}
-	})
-})
 
 app.get('/movie/:id', function(req, res){
 	var searchID = req.params.id;

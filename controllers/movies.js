@@ -1,5 +1,7 @@
 var express = require("express");
 var router = express.Router();
+var request = require('request');
+var bodyParser = require('body-parser');
 
 router.get('/', function(req, res){
 	var searchTerm = req.query.q ? req.query.q : '';

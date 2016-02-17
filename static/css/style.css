@@ -1,11 +1,10 @@
-#background {
-	background-image: url('../images/curtains.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: white;
-	position: fixed;
-	min-height: 100%;
-	min-width: 100%;
+body { 
+  background: url('../images/curtains.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
 }
 
 #search{
@@ -16,9 +15,9 @@
 	margin: 300px auto;
 }
 
-.favorites, .movies{
+.favorites, .movies, .comments{
 	width: 400px;
-	margin: 10px auto;
+	margin: 40px auto;
 	opacity: .8;
 	background-color: black;
 	color: white;
@@ -31,4 +30,33 @@
 
 .movies h1{
 	font-size: 2em;
+}
+
+button#comment{
+	color: black;
+}
+
+#comment-text{
+	width: 350px;
+	height: 100px;
+	display: block;
+
+}
+
+.dark-text{
+	color: black;
+	text-align: left;
+}
+
+.comments{
+	width: 400px;
+	margin: 40px auto;
+	opacity: .8;
+	background-color: black;
+	color: white;
+	text-align: left;
+}
+
+.comments-form{
+	width: 400px;
 }

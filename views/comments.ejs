@@ -1,0 +1,21 @@
+<h1 class='text-center'><%= favorite.title %></h2>
+<div class='text-center container comments-form'>
+<h3 class=>Movie Comments</h3>
+<h4>Add Comment</h4>
+<form action='/favorites/<%= favorite.id %>/comments' method='POST' class='text-center'>
+				<input type='text' class='dark-text' id='author-text' name='author' placeholder='Name'>
+				<input type='text' class='dark-text' id='comment-text' name='comment' placeholder='Comment'>
+				<button type='submit' id='comment-button' class='dark-text'>Comment</button>
+</form>
+</div>
+<h2 class='text-center'>Comments</h2>
+
+<% comments.forEach(function(comment){ %>
+	<div class='well comments'>
+	<h3>Author: <%= comment.author %> </h2>
+	<p>Comment: <%= comment.text %> </p>
+	</div>
+<% }) %>
+
+
+
