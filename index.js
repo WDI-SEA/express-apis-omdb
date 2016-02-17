@@ -12,6 +12,9 @@ app.use(ejsLayouts);
 app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use("/favorites", require("./controllers/favorites"));
+app.use("/random", require("./controllers/random"));
+
+
 
 
 app.get("/", function(req, res) {
@@ -22,12 +25,14 @@ app.get("/", function(req, res) {
 //Returns results page with movie listings based on search
 app.get("/results", function(req, res) {
 	var qs = req.query.movieChoice;
-	//console.log(qs);
 	request( "http://omdbapi.com/?s=" + qs,
 		function (error, response, body) {
 			if(!error && response.statusCode == 200 ) {
 				movies = JSON.parse(body);
+				console.log(movies);
 				res.render("results.ejs", { movies: movies });
+			} else {
+				res.render("error.ejs")
 			}
 		}
 	);
@@ -46,6 +51,5 @@ app.get("/results/:imdbID", function(req, res) {
 		}
 	);
 });
-
 
 app.listen(3000);

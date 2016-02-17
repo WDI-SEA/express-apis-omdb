@@ -5,11 +5,13 @@
 				<h3>
 					<a href="/results/<%= favorite.imdbCode %>">
 						<ul>
-							<li>Title: <%= favorite.title %></li>
-							<li>Year: <%= favorite.year %></li>
+							<li><%= favorite.title %></li>
+							<li><%= favorite.year %></li>
 							<li>IMDB Code: <%= favorite.imdbCode %></li>
 						</ul>
 					</a>
+					<a href="/favorites/<%= favorite.imdbCode %>/comments">Comments</a>
+      				<a href="/favorites/<%= favorite.imdbCode %>/tags">Add a tag</a>
 				</h3>
 			</div>
 		<% }); %>

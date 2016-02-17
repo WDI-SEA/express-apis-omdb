@@ -12,7 +12,11 @@
         <input type="hidden" name="favYear" value="<%= movieInfo.Year %>">
         <button type="submit">Add to favorites</button>
       </form>
-    
+
+      <a href="/favorites/<%= movieInfo.imdbID %>/comments">Comments</a>
+      <a href="/favorites/<%= movieInfo.imdbID %>/tags">Add a tag</a>
+      <br/>
+      
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
