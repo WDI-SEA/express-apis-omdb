@@ -14,13 +14,14 @@ router.get("/", function(req, res) {
 router.post("/", function(req, res) {
 	db.favorite.findOrCreate({
 		where: {
-			imdbID: req.body.imdbID
+			imdbCode: req.body.imdbID
 		}, defaults: {
 		title: req.body.title,
 		year: req.body.year,
 		}
-	}).spread(function(favorite, created) {});
-	res.redirect('/movie/' + imdbID);
+	}).spread(function(favorite, created) {
+		res.redirect('/favorites');
+	});
 });
 
 //I used imdbCode as shared link, but should have connected through Favorite ID
