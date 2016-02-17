@@ -81,6 +81,42 @@ app.post("/favorites/:imdbID", function(req, res){
 	// res.redirect("/favorites")
 });
 
+app.get("/favorites/:imdbId/comments",function(req,res){
+	var id = req.params.imdbId;
+	db.favorite.find({
+		where : {
+			imdbId : id
+		}, include : [db.comment]
+	}).then(function(favorite){
+		// res.send(favorite);
+		res.render("comments",{favorite:favorite});
+	});
+});
+
+app.post("/favorites/:id/comments", function( req, res){
+
+	var id = req.params.id;
+	console.log("*****id: ", id);
+		// res.send(id);
+	db.favorite.find({
+		where : {
+			id : id
+		}
+	}).then(function(favorite){
+		console.log("*****here");
+		favorite.createComment({
+			content : req.body.content,
+			author : req.body.author
+		}).then(function(comments){
+			console.log("it works");
+			res.redirect("/favorites/:imdbId/comments");
+			// res.render("comments", {comments});
+			console.log(comment);
+
+		});
+	});
+});
+
 
 
 
