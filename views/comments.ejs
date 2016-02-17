@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Michael's OMDB Movie Search</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<!-- Latest compiled and minified CSS -- -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- <!-- Latest compiled and minified JavaScript -- -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+	<h1><%= fav.title %><h1>
+	<h2>Comments:</h2>
+	<div class="well">
+		<h3>Add Comment:</h3>
+		<form action="/favorites/<%=fav.id %>/comments" method="POST">
+		<p>Comment:</p>
+		<input type="text" name="comment" placeholder="Great movie!" size=
+		"75"/><br>
+		<br>
+		<p>Author:</p>
+		<input type="text" name="author" placeholder="John Doe" size="25"/>
+		<br>
+		<button type="submit" id="commentsubmit" class="btn btn-primary">Add Comment</button>
+		</form>
+	</div>
+
+<% comments.forEach(function(comment) { %>
+<div class="well">
+	<p><%= comment.text %></p>
+	<p>- <%= comment.author %></p>
+</div>
+<% }); %>
+<div> <a href="/favorites">&larr;Favorites</a></div>
+<div class="home"><a href="/">&larr;Home</a></div>
+</div>
+</body>
+</html>
