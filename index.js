@@ -108,13 +108,28 @@ app.get('/tags', function(req,res) {
 })
 
 app.post('/tags', function(req,res) {
-	db.tag.findOrCreate(tag).spread(function(tags) {
-		tags.createTag(
-			{tag: req.body.tag,
-			tagId: req.body.id }
-		)
-	});
+	db.tag.findOrCreate({
+		where: { 
+			tag: req.body.tag
+		}
+	}).spread(function(tag) {
+		db.favoritesTags.findOrCreate( {
+			where: {
+				tagId: tag.id,
+				favoriteId: req.body.id
+			}
+		}).spread(function(join) {
+			res.send(join)
+		})
+		});
 });
+
+app.get('/favoritesbytag', function(req,res) {
+	// db.favoritesTags.find( {
+	// 	where
+	// })
+	res.render('favoritesbytag');
+})
 
 app.listen(3000);
 console.log("woot!");
