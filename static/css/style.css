@@ -1,8 +1,10 @@
+#search{
+	margin: 20em auto;
+	width: 50em;
+}
+
 body {
-	background-image: url(/images/cinema.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-		
+	background-color: #b3e5fc;
 }
 
 

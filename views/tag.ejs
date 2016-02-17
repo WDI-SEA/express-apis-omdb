@@ -1,0 +1,17 @@
+<nav>
+    <div class="nav-wrapper red lighten-1">
+        <a href="#" class="brand-logo">Movie Search</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/favorites">Favorites</a></li>
+          <li><a href="#">#</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<% tag.forEach(function(tag){ %>
+    <ul>
+    	<a href='/favoritesbytag'> <%= tag.tag %> </a>
+    </ul>
+<% }) %>

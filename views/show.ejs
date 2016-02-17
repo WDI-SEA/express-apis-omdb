@@ -1,18 +1,30 @@
+<nav>
+    <div class="nav-wrapper red lighten-1">
+        <a href="#" class="brand-logo">Movie Search</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/favorites">Favorites</a></li>
+          <li><a href="#">#</a></li>
+        </ul>
+    </div>
+</nav>
+
+
 	
-  <div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
-  <div class="container">
+<div class="container">
     <h1 style="color: white">Movies</h1>
     <% movieResult.Search.forEach(function(movie) { %>
-      <div class="well" >
-        <h3>
-          <a href="/show/movie/<%= movie.imdbID %>">
-          <%= movie.Title %>
-          </a>
-        </h3>
-        <p>
-          <%= movie.Year %>  -  Link to page on <a href="http://www.imdb.com/title/<%= movie.imdbID %>/">www.imdb.com</a>
-        </p>
-      </div>
+        <div class="well" >
+            <h3>
+                <a href="/show/movie/<%= movie.imdbID %>">
+                    <%= movie.Title %>
+                </a>
+            </h3>
+            <p>
+                <%= movie.Year %>  -  Link to page on <a href="http://www.imdb.com/title/<%= movie.imdbID %>/">www.imdb.com</a>
+            </p>
+            
+        </div>
     <% }); %>
-  </div>
+</div>
 
