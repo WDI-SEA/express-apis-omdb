@@ -117,6 +117,44 @@ app.post("/favorites/:id/comments", function( req, res){
 	});
 });
 
+app.get("/favorites/tags",function(req, res){
+	db.tag.findAll().then(function(tags){
+		res.render("tag.ejs", {tags:tags});
+	});
+});
+
+app.post("/favorites/:id/tags", function(req,res){
+	var id = req.params.id;
+	console.log(id);
+	db.favorite.find({
+		where : {
+			id : id
+		}
+	}).then(function(movie){
+		db.tag.findOrCreate({
+		where : {
+			tag : req.body.tag,
+		}
+	}).spread(function(tag, created){
+		db.favoritesTags.findOrCreate({
+			where: {
+				tagId : tag.id,
+				favoriteId : movie.id
+			}
+		})
+		res.redirect("/favorites")
+
+	});
+});
+});
+
+// app.get("/tags",function(res,res){
+// 	res.send("I work too too too");
+// });
+
+// app.get("/tag", function(req,res){
+// 	res.send(" I work too too tooo toooo")
+// });
 
 
 

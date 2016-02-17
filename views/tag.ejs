@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs%>
+
+<% tags.forEach(function(tag){ %>
+
+<div class="well">
+	<h1> <%= tag.id %>  </h1>
+	<p> <%=  tag.tag %> </p>
+</div>
+
+<% }); %>
+
+<% include ../partials/footer.ejs%> 
