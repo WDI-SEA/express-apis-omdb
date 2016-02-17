@@ -1,0 +1,14 @@
+<div id='favorites-container' class='row'>
+	<h1 class='text-center'>Favorites:</h1>
+	<% favorites.forEach(function(movie){ %>
+		<div class='well text-center favorites'>
+			<p>Title: <a href='/movie/<%=movie.imdbCode%>'><%=movie.title%></p></a>
+			<p>imdbID: <%=movie.imdbCode%></p>
+			<p>Year: <%=movie.year%></p>
+			<p><a href='/favorites/<%=movie.id%>/comments'>Comments</a></p>
+			<p><a href='/favorites/<%=movie.id%>/addTag'>Add Tag</a></p>
+		</div>
+	<% }); %>
+
+<p class='text-center'><a href="/">Back</a></p>
+

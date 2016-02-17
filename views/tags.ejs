@@ -1,0 +1,11 @@
+<div class='container text-center'>
+	<h1>All The Tags</h1>
+
+	<% tags.forEach(function(tag){ %>
+		<div class='well dark-text tag'>
+		<h2><a href='tag/<%=tag.id %>'><%= tag.tag %></a></h2>
+		</div>	
+	<% }) %>
+</div>
+
+<a href='/'><h2>Back</h2></a>

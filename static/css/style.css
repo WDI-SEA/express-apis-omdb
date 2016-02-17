@@ -1,0 +1,76 @@
+body { 
+  background: url('../images/curtains.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
+#search{
+	width: 300px;
+}
+
+#search-container{
+	margin: 300px auto;
+}
+
+.favorites, .movies, .comments, .tag{
+	width: 400px;
+	margin: 40px auto;
+	opacity: .8;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+#favorites-container h1{
+	color: white;
+}
+
+.movies h1{
+	font-size: 2em;
+}
+
+button#comment{
+	color: black;
+}
+
+#comment-text{
+	width: 350px;
+	height: 100px;
+	display: block;
+
+}
+
+.dark-text{
+	color: black;
+	text-align: left;
+}
+
+.comments{
+	width: 400px;
+	margin: 40px auto;
+	opacity: .8;
+	background-color: black;
+	color: white;
+	text-align: left;
+}
+
+.comments-form{
+	width: 400px;
+}
+
+.tag-add{
+	margin-top: 50px;
+}
+
+.tag{
+	width: 200px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+input{
+	margin: 15px auto;
+}
