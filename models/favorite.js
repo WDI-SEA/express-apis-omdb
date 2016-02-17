@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         models.favorites.hasMany(models.comment);
-        models.favorites.belongsToMany(models.tags);
+        models.favorites.belongsToMany(models.tags, {through: "tagsFavorites"});
       }
     }
   });

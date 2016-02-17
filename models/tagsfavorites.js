@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var join = sequelize.define('join', {
+  var tagsFavorites = sequelize.define('tagsFavorites', {
     tagId: DataTypes.INTEGER,
     favoriteId: DataTypes.INTEGER
   }, {
@@ -10,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return join;
+  return tagsFavorites;
 };

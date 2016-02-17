@@ -15,7 +15,7 @@ body {
 	margin: 300px auto;
 }
 
-.favorites, .movies, .comments{
+.favorites, .movies, .comments, .tag{
 	width: 400px;
 	margin: 40px auto;
 	opacity: .8;
@@ -59,4 +59,18 @@ button#comment{
 
 .comments-form{
 	width: 400px;
+}
+
+.tag-add{
+	margin-top: 50px;
+}
+
+.tag{
+	width: 200px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+input{
+	margin: 15px auto;
 }
