@@ -1,0 +1,41 @@
+<nav>
+    <div class="nav-wrapper red lighten-1">
+        <a href="#" class="brand-logo">Movie Search</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/favorites">Favorites</a></li>
+          <li><a href="#">#</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h1 style="color: grey">Favorite Movies</h1>
+    <% fav.forEach(function(movie) { %>
+    <form action="/favorites/<%= movie.id %>/comments">
+        <div class="well" >
+            <h3>
+                <%= movie.title %>
+            </h3>
+            <p>
+                <%= movie.year %>
+            </p>
+            <p>
+                <%= movie.imdbId %>
+            </p>
+            <button  class="btn red lighten-1">Comment</button>
+           
+        </div>
+    </form method="POST" action="/:id/tags">
+      <input placeholder="add tag" type='text' name='tag'>
+      <input type="hidden" value="<%= movie.id %>" name="id">
+      <input type="submit">
+    </form>
+    <% }); %>
+
+</div>
+
+ 
+
+ 

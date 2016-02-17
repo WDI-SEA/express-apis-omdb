@@ -1,0 +1,27 @@
+#search{
+	margin: 20em auto;
+	width: 50em;
+}
+
+body {
+	background-color: #b3e5fc;
+}
+
+
+.blackText {
+	color: black;
+}
+
+#title {
+	text-align: center;
+	width: 30em;
+	margin: 18em auto 0 auto;
+	
+}
+
+#searchfield {
+	margin: 0 auto;
+	width: 22em;
+
+}
+
