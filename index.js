@@ -52,4 +52,23 @@ app.get("/results/:imdbID", function(req, res) {
 	);
 });
 
+app.get("/tags", function(req, res) {
+	db.tag.findAll().then(function(tags) {
+		// res.send(tags);
+		res.render("favorites/tags.ejs", {tags: tags});
+		// console.log(tags[0].favoriteId);
+	});
+});
+
+app.get("/tags/:favoriteId", function(req, res) {
+	db.tag.find({
+		where: {
+			favoriteId: req.params.favoriteId
+		},
+		include: [db.omdbFavorites]
+	}).then(function() {
+		res.render("favorites/tags.ejs")
+	})
+});
+
 app.listen(3000);
