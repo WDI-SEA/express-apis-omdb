@@ -2,7 +2,7 @@
 	<h1 class='text-center'>Favorites:</h1>
 	<% favorites.forEach(function(movie){ %>
 		<div class='well text-center favorites'>
-			<a href='/movie/<%=movie.imdbCode%>'><p>Title: <%=movie.title%></p></a>
+			<p>Title: <a href='/movie/<%=movie.imdbCode%>'><%=movie.title%></p></a>
 			<p>imdbID: <%=movie.imdbCode%></p>
 			<p>Year: <%=movie.year%></p>
 			<p><a href='/favorites/<%=movie.id%>/comments'>Comments</a></p>
