@@ -1,0 +1,20 @@
+<% include ../partials/header.ejs%> 
+
+<% favorite.forEach(function(data, index){ %>
+	<a href="movies/<%= data.imdbId %>">Go to Movie</a>
+	<h1> <%= data.imdbId %> </h1>
+	<h1> <%= data.title %> </h1>
+	<h1> <%= data.year %> </h1>	
+<!-- 	<p><a href="/tacos/<%= index %> "> Delete </a></p> -->
+ <a class="btn primary-btn" href="/favorites/<%= data.imdbId %>/comments">Add comments</a>
+
+<form action="/favorites/<%= data.id %>/tags" method="POST">
+	<input placeholder="please enter tag" name="tag"></input>
+	<input class="btn primary-btn" type="submit"></input>
+</form>
+
+<a class="btn primary-btn" href="tags">Go to tags</a>
+
+<% }); %>
+
+<% include ../partials/footer.ejs%> 
