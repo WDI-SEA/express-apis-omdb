@@ -28,13 +28,12 @@ router.post("/", function(req, res) {
 //See class example for how to do this as it allows us to pull the movie name from favorites table
 
 router.get('/:id/comments', function(req, res) {
-	var id = req.params.id;  //id is IMDBid
-	db.comment.findAll({
-		where: {
-			imdbCode: id
-		}
-	}).then(function(allComments) {
-		res.render('favorites/comments', {arr: allComments, id: id});
+	var favoriteId = req.params.id;  //id is IMDBid
+	db.favorite.find({
+		where: {id: favoriteId},
+		include: [db.comment]
+	}).then(function(fav) {
+		res.render('favorites/comments', {favorite: fav});
 	});
 });
 
@@ -42,8 +41,8 @@ router.post('/:id/comments', function(req, res) {
 	db.comment.create({
 		author: req.body.name,
 		text: req.body.newComment,
-		imdbCode: req.params.id
-	}).then(function(comment) {
+		favoriteId: req.params.id
+	}).then(function() {
 		res.redirect('/favorites/'+req.params.id+'/comments');
 	});
 });

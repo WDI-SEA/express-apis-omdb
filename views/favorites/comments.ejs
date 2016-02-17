@@ -4,10 +4,10 @@
 	<button class="btn waves-effect waves-light" type="submit" name="action" action="favorites">Back to Favorites</button>
 </a>
 <h1>Comments</h1>
-<h2>imdbID: <%= id %></h2>
+<h2>Movie: <%= favorite.title %></h2>
 
 <ul>
-	<% arr.forEach(function(comment) { %>
+	<% favorite.comments.forEach(function(comment) { %>
 
 		<li>Author: <%= comment.author %></li>
 		<li>Comment: <%= comment.text %></li>
