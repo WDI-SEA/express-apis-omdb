@@ -59,4 +59,22 @@ router.post('/:id/comments', function(req, res){
 		res.redirect('/favorites/' + req.params.id + '/comments');
 	});
 });
+
+router.get('/:id/tags', function(req, res) {
+	// var favoriteId = req.params.id;
+	db.favorite.find({
+		where: {id: id},
+		include: [db.tag]
+	}).then(function(fav) {
+		res.render('favorites/tag', {favorite: fav});
+	});
+});
+
+router.post('/:id/tags', function(req, res){
+	db.tag.create({
+		name: req.body.movieTag
+	}).then(function() {
+		res.redirect('/favorites' + req.params.id + '/tags');
+	});
+});
 module.exports = router;

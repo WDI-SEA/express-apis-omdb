@@ -21,7 +21,8 @@
         <div class="well">
         <a href="/movies/<%= movie.imdbId %>"><h3><%= movie.title %></h3></a>
         <p><%= movie.year %></p>
-        <a href="/favorites/<%= movie.id %>/comments"<button type="button" class="btn btn-default">Comments</button></a>
+        <a href="/favorites/<%= movie.id %>/comments"<button type="button" class="btn btn-primary">Comments</button></a>
+        <a href="/favorites/<%= movie.id %>/tags"<button type="button" class="btn btn-success">Add Tag</button></a>
         </div>
     <%});%>
     

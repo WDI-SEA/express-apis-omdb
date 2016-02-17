@@ -1,4 +1,4 @@
-<!-- views/favorites/comments.ejs -->
+<!-- views/favorites/tag.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,20 +15,13 @@
     
     <div><p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p><div>
         
-    <h1><%= favorite.title %></h1>
+    <h1>Add tags for <%= favorite.title %></h1>
 
     <form method="POST">
     <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group">
-                <input type="text" name="commentAuthor" class="form-control" placeholder="Your name"></input>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="form-group">
-                <textarea name="commentText" class="form-control" placeholder="What do you think?"></textarea>
+                <input type="text" name="movieTag" class="form-control" placeholder="Tag"></input>
             </div>
         </div>
     </div>
@@ -41,12 +34,10 @@
     </div>
     </form>
 
-    <% favorite.comments.forEach(function(comment) { %>
+    <% favorite.tags.forEach(function(tag) { %>
         <div class="well">
-            <p><%= comment.commentText %></p>
-            <p>- <%= comment.commentAuthor %></p>
+            <span class="label label-primary"><%= tag.name %></span>
        <% }); %>
-    
         
     </main>
 
