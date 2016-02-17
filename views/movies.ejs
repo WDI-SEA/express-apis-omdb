@@ -1,3 +1,4 @@
+<div class="container"
 <h1>Your Search Results:</h1>
 
 <% movies.forEach(function(movie) { %>
@@ -5,3 +6,5 @@
   <a href="<%= '/movies/' + movie.imdbID + '/?q=' + q %>"><h2><%= movie.Title %></h2></a>
 </div>
 <% }); %>
+<div class="home"><a href="/">&larr;Home</a></div>
+</div>

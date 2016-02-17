@@ -1,14 +1,20 @@
-<h1>Michael's Movie Search</h1>
+<div class="container">
+	<div class="title">
+		<h1>Michael's Movie Search</h1>
+		<p class="lead">This site uses The Open Movie Database (OMDb) API to allow you to search for movie information.</p>
+	</div>
 
-<p class="lead">This site uses The Open Movie Database (OMDb) API to allow you to search for movie information. Please use the form below to search for the movie of your choice.</p>
-
-<div class="form-group">
-	<form action="/movies" method="GET">
-		<label>Movie Title:</label>
-		<input type="text" name="q" placeholder="ex: Hackers">
-		<button type="submit" class="btn btn-success">Search</button>
-	</form>
+	<div class="form-group">
+		<form action="/movies" method="GET">
+			<label>Movie Title:</label>
+			<input type="text" name="q" placeholder="ex: Hackers">
+			<button type="submit" class="btn btn-success">Search</button>
+		</form>
 		<form method="GET" action="/favorites">
-    	<button type="submit" class="btn btn-danger">See Your Favorites!</button>
-	</form>
+	    	<button type="submit" class="btn btn-danger">See Your Favorites</button>
+		</form>
+		<form method="GET" action="/favorites/tags">
+	    	<button type="submit" class="btn btn-warning">See All Tags</button>
+		</form>
+	</div>
 </div>

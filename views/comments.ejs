@@ -12,18 +12,31 @@
 <body>
 
 <div class="container">
-<h1><center>Your Favorites</center></h1>
-<% fav.forEach(function(film) { %>
+
+	<h1><%= fav.title %><h1>
+	<h2>Comments:</h2>
 	<div class="well">
-		<h3><a href="/movies/<%= film.imdbId %>"><%= film.title %></a><br>
-		<small><%= film.year %></small></h3>
-		<form method="GET" action="/favorites/<%= film.id %>/comments">
-    		<button type="submit" id="comments" class="btn btn-primary">Comments</button>
-		</form>
-		<form method="GET" action="/favorites/<%= film.id %>/tags">
-			<button type="submit" id="tags" class="btn btn-warning">Add Tags</button>
+		<h3>Add Comment:</h3>
+		<form action="/favorites/<%=fav.id %>/comments" method="POST">
+		<p>Comment:</p>
+		<input type="text" name="comment" placeholder="Great movie!" size=
+		"75"/><br>
+		<br>
+		<p>Author:</p>
+		<input type="text" name="author" placeholder="John Doe" size="25"/>
+		<br>
+		<button type="submit" id="commentsubmit" class="btn btn-primary">Add Comment</button>
 		</form>
 	</div>
+
+<% comments.forEach(function(comment) { %>
+<div class="well">
+	<p><%= comment.text %></p>
+	<p>- <%= comment.author %></p>
+</div>
 <% }); %>
+<div> <a href="/favorites">&larr;Favorites</a></div>
 <div class="home"><a href="/">&larr;Home</a></div>
 </div>
+</body>
+</html>
