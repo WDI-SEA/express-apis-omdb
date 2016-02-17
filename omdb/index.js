@@ -17,16 +17,15 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/movies/favorites', function(req, res) {
+app.get('/movies/favorites', function(req, res) {// does this have to be favorites? btw "x/x/x" is called route
   db.favorite.findAll().then(function(favs) {
-    res.render('favPage', {
-      allFavs: favs
+    res.render('favPage', { // this is the visial page that gets the info dumped into
+      allFavs: favs //this is where the app.post info goes 
     });
-
   });
 });
 
-app.get('/movies', function(req, res) {
+app.get('/movies', function(req, res) { 
   var query = req.query.q;
   request('http://www.omdbapi.com/?s=' + query, function(err, response, body) {
     var data = JSON.parse(body);
@@ -49,13 +48,61 @@ app.get('/movies/:imdbID', function(req, res) {
 });
 
 app.post('/getFavs', function(req, res) {
-  db.favorite.create({// this is called a db query
+  db.favorite.find({// this is called a db query, WHAT IS DIFF BETWEEN FIND OR CREATE AND JUST CREATE AS I HAVE HERE, added findOrCreate which is always safer
     imdb_code: req.body.imbd_id,// req.body is taking any input and storing it, it's apart of body parser
     title: req.body.title,
     year: req.body.year
   }).then(function(saved) {
     res.redirect('/movies/favorites');///movies/favorires is url parth
+  }); //this seems to work fine even though we mentioned in class we should utilze .spread to ensure that the page doesn't post till the info is there. 
+});
+
+app.get('/favorites/:id/comments', function(req, res) {
+  var favoriteId = req.params.id;
+  db.favorite.find({
+    where: {id: favoriteId},
+    include: [db.comment]
+  }).then(function(fav) {
+    res.render('comments', {favorite: fav});
   });
 });
+
+app.post('/favorites/:id/comments', function(req, res) {
+  db.comment.create({
+    content: req.body.content,
+    author: req.body.author,
+    favoriteId: req.params.id
+  }).then(function() {
+    res.redirect('/favorites/' + req.params.id + '/comments');
+  });
+});
+
+app.get('/favorites/:id/tags', function(req, res) {
+  var favoriteId = req.params.id;
+  db.favorite.find({
+    where: {id: favoriteId},
+    include: [db.tag]
+  }).then(function(taggy) {
+    res.render('addTag', {tag: taggy, id: favoriteId}); //I don't understand what is to the left of : here. what is tag and taggy. I know that that taggy is thrown into the fuction above, but why.
+  });
+});
+
+app.post('/favorites/:id/tags', function(req, res) {
+  db.tag.create({
+    tag: req.body.word,
+    favoriteId: req.params.id
+  }).then(function() {
+    res.redirect('/favorites/' + req.params.id + '/tags');
+  });
+});
+
+app.get('/tags', function(req,res) {
+  res.render('allTags');
+});
+
+app.get('/tags/:id', function(req, res){
+ res.render('movieTags')
+});
+
 
 app.listen(3000);

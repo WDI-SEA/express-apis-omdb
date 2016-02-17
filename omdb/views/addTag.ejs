@@ -1,0 +1,12 @@
+
+<form action="/favorites/<%= id %>/tags" method="POST">
+	<textarea class="form-control" rows="1" name="word" placeholder="Add tag here"></textarea>
+	<button type="submit" id="tagButton">Add</button>
+</form>
+
+<!-- LISTS ALL COMMENTS -->
+ <% tag.forEach(function(tag) {  %>
+ <div class="well">
+ 	<p><%= tag.tag %></p>
+ </div>
+ 	<% }); %>

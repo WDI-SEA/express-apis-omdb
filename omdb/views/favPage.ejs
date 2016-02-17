@@ -1,4 +1,4 @@
-
+<h1>Here Ya Fav's</h1>
 <div class="well">
 <% allFavs.forEach(function(favorite) {%>
 	<div>
@@ -6,6 +6,8 @@
 		<p><%= favorite.year %></p>
 		<p><%= favorite.imdb_code  %></p>
 		
+			<a href="/favorites/<%= favorite.id %>/comments"><button type="button" id="commentsButton">Add a comment</button></a>
+			<a href="/favorites/<%= favorite.id %>/tags"><button type="button" id="tagButton">Add a tag</button></a>
 	</div>
 
 	<%});%>

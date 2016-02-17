@@ -1,0 +1,17 @@
+
+<h1><%= favorite.title %></h1>
+<form method="POST">
+	<textarea class="form-control" rows="3" name="content" placeholder="Add comments here"></textarea>
+	<input type="text" name="author" placeholder="Your name">
+	<button type="submit" id="commentButton">Add</button>
+</form>
+
+<!-- LISTS ALL COMMENTS -->
+ <% favorite.comments.forEach(function(comment) {  %>
+ <div class="well">
+ 	<p><%= comment.content %></p>
+ 	<p>- <%= comment.author %></p>
+ </div>
+ 	<% }); %>
+
+
