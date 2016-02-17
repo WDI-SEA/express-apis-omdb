@@ -10,6 +10,8 @@ router.get("/", function(req, res){
 			fave:fave});
 		});
 	});
+
+
 router.post('/', function(req,res) {
 	var title = req.body.title;
 	var year = req.body.year;
@@ -20,6 +22,31 @@ router.post('/', function(req,res) {
 		imdbId: imdbID
 	}).then(function(favorite){
 		res.redirect('/results/'+ imdbID);
+	})
+});
+
+router.get('/:id/comments', function(req, res){
+	var id = req.params.id;
+	db.favorite.find({
+		where: {id: id},
+		include: [db.comment]
+	}).then(function(fav){
+		console.log(fav.comments);
+	res.render('comments.ejs', {favorite: fav, id:id})
+		});
+	});
+
+
+router.post('/:id/comments', function(req, res){
+	var id = req.params.id;
+	var comment = req.body.comment;
+	var name = req.body.name;
+	db.comment.create({
+		comment: comment,
+		name: name,
+		favoriteId: id
+	}).then(function(favorite){
+		res.redirect('/favorites/' + req.params.id + '/comments');
 	})
 });
 
