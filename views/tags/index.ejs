@@ -1,0 +1,10 @@
+<% include ../partials/header.ejs %>
+
+<% tags.forEach(function(tag) { %>
+
+<h3>Tag: <%= tag.name %></h3>
+<a href="tags/<%= tag.id %>">View <%= tag.name %> Movies</a>
+
+<% }); %>
+
+<% include ../partials/footer.ejs %>

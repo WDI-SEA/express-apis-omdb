@@ -47,4 +47,20 @@ router.post('/:id/comments', function(req, res) {
 	});
 });
 
+router.get('/:id/tags', function(req, res) {
+	res.render('favorites/tags');
+});
+
+router.post('/:id/tags', function(req, res) {
+	var favId = req.params.id;
+	db.favorite.findById(favId).then(function(favorite){
+		favorite.createTag({
+			name: req.body.newTag
+		}).then(function() {
+			res.redirect('/favorites');
+		});
+	});
+});
+
+
 module.exports = router;

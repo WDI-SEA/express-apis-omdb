@@ -32,7 +32,10 @@ app.get('/results', function(req, res) {
 app.use('/movie', require('./controllers'));
 
 //controllers for linking to favorites
-app.use('/favorites', require('./controllers/favorites.js'));
+app.use('/favorites', require('./controllers/favorites'));
+
+//controllers for linking to tags
+app.use('/tags', require('./controllers/tags'));
 
 //class example
 app.use("/random", require("./controllers/random"));
