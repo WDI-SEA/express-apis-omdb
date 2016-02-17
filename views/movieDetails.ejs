@@ -1,0 +1,17 @@
+<div class="wrapper-results">
+	<div class="movie-details">
+	<!-- add ahref back button -->
+	<form action="/favorites" method="POST">
+		<button type="submit">Add to Favorites</button>
+			<input name="imdbID" type="hidden" value="<%= movie.imdbID %>" />
+			<input name="title" type="hidden" value="<%= movie.Title %>" />
+			<input name="year" type="hidden" value="<%= movie.Year %>" />
+			<input name="poster" type="hidden" value="<%= movie.Poster %>" />
+	</form>
+		<h1> <%= movie.Title %> </h1>
+		<p><b>Year:</b> <%= movie.Year %></p>
+		<p><b>Rated:</b> <%= movie.Rated %></p>
+		<p><b>IMDB Rating:</b> <%= movie.imdbRating %></p>
+		<p><b>Plot:</b> <%= movie.Plot %></p>
+	</div>
+</div>
