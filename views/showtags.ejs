@@ -1,0 +1,17 @@
+<h1>All Movies with the "<%= name.name %>" Tag</h1>
+
+<% fav.forEach(function(fav){ %>
+	<p>
+		<%= fav.title %>
+		<%= fav.year %>
+	</p>	
+<% }) %>
+
+<form method="GET" action="/favorites">
+		<button type="submit">Your Favorites</button>
+</form>
+
+<div class="homediv">
+	<a class="white" href="/">&larr;Home</a>
+</div>
+

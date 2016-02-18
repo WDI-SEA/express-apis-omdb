@@ -1,0 +1,18 @@
+
+	<div class='container'>
+		<h1><%= movies.Title %></h1>
+		<p><%= movies.Year %></p>	
+		<p><%= movies.Runtime %></p>	
+		<p><%= movies.Genre %></p>	
+		<p><%= movies.Plot %></p>
+		<p><%= movies.Actors %></p>
+		<img src="<%= movies.Poster %>"/>
+	<form action="/favorites" method="POST">
+		<button type="submit">Add to Favorites</button>	
+		<input type="hidden" name="favTitle" value="<%= movies.Title %>"/>
+		<input type="hidden" name="favYear" value="<%= movies.Year %>"/>
+		<input type="hidden" name="favImdb" value="<%= movies.imdbID %>"/>
+	</form>
+		<div class="homediv"><a class="white" href="/">&larr;Home</a></div>	
+		<form method="GET" action="/favorites"> <button type="submit">Your Favorites</button>
+	</div>

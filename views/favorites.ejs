@@ -1,0 +1,23 @@
+
+<h2>Favorites</h2>
+<div class="homediv">
+	<a class="white" href="/">&larr;Home</a>
+</div>	
+
+<div class="container">
+	<% favmovie.forEach(function(movie) {%>
+		<div class="well format">
+			<p>
+				<a href="movies/<%= movie.imdbid %>"><%= movie.title %></a>   
+				<span><%= movie.year %></span>
+
+				<a href="/comments/<%= movie.id %>">Comments</a>
+				<a href="/tags/<%= movie.id %>">Tags</a>
+
+			</p>
+		</div>	
+	<% }); %>	
+</div>
+
+
+
