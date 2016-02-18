@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Movie</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-  	<link href='https://fonts.googleapis.com/css?family=Limelight' rel='stylesheet' type='text/css'>
-</head>
-<body>
+
 <h2>Favorites</h2>
+<div class="homediv">
+	<a class="white" href="/">&larr;Home</a>
+</div>	
+
 <div class="container">
-<% favmovie.forEach(function(movie) {%>
+	<% favmovie.forEach(function(movie) {%>
+		<div class="well format">
+			<p>
+				<a href="movies/<%= movie.imdbid %>"><%= movie.title %></a>   
+				<span><%= movie.year %></span>
 
-<p><a href="movies/<%= movie.imdbid %>"><%= movie.title %></a>   <%= movie.year %></p>
+				<a href="/comments/<%= movie.id %>">Comments</a>
+				<a href="/tags/<%= movie.id %>">Tags</a>
 
-<% }); %>
-<div class="homediv"><a class="white" href="/">&larr;Home</a></div>	
+			</p>
+		</div>	
+	<% }); %>	
 </div>
-</body>
-</html>
+
+
+

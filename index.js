@@ -3,8 +3,7 @@ var db = require('./models');
 var app = express();
 var request = require("request");
 var favCtrl = require("./controllers/favorites");
-app.use("/favorites", favCtrl);
-//var ejsLayouts = require("express-ejs-layouts");
+var ejsLayouts = require("express-ejs-layouts");
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -12,12 +11,21 @@ app.use(express.static(__dirname + '/static'));
 app.set("view engine", "ejs");
 
 
-//app.use(ejsLayouts);
+app.use(ejsLayouts);
 
 app.get('/', function(req, res) {
   res.render('index.ejs');
   //console.log("foooooooo");
 });
+
+app.use("/favorites", favCtrl);
+app.use('/comments', require('./controllers/comments'));
+app.use('/tags', require('./controllers/tags'));
+
+// db.comment.create({
+//   comment: "First comment",
+
+// })
 
 // receive user GET request at /results
 app.get("/results", function(req, res){
@@ -54,6 +62,8 @@ app.get("/movies/:id", function(req, res){
     });
 
 });
+
+
 
 
 

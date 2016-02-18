@@ -1,0 +1,22 @@
+<h1>Tags</h1>
+
+<form method="POST" action="/tags/<%=fav.id%>">
+	<input name="name" placeholder="New Tag Here" type="text"></input>
+	<button type="submit">Submit</button>
+</form>
+
+<p><%= fav.title %></p>
+
+<% tag.forEach(function(tag) { %>
+	
+	<a href="/tags/showtags/<%= tag.id %>"><%= tag.name %></a>
+	
+<% })%>
+
+<form method="GET" action="/favorites">
+		<button type="submit">Your Favorites</button>
+</form>
+
+<div class="homediv">
+	<a class="white" href="/">&larr;Home</a>
+</div>

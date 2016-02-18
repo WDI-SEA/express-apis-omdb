@@ -4,9 +4,15 @@ body {
 	text-align: center;
 	background-size: cover;
 	color: black;
-
-
 }
+
+/*.format {
+	width: 150px;
+	height: 30px;
+	background: rgba(54,25,25,.2); 
+	text-align: center;
+}*/
+
 h1 {
 	font-family: limelight;
 }

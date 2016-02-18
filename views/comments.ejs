@@ -1,0 +1,21 @@
+<h1>Comment Page</h1>
+
+<p>Title: <%= fav.title%></p>
+<p>Year: <%= fav.year%></p>
+
+
+
+
+<% comment.forEach(function(comment){ %>
+	<div class="well">
+		<p><%= comment.comment %></p>
+		<p>- <%= comment.comment_author %></p>
+	</div>
+<% }) %>
+
+<form method="POST" action="/comments/<%= fav.id %>">
+	<input name="name" type="text" placeholder="Your Name Here"></input>
+	<input name="comment" type="text" placeholder="Input Comment Here"></input>
+	<button type="submit">Submit</button>
+</form>
+<div class="homediv"><a class="white" href="/">&larr;Home</a></div>
