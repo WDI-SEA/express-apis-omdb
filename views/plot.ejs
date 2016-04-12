@@ -1,5 +1,3 @@
-<h1>Movies</h1>
-
 <% movies.forEach(function(movie, index) { %>
   <li><a href="/movies/<%= movie.imdbID %>"><%= movie.Title %></a> </li>
   <img src="<%=movie.Poster%>"/>
