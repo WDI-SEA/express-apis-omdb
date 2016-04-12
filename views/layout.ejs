@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <style>
+    	body {
+    		background-color:pink;
+    	}
+    	div {
+    	background-color: white;
+    	border: solid black 1px;
+    	}
+
+    </style>
+
+  </head>
+  <body>
+    	<div>
+		<ul class="nav nav-pills">
+		  <li role="presentation"><a href="/">Home</a></li>
+		</ul>
+          <form method="GET" action="/movies" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="ex. Spirited Away" name="q">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+  	</div>
+  	<%- body %>
+  </body>
+</html>
