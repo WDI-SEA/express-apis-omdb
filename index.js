@@ -1,5 +1,5 @@
 var express = require('express');
-var ejsLayouts = require('layouts');
+var ejsLayouts = require('express-ejs-layouts');
 var request = require('request');
 var app = express();
 
@@ -13,15 +13,13 @@ app.get("/", function(req, res) {
  app.get("/movies", function(req, res) {
   var query = req.query.q;
 
-  //confirms search
-  console.log(query);
-
   request({
     url: 'http://www.omdbapi.com/?s=' + query, function (error, response, body) {
-      var dataObj = JSON.parse(body);
+      var  data = JSON.parse(body);
+      console.log(data);
       if (!error && response.statusCode == 200 && data.Search) {
-        res.render("movies", {movies: data.Search,
-                                      q: query});
+        var results = data.Search;
+        res.render("movies", {results: results, q: query});
       } else {
         res.render('error');
       }
