@@ -1,5 +1,5 @@
 var express = require('express');
-var ejsLayouts = require('express-ejs-layouts');
+var ejsLayouts = require('layouts');
 var request = require('request');
 var app = express();
 
@@ -10,22 +10,24 @@ app.get("/", function(req, res) {
   res.render('index');
 });
 
- // app.get("/movies", function(req, res) {
- //  var query = req.query.q;
+ app.get("/movies", function(req, res) {
+  var query = req.query.q;
 
- //  console.log(query);
+  //confirms search
+  console.log(query);
 
- //  request({
- //    url: 'http://www.omdbapi.com/?s=' + query, function (error, response, body) {
- //      var dataObj = JSON.parse(body);
- //      if (!error && response.statusCode == 200 && data.Search) {
- //        res.render("movies", {movies: data.Search,
- //                                      q: query});
- //      } else {
- //        res.render('error');
- //      }
- //    });
- //  });
+  request({
+    url: 'http://www.omdbapi.com/?s=' + query, function (error, response, body) {
+      var dataObj = JSON.parse(body);
+      if (!error && response.statusCode == 200 && data.Search) {
+        res.render("movies", {movies: data.Search,
+                                      q: query});
+      } else {
+        res.render('error');
+      }
+    }
+  });
+});
 
   // ?q=Star+Wars
 
