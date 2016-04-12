@@ -12,7 +12,7 @@ app.get("/", function(req, res) {
 
 app.get("/movies", function(req, res) {
   var query = req.query.q;
-  console.log(query);
+  //console.log(query);
 
   var qs = {
     s: query
@@ -34,31 +34,22 @@ app.get("/movies", function(req, res) {
 
 
 app.get("/movies/:imdbID", function(req, res) {
-  var searchQuery = req.query.q;
   var imdbID = req.params.imdbID;
 
   var qs = {
-    s: searchQuery
+    i: imdbID
   }
 
   request({
     url: 'http://www.omdbapi.com/',
     qs: qs
-  }, function(response, body) {
-      var data=JSON.parse(body);
-      var results = data.Search;
-      res.render("movies/show", {results: results});
+  }, function(error, response, body) {
+      var data = JSON.parse(body);
+      console.log(data);
+      res.render("show", {movie: data});
 
   })
 
 });
-
-
-
-
-
-  // ?q=Star+Wars
-
-  //post = req.body
 
 app.listen(3000);
