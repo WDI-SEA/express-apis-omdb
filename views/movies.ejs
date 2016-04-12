@@ -1,0 +1,11 @@
+<% include ../partials/header.ejs %>
+
+<h1>Movies</h1>
+<div class="well">
+<ul>
+<% movies.forEach(function(q) { %>
+  <li><a href="/movies/<%= q.imdbID %>"> (<%= q.Year %>) <%= q.Title %></a></li>
+<% }) %>
+</ul>
+</div>
+<% include ../partials/footer.ejs %>

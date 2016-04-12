@@ -1,0 +1,60 @@
+body {
+  background: url(movie.jpg);
+  text-align: center;
+  background-size: 1325px 600px;
+  background-position: fixed;
+  font-family: 'Squada One', monospace;
+
+}
+
+form {
+  width: 50%;
+  color: black;
+  margin-left: 345px;
+  margin-top: 150px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.well {
+  background-color: transparent;
+  border: none;
+  margin-top: 50px; 
+  margin-left: -40px;
+
+}
+
+h1{
+  color: white;
+  text-align: center;
+}
+
+legend {
+  font-size: 60px;
+}
+
+label {
+  font-size: 30px;
+}
+
+li {
+  font-size: 18px;
+}
+
+.movies {
+  margin-top: 150px;
+  color: black;
+}
+
+.movies h1 {
+  color: black;
+  margin-left: 100px;
+}
+
+.movies p {
+  width: 50%;
+  margin-left: 345px;
+  font-size: 20px; 
+}
