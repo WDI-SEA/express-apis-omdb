@@ -1,9 +1,14 @@
-<h1> Search Results </h1>
+<h1> Survey says: </h1>
 
 
-    <p><%= movie.Title %></p>
-    <p><%= movie.Year %> </p>
-    <p><%= movie.Runtime %> </p>
-    <p><%= movie.Genre %> </p>
-    <p><%= movie.Plot %> </p>
-    <p><img src="<%= movie.Poster %>"></p>
+  <p>Title: <%= movie.Title %></p>
+  <p>Year: <%= movie.Year %> </p>
+  <p>Director: <%= movie.Director %> </p>
+  <p>Runtime: <%= movie.Runtime %> </p>
+  <p>Genre: <%= movie.Genre %> </p>
+  <p>Plot: <%= movie.Plot %> </p>
+  <!--figuring out IMDB-->
+  <p>IMDB Rating: <%= movie.imdbRating %></p>
+  <p><img src="<%= movie.Poster %>"></p>
+  <!-- finding tomatoes -->
+  

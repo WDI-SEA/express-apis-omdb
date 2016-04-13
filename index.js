@@ -5,6 +5,8 @@ var app = express();
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/public'));
+
 
 app.get("/", function(req, res) {
   res.render('index');
@@ -13,11 +15,9 @@ app.get("/", function(req, res) {
 app.get("/movies", function(req, res) {
   var query = req.query.q;
   //console.log(query);
-
   var qs = {
     s: query
   }
-
   request({
     url: 'http://www.omdbapi.com/',
     qs: qs
@@ -35,11 +35,9 @@ app.get("/movies", function(req, res) {
 
 app.get("/movies/:imdbID", function(req, res) {
   var imdbID = req.params.imdbID;
-
   var qs = {
     i: imdbID
   }
-
   request({
     url: 'http://www.omdbapi.com/',
     qs: qs
@@ -47,9 +45,7 @@ app.get("/movies/:imdbID", function(req, res) {
       var data = JSON.parse(body);
       console.log(data);
       res.render("show", {movie: data});
-
   })
-
 });
 
 app.listen(3000);
