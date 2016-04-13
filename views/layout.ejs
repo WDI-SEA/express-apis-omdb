@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <title>layout</title>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Welcome to OMDB Movie Search</h1>
+
+<form method="GET" action="/movies" class="form" role="search">
+  <div class="form-group">
+    <label for="">Search:</label>
+    <input type="text" class="form-control" id="" placeholder="i.e. Harold and Maude" name="q">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+  <%- body %>
+</body>
+</html>
+
+
+
+
+
+
