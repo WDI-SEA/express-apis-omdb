@@ -79,7 +79,9 @@ body > div.jumbotron > div > img {
 
 body > div.col-md-offset-2.col-md-3 > p {
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
 }
 
 body > form > div > input[type="submit"]:nth-child(2) {
