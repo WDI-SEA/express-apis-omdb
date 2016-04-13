@@ -30,15 +30,17 @@ app.get('/movies', function(req, res) {
 });
 
 
-app.get('/movies/:id', function(req, res){
-  //var searchQuery = req.query.q ? req.query.q : '';
-  var imdbID = req.params.id;
-  request('http://www.omdbapi.com/?i='+imdbID, function(err,response,body) {
-    res.render('movieShow', {movie:JSON.parse(body),
-                            q:searchQuery});
+app.get('/movies/:imdbID', function(req, res){
+  var imdbID = req.params.imdbID;
+
+  request('http://www.omdbapi.com/?i='+imdbID, function(err, response, body) {
+    var data = JSON.parse(body);
+    console.log(data);
+    if(!err && response.statusCode === 200) {
+      res.render('plot', {movie: data});
+    }
   });
 });
-
 // app.get('movies')
 
 
