@@ -5,6 +5,9 @@ h1, h4, .navbar-brand {
   padding: 0;
   margin: 0;
 }
+.navbar, .navbar-default {
+  margin-bottom: 10px;
+}
 .navbar-brand img {
   padding: 5px;
   margin: 0;
@@ -20,7 +23,7 @@ h1, h4, .navbar-brand {
   border-bottom: 1px solid #E0E0E0;
 }
 
-#container div {
+.movies-container div {
   text-align: center;
   display: block;
   width: 100%;
@@ -65,7 +68,17 @@ h1, h4, .navbar-brand {
   margin-top: 20px;
   display: inline-block;
 }
-/*#random-poster, #random-content, #random-title, #random-plot {
-  display: inline-block;
-  float: left;
-}*/
+.movies-title {
+  margin-bottom: 10px;
+}
+.hrspacing {
+  padding:0px;
+}
+.hrcolor {
+    border-color: #E0E0E0;
+    border-style: solid;
+    top-bottom: 1px;
+    margin:0px;
+    padding:0px;
+}
+

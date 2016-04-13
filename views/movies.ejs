@@ -1,10 +1,11 @@
-<h1> Results for "<%= q %>"" </h1>
-<div id="container">
+<h1 class="movies-title"> Results for "<%= q %>" </h1>
+<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
+<div class="movies-container">
 	<% movies.forEach(function(movie) { %>
 	<div class="result">
-		<h4>(<%= movie.Year %>) <%= movie.Title %></h4>
+		<h4><a href="/movies/<%= movie.imdbID %>"> <%= movie.Title %> (<%= movie.Year %>) </h4>
 		<img src=" <%= movie.Poster %>">
-		<div></div>
 	</div>
+	<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
 	<%	}) %>
 </div>
