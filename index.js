@@ -29,6 +29,7 @@ app.get('/movies', function(req, res) {
   });
 });
 
+
 app.get('/movies/:id', function(req, res){
   //var searchQuery = req.query.q ? req.query.q : '';
   var imdbID = req.params.id;
