@@ -1,0 +1,11 @@
+<ul id="search-results">
+
+  <% results.forEach(function(result) { %>
+  <li>
+  <img class="search-image padded-right" src="<%= result.Poster %>">
+  <a href="#"><h3 class="inline"><%= result.Title %></h3><a>
+  </li>
+  <br>
+  <% }); %>
+
+</ul>
