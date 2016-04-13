@@ -1,0 +1,10 @@
+<h1>Favorite Movies</h1>
+
+<ul> 
+	<% movies.forEach(function(movie) { %>
+		<div class="well">
+  			<a href="<%= '/movies/' + movie.imdbID + '/?q=' + q %>"><h2><%= movie.Title %>(<%= movie.Year %>)</h2></a>
+  			<img src="<%= movie.Poster %>">
+		</div>
+</ul>
+<% }) %>
