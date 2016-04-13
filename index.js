@@ -6,20 +6,13 @@ var app = express();
 app.use(ejsLayouts);
 app.set('view engine', 'ejs');
 
-app.get("/", function(req, res) {
-  res.render("index", {title: "Favorite Foods", foods: ["sandwich", "corn dog"]})
-});
-
-// app.get("/animals", function(req, res) {
-//   res.render("animals", {title: "Favorite Animals", animals: ["sand crab", "corny joke dog"]})
-// });
-
-// app.get("/movies", function (req, res) {
-// 	var query = req.query.q;
 
 app.get("/movies", function (req, res) {
+	var query = req.query.q; 
+	console.log(req.query.q);
+
   var qs = {
-    s: 'star wars'
+    s: query
   };
 
   request({
@@ -29,12 +22,21 @@ app.get("/movies", function (req, res) {
     if (!error && response.statusCode == 200) {
       var dataObj = JSON.parse(body);
       var results = dataObj.Search;
-      
-
+      console.log(results);
       res.render("movies", {results: results});
     }
   });
 });
+
+app.get("/movies/:imdbID", function (req, res){
+	var imdbID = req.params.imdbID;
+
+	request('http://www.omdbapi.com/?i=' + imdbID, function(error, response, body){
+		var data = JSON.parse(body);
+		res.render("shows", {movie: data});
+	}) 
+});
+
 
 
 app.listen(3000);

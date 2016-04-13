@@ -1,1 +1,3 @@
-movies.ejs
+<% results.forEach(function(movie){ %>
+	<p><a href="<%= '/movies/' + movie.imdbID%>"><%= movie.Title %></a></p>
+<% })%>
