@@ -1,0 +1,25 @@
+
+<div class="container-fluid">
+	<div id="welcome">
+		<h1>Welcome to Movie Search</h1>
+	</div>
+	<div>
+		<h2>Random Movie</h2>
+		<div id="random" class="container-fluid">
+			<img id='random-poster' class="col-xs-12 col-sm-5 col-md-6 col-lg-4" src="<%= randomMovie.Poster %>">
+			<div id='random-content' class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
+				<h3 id='random-title'> <%= randomMovie.Title %> (<%= randomMovie.Year %>) </h3>
+				<p id='random-plot'> <%= randomMovie.Plot %> </p>
+			</div>
+		</div>
+	</div>
+	<!-- <div>
+		<form class="form-inline" action="/movies" method="get">
+		  <div class="form-group">
+			<label for=""> Search </label>
+			<input type="text" class="form-control" id="" placeholder="ex. Back to the Future" name="q">
+		  </div>
+		  	<button type="submit" class="btn btn-primary"> Submit </button>
+		</form>
+	</div> -->
+</div>

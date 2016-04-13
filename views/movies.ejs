@@ -1,0 +1,10 @@
+<h1> Results for "<%= q %>"" </h1>
+<div id="container">
+	<% movies.forEach(function(movie) { %>
+	<div class="result">
+		<h4>(<%= movie.Year %>) <%= movie.Title %></h4>
+		<img src=" <%= movie.Poster %>">
+		<div></div>
+	</div>
+	<%	}) %>
+</div>
