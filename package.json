@@ -1,0 +1,31 @@
+{
+  "name": "express-apis-omdb",
+  "version": "1.0.0",
+  "description": "search movies, learn about it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshgranadosin/express-apis-omdb.git"
+  },
+  "keywords": [
+    "express",
+    "api"
+  ],
+  "author": "Joshua Granadosin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshgranadosin/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/joshgranadosin/express-apis-omdb#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-ejs-layouts": "^2.1.0",
+    "layouts": "^0.11.0",
+    "request": "^2.71.0"
+  }
+}

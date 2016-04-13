@@ -1,0 +1,28 @@
+body {
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	display: inline-block;
+}
+
+h1 {
+	text-align: center;
+}
+
+.thumbnail {
+	height: 225px;
+	margin: 0 auto;
+}
+
+.poster {
+	width: 100%;
+}
+
+.listedTitle {
+	text-align: center;
+	text-decoration: underline;
+}

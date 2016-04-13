@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4">
+  		<img class="poster" src="<%= showData.Poster %>">
+  	</div>
+  	<div class="col-xs-6 col-sm-7 col-md-8 col-lg-8">
+  		<h2><%= showData.Title %> <small> (<%= showData.Year %>)</small></h2>
+
+		<ul class="underTitle">
+			<li><%= showData.Rated %> |</li>
+			<li><%= showData.Runtime %> |</li>
+			<li><%= showData.Genre %> |</li>
+			<li><%= showData.Released %> (<%= showData.Country %>)</li>
+		</ul>
+
+		<p><%= showData.Plot %></p>
+
+		<p><strong>Director:</strong> <%= showData.Director %></p>
+		<p><strong>Writer(s):</strong> <%= showData.Writer %></p>
+		<p><strong>Stars:</strong> <%= showData.Actors %></p>
+		<p><strong>Awards:</strong> <%= showData.Awards %></p>
+
+		<ul class="ratings">
+			<li>Metascore: <%= showData.Metascore %> | </li>
+			<li>imbdRating: <%= showData.imdbRating %>/10 (<%= showData.imdbVotes %> votes)</li>
+		</ul>
+  	</div>
+  </div>
+</div>
