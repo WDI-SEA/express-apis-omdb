@@ -8,6 +8,7 @@ app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 
 app.use(express.static(__dirname +'/views'));
+app.use(express.static(__dirname +'/css'));
 
 app.use( bodyParser.urlencoded({extended: false }) );
 
@@ -32,8 +33,9 @@ app.get('/movies', function(req, res) {
 
 app.get('/movies/:imdbID', function(req, res){
   var imdbID = req.params.imdbID;
+  var url = 'http://www.omdbapi.com/?i='+imdbID;
 
-  request('http://www.omdbapi.com/?i='+imdbID, function(err, response, body) {
+  request(url, function(err, response, body) {
     var data = JSON.parse(body);
     console.log(data);
     if(!err && response.statusCode === 200) {
