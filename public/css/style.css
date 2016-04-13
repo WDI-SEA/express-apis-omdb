@@ -30,6 +30,10 @@ p{
 
 }
 
+.form-group {
+  align: center;
+}
+
 a {
   color: white;
 }
