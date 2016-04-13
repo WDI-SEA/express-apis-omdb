@@ -20,10 +20,38 @@
 		<p><strong>Stars:</strong> <%= showData.Actors %></p>
 		<p><strong>Awards:</strong> <%= showData.Awards %></p>
 
-		<ul class="ratings">
-			<li>Metascore: <%= showData.Metascore %> | </li>
-			<li>imbdRating: <%= showData.imdbRating %>/10 (<%= showData.imdbVotes %> votes)</li>
-		</ul>
+		<p style="margin-bottom: 0px">
+			imbdRating: <%= showData.imdbRating %>/10 (<%= showData.imdbVotes %> votes)
+		</p>
+		<div style="
+			width: <%= (16 * showData.imdbRating) %>px;
+			height: 16px;
+			background:url('/star_gold_256.png');
+			background-size: 16px 16px;
+			background-repeat:repeat-x;">
+		</div>
+			
+		<br>
+
+		<p>Metascore: <%= showData.Metascore %>/100</p>
+		<div style="
+			width: <%= (showData.Metascore * 2) %>px;
+			height: 20px;
+			float: left;
+			margin-top: -10px;
+			background-color: black">
+			<div style="
+				height:20px;
+				width:20px;
+				float:right;
+				color:white;
+				text-align: center;
+				background-color: <% if(showData.Metascore < 40){ %> #f00 <% }
+								else if(showData.Metascore > 60){ %> #6c3 <% }
+								else { %> #fc3 <% } %>;">
+				<%= showData.Metascore %>
+			</div>
+		</div>
   	</div>
   </div>
 </div>
