@@ -1,8 +1,16 @@
+html { 
+  background: url(movie2.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
-  background: url(movie.jpg);
+  background-color: transparent;
   text-align: center;
-  background-size: 1325px 600px;
-  background-position: fixed;
+  /*background-size: 1325px 600px;
+  background-position: fixed;*/
   font-family: 'Squada One', monospace;
 
 }
@@ -10,8 +18,9 @@ body {
 form {
   width: 50%;
   color: black;
-  margin-left: 345px;
-  margin-top: 150px;
+  margin-left: 325px;
+  margin-top: 115px;
+  background-size: cover;
 }
 
 ul {
@@ -21,9 +30,10 @@ ul {
 .well {
   background-color: transparent;
   border: none;
-  margin-top: 50px; 
+  margin-top: 10px; 
   margin-left: -40px;
-
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 h1{
@@ -32,7 +42,8 @@ h1{
 }
 
 legend {
-  font-size: 60px;
+  font-size: 100px;
+  border-bottom: none;
 }
 
 label {
@@ -43,18 +54,60 @@ li {
   font-size: 18px;
 }
 
-.movies {
-  margin-top: 150px;
+.jumbotron {
+  color: black;
+  background: transparent;
+  width: 80%;
+  margin-left: 90px;
+  background-size: cover;
+}
+
+
+body > div.col-md-offset-2.col-md-3 > h1 {
+  color: black;
+  margin-right: 500px;
+  width: 100%;
+  padding-left: -100px;
+  margin-top: -20px;
+  font-size: 35px
+}
+
+body > div.jumbotron > div > img {
+  width: 100%;
+  border: 10px solid black;
+  margin-left: 150px;
+  margin-top: 70px;
+
+}
+
+body > div.col-md-offset-2.col-md-3 > p {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+
+body > form > div > input[type="submit"]:nth-child(2) {
+  margin-top: 25px;
+  font-size: 20px;
+  box-shadow: 2px 2px 2px #888888;
+}
+
+body > h1 {
+  font-size: 50px;
+  margin-top: 100px;
   color: black;
 }
 
-.movies h1 {
-  color: black;
-  margin-left: 100px;
+body > div.col-md-offset-2.col-md-3 {
+  margin-right: 100px;
 }
 
-.movies p {
-  width: 50%;
-  margin-left: 345px;
-  font-size: 20px; 
+body > div.col-md-offset-2.col-md-3 > a{
+  background: gray;
+  color: white;
+  border: none;
+  width: 68%;
+  margin-top: 30px;
 }
+
+

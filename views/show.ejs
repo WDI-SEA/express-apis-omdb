@@ -1,8 +1,23 @@
 <% include ../partials/header.ejs %>
 
-<div class="movies">
-<h1><%= movie.Title %></h1>
-<p><%= movie.Plot %></p>
+
+<div class="jumbotron" >
+
+<div class="col-md-offset-1 col-md-3">
+  <img src="<%= movie.Poster %>"/>
+    </div>
 </div>
+
+<div class="col-md-offset-2 col-md-3">
+  <h1> <%= movie.Title %> - (<%= movie .Year %>)</h1>
+
+  <p><%= movie.Plot %></p>
+
+  <a class="btn btn-primary btn-lg" href="/articles/0" role="button">RETURN TO SEARCH</a>
+  </div>
+
+
+
+
 
 <% include ../partials/footer.ejs %>
