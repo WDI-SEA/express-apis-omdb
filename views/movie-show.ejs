@@ -1,7 +1,7 @@
 <div class="container">
 	<h1><%= movie.Title %> <small><%= movie.Year %></small></h1>
 
-	<a href="<%= '/movies/?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
+	<a href="<%= '/movies?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
 	<br><br>
 	<div class="well">
 	  <% 
@@ -29,6 +29,7 @@
 	  	}
 	  %>
 	  <p><small>IMDB Rating:</small> <%- newStar %></p>
+	  <p><small>Rotten Tomatoes: <%= movie.tomatoRating %></small></p>
 	  <p><%= movie.Plot %></p>
 	</div>
 </div>

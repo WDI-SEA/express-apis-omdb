@@ -3,10 +3,10 @@
 	<p><small>About <%= movies.length %> results (0.63 seconds)</small></p>
 	<a href="<%= '/' %>" class="btn btn-primary">&larr; Back to Search</a>
 	<br><br>
-	
+
 	<% movies.forEach(function(movie) { %>
 	<div class="well">
-	  <a href="<%= '/movies/' + movie.imdbID + '/?q=' + q %>"><h2><%= movie.Title %></h2></a>
+	  <a href="/movies/<%= movie.imdbID %>"><h2><%= movie.Title %></h2></a>
 	  <img src="<%= movie.Poster %>">
 	</div>
 	<% }); %>
