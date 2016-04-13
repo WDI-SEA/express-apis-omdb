@@ -7,6 +7,10 @@ app.use(ejsLayouts);
 app.set('view engine', 'ejs');
 
 
+app.get("/", function(req, res) {
+  res.render("index")
+});
+
 app.get("/movies", function (req, res) {
 	var query = req.query.q; 
 	console.log(req.query.q);
@@ -31,9 +35,12 @@ app.get("/movies", function (req, res) {
 app.get("/movies/:imdbID", function (req, res){
 	var imdbID = req.params.imdbID;
 
-	request('http://www.omdbapi.com/?i=' + imdbID, function(error, response, body){
+	request('http://www.omdbapi.com/?i=' + imdbID + '&tomatoes=true', function(error, response, body){
 		var data = JSON.parse(body);
 		res.render("shows", {movie: data});
+		console.log(data);
+
+
 	}) 
 });
 
