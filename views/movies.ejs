@@ -1,0 +1,12 @@
+<h1>Favorite Movies</h1>
+<div>
+
+<% results.forEach(function(result){ %>
+  <h2><a href="/movies/<%= result.imdbID %>"> (<%= result.Year %>) <%= result.Title %></a> </h2>
+<% }) %>
+
+
+
+ 
+
+</div>
