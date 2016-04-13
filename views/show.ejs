@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+
+<div class="jumbotron">
+    <div class="col-md-offset-1 col-md-3"><img src=
+    "<%=movie.Poster%>">
+    </div>
+</div>
+
+
+<div class="col-md-offset-2 col-md-3">
+    <h1><%= movie.Title %> - (<%= movie.Year %>)</h1>
+
+
+    <p><%= movie.Plot %> </p>
+    <p><strong style="font-family: 'Oswald'; ">FEATURED ACTORS: </strong><%= movie.Actors %></p>
+    <p id="genre"><strong style="font-family: 'Oswald'; ">GENRE: </strong><%= movie.Genre %></p>
+   
+    <a class="btn btn-primary btn-lg" href="/" role="button">RETURN TO
+    SEARCH</a>
+</div>
+<% include ../partials/footer.ejs %>
