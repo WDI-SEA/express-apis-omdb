@@ -48,5 +48,20 @@ app.get("/movies/:imdbID", function(req, res) {
   })
 });
 
+app.get("/favorites", function(req, res) {
+  var imdbID = req.params.imdbID;
+  var qs = {
+    i: imdbID
+  }
+  request({
+    url: 'http://www.omdbapi.com/',
+    qs: qs
+  }, function(error, response, body) {
+      var data = JSON.parse(body);
+      console.log(data);
+      res.render("favorites", {movie: data});
+  })
+});
+
 
 app.listen(3000);
