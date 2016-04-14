@@ -1,6 +1,9 @@
 $(document).ready(){
   console.log('locked/loaded');
 
+
+
+
   switch(parseInt(movie.imdbRating)) {
       case 0 > && < 1:
       //     $(#stars).prepend('<img src="./css/assets/star.gif" />');
