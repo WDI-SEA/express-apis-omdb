@@ -28,14 +28,14 @@ app.get("/movies", function(req, res) {
 //    pageNum = 1;
 //  }
 
-  request('http://www.omdbapi.com/?s=' + query + '&tomatoes=true', function(err, response, body) {
+  request('http://www.omdbapi.com/?s=' + query, function(err, response, body) {
     var data = JSON.parse(body);
     if(!err && response.statusCode === 200 && data.Search) {
       res.render('movies', {movies: data.Search, q: query}); //, page: pageNum, numHits: data.totalResults});
       //res.send(data.Search);
     }
     else{
-      res.render('index'); // Need to add a "couln't find" page
+      res.render('error'); // Need to add a "couln't find" page
     }
   });
 });
@@ -44,16 +44,15 @@ app.get("/movies/:imdbID", function(req, res) {
   var imdbIDRequested = req.params.imdbID;
   console.log(imdbIDRequested);
 
-  request('http://www.omdbapi.com/?i=' + imdbIDRequested, function(err, response, body) {
+  request('http://www.omdbapi.com/?i=' + imdbIDRequested + '&tomatoes=true', function(err, response, body) {
     var data = JSON.parse(body);
     console.log(data.Title);
     if(!err && response.statusCode === 200){
       res.render('show', {showData: data});
       //res.send(data.Title);
-      console.log("Got into the if");
     }
     else{
-      res.render('index'); // Need to add a "couldn't find" page
+      res.render('error'); // Need to add a "couldn't find" page
     }
   });
 });

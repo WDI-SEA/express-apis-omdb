@@ -1,16 +1,22 @@
 <div class="container">
   <div class="row">
-  	<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4">
-  		<img class="poster" src="<%= showData.Poster %>">
+  	<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4 review_div">
+  		<% if(showData.Poster === 'N/A') { %>
+  			<h4 class="null_poster">Poster not available</h4>
+  		<% } else { %>
+  			<img class="poster" src="<%= showData.Poster %>">
+  		<% } %>
   	</div>
   	<div class="col-xs-6 col-sm-7 col-md-8 col-lg-8">
   		<h2><%= showData.Title %> <small> (<%= showData.Year %>)</small></h2>
 
-		<ul class="underTitle">
-			<li><%= showData.Rated %> |</li>
-			<li><%= showData.Runtime %> |</li>
-			<li><%= showData.Genre %> |</li>
-			<li><%= showData.Released %> (<%= showData.Country %>)</li>
+		<ul>
+			<li class="underTitle">
+				<% if (showData.Rated === 'N/A') { %> Not Rated
+				<% } else { %> <%= showData.Rated %> <% } %> |</li> 
+			<li class="underTitle"><%= showData.Runtime %> |</li>
+			<li class="underTitle"><%= showData.Genre %> |</li>
+			<li class="underTitle"><%= showData.Released %> (<%= showData.Country %>)</li>
 		</ul>
 
 		<p><%= showData.Plot %></p>
@@ -20,28 +26,90 @@
 		<p><strong>Stars:</strong> <%= showData.Actors %></p>
 		<p><strong>Awards:</strong> <%= showData.Awards %></p>
 
-		<% if (showData.imbdRating != 'N/A') { %>
-			<p style="margin-bottom: 0px">
-				imbdRating: <%= showData.imdbRating %>/10 (<%= showData.imdbVotes %> votes)
-			</p>
-			<div class="stars_white">
-				<div class="stars" style="width: <%= (16 * showData.imdbRating) %>px;"></div>
-			</div>
-		<% } %>	
+		<div class="row">
 
-		<br>
+			<% if (showData.imdbRating != 'N/A') { %>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">			
+					<p style="margin-bottom: 0px">
+						imbdRating: <%= showData.imdbRating %>/10 (<%= showData.imdbVotes %> votes)
+					</p>
 
-		<% if (showData.Metascore != 'N/A') { %>
-			<p>Metascore: <%= showData.Metascore %>/100</p>
-			<div class="metascore_bar" style="width: <%= (showData.Metascore * 2) %>px">
-				<div class="metascore_box" style="background-color:
-					<% if(showData.Metascore < 40){ %> #f00 <% }
-				  else if(showData.Metascore > 60){ %> #6c3 <% }
-				  else { %> #fc3 <% } %>;">
-					<%= showData.Metascore %>
+					<div class="stars_white">
+						<div class="stars" style="width: <%= (24 * showData.imdbRating) %>px;"></div>
+					</div>
 				</div>
-			</div>
-		<% } %>
+			<% } %>
+
+
+			<% if (showData.Metascore != 'N/A') { %>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">				
+					<p>Metascore: <%= showData.Metascore %>/100</p>
+
+					<div class="metascore_bar" style="width: <%= (showData.Metascore * 2.5) %>px">
+						<div class="metascore_box" style="background-color:
+							<% if(showData.Metascore < 40){ %> #f00 <% }
+						  else if(showData.Metascore > 60){ %> #6c3 <% }
+						  else { %> #fc3 <% } %>;">
+							<%= showData.Metascore %>
+						</div>
+					</div>
+				</div>
+			<% } %>
+
+			<% if (showData.tomatoMeter != 'N/A') { %>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">					
+					<p class="tomato_title">Rotten Tomatoes: TOMATOMETER</p>
+
+					<% if(showData.tomatoImage === 'rotten') { %>
+						<img class="tomato_img" src="/rt_lg_02.png">
+					<% } else if(showData.tomatoImage === 'certified') { %>
+						<img class="tomato_img" src="/Certified_Fresh.svg">
+					<% } else { %>
+						<img class="tomato_img" src="/rt_lg_01.png">
+					<% } %>
+				
+					<label class="tomato_meter"><%= showData.tomatoMeter %>%</label>
+
+					<ul class="tomato_list">
+						<li>Average Rating: <%= showData.tomatoRating %>/10</li>
+						<li>Reviews Counted: <%= showData.tomatoReviews %></li>
+						<li>Fresh: <%= showData.tomatoFresh %></li>
+						<li>Rotten: <%= showData.tomatoRotten %></li>
+					</ul>
+
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">
+					<p class="tomato_title">Rotten Tomatoes: AUDIENCE SCORE</p>
+
+					<% if(showData.tomatoUserMeter < 60) { %>
+						<img class="tomato_img" src="/rt_lg_06.png">
+					<% } else { %>
+						<img class="tomato_img" src="/rt_lg_04.png">
+					<% } %>
+
+					<label class="tomato_meter"><%= showData.tomatoUserMeter %>%</label>
+
+					<ul class="tomato_list">
+						<li>Average Rating: <%= showData.tomatoUserRating %>/10</li>
+						<li>User Ratings: <%= showData.tomatoUserReviews %></li>
+					</ul>
+
+				</div>
+
+			<% } %>
+
+		</div>
+
+		<div style="display: none">
+	 	<p><%= showData.tomatoConsensus %> showData.tomatoConsensus</p>
+		<p><%= showData.tomatoURL %> showData.tomatoURL</p>
+		<p><%= showData.DVD %> showData.DVD</p>
+		<p><%= showData.BoxOffice %> showData.BoxOffice</p>
+		<p><%= showData.Production %> showData.Production</p>
+		<p><%= showData.Website %> showData.Website</p>
+		<p><%= showData.Response %> showData.Response</p>
+		</div>
 
   	</div>
   </div>
