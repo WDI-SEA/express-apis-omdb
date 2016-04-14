@@ -28,7 +28,7 @@ app.get("/movies", function(req, res) {
 //    pageNum = 1;
 //  }
 
-  request('http://www.omdbapi.com/?s=' + query, function(err, response, body) {
+  request('http://www.omdbapi.com/?s=' + query + '&tomatoes=true', function(err, response, body) {
     var data = JSON.parse(body);
     if(!err && response.statusCode === 200 && data.Search) {
       res.render('movies', {movies: data.Search, q: query}); //, page: pageNum, numHits: data.totalResults});

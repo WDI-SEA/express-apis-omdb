@@ -26,3 +26,33 @@ h1 {
 	text-align: center;
 	text-decoration: underline;
 }
+
+.stars {
+	height: 16px;
+	background:url('/star_gold_256.png');
+	background-size: 16px 16px;
+	background-repeat: repeat-x;
+}
+
+.stars_white {
+	height: 16px;
+	width: 160px;
+	background:url('/star_white_256.png');
+	background-size: 16px 16px;
+	background-repeat: repeat-x;
+}
+
+.metascore_bar {
+	height: 20px;
+	float: left;
+	margin-top: -10px;
+	background-color: black
+}
+
+.metascore_box {
+	height:20px;
+	width:20px;
+	float:right;
+	color:white;
+	text-align: center;
+}
