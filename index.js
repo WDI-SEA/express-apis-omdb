@@ -47,7 +47,6 @@ app.get("/movies", function(req, res) {
   } else {
     res.render('movies-safe');
   }
-
 });
 
 app.get('/movies/:index', function(req, res) {
