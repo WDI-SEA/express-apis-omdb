@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/movies', function(req, res) {
-	var query = req.body;
+	var query = req.query.search;
   console.log(query);
 
   var qs = {
@@ -33,7 +33,7 @@ app.get('/movies', function(req, res) {
   });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 // <form action="/movies" method="GET" role="form">
 // 	<legend>Search for Movies</legend>
