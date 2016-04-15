@@ -2,15 +2,19 @@ var express = require('express');
 var request = require('request');
 var app = express();
 var ejsLayouts = require("express-ejs-layouts");
-app.use(ejsLayouts);
+var bodyParser = require('body-parser');
+// app.use(ejsLayouts);
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/views'))
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', function(req, res) {
 	res.render('index')
 });
 
 app.get('/movies', function(req, res) {
-	var query =req.query.q;
+	var query = req.body;
+  console.log(query);
 
   var qs = {
     s: query

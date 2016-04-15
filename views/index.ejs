@@ -4,21 +4,11 @@
     <title>Movies</title>
   </head>
   <body>
-    <h1><%= movies %></h1>
-    <ul>
-      <% movies.forEach(function(movie) { %>
-        <li><%=  %></li>
-      <% }) %>
-    </ul>
+    <form action="/movies" method="GET">
+    <input type="text" name="search">
+    <input type="submit"> 
+    </form>
   </body>
 </html>
 
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Page</title>
-</head>
-<body>
-  <%- body %>
-</body>
-</html> -->root of views folder? Where is that?     
+    
