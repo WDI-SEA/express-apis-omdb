@@ -49,6 +49,23 @@ app.get("/", function(req, res) {
   }
 });
 
+app.get("/movies/:imdbID", function(req, res) {
+  // res.redirect('http://imdb.com/title/' + req.params.imdbID);
+  request({
+    url: 'http://omdbapi.com',
+    qs: {
+      i: req.params.imdbID,
+      plot: 'full',
+      r: 'json'
+    }
+  }, function(err, response, body) {
+      if (!err && response.statusCode == 200) {
+        var data = JSON.parse(body);
+        res.render('show-movie', {movie: data});
+      }
+    });
+});
+
 
 
 // app.get("/movies", function(req, res) {
