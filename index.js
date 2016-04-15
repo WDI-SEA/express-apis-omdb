@@ -1,7 +1,8 @@
 //requires
 var express = require("express");
 var request = require("request");
-var favCtrl = require("./controllers/favorites.js");
+var favCtrl = require("./controllers/favorites");
+var db = require("./models");
 
 var app = express();
 app.set('view engine', 'ejs');
@@ -44,18 +45,26 @@ app.get("/movies", function(req, res) {
 
 app.get("/movies/:imdbID", function(req, res) {
   var imdbIDRequested = req.params.imdbID;
-  console.log(imdbIDRequested);
 
   request('http://www.omdbapi.com/?i=' + imdbIDRequested + '&tomatoes=true', function(err, response, body) {
     var data = JSON.parse(body);
-    console.log(data.Title);
     if(!err && response.statusCode === 200){
-      res.render('show', {showData: data});
+      db.favorite_movie.count({where:{imdb_id:imdbIDRequested}}).then(function(num){
+        if(num > 0) {
+          res.render('show', {showData: data, favorite:true});
+        }
+        else {
+          res.render('show', {showData: data, favorite:false})
+        }
+      })
       //res.send(data.Title);
     }
     else{
       res.render('error');
     }
+
+
+
   });
 });
 

@@ -19,14 +19,18 @@
 			<li class="underTitle"><%= showData.Released %> (<%= showData.Country %>)</li>
 		</ul>
 
-		<button type="button" class="btn btn-primary favorites fav_add">
-			<img src="/img/star_white_256.png" class="favorite_star fav_add">
-			<label class="fav_add">Add to Favorites</label>
+
+		<button id="favorite_add" type="button" class="btn btn-primary favorites fav_add
+			<% if (favorite) { %> hidden <% } %>">
+			<img src="/img/star_white_256.png" class="favorite_star">
+			<label>Add to Favorites</label>			
+			<input id="fav_url" type="hidden" value="<%= showData.imdbID %>"></input>
 		</button>
 
-		<button type="button" class="btn btn-primary btn-sm favorites hidden fav_add" href="/favorites/<%= showData.imdbID%>">
-			<img src="/img/star_gold_256.png" class="favorite_star fav_add" href="/favorites/<%= showData.imdbID%>">
-			<label class="fav_add" href="/favorites/<%= showData.imdbID%>">Added to Favorites</label>
+		<button id="favorite_delete" type="button" class="btn btn-primary favorites fav_del
+			<% if (!favorite) { %> hidden <% } %>">
+			<img src="/img/star_gold_256.png" class="favorite_star">
+			<label>Added to Favorites</label>
 		</button>
 
 		<br>
