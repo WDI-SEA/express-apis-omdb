@@ -17,16 +17,7 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
-app.post("/favorites", function(req,res){
-  db.favorites.create({
-    imdbID:req.body.imdbID,
-    title:req.body.titleFav,
-    year:req.body.yearFav
-  }).then(function(favorite){
-    res.send("success!")
-  })
-  // console.log(req.body);
-});
+
 
 
 
@@ -37,6 +28,20 @@ app.get("/favorites", function(req,res){
   });
 });
 
+app.post("/favorites", function(req,res){
+  var imdbID = req.body.id
+  request('http://www.omdbapi.com/?i=' + imdbID, function(err, response, body){
+    var json = JSON.parse(body);
+    var newFavorite = {
+      imdbID: json.imdbID,
+      title: json.Title,
+      year: parseInt(json.Year)
+    };
+    db.favorites.create(newFavorite).then(function(url){
+      res.send("success")
+    });
+  });
+});
 
 app.get("/movies", function(req, res) {
   var query = req.query.q;
@@ -79,4 +84,6 @@ app.delete('/favorites', function(req, res) {
   });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
+
+
