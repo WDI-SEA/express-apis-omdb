@@ -115,3 +115,13 @@ label {
 .hidden {
 	display: none;
 }
+
+.fav_del_list {
+	margin: 10px auto;
+	display: block;
+}
+
+.block {
+	display: block;
+	margin: 10px auto;
+}

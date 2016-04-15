@@ -5,7 +5,8 @@ var db = require("../models");
 
 router.get("/", function(req, res) {
 	db.favorite_movie.findAll().then(function(favorite_movies) {
-	res.send(favorite_movies);
+	//res.send(favorite_movies);
+	res.render('favorites/index', {favorites: favorite_movies});
 	});
 });
 
@@ -25,7 +26,7 @@ router.post("/:imdbID", function(req, res) {
   request('http://www.omdbapi.com/?i=' + imdbIDRequested, function(err, response, body) {
     var data = JSON.parse(body);
     if(!err && response.statusCode === 200){
-      db.favorite_movie.findOrCreate({where:{imdb_id:data.imdbID, title:data.Title, year:data.Year}})
+      db.favorite_movie.findOrCreate({where:{imdb_id:data.imdbID, title:data.Title, year:data.Year, poster:data.Poster}})
       	.spread(function(favorite_movie, created) {
       		res.redirect('/movies/' + imdbIDRequested);
     	});

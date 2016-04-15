@@ -37,3 +37,21 @@ $('.fav_del').on('click', function(e){
         $('.fav_del').toggleClass('hidden');
     })
 });
+
+$('.fav_del_list').on('click', function(e){
+	e.preventDefault();
+	console.log("clicked " + e.currentTarget.id);
+
+	var i = e.currentTarget.id;
+
+	var myUrl = "/favorites/" + i;
+	console.log("myUrl: " + myUrl);
+
+	$.ajax({
+		method:'DELETE',
+		url:myUrl,
+	}).done(function(){
+		console.log("done case list");
+		$('.well_' + e.currentTarget.id).toggleClass('hidden');
+	})
+});
