@@ -1,11 +1,14 @@
 var express = require("express");
-var app = express();
 var ejsLayouts = require("express-ejs-layouts");
 var request = require("request");
+var bodyParser = require('body-parser');
+var db = require('./models');
+var app = express();
 
 app.use(ejsLayouts);
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get("/", function(req, res) {
   res.render("index")
@@ -32,4 +35,19 @@ app.get('/movies/:imdbID', function(req, res) {
                              q: searchQuery});
   });
 });
+
+app.post('/movies/:imdbID', function(req, res) {
+  //good spot to filter the data here
+  console.log(req.body);
+  db.favorite.create(req.body).then(function() {
+    res.redirect('/favorites');
+  });
+});
+
+app.get('/favorites', function(req, res) {
+  db.favorite.findAll().then(function(favorite) {
+    res.render('favorites', {favorite: favorite});
+  });
+});
+
 app.listen(3000);
