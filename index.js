@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var ejsLayouts = require("express-ejs-layouts");
 var request = require('request');
+var db = require('./models');
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
@@ -43,6 +44,22 @@ app.get('/movies/:imdbID', function(req, res){
     }
   });
 });
+
+app.post('/favorites', function(req, res) {
+var movieId = req.body.id;
+var movieTitle = req.body.title;
+var movieYear = req.body.year;
+db.favorite.create({omdbid:movieId, title:movieTitle,year:movieYear}).then (function(movie,err){
+  res.redirect('/favorites');
+})
+
+})
+
+app.get('/favorites', function(req, res) {
+  db.favorite.findAll().then(function(movies){
+    res.render('favorites',{movies:movies});
+  })
+})
 // app.get('movies')
 
 

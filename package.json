@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/pacalabre/express-apis-omdb/issues"
   },
-  "homepage": "https://github.com/pacalabre/express-apis-omdb"
+  "homepage": "https://github.com/pacalabre/express-apis-omdb",
+  "dependencies": {
+    "pg": "^4.5.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.21.0"
+  }
 }
