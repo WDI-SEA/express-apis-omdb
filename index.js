@@ -27,6 +27,7 @@ app.get('/movies', function(req, res) {
     if (!error && response.statusCode == 200) {
       var dataObj = JSON.parse(body);
       var results = dataObj.Search;
+      console.log(results);
 
       res.render('movies', {results: results});
     }
