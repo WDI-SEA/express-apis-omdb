@@ -1,3 +1,4 @@
+<div>
 <h2 id="movieTitle" dataImdbId="<%= result.imdbID %>"><%= result.Title %></h2>
 <h2 id="movieDate">(<%= result.Year %>)</h2>
 <button class="add-favorite-btn">Add to Favorites</button>
@@ -9,4 +10,5 @@
 <p>Director: <%= result.Director %></p>
 <p>Writer: <%= result.Writer %></p>
 <p>Actors: <%= result.Actors %></p>
-<img src="<%= result.Poster %>" />
+<img class="displayed" src="<%= result.Poster %>" />
+</div>
