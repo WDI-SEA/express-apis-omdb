@@ -1,5 +1,5 @@
 $('.add-favorite-btn').click(function(e){
-  var imdbId = $(this).closest('.title');
+  var imdbId = $(this).attr.('.imdbId');
   debugger
   $.ajax({
     url: '/favorites/' + imdbId,
