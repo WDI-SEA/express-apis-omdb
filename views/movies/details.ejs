@@ -1,6 +1,9 @@
 <div class="col-sm-6">
 <!-- <h1>Movie info</h1> -->
-  <h2><%= movie.Title%>(<%= movie.Year %>) </h2> 
+  <h3 class="title"><%= movie.Title%>(<%= movie.Year %>)   </h3> 
+  <form action='/addfav' method='POST'>
+    <button class="add-favorite-btn" type="button">+ Favorites </button>
+  </form>
   <ul>
     <h4>Plot:</h4><p><%= movie.Plot %></p>
     <h5>Awards/Nominations:</h5><p><%= movie.Awards %></p>
@@ -9,3 +12,11 @@
 <div class="col-sm-6">
   <img src="<%= movie.Poster %>"> 
 </div> 
+
+<!-- 
+ <form action='/getFavs' method='POST'>
+     <button type="check" id="favButton">Add to Favs!</button>
+     <input type='hidden' name='imbd_id' value='<%= movie.imdbID%>'>
+     <input type='hidden' name='title' value='<%= movie.Title%>'>
+     <input type='hidden' name='year' value='<%= movie.Year%>'>
+ </form> -->
