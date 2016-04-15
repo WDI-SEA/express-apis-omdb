@@ -35,6 +35,7 @@ app.get('/movies/:imdbID', function(req, res) {
                              q: searchQuery});
   });
 });
+
 //-----END-ROUTES----->
 
 app.listen(3000);

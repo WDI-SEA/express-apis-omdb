@@ -3,7 +3,7 @@
 
 	<a href="<%= '/movies?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
 	<br><br>
-	<div class="well">
+	<div class="row well">
 	  <% 
 	  	var rating = movie.imdbRating;
 	  	var stars = Math.floor(rating/2);
@@ -28,8 +28,13 @@
 	  		newStar = "No Rating";
 	  	}
 	  %>
-	  <p><small>IMDB Rating:</small> <%- newStar %></p>
-	  <p><small>Rotten Tomatoes: <%= movie.tomatoRating %></small></p>
-	  <p><%= movie.Plot %></p>
+	  <div class="col-md-4">
+	  	<img src="<%= movie.Poster %>" style="width: 300px;" class="img-thumbnail">
+	  </div>
+	  <div class="col-md-8">
+		  <p><small>IMDB Rating:</small> <%- newStar %></p>
+		  <p><small>Rotten Tomatoes: <%= movie.tomatoRating %></small></p>
+		  <p><%= movie.Plot %></p>
+	  </div>
 	</div>
 </div>

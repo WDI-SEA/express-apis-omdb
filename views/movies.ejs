@@ -6,11 +6,11 @@
 
 	<% movies.forEach(function(movie) { %>
 	<div class="well">
-	  <h2>
+	  <h3>
 	  	<a href="/movies/<%= movie.imdbID %>/?q=<%= q %>"><%= movie.Title %></a>
 	  	<button class="btn btn-success add-favorite-btn pull-right"><span class="glyphicon glyphicon-plus"></span> Add to Favorites</button>
-	  </h2>
-	  <img src="<%= movie.Poster %>">
+	  </h3>
+	  <img src="<%= movie.Poster %>" style="width: 100px;">
 	</div>
 	<% }); %>
 
