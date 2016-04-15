@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movies</title>
+</head>
+<body>
+<ul>
+<% results.forEach(function(result) { %>
+	<li>
+			<%= result.Title %>
+			<img src="<%= result.Poster %>">
+	</li>
+	<% }); %>
+	</ul>
+</body>
+</html>
