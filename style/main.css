@@ -8,13 +8,26 @@ body{
 
 legend{
 	text-align: center;
+	color:black;
 }
 
-div{
+/*div{
 	background-color: black;
 	border: solid white 1px;
-}
+}*/
 
 h1{
-	color: #9E9E9E;
+	color: black;
+}
+
+form{
+	text-align: center;
+}
+
+label{
+	text-align: center;
+}
+
+movies{
+	
 }
