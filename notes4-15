@@ -2,3 +2,7 @@
 2. added node command >>>>> $ echo "web: node index.js" >> Procfile
 3. added process.env.PORT >>>>>>>> index.js >> var port = 3000
 app.listen(process.env.PORT || port);
+
+
+
+heroku config:set NODE_ENV='production'
