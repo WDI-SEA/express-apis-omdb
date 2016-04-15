@@ -44,7 +44,7 @@ app.get("/movies/:imdbID", function(req, res) {
   }, function(error, response, body) {
       var data = JSON.parse(body);
       console.log(data);
-      res.render("show", {movie: data});
+      res.render("show", {results: results});
   })
 });
 
