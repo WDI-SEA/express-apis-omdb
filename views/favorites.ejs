@@ -1,0 +1,6 @@
+
+ <% movies.forEach(function(movie){ %>
+<h2 id="fav_movie"><a href="/movies/<%= movie.imdbid %>"> <%= movie.title %></a> <%= movie.year %>
+</h2><button class="delete">Remove</button>
+ <% });%>
+
