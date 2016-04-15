@@ -2,7 +2,7 @@
 	<div class-"col-md-8">
 		<div class="panel panel-primary">
  			 <div class="panel-heading">
-    			<h3 class="panel-title"><%= movie.Title %> (<%= movie.Year %>)</h3>
+    			<h3 class="panel-title"><%= movie.Title %></h3>
   			</div>
 
   		<div class="panel-body">
@@ -12,17 +12,22 @@
 			    	*
 			    	<% } %>
 				</div>
-
+			<form action="/favorites" method="POST">
+				<input type="hidden" name="imdbID" value="<%= movie.imdbID %>" />
+				<input type="hidden" name="title" value="<%= movie.Title %>" />
+				<input type="hidden" name="year" value="<%= movie.Year %>" />
+				<button class="add-favorite-btn" type="submit">Add To Favorites</button>
+			</form>
 			<div class="plot">
 				<%= movie.Plot %>
 			
 			</div>  
   		</div>
 		</div>
-	</div>
+	</div>  
 </div>
 
-<!-- <h3>Rotten Tomatoes: <%= movie.imdbRating %></h3> -->
+
 
 
 
