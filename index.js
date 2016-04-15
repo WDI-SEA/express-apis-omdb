@@ -1,11 +1,14 @@
 var express = require("express");
 var ejsLayouts = require('express-ejs-layouts')
+var bodyParser = require('body-parser')
 var request = require('request');
+var db = require('./models');
 
 var app = express();
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
-app.use(express.static('static'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(__dirname + '/static'));
 
 app.get("/", function(req, res) {
     var searchTerms = ['ghost', 'league', 'war', 'bear', 'fun', 'pizza', 'old', 'ace', 'happy']
@@ -51,15 +54,65 @@ app.get("/movies", function(req, res) {
 
 app.get('/movies/:index', function(req, res) {
   var movieId = req.params.index;
-
   if (movieId) {
     request('http://www.omdbapi.com/?i=' + movieId + '&type=movie&plot=full', function (error, response, body) {
       var data = JSON.parse(body);
       res.render('show', {myMovie: data});
-    });
+      // db.favorites
+      //   .find({where: { imdbCode: movieId }})
+      //   .then(function(result) {
+      //     if (result) {
+      //       res.render('show', {myMovie: data, favorite: true});
+      //     } else {
+      //       res.render('show', {myMovie: data});
+      //     }
+        });
   } else {
     res.render('movies-safe');
   }
 });
+
+app.post('/favorites/remove/:id', function(req, res) {
+  var movieId = req.params.id;
+  console.log(movieId);
+  if (movieId) {
+    db.favorites.destroy({
+      where: { imdbCode: movieId }
+      });
+  };
+  res.render('favorites');
+});
+
+app.post('/favorites/:id', function(req, res) {
+  var movieId = req.params.id;
+  if (movieId) {
+    request('http://www.omdbapi.com/?i=' + movieId + '&type=movie&plot=full', function (error, response, body) {
+      var data = JSON.parse(body);
+      db.favorites
+        .findOrCreate({where: { imdbCode: movieId, title: data.Title, year: data.Year }})
+        .spread(function(user, created) {
+          console.log(user); // returns info about the user
+      });
+    });
+  };
+});
+
+app.get("/favorites", function(req, res) {
+
+  db.favorites
+    .findAll({attributes: ['imdbCode', 'title', 'year']})
+    .then(function(results) {
+        res.render('favorites', {favorites: results});
+    });
+});
+
+
+// app.post('/favorites',( function(req, res) {
+  
+//   // db.favorites.create(req.body).then(function() {
+//   //   res.sendStatus(200);
+//   // });
+
+// });
 
 app.listen(3000);

@@ -31,6 +31,7 @@ h1, h4, .navbar-brand {
   margin: 10px;
 }
 .result h4 {
+  margin-top: 10px;
   padding: 10px 0px;
 }
 .result img {
@@ -81,4 +82,14 @@ h1, h4, .navbar-brand {
     margin:0px;
     padding:0px;
 }
-
+.progress {
+  box-shadow: 0px 0px 5px 2px rgba(0,0,255,0.65);
+}
+#myMovie-title {
+  margin-right: 15px;
+  display: inline-block;
+}
+.add-favorite, .remove-favorite, .add-random-favorite {
+  margin-bottom: 10px;
+  display: inline-block;
+}

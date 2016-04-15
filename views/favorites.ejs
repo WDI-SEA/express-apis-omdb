@@ -1,0 +1,11 @@
+<h1 class="movies-title"> Your Favorite Movies </h1>
+<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
+<div class="movies-container">
+	<% favorites.forEach(function(movie) { %>
+	<div class="result">
+		<h4><a href="/movies/<%= movie.imdbCode %>"> <%= movie.title %> (<%= movie.year %>) </a></h4>
+		<button id="<%= movie.imdbCode %>" class="btn btn-danger remove-favorite"> Remove Favorite </button>
+	</div>
+	<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
+	<%	}) %>
+</div>
