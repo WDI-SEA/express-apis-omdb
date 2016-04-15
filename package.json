@@ -1,0 +1,21 @@
+{
+  "name": "express-apis-omdb",
+  "version": "1.0.0",
+  "description": "We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eun-n/express-apis-omdb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eun-n/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/eun-n/express-apis-omdb#readme"
+}
