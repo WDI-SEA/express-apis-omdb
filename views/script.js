@@ -32,8 +32,8 @@ $('.fav_del').on('click', function(e){
         method:'DELETE',
         url:myUrl,
     }).done(function(){
-    	console.log("finished destroy");
+    	console.log("done case");
         $('.fav_add').toggleClass('hidden');
         $('.fav_del').toggleClass('hidden');
-    });
+    })
 });

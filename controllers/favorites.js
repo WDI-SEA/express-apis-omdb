@@ -14,6 +14,7 @@ router.delete("/:imdbID", function(req, res) {
   db.favorite_movie.find({where:{imdb_id:imdbIDRequested}}).then(function(movie){
   	movie.destroy().then(function(){
   		console.log("Destroyed");
+  		res.sendStatus(200);
   	})
   });
 });
