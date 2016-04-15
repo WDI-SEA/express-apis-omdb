@@ -125,3 +125,20 @@ label {
 	display: block;
 	margin: 10px auto;
 }
+
+.prev_btn {
+	float: left;
+}
+
+.next_btn {
+	float: right;
+}
+
+.pagination_row{
+	display: block;
+	margin-bottom: 50px;
+}
+
+
+
+

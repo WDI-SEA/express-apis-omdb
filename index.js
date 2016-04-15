@@ -34,7 +34,7 @@ app.get("/movies", function(req, res) {
   request('http://www.omdbapi.com/?s=' + query + '&page=' + pageNum, function(err, response, body) {
     var data = JSON.parse(body);
     if(!err && response.statusCode === 200 && data.Search) {
-      res.render('movies', {movies: data.Search, q: query, page: pageNum});
+      res.render('movies', {movies: data.Search, q: query, page: pageNum, totalResults: data.totalResults});
       //res.send(data);
     }
     else{
@@ -48,6 +48,7 @@ app.get("/movies/:imdbID", function(req, res) {
 
   request('http://www.omdbapi.com/?i=' + imdbIDRequested + '&tomatoes=true', function(err, response, body) {
     var data = JSON.parse(body);
+
     if(!err && response.statusCode === 200){
       db.favorite_movie.count({where:{imdb_id:imdbIDRequested}}).then(function(num){
         if(num > 0) {

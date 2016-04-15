@@ -1,10 +1,8 @@
-
-
 $('.fav_add').on('click', function(e){
+    e.preventDefault();
 	console.log("clicked");
 	var i = $('#fav_url').val();
 	console.log(i);
-    e.preventDefault();
 
     var myUrl = "/favorites/" + i;
     console.log("myUrl: " + myUrl);

@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       year: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       poster: {
         type:Sequelize.STRING

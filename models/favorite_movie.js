@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var favorite_movie = sequelize.define('favorite_movie', {
     imdb_id: DataTypes.STRING,
     title: DataTypes.STRING,
-    year: DataTypes.INTEGER,
+    year: DataTypes.STRING,
     poster: DataTypes.STRING
   }, {
     classMethods: {
