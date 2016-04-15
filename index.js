@@ -25,7 +25,7 @@ app.post("/favorites", function(req,res){
   }).then(function(favorite){
     res.send("success!")
   })
-  console.log(req.body);
+  // console.log(req.body);
 });
 
 
@@ -33,7 +33,7 @@ app.post("/favorites", function(req,res){
 app.get("/favorites", function(req,res){
   db.favorites.findAll().then(function(movies) {
     res.render("favorites", {movies: movies});
-  console.log(movies);  
+  // console.log(movies);  
   });
 });
 
@@ -41,7 +41,7 @@ app.get("/favorites", function(req,res){
 app.get("/movies", function(req, res) {
   var query = req.query.q;
   if (!query){
-    console.log('nope');
+    // console.log('nope');
     return false;
   }
   request('http://www.omdbapi.com?s=' + query, function(err, response, body) {
@@ -60,12 +60,22 @@ app.get("/movies", function(req, res) {
 app.get('/movies/:imdb', function(req, res){
   request('http://www.omdbapi.com?i=' + req.params.imdb + "&tomatoes=true", function(err, response, body) {
       var data = JSON.parse(body);
-      console.log(data);
+      // console.log(data);
     if (!err && response.statusCode == 200) {    
       res.render("movies/show", {result: data});
     } else {
       res.render('error')
     } 
+  });
+});
+
+app.delete('/favorites', function(req, res) {
+  var id = req.body.id;
+  console.log(id);
+  db.favorites.find({where: {id: id}}).then(function(id){
+    id.destroy().then(function(u){
+      res.send('success');
+    });
   });
 });
 

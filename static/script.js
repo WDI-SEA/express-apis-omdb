@@ -12,7 +12,6 @@ $('.add-favorite-btn').click(function(){
     },
     done: function(xhr, status, data){
       if(status === 200){
-          // JQUERY REDIRECT HERE
       }
     }
 
@@ -22,4 +21,22 @@ $('.add-favorite-btn').click(function(){
   // var imdbID = location.pathname.slice(location.pathname.length - 9, location.pathname.length);
   // console.log(imdbID);
 
+});
+
+
+
+
+$('.delete-link').on('click', function(e){
+    e.preventDefault();
+    var myID = $(this).attr('id');
+    $.ajax({
+        method:'DELETE',
+        url:'/favorites',
+        data: {
+          id:myID
+        }
+    }).done(function(){
+       location.reload();
+        //redirect or update view
+    });
 });
