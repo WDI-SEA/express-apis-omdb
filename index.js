@@ -8,6 +8,7 @@ var db = require('./models');
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended:false}));
 
 
 app.get("/", function(req, res) {
@@ -50,7 +51,9 @@ app.get("/movies/:imdbID", function(req, res) {
 });
 
 app.get("/favs", function(req, res) {
-  res.render('favs');
+  db.favorite.findAll().then(function(favMovies){
+  res.render('favs', {favMovies: favMovies});
+});
 });
 
 app.post("/favs", function(req, res) {
