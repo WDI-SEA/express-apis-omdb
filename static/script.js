@@ -7,10 +7,8 @@ $(document).ready(function() {
         $.ajax({
             method:'POST',
             url: myUrl,
-            data: {imdbId: imdbId},
-        }).done(function(response){
-            console.log('response');
-        });
+            data: {imdbId: imdbId}, 
+        })
     });
 
     $('.remove-favorite').on('click', function(e){
@@ -22,7 +20,7 @@ $(document).ready(function() {
             url: myUrl,
             data: {imdbId: imdbId},
         }).done(function(response){
-            console.log('response');
+            window.location.reload(true);
         });
     });
 });

@@ -74,13 +74,13 @@ app.get('/movies/:index', function(req, res) {
 
 app.post('/favorites/remove/:id', function(req, res) {
   var movieId = req.params.id;
-  console.log(movieId);
   if (movieId) {
     db.favorites.destroy({
       where: { imdbCode: movieId }
-      });
-  };
-  res.render('favorites');
+      }).then(function(){
+          res.sendStatus('success');
+      })
+  }
 });
 
 app.post('/favorites/:id', function(req, res) {
