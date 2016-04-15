@@ -12,6 +12,9 @@ var request = require('request');
 
 var app = express();
 
+var favs = [];
+
+
 
 ///////////////////
 // Middleware /////
@@ -89,4 +92,4 @@ app.get("/movies/:imdbID", function(req, res) {
 ///////////////////
 // Start Server (on port 3000)
 ///////////////////
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

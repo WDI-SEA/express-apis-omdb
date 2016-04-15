@@ -1,11 +1,16 @@
 body {
-  background-color: teal;
+  background-color: #1c5380;
 }
 
-#search-results {
+div {
   background-color: white;
   border: solid black 3px;
   border-radius: 5px;
+  padding: 10px;
+
+}
+
+#search-results {
   padding: 10px;
   list-style: none;
 }
