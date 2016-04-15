@@ -1,4 +1,20 @@
 body{
-	/*background-image: url('./film.jpg');*/
-	background-color: pink;
+	background-image: url('film.jpg');
+	align-content: center;
+	color:#9E9E9E;
+	text-align: center;
+
+}
+
+legend{
+	text-align: center;
+}
+
+div{
+	background-color: black;
+	border: solid white 1px;
+}
+
+h1{
+	color: #9E9E9E;
 }
