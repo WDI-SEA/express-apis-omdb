@@ -1,10 +1,6 @@
-<div>
-<h2 id="movieTitle"><%= result.Title %></h2>
+<h2 id="movieTitle" dataImdbId="<%= result.imdbID %>"><%= result.Title %></h2>
 <h2 id="movieDate">(<%= result.Year %>)</h2>
-<form method="POST" action"/favorites">
-<input type="text" class="hidden" value="<%= result.imdbID %>" name="id">
-<button type="submit" class="add-favorite-btn">Add to Favorites</button>
-</form>
+<button class="add-favorite-btn">Add to Favorites</button>
 <p>Rotten Tomato Rating: <%= result.tomatoRating %></p>
 <p>Rating: <%= result.Rated %></p>
 <p>Released: <%= result.Released %></p>
