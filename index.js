@@ -1,12 +1,14 @@
 //requires
 var express = require("express");
 var request = require("request");
+var favCtrl = require("./controllers/favorites.js");
 
 var app = express();
 app.set('view engine', 'ejs');
 
 var ejsLayouts = require("express-ejs-layouts");
 app.use(ejsLayouts);
+app.use("/favorites", favCtrl);
 
 app.use(express.static(__dirname + '/views'));
 
@@ -17,25 +19,25 @@ app.get("/", function(req, res) {
 
 app.get("/movies", function(req, res) {
   var query = req.query.q;
-//  var pageNum = req.query.page;
+  var pageNum = req.query.page;
 
   if(query === '' || query === undefined){
     res.render('index');
     return;
   }
 
-//  if(pageNum === '' || pageNum === undefined){
-//    pageNum = 1;
-//  }
+  if(pageNum === '' || pageNum === undefined){
+    pageNum = 1;
+  }
 
-  request('http://www.omdbapi.com/?s=' + query, function(err, response, body) {
+  request('http://www.omdbapi.com/?s=' + query + '&page=' + pageNum, function(err, response, body) {
     var data = JSON.parse(body);
     if(!err && response.statusCode === 200 && data.Search) {
-      res.render('movies', {movies: data.Search, q: query}); //, page: pageNum, numHits: data.totalResults});
-      //res.send(data.Search);
+      res.render('movies', {movies: data.Search, q: query, page: pageNum});
+      //res.send(data);
     }
     else{
-      res.render('error'); // Need to add a "couln't find" page
+      res.render('error');
     }
   });
 });
@@ -52,7 +54,7 @@ app.get("/movies/:imdbID", function(req, res) {
       //res.send(data.Title);
     }
     else{
-      res.render('error'); // Need to add a "couldn't find" page
+      res.render('error');
     }
   });
 });

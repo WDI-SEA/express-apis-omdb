@@ -3,19 +3,16 @@ body {
 
 ul {
 	list-style: none;
-}
-
-.underTitle {
-	display: inline-block;
+	font-size: 12px;
+	padding-left: 0px;
 }
 
 h1 {
 	text-align: center;
 }
 
-.thumbnail {
-	height: 225px;
-	margin: 0 auto;
+label {
+	margin-top: 5px;
 }
 
 .null_poster {
@@ -31,6 +28,31 @@ h1 {
 	width: 100%;
 }
 
+.thumbnail {
+	height: 225px;
+	margin: 0 auto;
+}
+
+.title {
+	margin-bottom: 5px;
+}
+
+.underTitle {
+	display: inline-block;
+}
+
+.favorites {
+	margin-bottom: 10px;
+	width: 160px;
+	height: 42px;
+}
+
+.favorite_star {
+	height: 20px;
+	width: 20px;
+	margin-bottom: 5px;
+}
+
 .listedTitle {
 	text-align: center;
 	text-decoration: underline;
@@ -38,7 +60,7 @@ h1 {
 
 .stars {
 	height: 24px;
-	background:url('/star_gold_256.png');
+	background:url('/img/star_gold_256.png');
 	background-size: 24px 24px;
 	background-repeat: repeat-x;
 }
@@ -46,7 +68,7 @@ h1 {
 .stars_white {
 	height: 24px;
 	width: 240px;
-	background:url('/star_white_256.png');
+	background:url('/img/star_white_256.png');
 	background-size: 24px 24px;
 	background-repeat: repeat-x;
 }
@@ -88,4 +110,8 @@ h1 {
 .tomato_list {
 	padding-left: 0;
 	font-size: 10px;
+}
+
+.hidden {
+	display: none;
 }

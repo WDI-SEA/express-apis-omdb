@@ -8,7 +8,7 @@
   		<% } %>
   	</div>
   	<div class="col-xs-6 col-sm-7 col-md-8 col-lg-8">
-  		<h2><%= showData.Title %> <small> (<%= showData.Year %>)</small></h2>
+  		<h2 class="title"><%= showData.Title %> <small> (<%= showData.Year %>)</small></h2>
 
 		<ul>
 			<li class="underTitle">
@@ -18,6 +18,18 @@
 			<li class="underTitle"><%= showData.Genre %> |</li>
 			<li class="underTitle"><%= showData.Released %> (<%= showData.Country %>)</li>
 		</ul>
+
+		<button type="button" class="btn btn-primary favorites fav_add">
+			<img src="/img/star_white_256.png" class="favorite_star fav_add">
+			<label class="fav_add">Add to Favorites</label>
+		</button>
+
+		<button type="button" class="btn btn-primary btn-sm favorites hidden fav_add" href="/favorites/<%= showData.imdbID%>">
+			<img src="/img/star_gold_256.png" class="favorite_star fav_add" href="/favorites/<%= showData.imdbID%>">
+			<label class="fav_add" href="/favorites/<%= showData.imdbID%>">Added to Favorites</label>
+		</button>
+
+		<br>
 
 		<p><%= showData.Plot %></p>
 
@@ -61,11 +73,11 @@
 					<p class="tomato_title">Rotten Tomatoes: TOMATOMETER</p>
 
 					<% if(showData.tomatoImage === 'rotten') { %>
-						<img class="tomato_img" src="/rt_lg_02.png">
+						<img class="tomato_img" src="/img/rt_lg_02.png">
 					<% } else if(showData.tomatoImage === 'certified') { %>
-						<img class="tomato_img" src="/Certified_Fresh.svg">
+						<img class="tomato_img" src="/img/Certified_Fresh.svg">
 					<% } else { %>
-						<img class="tomato_img" src="/rt_lg_01.png">
+						<img class="tomato_img" src="/img/rt_lg_01.png">
 					<% } %>
 				
 					<label class="tomato_meter"><%= showData.tomatoMeter %>%</label>
@@ -83,9 +95,9 @@
 					<p class="tomato_title">Rotten Tomatoes: AUDIENCE SCORE</p>
 
 					<% if(showData.tomatoUserMeter < 60) { %>
-						<img class="tomato_img" src="/rt_lg_06.png">
+						<img class="tomato_img" src="/img/rt_lg_06.png">
 					<% } else { %>
-						<img class="tomato_img" src="/rt_lg_04.png">
+						<img class="tomato_img" src="/img/rt_lg_04.png">
 					<% } %>
 
 					<label class="tomato_meter"><%= showData.tomatoUserMeter %>%</label>
