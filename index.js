@@ -1,7 +1,9 @@
 var express = require('express');
 var ejsLayouts = require('express-ejs-layouts');
 var request = require('request');
+var bodyParser = require('body-parser');
 var app = express();
+var db = require('./models');
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
@@ -43,19 +45,23 @@ app.get("/movies/:imdbID", function(req, res) {
   }, function(error, response, body) {
       var data = JSON.parse(body);
       console.log(data);
-      res.render("show", {results: results});
+      res.render("show", {movie: data});
   })
 });
 
-app.get("/favorites", function(req, res) {
-  res.render('favorites');
+app.get("/favs", function(req, res) {
+  res.render('favs');
 });
 
-app.post("/favorites/:imdbID", function(req, res) {
-  var imdbID = req.params.imdbID;
+app.post("/favs", function(req, res) {
+  var favMovie = {imdbId: req.body.imdbID, 
+                  title: req.body.title, 
+                  year: req.body.year};
 
-  
-  res.render('favorites');
+  db.favorite.create(favMovie).then(function(movie){
+    console.log(movie);
+    res.redirect('/favs');
+  });
 });
 
 

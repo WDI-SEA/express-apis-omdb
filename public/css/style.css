@@ -24,7 +24,16 @@ input {
   color: black;
 }
 
-p{
+p {
+  padding: 5px;
+}
+
+button {
+  background-color: black;
+  color: white;
+}
+
+.padding{
   padding-left: 20px;
   padding-top: 10px;
 
