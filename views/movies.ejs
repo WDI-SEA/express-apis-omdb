@@ -5,6 +5,11 @@
 		<div class="well">
   			<a href="<%= '/movies/' + movie.imdbID + '/?q=' + q %>"><h2><%= movie.Title %>(<%= movie.Year %>)</h2></a>
   			<img src="<%= movie.Poster %>">
+  			
+  			<button id="put-form" type="submit" class="btn btn-success">Add Favorite</button>
+  		
 		</div>
 </ul>
 <% }) %>
+
+

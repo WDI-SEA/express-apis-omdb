@@ -2,10 +2,12 @@ var express = require("express");
 var ejsLayouts = require("express-ejs-layouts");
 //var peopleCtrl = require("./controllers/people")
 var request = require('request');
+var db = require("./models")
 
 var app = express();
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/views'))
 
 
 app.get('/', function(req, res) {
@@ -40,9 +42,19 @@ app.get("/movies/:imdbID", function(req, res) {
 	}); 
 });
 
+app.get('/favorite', function(req, res) {
+	
+	db.favorite.findAll().then(function(favorites) {
+		console.log(favorites);
+		favorites = [{title: "star wars"}, {title:"fido goes west"}]
+		res.render("favorite", {favorites: favorites});
+	});
+});
 
 
 
+
+// app.post
 
 app.listen(3000);
 
