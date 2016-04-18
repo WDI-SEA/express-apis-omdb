@@ -1,7 +1,14 @@
 <h1> Your Ten Star Favorites: </h1>
-
+  <div>
+    <ul>
     <% favMovies.forEach(function(favMovie) { %>
-      <p> <a href="/movies/<%=favMovie.imdbID%>"> <%= favMovie.Title %> </a></p>
+      <li><a href="/movies/<%= favMovie.imdbId %>"> <%= favMovie.title %> </a>
+      <form method="post" action="/movies/<%= favMovie.imdbId%>/comments/">
+        <button type="submit" class="addComment">Comments</button>
+      </form>
+      </li>
+      <p></p>
+    </ul>
 <!--       <button class="addFav">Favorite </button>-->
        <% }); %>
-
+      </div>

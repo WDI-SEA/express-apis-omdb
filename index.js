@@ -28,7 +28,7 @@ app.get("/movies", function(req, res) {
       if (!error && response.statusCode == 200) {
         var data = JSON.parse(body);
         var results = data.Search;
-        res.render("movies", {results: results});
+        res.render("search/movies", {results: results});
       } else {
         res.render("error");
       }
@@ -46,14 +46,14 @@ app.get("/movies/:imdbID", function(req, res) {
   }, function(error, response, body) {
       var data = JSON.parse(body);
       console.log(data);
-      res.render("show", {movie: data});
+      res.render("search/show", {movie: data});
   })
 });
 
 app.get("/favs", function(req, res) {
   db.favorite.findAll().then(function(favMovies){
-  res.render('favs', {favMovies: favMovies});
-});
+  res.render("favs", {favMovies: favMovies});
+  });
 });
 
 app.post("/favs", function(req, res) {

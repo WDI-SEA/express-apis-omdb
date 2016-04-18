@@ -49,7 +49,6 @@ a {
 }
 
 .trans {
-
   z-index: 1;
   /* These three lines are for transparency in all browsers. */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
