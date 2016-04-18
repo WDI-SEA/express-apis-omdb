@@ -30,7 +30,7 @@ app.get("/movies", function(req, res) {
         var results = data.Search;
         res.render("movies", {results: results});
       } else {
-        res.render('error');
+        res.render("error");
       }
   });
 });
