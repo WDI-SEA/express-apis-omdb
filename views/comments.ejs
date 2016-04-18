@@ -1,6 +1,6 @@
 <h1><%= favorites.Title %></h1>
-  <% favorites.comments.forEach(function(comment)  { %>
-    <a href="/favs/<%= comment.data %>"><h3><%= comment.data %></h3></a>
+  <% favorites.comment.forEach(function(comment)  { %>
+    <a href="/favs/<%= comment.id %>"><h3><%= comment.content %></h3></a>
   <% }); %>
 
 <form method="post" action="/movies/<%= favMovie.imdbId%>/comments/">

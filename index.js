@@ -67,13 +67,6 @@ app.post("/favs", function(req, res) {
   });
 });
 
-app.get("/favs/:id/comments", function(req, res) {
-  db.favorite.findAll().then(function(favorites){
-      res.render("comments", {favorites:favorites});
-  })
-});
-
-
 app.post("/favs", function(req, res) {
   var comment = {imdbId: req.body.imdbID, 
                   title: req.body.title, 
@@ -83,6 +76,14 @@ app.post("/favs", function(req, res) {
     console.log(movie);
     res.redirect('/favs');
   });
+});
+
+app.get("/favs/:id/comments", function(req, res) {
+  var movieId = req.params.id;
+
+  db.favorite.find({where: {id: movieId}, include: [db.comment]}).then(function(favorites){
+      res.render("comments", {favorites:favorites});
+  })
 });
 
 
