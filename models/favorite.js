@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.favorite.hasMany(models.comm);
+        // associations can be defined here
       }
     }
   });
