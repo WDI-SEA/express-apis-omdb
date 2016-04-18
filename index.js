@@ -67,6 +67,21 @@ app.post("/favs", function(req, res) {
   });
 });
 
+app.get("/favs/:id/comments", function(req, res) {
+  res.render("comments");
+});
+
+
+app.post("/favs", function(req, res) {
+  var comment = {imdbId: req.body.imdbID, 
+                  title: req.body.title, 
+                  year: req.body.year};
+
+  db.favorite.create(favMovie).then(function(movie){
+    console.log(movie);
+    res.redirect('/favs');
+  });
+});
 
 
 var port = 3000;
