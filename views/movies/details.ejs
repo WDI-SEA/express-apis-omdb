@@ -1,13 +1,15 @@
 <div class="col-sm-6">
-
   <h3 class="title"> <%= movie.Title%> (<%= movie.Year %>) </h3> 
-  <form action='/addfav' method='POST'>
-    <button class="add-favorite-btn" type="button"> + Favorites </button>
-  </form>
-  <ul>
+  <form action="/favorites" method="POST" role="form">
+   <div class="form-group">
+     <input type="hidden" name="imdb_id" value="<%=movie.imdbID %>" />
+     <input type="hidden" name="Title" value="<%= movie.Title %>" />
+     <input type="hidden" name="Year" value="<%= movie.Year %>" />
+   </div>
+   <button type="submit" name="Add to Favorites"> + Favorites </button>
+  </form> 
     <h4>Plot:</h4><p><%= movie.Plot %></p>
     <h5>Awards/Nominations:</h5><p><%= movie.Awards %></p>
-  </ul>
 </div>
 
 

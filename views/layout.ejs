@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>  
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-
+  
+  <link href="/style.css" rel="stylesheet"> 
+  <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
   <title>layout</title>
 </head>
 
 <body>
 <div class="container">
+  <div class="col-sm-12">
 
-<h1>Welcome to OMDB Movie Search</h1>
-
-<form method="GET" action="/movies" class="form" role="search">
-  <div class="form-group">
-    <label for="">Search:</label>
-    <input type="text" class="form-control" id="" placeholder="i.e. Harold and Maude" name="q">
+    <h1>OMDB Movie Search</h1>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+  <div class="col-sm-offset-1 col-sm-6">
+    <form method="GET" action="/movies" class="form" role="search">
+      <div class="form-group">
+        <label for="">Search:</label>
+        <input type="text" class="form-control" id="" placeholder="i.e. Harold and Maude" name="q">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+
+
+<%- body %>
+
 </div>
-  <%- body %>
+
+
 <script src="/script.js"></script>
 </body>
 </html>

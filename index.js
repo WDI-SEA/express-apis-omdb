@@ -16,6 +16,7 @@ app.get('/', function(req, res) {
 
 app.get('/movies', function(req, res) {
   var query = req.query.q;
+  // if (query = undefined | "") 
 
   request('http://www.omdbapi.com/?s=' + query, function(error, response, body) {
    
@@ -38,8 +39,8 @@ app.get('/movies/:imdbID', function(req, res) {
   });
 });
 
-app.post('/movies/favorites', function(req, res) {
-  db.favorite.create({
+app.post('/favorites', function(req, res) {
+  db.favMovies.create({
     imdb_id: req.body.imbd_id,
     title: req.body.title,
     year: req.body.year
@@ -49,9 +50,13 @@ app.post('/movies/favorites', function(req, res) {
 });
  
 
-// app.get('/favorites', function(req, res) {
-
-
+app.get('/favorites', function(req, res) {
+  db.favMovies.findAll().then(function(favs) {
+     res.render('favShow', {
+      favorites: title
+    }); 
+  });
+}); 
 
 var port = 3000
 app.listen(process.env.PORT || port);

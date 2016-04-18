@@ -1,8 +1,8 @@
 $('.add-favorite-btn').click(function(e){
-  var imdbId = $(this).attr.('.imdbId');
+  var imdbId = $(this).attr('href');
   debugger
   $.ajax({
-    url: '/favorites/' + imdbId,
+    url: '/movies/favorites/' + imdbId,
     method: 'POST',
     data: {
       imdbId: imdbId
@@ -11,22 +11,9 @@ $('.add-favorite-btn').click(function(e){
       if(status === 200) {
        var data = JSON.parse(body);
        var favorites = data.imdbId;
-       res.render('favorites', {results: results});
+       res.render('/movies/favorites', {results: results});
       }
     }
   });
 
 });
-
-
-
-// $('.delete-button').click(function(e){
-//   var id = $(this).attr('.id');
-//   debugger
-
-//   $.ajax({
-//     url: '/favorites'
-//     method: 'DELETE',
-//     data: {
-//       id: id
-//     },

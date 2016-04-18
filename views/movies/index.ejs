@@ -1,8 +1,12 @@
-<div class="col-sm-8">
+<div class="col-sm-12">
   <ul>
      <h4> Results:</h4>
-     <% result.forEach(function(result) { %>
-    <h3 class="title"><a href="movies/<%= result.imdbID%>"> (<%= result.Year %>) <%= result.Title%> </a></h3><button class="add-favorite-btn" type="button"></button> 
+
+       <ul class="title">
+     <% results.forEach(function(result) { %>
+  
+    <li><a href="movies/<%= result.imdbID%>"> (<%= result.Year %>) <%= result.Title%> </a></h3><button class="add-favorite-btn" type="button"></button> 
+    </li>
     <% }); %>
   </ul>
 </div> 
