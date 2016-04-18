@@ -1,0 +1,40 @@
+<div class="container">
+	<h1><%= movie.Title %> <small><%= movie.Year %></small></h1>
+
+	<a href="<%= '/movies?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
+	<br><br>
+	<div class="row well">
+	  <% 
+	  	var rating = movie.imdbRating;
+	  	var stars = Math.floor(rating/2);
+	  	var newStar = "";
+
+	  	if(stars == 1) {
+	  		newStar = '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span>';
+	  	}
+	  	else if(stars == 2) {
+	  		newStar = '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span>';
+	  	}
+	  	else if(stars == 3) {
+	  		newStar = '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span>';
+	  	}
+	  	else if(stars == 4) {
+	  		newStar = '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span>';
+	  	}
+	  	else if(stars == 5) {
+	  		newStar = '<span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>';
+	  	}
+	  	else {
+	  		newStar = "No Rating";
+	  	}
+	  %>
+	  <div class="col-md-4">
+	  	<img src="<%= movie.Poster %>" style="width: 300px;" class="img-thumbnail">
+	  </div>
+	  <div class="col-md-8">
+		  <p><small>IMDB Rating:</small> <%- newStar %></p>
+		  <p><small>Rotten Tomatoes: <%= movie.tomatoRating %></small></p>
+		  <p><%= movie.Plot %></p>
+	  </div>
+	</div>
+</div>
