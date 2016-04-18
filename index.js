@@ -39,20 +39,19 @@ app.get('/movies/:imdbID', function(req, res) {
   });
 });
 
-app.post('/favorites', function(req, res) {
+app.post('/favorites/:imdb_id', function(req, res) {
   db.favMovies.create({
     imdb_id: req.body.imbd_id,
     title: req.body.title,
     year: req.body.year
   }).then(function(saved) {
-    res.redirect('/movies/favorites');
+    res.redirect('/favorites');
   });
 });
  
-
 app.get('/favorites', function(req, res) {
   db.favMovies.findAll().then(function(favs) {
-     res.render('favShow', {
+     res.render('movies/favShow', {
       favorites: title
     }); 
   });
