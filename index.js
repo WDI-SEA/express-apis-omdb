@@ -81,7 +81,7 @@ app.post("/favs", function(req, res) {
 app.get("/favs/:id/comments", function(req, res) {
   var movieId = req.params.id;
 
-  db.favorite.find({where: {id: movieId}, include: [db.comment]}).then(function(favorites){
+  db.favorite.find({where: {id: movieId}, include: [db.comm]}).then(function(favorites){
       res.render("comments", {favorites:favorites});
   })
 });

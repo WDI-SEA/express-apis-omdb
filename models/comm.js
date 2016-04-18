@@ -1,15 +1,15 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var comment = sequelize.define('comment', {
+  var comm = sequelize.define('comm', {
     by: DataTypes.STRING,
     content: DataTypes.TEXT,
     favoriteId: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.comm.belongsTo(models.favorite);
       }
     }
   });
-  return comment;
+  return comm;
 };
