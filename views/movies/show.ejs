@@ -1,0 +1,14 @@
+  <h1>Movie info</h1>
+    <div>
+		<ul>
+	      <h2>(<%= movie.Year %>) <%= movie.Title%></h2> 
+	      <p><%= movie.Plot %></p>
+	      <p><%= movie.Awards %></p>
+	      <form method="post">
+	      	<input type="hidden" name="title" value="<%=movie.Title%>">
+	      	<input type="hidden" name="year" value="<%=movie.Year%>">
+	      	<input type="hidden" name="imdb" value="<%=movie.imdbID%>">
+	      	<input type="submit" value="Add to Favorites">
+	      </form>
+	    </ul>
+    </div>
