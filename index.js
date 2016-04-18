@@ -68,7 +68,9 @@ app.post("/favs", function(req, res) {
 });
 
 app.get("/favs/:id/comments", function(req, res) {
-  res.render("comments");
+  db.favorite.findAll().then(function(favorites){
+      res.render("comments", {favorites:favorites});
+  })
 });
 
 

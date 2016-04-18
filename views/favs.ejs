@@ -3,8 +3,8 @@
     <ul>
     <% favMovies.forEach(function(favMovie) { %>
       <li><a href="/movies/<%= favMovie.imdbId %>"> <%= favMovie.title %> </a>
-      <form method="post" action="/movies/<%= favMovie.imdbId%>/comments/">
-        <button type="submit" class="addComment">Comments</button>
+      <form>
+        <a href="/favs/<%= favMovie.imdbId %>/comments"><button type="button">comment</button></a>
       </form>
       </li>
       <p></p>
