@@ -1,0 +1,24 @@
+{
+  "name": "express-apis-omdb",
+  "version": "1.0.0",
+  "description": "We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrongSad/express-apis-omdb.git"
+  },
+  "author": "Jacob barrus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StrongSad/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/StrongSad/express-apis-omdb#readme"
+}

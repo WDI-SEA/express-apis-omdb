@@ -1,5 +1,5 @@
 //use jQuery to activate button
-$('#put-form').submit(function(e){
+$().submit(function(e){
 	e.preventDefault();
 	//var imdbId = $(this).closest('h2').text();
 	var myUrl = $(this).attr('action'); //+ $(this).closest('h2').text();;
@@ -14,5 +14,5 @@ $('#put-form').submit(function(e){
 		if(status == 200) {
 
 		}
-	});
-});
+	}); 
+});  

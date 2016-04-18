@@ -1,17 +1,20 @@
 var express = require("express");
 var ejsLayouts = require("express-ejs-layouts");
-//var peopleCtrl = require("./controllers/people")
 var request = require('request');
 var db = require("./models")
+var bodyParser= require("body-parser");
+var url = require('url');
+
 
 var app = express();
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
-app.use(express.static(__dirname + '/views'))
+app.use(bodyParser.urlencoded({extended: false}));
+// app.use(express.static(__dirname + '/views'))
 
 
 app.get('/', function(req, res) {
-	res.render('index');
+	res.render('index');  
 });
  
 app.get("/movies", function(req, res) {
@@ -43,11 +46,16 @@ app.get("/movies/:imdbID", function(req, res) {
 });
 
 app.get('/favorite', function(req, res) {
-	
-	db.favorite.findAll().then(function(favorites) {
-		console.log(favorites);
-		favorites = [{title: "star wars"}, {title:"fido goes west"}]
-		res.render("favorite", {favorites: favorites});
+	db.favorite.findAll().then(function(favorite) {
+		console.log(favorite);
+		//favorites = [{title: "star wars"}, {title:"fido goes west"}]
+		res.render("favorite", {favorites: favorite});
+	});
+});
+
+app.post('/favorite', function(req, res) {
+	db.favorite.create(req.body).then(function(favorite) {
+  		res.redirect('/favorite');
 	});
 });
 

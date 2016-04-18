@@ -1,11 +1,16 @@
-<h1><%= movie.Title %>
-  	<small><%= movie.Year %></small>
-</h1>
-
-<a href="<%= '/movies/?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
+<h1>Movie Info</h1>
 
 <div class="well">
+	<h1><%= movie.Title %>
+  	<small><%= movie.Year %></small>
+	</h1>
 	<p><%= movie.Plot %></p>
+	<form method="POST" action="/favorite">
+		<input type="text" name="title" value="<%= movie.Title%>">
+		<input type="number" name="year" value="<%= movie.Year %>">
+		<input type="text" name="director" value="<%= movie.Director %>">
+  		<button type="submit" class="btn btn-success">Add Favorite</button>
+  </form>
 </div>
 
-
+<a href="<%= '/movies/?q=' + q %>" class="btn btn-primary">&larr; Back to Search</a>
