@@ -2,7 +2,7 @@
   <div>
     <ul>
     <% favMovies.forEach(function(favMovie) { %>
-      <li><a href="/movies/<%= favMovie.imdbId %>"> <%= favMovie.title %> </a>
+      <li><h3><a href="/movies/<%= favMovie.imdbId %>"> <%= favMovie.title %> </a></h3>
       <form>
         <a href="/favs/<%= favMovie.id %>/comments"><button type="button">comment</button></a>
         <a href="/favs/<%= favMovie.id %>/tags"><button type="button">tag</button></a>

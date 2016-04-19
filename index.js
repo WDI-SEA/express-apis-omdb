@@ -51,9 +51,20 @@ app.get("/movies/:imdbID", function(req, res) {
 });
 
 app.get("/favs", function(req, res) {
-  db.favorite.findAll().then(function(favMovies){
-  res.render("favs", {favMovies: favMovies});
+    var tag = req.query.tag;
+    console.log("HERE BE TAG:", tag);
+
+if(tag){
+  db.tag.find({where: {tag:tag}}).then(function(tag){
+    tag.getFavorites().then(function(favorites){
+      res.render('favs', {favorites:favorites});
+    });
   });
+} else {
+    db.favorite.findAll().then(function(favMovies){
+    res.render("favs", {favMovies: favMovies});
+    });
+  }
 });
 
 app.post("/favs", function(req, res) {
@@ -111,6 +122,7 @@ app.get("/favs/:id/tags", function(req, res) {
       res.render("tags", {favorites:favorites});
   })
 });
+
 
 // trying to display tags generally - NOT WORKING (yet)
 

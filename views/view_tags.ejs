@@ -2,6 +2,10 @@
 
 <div>  
   <% tags.forEach(function(tag)  { %>
-    <h3><%= tag.tag %></h3>
+    <h3>
+      <a href="/favs?tag=<%= tag.tag %>">
+         <%= tag.tag %> 
+      </a>
+    </h3>
   <% }); %>
 </div>
