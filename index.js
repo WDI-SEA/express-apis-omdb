@@ -78,17 +78,16 @@ app.post("/favs", function(req, res) {
   });
 });
 
-//display comments - easy peasy
+//display comments - using imdbId instead of favId :(
 
 app.get("/favs/:id/comments", function(req, res) {
   var movieId = req.params.id;
 
   console.log(movieId);
-  db.favorite.findOne({where: {id: movieId}, include:[db.comment]}).then(function(favorite){
-      res.render("comments", {favorite:favorite});
+  db.favorite.findOne({where: {id: movieId}, include:[db.comment]}).then(function(favorites){
+      res.render("comments", {favorites:favorites});
   });
 });
-
 
 // CURRENTLY CAN'T REDIRECT PAGE AND KEEP FAVORITES DATA
 
@@ -96,10 +95,9 @@ app.post('/favs/:id/comments', function(req, res) {
   var movieId=req.params.id;
   var newComment = req.body;
 
-
- db.favorite.find({where: {imdbId: movieId}, include: [db.comment]}).then(function(favorites){
+ db.favorite.find({where: {id: movieId}, include: [db.comment]}).then(function(favorites){
   db.comment.create(newComment).then(function(comment) {
-    res.render("comments", {favorites:favorites});
+    res.redirect("/favs/" + req.params.id + "/comments");
     });
   });
 });
@@ -107,15 +105,15 @@ app.post('/favs/:id/comments', function(req, res) {
 
 //display tags for a given movie
 
-app.get("/favs/:id/tags", function(req, res) {
-  var movieId = req.params.id;
+// app.get("/favs/:id/tags", function(req, res) {
+//   var movieId = req.params.id;
 
-  db.favorite.find({where: {imdbId: movieId}, include:[db.tag]}).then(function(favorites){
-      res.render("tags", {favorites:favorites});
-  })
-});
+//   db.favorite.find({where: {id: movieId}, include:[db.tag]}).then(function(favorites){
+//       res.render("tags", {favorites:favorites});
+//   })
+// });
 
-//trying to display tags generally - NOT WORKING (yet)
+trying to display tags generally - NOT WORKING (yet)
 
 app.get("/tags", function(req, res) {
 
@@ -124,7 +122,7 @@ app.get("/tags", function(req, res) {
   });
 });
 
-//trying to add tags to already created favorites
+// trying to add tags to already created favorites
 
 app.post('/favs/:id/tags', function(req, res) {
   var movieId = req.params.id;
@@ -133,7 +131,7 @@ app.post('/favs/:id/tags', function(req, res) {
   db.favorite.find({where: {imdbId: movieId}}).then(function(favorites){
     db.tag.findOrCreate({where: {tag: newTag}}).spread(function(tag, created){
       favorite.addTag(newTag).then(function(){
-        res.render('/view_tags', {favorites:favorites});
+        res.render('view_tags', {favorites:favorites});
       });
     });   
   });

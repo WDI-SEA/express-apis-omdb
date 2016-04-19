@@ -1,10 +1,10 @@
 <h1><%= favorites.title %></h1>
 <img src="<%= favorites.Poster %>">
 <div>
-  <form method="post" action="/favs/<%= favorites.imdbId%>/tags/">
+  <form method="post" action="/favs/<%= favorites.id%>/tags/">
     <input type="hidden" name="favoriteId" value="<%-favorites.id%>">
     <input type="text" name="tag" placeholder="Your tag here">
-    <input type="submit" class="addComment"></input>
+    <input type="submit" class="addTag"></input>
   </form>
 </div>
   <% favorites.tags.forEach(function(words)  { %>

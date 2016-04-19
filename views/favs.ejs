@@ -4,8 +4,8 @@
     <% favMovies.forEach(function(favMovie) { %>
       <li><a href="/movies/<%= favMovie.imdbId %>"> <%= favMovie.title %> </a>
       <form>
-        <a href="/favs/<%= favMovie.imdbId %>/comments"><button type="button">comment</button></a>
-        <a href="/favs/<%= favMovie.imdbId %>/tags"><button type="button">tag</button></a>
+        <a href="/favs/<%= favMovie.id %>/comments"><button type="button">comment</button></a>
+        <a href="/favs/<%= favMovie.id %>/tags"><button type="button">tag</button></a>
       </form>
       </li>
       <p></p>
