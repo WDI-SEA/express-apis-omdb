@@ -1,16 +1,16 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var favorite = sequelize.define('favorite', {
-    omdbid: DataTypes.STRING,
+  var comment = sequelize.define('comment', {
+    favoriteId: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    year: DataTypes.INTEGER
+    comment: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        models.favorite.hasMany(models.comment);
+        models.comment.belongsTo(models.favorite);
       }
     }
   });
-  return favorite;
+  return comment;
 };

@@ -31,7 +31,6 @@ app.get('/movies', function(req, res) {
   });
 });
 
-
 app.get('/movies/:imdbID', function(req, res){
   var imdbID = req.params.imdbID;
   var url = 'http://www.omdbapi.com/?i='+imdbID;
@@ -40,6 +39,9 @@ app.get('/movies/:imdbID', function(req, res){
     var data = JSON.parse(body);
     console.log(data);
     if(!err && response.statusCode === 200) {
+      db.comment.findAll().then(function() {
+        console.log(comment.comment);
+      })
       res.render('plot', {movie: data});
     }
   });
@@ -51,17 +53,39 @@ var movieTitle = req.body.title;
 var movieYear = req.body.year;
 db.favorite.create({omdbid:movieId, title:movieTitle,year:movieYear}).then (function(movie,err){
   res.redirect('/favorites');
-})
-
-})
+  });
+});
 
 app.get('/favorites', function(req, res) {
   db.favorite.findAll().then(function(movies){
     res.render('favorites',{movies:movies});
-  })
-})
-// app.get('movies')
+  });
+});
 
+
+app.get('/comments', function(req, res) {
+  db.comment.findAll().then(function(comments){
+    res.redirect('plot',{comment:comments});
+  })
+});
+
+app.get('/plot',function(req,res) {
+  res.render('/plot');
+})
+
+app.post('/movies/:imdbID', function(req,res) {
+  var movieId = req.body.favoriteId;
+  var movieTitle = req.body.title;
+  var comments= req.body.comment;
+  console.log("movieID="+movieId);
+  db.comment.create({favoriteId:movieId,title:movieTitle,comment:comments}).then(function(comment, err) {
+    if(!err) {
+    res.redirect('/movies/'+req.params.imdbID);
+    } else {
+      res.send(err);
+    }
+  });
+});
 
 
 app.listen(process.env.PORT || 3000);
