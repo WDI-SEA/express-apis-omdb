@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4 review_div">
+  		<% if(showData.Poster === 'N/A') { %>
+  			<h4 class="null_poster">Poster not available</h4>
+  		<% } else { %>
+  			<img class="poster" src="<%= showData.Poster %>">
+  		<% } %>
+  	</div>
+  	<div class="col-xs-6 col-sm-7 col-md-8 col-lg-8">
+  		<h2 class="title"><%= showData.Title %> <small> (<%= showData.Year %>)</small></h2>
+
+		<ul>
+			<li class="underTitle">
+				<% if (showData.Rated === 'N/A') { %> Not Rated
+				<% } else { %> <%= showData.Rated %> <% } %> |</li> 
+			<li class="underTitle"><%= showData.Runtime %> |</li>
+			<li class="underTitle"><%= showData.Genre %> |</li>
+			<li class="underTitle"><%= showData.Released %> (<%= showData.Country %>)</li>
+		</ul>
+
+
+		<button id="favorite_add" type="button" class="btn btn-primary favorites fav_add
+			<% if (favorite) { %> hidden <% } %>">
+			<img src="/img/star_white_256.png" class="favorite_star">
+			<label>Add to Favorites</label>			
+			<input id="fav_url" type="hidden" value="<%= showData.imdbID %>"></input>
+		</button>
+
+		<button id="favorite_delete" type="button" class="btn btn-primary favorites fav_del
+			<% if (!favorite) { %> hidden <% } %>">
+			<img src="/img/star_gold_256.png" class="favorite_star">
+			<label>Added to Favorites</label>
+		</button>
+
+		<a href = "/favorites">
+			<button id="favorite_view" type="button" class="btn btn-info favorites">
+				<label>View Favorites</label>
+			</button>
+		</a>
+
+		<br>
+
+		<p><%= showData.Plot %></p>
+
+		<p><strong>Director:</strong> <%= showData.Director %></p>
+		<p><strong>Writer(s):</strong> <%= showData.Writer %></p>
+		<p><strong>Stars:</strong> <%= showData.Actors %></p>
+		<p><strong>Awards:</strong> <%= showData.Awards %></p>
+
+		<div class="row">
+
+			<% if (showData.imdbRating != 'N/A') { %>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">			
+					<p style="margin-bottom: 0px">
+						imdbRating: <%= showData.imdbRating %>/10 (<%= showData.imdbVotes %> votes)
+					</p>
+
+					<div class="stars_white">
+						<div class="stars" style="width: <%= (24 * showData.imdbRating) %>px;"></div>
+					</div>
+				</div>
+			<% } %>
+
+
+			<% if (showData.Metascore != 'N/A') { %>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">				
+					<p>Metascore: <%= showData.Metascore %>/100</p>
+
+					<div class="metascore_bar" style="width: <%= (showData.Metascore * 2.5) %>px">
+						<div class="metascore_box" style="background-color:
+							<% if(showData.Metascore < 40){ %> #f00 <% }
+						  else if(showData.Metascore > 60){ %> #6c3 <% }
+						  else { %> #fc3 <% } %>;">
+							<%= showData.Metascore %>
+						</div>
+					</div>
+				</div>
+			<% } %>
+
+			<% if (showData.tomatoMeter != 'N/A') { %>
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">					
+					<p class="tomato_title">Rotten Tomatoes: TOMATOMETER</p>
+
+					<% if(showData.tomatoImage === 'rotten') { %>
+						<img class="tomato_img" src="/img/rt_lg_02.png">
+					<% } else if(showData.tomatoImage === 'certified') { %>
+						<img class="tomato_img" src="/img/Certified_Fresh.svg">
+					<% } else { %>
+						<img class="tomato_img" src="/img/rt_lg_01.png">
+					<% } %>
+				
+					<label class="tomato_meter"><%= showData.tomatoMeter %>%</label>
+
+					<ul class="tomato_list">
+						<li>Average Rating: <%= showData.tomatoRating %>/10</li>
+						<li>Reviews Counted: <%= showData.tomatoReviews %></li>
+						<li>Fresh: <%= showData.tomatoFresh %></li>
+						<li>Rotten: <%= showData.tomatoRotten %></li>
+					</ul>
+
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 review_div">
+					<p class="tomato_title">Rotten Tomatoes: AUDIENCE SCORE</p>
+
+					<% if(showData.tomatoUserMeter < 60) { %>
+						<img class="tomato_img" src="/img/rt_lg_06.png">
+					<% } else { %>
+						<img class="tomato_img" src="/img/rt_lg_04.png">
+					<% } %>
+
+					<label class="tomato_meter"><%= showData.tomatoUserMeter %>%</label>
+
+					<ul class="tomato_list">
+						<li>Average Rating: <%= showData.tomatoUserRating %>/10</li>
+						<li>User Ratings: <%= showData.tomatoUserReviews %></li>
+					</ul>
+
+				</div>
+
+			<% } %>
+
+		</div>
+
+		<div class="row comment_group <% if (!favorite) { %> hidden <% } %>">
+		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        		<h3>Comments...</h3>
+    		</div>
+
+			<form action="/favorites/<%= showData.imdbID %>/comments" method="POST" role="form">
+
+		        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		          <div class="input-group">
+		          <input type="text" class="form-control" id="comment_text" placeholder="Enter a comment about the movie here." name="post">
+		            <span class="input-group-btn">
+		              <button class="btn btn-primary search_btn" type="submit">
+		              	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		              </button>
+		            </span>
+		          </div><!-- /input-group -->
+		        </div><!-- /.col-lg-6 -->
+
+			</form>
+
+			<% for(var i = 0; i < comments.length; i++) { %>
+				<div><h5><%= comments[i].content %></h5></div>
+			<% } %>
+		</div>
+
+		<div style="display: none">
+	 	<p><%= showData.tomatoConsensus %> showData.tomatoConsensus</p>
+		<p><%= showData.tomatoURL %> showData.tomatoURL</p>
+		<p><%= showData.DVD %> showData.DVD</p>
+		<p><%= showData.BoxOffice %> showData.BoxOffice</p>
+		<p><%= showData.Production %> showData.Production</p>
+		<p><%= showData.Website %> showData.Website</p>
+		<p><%= showData.Response %> showData.Response</p>
+		</div>
+
+  	</div>
+  </div>
+</div>

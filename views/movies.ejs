@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+  	<h2>Search Results for: <%= q %></h2>
+	<% movies.forEach(function(movie, index){ %>
+	<div class="well well-sm">
+		<a href="/movies/<%= movie.imdbID %>">
+			<h3 class="listedTitle"><%= movie.Title %> (<%= movie.Year %>)</h3>
+			<% if (movie.Poster != "N/A"){ %>
+			<img class="thumbnail" src="<%= movie.Poster %>" alt="Movie Poster for <%= movie.Title %>  (<%= movie.Year %>)">
+			<% } %>
+		</a>
+	</div>
+	<% }); %>
+  </div>
+</div>
+
+<div class="row pagination_row">
+  <div class="col-xs-10 col-sm-10 col-md-8 col-lg-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+	<% if (page > 1){ %>
+		<a class="prev_btn" href="/movies?q=<%= q %>&page=<%= page * 1 - 1 %>">
+			<button type="button" class="btn btn-default">Prev</button>
+		</a>
+	<% } %>
+
+	<% if (totalResults > page * 10){ %>
+		<a class="next_btn" href="/movies?q=<%= q %>&page=<%= page * 1 + 1 %>">
+			<button type="button" class="btn btn-default">Next</button>
+		</a>
+	<% } %>
+  </div>
+</div>
+

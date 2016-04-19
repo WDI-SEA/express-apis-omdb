@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+  	<h2>Your list of Favorites:</h2>
+	<% favorites.forEach(function(movie, index){ %>
+	<div class="well well-sm well_<%= movie.imdbID %>">
+		<a href="/movies/<%= movie.imdbID %>">
+			<h3 class="listedTitle"><%= movie.title %> (<%= movie.year %>)</h3>
+			<% if (movie.poster != "N/A"){ %>
+			<img class="thumbnail" src="<%= movie.poster %>" alt="Movie Poster for <%= movie.title %>  (<%= movie.year %>)">
+			<% } %>
+		</a>
+
+		<button id="<%= movie.imdbID %>" type="button" class="btn btn-primary favorites fav_del_list">
+			<label id="<%= movie.imdbID %>">Remove from Favorites</label>
+		</button>
+
+	</div>
+	<% }); %>
+  </div>
+</div>
+

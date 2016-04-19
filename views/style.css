@@ -1,0 +1,144 @@
+body {
+}
+
+ul {
+	list-style: none;
+	font-size: 12px;
+	padding-left: 0px;
+}
+
+h1 {
+	text-align: center;
+}
+
+label {
+	margin-top: 5px;
+}
+
+.null_poster {
+	width: 100%;
+	height: 40vh;
+	padding-top: 20%;
+	background-color: gray;
+	color: lightgray;
+	text-align: center;
+}
+
+.poster {
+	width: 100%;
+}
+
+.thumbnail {
+	height: 225px;
+	margin: 0 auto;
+}
+
+.title {
+	margin-bottom: 5px;
+}
+
+.underTitle {
+	display: inline-block;
+}
+
+.favorites {
+	margin-bottom: 10px;
+	width: 180px;
+	height: 42px;
+}
+
+.favorite_star {
+	height: 20px;
+	width: 20px;
+	margin-bottom: 5px;
+}
+
+.listedTitle {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.stars {
+	height: 24px;
+	background:url('/img/star_gold_256.png');
+	background-size: 24px 24px;
+	background-repeat: repeat-x;
+}
+
+.stars_white {
+	height: 24px;
+	width: 240px;
+	background:url('/img/star_white_256.png');
+	background-size: 24px 24px;
+	background-repeat: repeat-x;
+}
+
+.metascore_bar {
+	height: 25px;
+	float: left;
+	margin-top: -10px;
+	background-color: black
+}
+
+.metascore_box {
+	height:25px;
+	width:25px;
+	float:right;
+	color:white;
+	text-align: center;
+	line-height: 25px;
+	font-size: 15px;
+}
+
+.review_div {
+	margin-top: 20px;
+}
+
+.tomato_title {
+	margin-bottom: 0px;
+}
+
+.tomato_img {
+	height: 50px;
+	width: 50px;
+}
+
+.tomato_meter {
+	font-size: 25px;
+}
+
+.tomato_list {
+	padding-left: 0;
+	font-size: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.fav_del_list {
+	margin: 10px auto;
+	display: block;
+}
+
+.block {
+	display: block;
+	margin: 10px auto;
+}
+
+.prev_btn {
+	float: left;
+}
+
+.next_btn {
+	float: right;
+}
+
+.pagination_row{
+	display: block;
+	margin-bottom: 50px;
+}
+
+
+
+
