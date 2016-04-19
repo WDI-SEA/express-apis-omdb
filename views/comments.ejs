@@ -1,0 +1,11 @@
+<form method="POST" action="/favorites/<%= favorite.id %>/comments">
+<input type="text" name="author" placeholder="author name">
+<textarea cols="50" rows="5" name="comments" placeholder="enter comment here"></textarea>
+<input type="submit" value="submit">
+</form>
+
+
+<% favorite.comments.forEach(function(comment){ %>
+<h3><%= comment.author %></h3>
+<p><%= comment.comments %></p>
+<% }) %>
