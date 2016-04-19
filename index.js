@@ -80,6 +80,8 @@ app.post("/favs", function(req, res) {
   });
 });
 
+//display comments - easy peasy
+
 app.get("/favs/:id/comments", function(req, res) {
   var movieId = req.params.id;
 
@@ -88,11 +90,13 @@ app.get("/favs/:id/comments", function(req, res) {
   })
 });
 
+
+// CURRENTLY CAN'T REDIRECT PAGE AND KEEP FAVORITES DATA
+
 app.post('/favs/:id/comments', function(req, res) {
   var movieId=req.params.id;
   var newComment = req.body;
 
-// CURRENTLY CAN'T REFRESH PAGE AND KEEP FAVORITES DATA
 
  db.favorite.find({where: {imdbId: movieId}, include: [db.comment]}).then(function(favorites){
   db.comment.create(newComment).then(function(comment) {
@@ -102,6 +106,8 @@ app.post('/favs/:id/comments', function(req, res) {
 });
 
 
+//display tags for a given movie
+
 app.get("/favs/:id/tags", function(req, res) {
   var movieId = req.params.id;
 
@@ -110,6 +116,7 @@ app.get("/favs/:id/tags", function(req, res) {
   })
 });
 
+//trying to add tags to already created favorites
 
 app.post('/favs/:id/tags', function(req, res) {
   var movieId = req.params.id;
