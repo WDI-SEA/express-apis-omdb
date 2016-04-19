@@ -33,9 +33,16 @@ a:visited {
 a:hover {
   color: #fe583d;
 }
+#submit {
+  color: #2d112c;
+}
 
-
-
+h4 {
+  font-family: 'Fjalla One', sans-serif;
+}
+h5 {
+  font-family: 'Fjalla One', sans-serif;
+}
 
 /*
 a:link - a normal, unvisited link

@@ -1,31 +1,18 @@
-// $('.add-favorite-btn').click(function(e){
-//   var imdbId = $(this).attr('href');
-//   debugger
-//   $.ajax({
-//     url: '/favorites/' + imdb_id,
-//     method: 'POST',
-//     data: {
-//       imdb_id: imdb_id
-//     },
-//     done: function(xhr, status, data) {
-//       if(status === 200) {
-//        var data = JSON.parse(body);
-//        var favorites = data.imdbId;
-//        res.render('/favorites', {results: result});
-//       }
-//     }
-//   });
 
-// });
+$('#favorite-btn').click(function(e) {
 
-$('.add-favorite-btn').click(function(e){
-  e.preventDefault();
-  var imdbId = $(this).attr('href');
-  var myUrl = '/favorites/' + imdbId;
-  console.log(myUrl);
+  var newFavorite = {
+    title: $('h3').text(),
+    year: $('h4').text(),
+    imdbId: $(this).attr('data-imdbId')
+  }
+
   $.ajax({
-    method:'POST',
-    url: myUrl,
-    data: {imdbId: imdbId}, 
+    url: '/favorites',
+    method: 'POST',
+    data: newFavorite,
+    success: function() {
+      window.location = '/favorites';
+    }
   })
 });

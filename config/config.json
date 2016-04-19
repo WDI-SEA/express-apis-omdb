@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "favMovies",
+    "database": "omdbapp",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

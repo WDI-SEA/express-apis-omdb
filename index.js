@@ -10,22 +10,20 @@ app.use(ejsLayouts);
 app.use(express.static(__dirname + '/static'));
 
 app.set('view engine', 'ejs');
+
 app.get('/', function(req, res) {
   res.render('index');
 });
 
 app.get('/movies', function(req, res) {
   var query = req.query.q;
-  // if (query = undefined | "") 
 
-  request('http://www.omdbapi.com/?s=' + query, function(error, response, body) {
-   
-    if (!error && response.statusCode === 200) {
-       var data = JSON.parse(body);
-       var results = data.Search;
-       res.render('movies', {results: results});
+  request('http://www.omdbapi.com/?s=' + query, function(err, response, body) {
+    var data = JSON.parse(body);
+    if (!err && response.statusCode === 200 && data.Search) {
+      res.render('movies', {movies: data.Search, q: query});
     } else {
-      res.render('index');
+      res.render('error');
     }
   });
 });
@@ -33,44 +31,27 @@ app.get('/movies', function(req, res) {
 app.get('/movies/:imdbID', function(req, res) {
   var searchQuery = req.query.q ? req.query.q : '';
   var imdbID = req.params.imdbID;
-  request('http://www.omdbapi.com/?i=' + imdbID, function(error, response, body) {
-    res.render('movies/details', {movie: JSON.parse(body),
-                                      q: searchQuery});
+  request('http://www.omdbapi.com/?i=' + imdbID, function(err, response, body) {
+    res.render('movieShow', {movie: JSON.parse(body),
+                             q: searchQuery});
   });
 });
 
-app.post('/favorites/:imdb_id', function(req, res) {
-  db.favMovies.create({
-    imdb_id: req.body.imbd_id,
-    title: req.body.title,
-    year: req.body.year
-  }).then(function(saved) {
-    res.redirect('/favorites');
-  });
-});
- 
 app.get('/favorites', function(req, res) {
-  db.favMovies.findAll().then(function(favs) {
-     res.render('movies/favShow', {
-      favorites: title
-    }); 
+  db.favorite.findAll().then(function(favorites) {
+    res.render('favorites', {favorites: favorites});
   });
-}); 
+});
 
-var port = 3000
-app.listen(process.env.PORT || port);
+app.post('/favorites', function(req, res) {
+  var newFavorite = req.body;
 
+  db.favorite.create(newFavorite).then(function(favorite) {
+    res.status(200).send('Created Favorite');
+  });
+});
 
-
-// * **Modify the Show Movie page** (`GET /movies/:imdbId`)
-//   * add "Add to Favorites" button
-//     * Should add the IMDB code, title, and year to a database
-//     * Should submit data to `POST /favorites`
-// * **Favorites Page** (`GET /favorites`)
-//   * show a list of movies that have been favorited
-//   * each item should...
-//     * Display title and year
-//     * Link to "show movie" page
-  
-
-//sequelize model:create --name favMovies --attributes imdb_id:integer,title:string,year:integer
+var port = 3000;
+app.listen(port, function() {
+  console.log("You're listening to the smooth sounds of port " + port);
+});

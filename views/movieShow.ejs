@@ -1,0 +1,24 @@
+ <div class="col-sm-6">
+  <h3 class="title"> <%= movie.Title%> </h3> <h4> (<%= movie.Year %>) </h4> 
+
+   <button type="button" id="favorite-btn" data-imdbId="<%= movie.imdbID %>" class="btn btn-success">Add to Favorites</button>
+
+  </form> 
+    <h4>Plot:</h4><p><%= movie.Plot %></p>
+    <h4>Awards/Nominations:</h4><p><%= movie.Awards %></p>
+</div>
+
+
+<div class="col-sm-6">
+  <img src="<%= movie.Poster %>"> 
+</div> 
+
+
+
+<!-- 
+ <form action='/getFavs' method='POST'>
+     <button type="check" id="favButton">Add to Favs!</button>
+     <input type='hidden' name='imbd_id' value='<%= movie.imdbID%>'>
+     <input type='hidden' name='title' value='<%= movie.Title%>'>
+     <input type='hidden' name='year' value='<%= movie.Year%>'>
+ </form> -->
