@@ -63,16 +63,16 @@ app.get("/favorites", function (req, res){
 	});
 });
 
-// app.post('/comments', function(req, res){
-// 	db.comment.create({
-// 			id: req.body.id, 
-// 			title: req.body.Title, 
-// 			year: req.body.Year	
-// 	}).then(function(){
-// 		console.log("this works!");
-// 		res.redirect("/comments");
-// 	});
-// });
+app.post('/comments', function(req, res){
+	db.comment.create({
+			Id: req.body.Id, 
+			title: req.body.Title, 
+			content: req.body.content	
+	}).then(function(){
+		console.log("this works!");
+		res.redirect("/favorite/");
+	});
+});
 
 // app.get("/comments", function (req, res){
 // 	db.comment.findAll().then(function(comment){
@@ -81,6 +81,13 @@ app.get("/favorites", function (req, res){
 // 	});
 // });
 
+// app.get("/favorites/:imbId/comments", function (req, res){
+// 	db.comment.findAll({where:{immdbId: req.params.imdbId}}).then(function(comments){
+// 		request('http://www.omdbapi.com/?i=' + req.params.imdbID, function(err, response, body){
+// 		res.render("comments", {movie: JSON.parse: (body),
+
+// 	});
+// });
 
 var port = 3000;
 app.listen(process.env.PORT || port, function(){
