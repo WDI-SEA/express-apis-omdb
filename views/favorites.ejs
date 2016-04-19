@@ -5,7 +5,8 @@
 	<div class="col-md-10 col-md-offset-1"
 		<div class="well well-sm">
 			<h2><a href="/movies/<%= favorite.imdbID %>"><%= favorite.title %> (<%= favorite.year %>)</a></h2>
-			<a class="delete-btn" href="/favorites/<%= favorite.imdbID %>"><button class="delete-btn">Delete</button></a>
+			<a class="delete-btn" href="/favorites/<%= favorite.imdbID %>"><button id="delete-btn">Delete</button></a>
+			<a class="comments" href="favorites/<%= favorite.imdbID %>/comments"><button id="comments-btn">Comments</button></a>
 		</div>
 	</div>
 </div>

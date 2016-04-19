@@ -11,7 +11,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
-app.use(express.static(__dirname + 'static'));
+app.use(express.static(__dirname + '/static'));
+
+console.log(__dirname);
 
 app.get('/', function(req, res) {
 	res.render('index.ejs');
@@ -48,17 +50,36 @@ app.post("/favorites", function(req, res) {
 		imdbID: req.body.imdbID,
 		title: req.body.title,
 		year: req.body.year
-	}).then(
-		res.redirect('/favorites'));
+	}).then(function() {
+		res.redirect("/favorites");
+	})
 });
 
 app.delete("/favorites/:imdbID", function(req, res) {
 	var imdbID = req.params.imdbID;
 	db.favorite.destroy({where: {imdbID: imdbID}}).then(function() {
 		res.send({'msg': 'success'});
+	})
+});
+
+app.get("/favorites/:imdbID/comments", function(req, res) {
+	db.favorite.find({where: {imdbID: req.params.imdbID}}).then(function(favorite) {
+		db.comment.findAll({where: {favoriteId: favorite.id}}).then(function(comments) {
+			res.render("comments", {favorite: favorite, comments: comments});
+		});
+		//res.render("comments", {favorite: favorite});
 	});
 });
 
+app.post("/comments", function(req, res) {
+	var newComment = req.body;
+
+	db.favorite.find({where: {id: newComment.favoriteId}}).then(function(favorite) {
+		favorite.createComment(newComment).then(function(comment) {
+			res.redirect("/favorites/" + favorite.imdbID + "/comments");
+		})
+	})
+})
 
 // app.get('/favorites', function(req, res) {
 // 	res.render('favorites.ejs');
@@ -73,3 +94,4 @@ app.delete("/favorites/:imdbID", function(req, res) {
 
 
 app.listen(3000);
+
