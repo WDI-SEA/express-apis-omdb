@@ -102,7 +102,6 @@ app.post('/favs/:id/comments', function(req, res) {
   });
 });
 
-
 //display tags for a given movie
 
 app.get("/favs/:id/tags", function(req, res) {
@@ -124,17 +123,16 @@ app.get("/tags", function(req, res) {
 
 // trying to add tags to already created favorites
 
-app.post('/favs/:id/tags', function(req, res) {
-  var movieId = req.params.id;
+app.post('/tags', function(req, res) {
   var newTag = req.body;
 
-  db.favorite.find({where: {imdbId: movieId}}).then(function(favorites){
-    db.tag.findOrCreate({where: {tag: newTag}}).spread(function(tag, created){
-      favorite.addTag(newTag).then(function(){
+  console.log(newTag);
+
+    db.tag.findOrCreate({where: {tag: newTag}}).spread(function(favorite, created){
+      favorite.addTag(newTag).then(function(tag){
         res.render('view_tags', {favorites:favorites});
-      });
-    });   
-  });
+    });
+  });   
 });
 
 
