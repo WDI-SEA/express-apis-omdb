@@ -105,15 +105,15 @@ app.post('/favs/:id/comments', function(req, res) {
 
 //display tags for a given movie
 
-// app.get("/favs/:id/tags", function(req, res) {
-//   var movieId = req.params.id;
+app.get("/favs/:id/tags", function(req, res) {
+  var movieId = req.params.id;
 
-//   db.favorite.find({where: {id: movieId}, include:[db.tag]}).then(function(favorites){
-//       res.render("tags", {favorites:favorites});
-//   })
-// });
+  db.favorite.find({where: {id: movieId}, include:[db.tag]}).then(function(favorites){
+      res.render("tags", {favorites:favorites});
+  })
+});
 
-trying to display tags generally - NOT WORKING (yet)
+// trying to display tags generally - NOT WORKING (yet)
 
 app.get("/tags", function(req, res) {
 
