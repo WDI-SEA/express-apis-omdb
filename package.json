@@ -1,0 +1,25 @@
+{
+  "name": "express-apis-omdb",
+  "version": "1.0.0",
+  "description": "We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pacalabre/express-apis-omdb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pacalabre/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/pacalabre/express-apis-omdb",
+  "dependencies": {
+    "pg": "^4.5.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.21.0",
+    "sequelize-cli": "^2.3.1"
+  }
+}

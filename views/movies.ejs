@@ -1,0 +1,20 @@
+<h1>Movies</h1>
+
+<% movies.forEach(function(movie, index) { %>
+  <li><a href="/movies/<%= movie.imdbID %>"><%= movie.Title %></a> </li>
+  <img src="<%=movie.Poster%>"/>
+  <form method="post" action="/favorites">
+    <input type="hidden" name="id" value="<%= movie.imdbID%>">
+    <input type="hidden" name="year" value="<%= movie.Year%>">
+    <input type="hidden" name="title" value="<%= movie.Title%>">
+    <button type="submit">Favorite</button>
+  </form>
+  <!-- <form method="post" action="/comments" >
+    <input type="hidden" name="title" value="<%= movie.Title%>">
+    <input type="hidden" name="favoriteId" value="<%= index%>">
+    <input type="text" name="comment">
+    <button>comments</button>
+  </form> -->
+<% }) %>
+
+
