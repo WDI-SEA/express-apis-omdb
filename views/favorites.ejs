@@ -3,8 +3,11 @@
   <h4> Favorites:</h4>
   <% favorites.forEach(function(favorite) {%>
   <a href="/movies/<%= favorite.imdbId %>"><h2><%= favorite.title %>  <small><%= favorite.year %></small></h2></a>
+  <div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
     <%});%> 
   </ul>
 </div>
-
 

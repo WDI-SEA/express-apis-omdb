@@ -51,5 +51,15 @@ app.post('/favorites', function(req, res) {
   });
 });
 
+//comments
+
+
+// app.get('/favorites/:imdbID/comments'), function(req, res) {
+//   db.comment.findOne({where: {imdbID: req.params.imdbID}}).then(function(favorite) {
+//     db.favorite.findOne({where: {imdbID}})
+
+//   })
+// }
+
 var port = 3000;
 app.listen(process.env.PORT || port);
