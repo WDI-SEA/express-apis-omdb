@@ -64,7 +64,7 @@ app.get("/favorites", function (req, res){
 });
 
 
-var port = 30000;
+var port = 3000;
 app.listen(process.env.PORT || port, function(){
 	console.log("You're listening to the smooth sounds of port" + port);
 });
