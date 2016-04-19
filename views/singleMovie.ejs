@@ -1,0 +1,51 @@
+<!-- <h2>imdbID: <%= movie.imdbID %></h2> -->
+
+<% properties.forEach(function(property) { %>
+  <% if (property.key !== 'imdbRating') { %>
+   <div class="data_titles">
+   <h3><%= property.key %>:</h3>
+   <p> <%= property.value %></p>
+   </div>
+  <% } else if (property.key === 'imdbRating') { %>
+      <%
+      rating = property.value
+        if (rating >= '20' && rating < '40') { %>
+        <div class="data_titles">
+          <h3><%= property.key %>:</h3>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+    <%  } else if (rating >= '40' && rating < '60') { %>
+        <div class="data_titles">
+        <h3><%= property.key %>:</h3>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+     <% } else if (rating >= '60' && rating < '80') { %>
+        <div class="data_titles">
+        <h3><%= property.key %>:</h3>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+      <% } else if (rating >= '80' && rating < '100') { %>
+        <div class="data_titles">
+        <h3><%= property.key %>:</h3>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+      <% } else if (rating >= '100') { %>
+        <div class="data_titles">
+        <h3><%= property.key %>:</h3>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        %>
+      <% }; %>
+      <% }; %>
+<% }); %>
+

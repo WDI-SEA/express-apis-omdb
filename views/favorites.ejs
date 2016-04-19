@@ -1,0 +1,7 @@
+<div>
+<% favorites.forEach(function(favorite) {  %>
+  <h2><a href="/movies/id/<%= favorite.imdbID %>"><%= favorite.title %></a></h2>
+  <a href="/favorites/<%= favorite.imdbID %>/comments"><button class="comments_page">Leave a comment.</button></a>
+<% }); %>
+
+</div>

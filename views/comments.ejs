@@ -1,0 +1,15 @@
+<h1>HELLO YOU MADE IT!</h1>
+
+<form method='GET' action="/favorites/:imdbID/comments">
+  Comment:<br />
+  <textarea name='comment' id='comment'></textarea><br />
+
+  <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
+
+  <input type='submit' value='Submit' />  
+</form>
+
+<div class="comment_area">
+  
+
+</div>
