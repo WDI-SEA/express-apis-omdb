@@ -1,7 +1,7 @@
 <h1>Tags on <%= favorites.title %></h1>
 <img src="<%= favorites.Poster %>">
 <div>
-  <form method="post" action="/tags/">
+  <form method="post" action="/favs/:id/tags/">
     <input type="hidden" name="favoriteId" value="<%-favorites.id%>">
     <input type="text" name="tag" placeholder="Your tag here">
     <input type="submit" class="addTag"></input>

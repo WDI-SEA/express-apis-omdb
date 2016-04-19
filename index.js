@@ -89,7 +89,6 @@ app.get("/favs/:id/comments", function(req, res) {
   });
 });
 
-// CURRENTLY CAN'T REDIRECT PAGE AND KEEP FAVORITES DATA
 
 app.post('/favs/:id/comments', function(req, res) {
   var movieId=req.params.id;
@@ -106,6 +105,7 @@ app.post('/favs/:id/comments', function(req, res) {
 
 app.get("/favs/:id/tags", function(req, res) {
   var movieId = req.params.id;
+  var tag = req.body;
 
   db.favorite.find({where: {id: movieId}, include:[db.tag]}).then(function(favorites){
       res.render("tags", {favorites:favorites});
@@ -115,22 +115,23 @@ app.get("/favs/:id/tags", function(req, res) {
 // trying to display tags generally - NOT WORKING (yet)
 
 app.get("/tags", function(req, res) {
-
-  db.favorite.findAll().then(function(favorites){
-      res.render("view_tags.ejs", {favorites:favorites});
+  db.tag.findAll().then(function(tags) {
+    res.render("view_tags.ejs", {tags:tags});
   });
 });
 
+
 // trying to add tags to already created favorites
 
-app.post('/tags', function(req, res) {
+app.post('/favs/:id/tags', function(req, res) {
   var newTag = req.body;
 
   console.log(newTag);
 
     db.tag.findOrCreate({where: {tag: newTag}}).spread(function(favorite, created){
-      favorite.addTag(newTag).then(function(tag){
-        res.render('view_tags', {favorites:favorites});
+      db.favorite.findOne({where: {id: params.req.id}}).then(function(favorite){
+        favorite.addTag(tag).then
+          res.send({favorites:favorites, tag:tag});
     });
   });   
 });
