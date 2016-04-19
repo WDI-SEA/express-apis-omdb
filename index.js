@@ -11,8 +11,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:false}));
 
 
-
-
 app.get("/", function(req, res) {
   res.render('index');
 });
@@ -85,9 +83,10 @@ app.post("/favs", function(req, res) {
 app.get("/favs/:id/comments", function(req, res) {
   var movieId = req.params.id;
 
-  db.favorite.find({where: {imdbId: movieId}, include: [db.comment]}).then(function(favorites){
-      res.render("comments", {favorites:favorites});
-  })
+  console.log(movieId);
+  db.favorite.findOne({where: {id: movieId}, include:[db.comment]}).then(function(favorite){
+      res.render("comments", {favorite:favorite});
+  });
 });
 
 
@@ -116,16 +115,25 @@ app.get("/favs/:id/tags", function(req, res) {
   })
 });
 
+//trying to display tags generally - NOT WORKING (yet)
+
+app.get("/tags", function(req, res) {
+
+  db.favorite.findAll().then(function(favorites){
+      res.render("view_tags.ejs", {favorites:favorites});
+  });
+});
+
 //trying to add tags to already created favorites
 
 app.post('/favs/:id/tags', function(req, res) {
   var movieId = req.params.id;
   var newTag = req.body;
 
-   db.tag.findOrCreate({where: {tag: newTag}}).spread(function(tag, created){
-     db.favorite.find({where: {imdbId: movieId}}).then(function(favorites){
-      favorite.addTag(tag).then(function(){
-        res.render('/favs/movieId/tags', {favorites:favorites});
+  db.favorite.find({where: {imdbId: movieId}}).then(function(favorites){
+    db.tag.findOrCreate({where: {tag: newTag}}).spread(function(tag, created){
+      favorite.addTag(newTag).then(function(){
+        res.render('/view_tags', {favorites:favorites});
       });
     });   
   });
