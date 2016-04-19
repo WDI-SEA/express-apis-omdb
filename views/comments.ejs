@@ -1,0 +1,16 @@
+<h1>Comments on <%= favorites.title %></h1>
+<img src="<%= favorites.Poster %>">
+
+<form method="post" action="/favs/<%= favorites.id%>/comments/">
+  <input type="hidden" name="favoriteId" value="<%-favorites.id%>">
+  <input type="text" name="by" placeholder="Your name here">
+  <input type="text" name="content" cols="20" rows="30" placeholder="Your comment here">
+  <input type="submit" class="addComment"></input>
+</form>
+  <% favorites.comments.forEach(function(comment)  { %>
+   <div> <h3><%=comment.by%> :</h3>
+   <h3><%= comment.content %></h3></div>
+  <% }); %>
+<!-- Big dreams for this page: display the many comments for each movie page IN THE WAY that the authors page from the relationships example showed each post for the author
+
+Granted, no comments for each movie  - YET -->

@@ -1,0 +1,8 @@
+<h1> Your Results: </h1>
+  <div>
+    <% results.forEach(function(result) { %>
+      <p><a href="/movies/<%= result.imdbID %>"> <%= result.Title %> </a></p>
+<!--       <button class="addFav">Favorite </button>-->
+       <% }); %>
+  </div>
+

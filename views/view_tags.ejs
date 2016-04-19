@@ -1,0 +1,11 @@
+<h1> All Tags for Ten Star Favorites </h1>
+
+<div>  
+  <% tags.forEach(function(tag)  { %>
+    <h3>
+      <a href="/favs?tag=<%= tag.tag %>">
+         <%= tag.tag %> 
+      </a>
+    </h3>
+  <% }); %>
+</div>
