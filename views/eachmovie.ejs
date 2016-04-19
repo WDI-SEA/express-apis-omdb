@@ -1,0 +1,14 @@
+
+
+
+<h2 id="movie" data="<%= myMovie.imdbID %>"></h2>
+<h2 id="movieYear"> <%= myMovie.Year %> </h2>
+<h2 id="movieTitle"><%= myMovie.Title %> </h2>
+
+<p> Genre:  <%= myMovie.Genre %></p>
+<p> Plot: <%= myMovie.Plot %></p> 
+<p> Tomatoe Rating: <%= myMovie.tomatoRating %></p>
+
+<p><button class="add-to-favs-btn action="/favorites"">Add to Favs</button></p>
+
+<img src="<%= myMovie.Poster %>" />

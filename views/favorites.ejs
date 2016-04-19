@@ -1,0 +1,15 @@
+
+ <% movies.forEach(function(movie){ %>
+ <div>
+<h2 id="fav_movie"><a href="/movies/<%= movie.imdbid %>"> <%= movie.title %></a> <%= movie.year %>
+<% movie.tags.forEach (function(tag){ %>
+  <%= tag.name %>
+<% }) %>
+</h2><button id="<%= movie.id%>"class="delete">Remove</button>
+
+<a href="/favorites/<%= movie.id %>/comments"><button id="<%= movie.id%>" type="button">Comment</button></a>
+
+<a href="/favorites/<%= movie.id %>/tags"><button id="<%= movie.id%>" type="button">Tag</button></a>
+</div>
+ <% });%>
+
