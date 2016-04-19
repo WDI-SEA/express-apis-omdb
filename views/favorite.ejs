@@ -1,0 +1,18 @@
+<h1>Favorites</h1>
+
+
+
+<% favorites.forEach(function(favorite) { %>
+<div>
+	<ul>
+		<li><%= favorite.title %></li>
+		<p><%= favorite.year %></p>
+		<p><%= favorite.director %></p>
+		<img src="<%= favorite.Poster %>">
+	</ul>
+</div>
+<%	}); %>
+
+<!-- title, year, poster   -->
+
+<script src="favorite.js"></script>
