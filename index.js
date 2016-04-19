@@ -48,40 +48,59 @@ app.post('/favorites/:id/comments',function(req,res){
   });
 });
 
-app.post('/tags',function(req,res){
-  var newTag = req.body.name;
-  db.favorite.findOrCreate({where: {name: newTag}}).spread(function(favorite, created) {
-    favorite.createTag({name: newTag}).then(function(tag) {
-    console.log(newTag);
-    console.log("tag added");
-    });
+app.get('/tags', function(req,res){
+  db.tag.findAll().then(function(tags){
+     res.render('tags', {tags:tags});
   });
 });
 
-
-app.get('/tags', function(req, res) {
-  var eachTag = req.params.name;
-  console.log(eachTag);
-  db.tag.find({where: {name: eachTag}}).then(function(tag) {
-    tag.getFavorites().then(function(favorites) {
-    console.log("These favorites are tagged with " + eachTag + ":");
-      favorites.forEach(function(favorite) {
-      console.log("Favorite title: " + favorite.title);
-      });
-    });
-  });
+app.get('/favorites/:id/tag', function(req,res){
+    res.render("tag", {id: req.params.id});
 });
+
+
+app.post('/favorites/:id/tag',function(req,res){
+  var tag = req.body.name;
+  // db.favorite.findOne({where: {id: req.params.id}}).then(function(movie){
+    
+    db.tag.findOrCreate({where: {name: tag}}).spread(function(tag, isCreated){
+      db.favorite.findOne({where: {id: req.params.id}}).then(function(favorite){
+        favorite.addTag(tag);
+        res.redirect("/favorites?tag="+ tag.name);
+      });  
+    });
+});
+
+// app.get('/favorites/tag/:tag', function(req,res){
+//   var selectTag = req.params.tag;
+//   db.tag.find({where: {name: selectTag}}).then(function(tag) {
+//     tag.getFavorites().then(function(favorites) {
+//     console.log("These favorites are tagged with " + tag.name + ":");
+//     favorites.forEach(function(post) {
+//       console.log("Favorite title: " + favorite.title);
+//     });
+//   });
+// });
+// });
   
 
 
 
-
-
 app.get("/favorites", function(req,res){
-  db.favorite.findAll().then(function(movies) {
-    res.render("favorites", {movies: movies});
+  var tag = req.query.tag;
+
+  if (tag) {
+  db.tag.find({where: {name: tag}}).then(function(tag) {
+  tag.getFavorites().then(function(favorites) {
+    res.render('favorites', {favorites: favorites});
+  });
+});
+} else {
+  db.favorite.findAll().then(function(favorites) {
+    res.render("favorites", {favorites: favorites});
   // console.log(movies);  
   });
+}
 });
 
 

@@ -1,8 +1,6 @@
-<form method="POST" action="/tags">
-<input type="text" name="tag" placeholder="tag name">
-<input type="submit" value="submit">
-</form>
 
-<% favorite.tags.forEach(function(tag){ %>
-<h3><%= tag.name %></h3>
+<% tags.forEach(function(tag){ %>
+
+<a href="/favorites?tag=<%= tag.name %>"><h3><%= tag.name %></h3></a>
+
 <% }) %>
