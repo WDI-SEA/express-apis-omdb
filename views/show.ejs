@@ -5,7 +5,7 @@
         <% movies.forEach(function(movie) { %>
           <div class="data_titles"><img src="<%= movie.Poster %>">
           <a href="/movies/id/<%= movie.imdbID %>"><%= movie.Title %></a>
-          <button class="add_to_favorites">Add to Favorites</button>
+          <button imdbID="<%= movie.imdbID %>" class="add_to_favorites">Add to Favorites</button>
           </div>
         <% }) %>
 

@@ -1,19 +1,18 @@
 $('.add_to_favorites').click(function(e) {
-  var imbdID = $(this).closest('h3').text();
+  var imdbID = $(this).attr('imdbID');
   $.ajax({
-    url: '/favorites' + imbdID,
+    url: '/favorites/' + imdbID,
     method: 'POST',
     data: {
-      imbdId: imbdId
+      imdbID: imdbID
     },
-    done: function(xhr, status, data) {
-      if(status === 200) {
-
-          db.favorite.create({Title: movie.Title}).then(function(movie) {
-            res.redirect('favorites');
-            console.log(movie);
-        });
-      }
+    success: function(message, status, obj) {
+      window.location = '/favorites';
     }
   });
 });
+
+// $('.comments_page').click(function(e) {
+//   window.location = '/comments';
+//   console.log("clicked")
+// })

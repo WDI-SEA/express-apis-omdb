@@ -1,9 +1,9 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var favorite = sequelize.define('favorite', {
+  var comment = sequelize.define('comment', {
     title: DataTypes.STRING,
-    year: DataTypes.STRING,
-    imdbID: DataTypes.STRING
+    content: DataTypes.TEXT,
+    favID: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
@@ -11,5 +11,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return favorite;
+  return comment;
 };

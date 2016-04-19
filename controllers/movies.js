@@ -14,7 +14,7 @@ router.get('/id/:imdbID', function(req, res) {
 
   request('http://www.omdbapi.com/?i=' + movieID, function(err, response, body) {
     var data = JSON.parse(body);
-    if (!err && response.statusCode  === 200) {
+    if (!err && response.statusCode === 200) {
       var properties = [];
       for (var key in data) {
         properties.push({
