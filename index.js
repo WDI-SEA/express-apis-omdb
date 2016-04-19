@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 app.set('view engine', 'ejs');
 app.use(ejsLayout);
 
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/static'));
 
@@ -125,6 +126,7 @@ app.post('/tags/:id', function(req,res){
 })
 
 app.get('/tags/:tag_id', function(req,res){
+  console.log(req);
   db.tag.findById(req.params.tag_id).then(function(tag){
     tag.getFavorites({include: [db.tag]}).then(function(movies){
       res.render('favorites', {
