@@ -86,6 +86,12 @@ app.get("/favs/:id/comments", function(req, res) {
   })
 });
 
+app.get("/comment", function(req, res) {
+  db.comment.findOne().then(function(comment){
+    res.render("oneComment", {comment:comment});
+  })
+})
+
 
 var port = 3000;
 app.listen(process.env.PORT || port);
