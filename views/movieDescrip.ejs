@@ -1,5 +1,5 @@
 <div class="container" id="movie-info">
-	<div class-"col-md-8">
+	<div class-"col-md-8 col-md-offset-2">
 		<div class="panel panel-primary">
  			 <div class="panel-heading">
     			<h3 class="panel-title"><%= movie.Title %></h3>
@@ -9,8 +9,8 @@
     		<img src="<%= movie.Poster %>" class="movie-poster">
 				<div class="star"> 
 			    	<%for(var i = 0; i < Math.round(movie.imdbRating/2); i++){%>
-			    	<i class="fa fa-star fa-3x" aria-hidden="true"></i>
-			    	<!-- * -->
+			    	<!-- <i class="fa fa-star fa-3x" aria-hidden="true"></i> -->
+			    	*
 			    	<% } %>
 				</div>
 			<form action="/favorites" method="POST">

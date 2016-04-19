@@ -77,9 +77,40 @@ app.post("/comments", function(req, res) {
 	db.favorite.find({where: {id: newComment.favoriteId}}).then(function(favorite) {
 		favorite.createComment(newComment).then(function(comment) {
 			res.redirect("/favorites/" + favorite.imdbID + "/comments");
-		})
-	})
-})
+		});
+	});
+});
+
+app.get("/favorites/:imdbID/tags", function(req, res) {
+	console.log("route tried");
+	db.favorite.find({where: {imdbID: req.params.imdbID}}).then(function(favorite) {
+		favorite.getTags().then(function(tags) {
+			res.render("tags", {favorite: favorite, tags: tags});
+		});
+	});
+});
+
+app.post("/tags", function(req, res) {
+	var newTag = req.body;
+	console.log(newTag);
+	db.favorite.find({where: {id: newTag.favoriteId}}).then(function(favorite) {
+		db.tag.findOrCreate({where: {tag: newTag.tag}}).then(function(tag) {
+			favorite.createTag(newTag).then(function(tag) {
+				res.redirect("/favorites/" + favorite.imdbID + "/tags");
+			});	
+		});
+	});
+});
+
+app.get("/tags/:tag", function(req, res) {
+	db.tag.find({where: {tag:req.params.tag}}).then(function(tag) {
+		console.log(tag);
+		tag.getFavorites().then(function(favorites) {
+			console.log("JNLJNLNLJNJNJLNLJ",favorites);
+			res.render("tagmovies", {tag: tag, favorites: favorites})
+		});
+	});
+});
 
 // app.get('/favorites', function(req, res) {
 // 	res.render('favorites.ejs');

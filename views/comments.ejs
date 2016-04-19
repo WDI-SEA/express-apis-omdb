@@ -1,12 +1,18 @@
+<h1>Comments</h1>
 <% comments.forEach(function(comment) { %>
-	<p><%= comment.text %><br>
-		<small><%= comment.author %></small>
-	</p>
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h2><%= favorite.title %></h2>
+			<p class="posted-comments"><%= comment.text %><br>
+			<small><%= comment.author %></small>
+			</p>
+		</div>
+	</div>
 <% }); %>
 
-<form method="POST" action="/comments">
-<textarea cols="50" rows="8" name="text" placeholder="Enter content"></textarea>
-<input type="text" name="author">
+<form method="POST" action="/comments" id="comments">
+<textarea cols="50" rows="8" name="text" placeholder="Enter comments"></textarea><br>
+<input type="text" name="author" placeholder="Author name" id="author">
 <input type="hidden" name="favoriteId" value="<%= favorite.id %>">
 <input type="submit" value="Submit">
 </form>
