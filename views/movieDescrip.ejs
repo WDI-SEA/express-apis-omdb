@@ -1,0 +1,35 @@
+<div class="container" id="movie-info">
+	<div class-"col-md-8 col-md-offset-2">
+		<div class="panel panel-primary">
+ 			 <div class="panel-heading">
+    			<h3 class="panel-title"><%= movie.Title %></h3>
+  			</div>
+
+  		<div class="panel-body">
+    		<img src="<%= movie.Poster %>" class="movie-poster">
+				<div class="star"> 
+			    	<%for(var i = 0; i < Math.round(movie.imdbRating/2); i++){%>
+			    	<!-- <i class="fa fa-star fa-3x" aria-hidden="true"></i> -->
+			    	*
+			    	<% } %>
+				</div>
+			<form action="/favorites" method="POST">
+				<input type="hidden" name="imdbID" value="<%= movie.imdbID %>" />
+				<input type="hidden" name="title" value="<%= movie.Title %>" />
+				<input type="hidden" name="year" value="<%= movie.Year %>" />
+				<button class="add-favorite-btn" type="submit">Add To Favorites</button>
+			</form>
+			<div class="plot">
+				<%= movie.Plot %>
+			
+			</div>  
+  		</div>
+		</div>
+
+	</div>  
+</div>
+
+
+
+
+

@@ -1,0 +1,16 @@
+<h1>Tags</h1>
+<% tags.forEach(function(tag) { %>
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="tags">
+				<h3><a href="/tags/<%= tag.tag %>"><%= tag.tag %></a></h3>
+			</div>
+		</div>
+	</div>
+<% }); %>
+
+<form method="POST" action="/tags">
+<input type="text" name="tag" placeholder="Enter tags"></textarea>
+<input type="hidden" name="favoriteId" value="<%= favorite.id %>">
+<input type="submit" value="Submit">
+</form>
