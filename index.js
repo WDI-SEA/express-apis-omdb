@@ -63,6 +63,24 @@ app.get("/favorites", function (req, res){
 	});
 });
 
+// app.post('/comments', function(req, res){
+// 	db.comment.create({
+// 			id: req.body.id, 
+// 			title: req.body.Title, 
+// 			year: req.body.Year	
+// 	}).then(function(){
+// 		console.log("this works!");
+// 		res.redirect("/comments");
+// 	});
+// });
+
+// app.get("/comments", function (req, res){
+// 	db.comment.findAll().then(function(comment){
+// 		console.log(comment);
+// 		res.render("comments", {comments: comments});
+// 	});
+// });
+
 
 var port = 3000;
 app.listen(process.env.PORT || port, function(){

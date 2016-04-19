@@ -6,10 +6,10 @@ module.exports = function(sequelize, DataTypes) {
     year: DataTypes.INTEGER
   }, {
     classMethods: {
-      associate: function(models) {
-        // associations can be defined here
+      // associate: function(models) {
+      //  models.favorite.hasMany(models.post);
       }
-    }
+    // }
   });
   return favorite;
 };

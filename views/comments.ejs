@@ -1,0 +1,15 @@
+
+<h1> Comments Page </h1>
+<% comments.forEach(function(comment){ %>
+		<p><%= favorite.title %></p>
+
+	<form action="/comments" method="POST" role="form">
+	<div class="form-group">
+		<input type="hidden" name="Favorites.Id" value="<%=favorite.ID %>" />
+		<input type="hidden" name="Title" value="<%= movie.Title %>" />
+		<input type="hidden" name="Year" value="<%= movie.Year %>" />
+	</div>
+ 	<!-- <button type="submit" name="Add to Favorites">Add to Favorites </button> -->
+
+		<a href="/create_comment"><button type="button">Create New Comment</button></a>
+<% }); %>
