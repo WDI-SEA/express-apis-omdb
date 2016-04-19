@@ -1,6 +1,7 @@
  
  <% movies.forEach(function(favorite){ %>
-    <a href="/movies/<%= favorite.imdbID %>"><h3>(<%= favorite.year %>) <%= favorite.title %></h3> </a>
-    <button class='delete-link' type="submit" id="<%= favorite.id %>">Delete</button>
-
+    <a href="/movies/<%= favorite.imdbId %>"><h3>(<%= favorite.year %>) <%= favorite.title %></h3> </a>
+    <button class='delete-link' id="<%= favorite.id %>" type="button">Delete</button>
+    <a id="button-link" href="/favorites/<%= favorite.id %>/comments"><button type="button">Comment</button></a>
+    <a id="button-link" href="/tags"><button type="button">Add Tag Button</button></a>
 <% }); %>

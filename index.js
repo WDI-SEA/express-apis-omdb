@@ -18,8 +18,8 @@ app.get("/", function(req, res) {
 });
 
 app.post("/favorites", function(req,res){
-  db.favorites.create({
-    imdbID:req.body.imdbID,
+  db.favorite.create({
+    imdbId:req.body.imdbId,
     title:req.body.titleFav,
     year:req.body.yearFav
   }).then(function(favorite){
@@ -27,11 +27,58 @@ app.post("/favorites", function(req,res){
   })
   // console.log(req.body);
 });
+//find or create!!!
+
+// app.get('/comments', function(req,res){
+//   res.render()
+// })
+
+
+app.get('/favorites/:id/comments',function(req,res){
+  db.favorite.findOne({where: {id:req.params.id},include:[db.comment]}).then(function(favorite){
+    res.render('comments', {favorite: favorite})
+  })
+});
+
+app.post('/favorites/:id/comments',function(req,res){
+  var newComment = req.body;
+  newComment.favoriteId = req.params.id
+  db.comment.create(newComment).then(function(comment){
+    res.redirect('/favorites/'+ req.params.id + '/comments');
+  });
+});
+
+app.post('/tags',function(req,res){
+  var newTag = req.body.name;
+  db.favorite.findOrCreate({where: {name: newTag}}).spread(function(favorite, created) {
+    favorite.createTag({name: newTag}).then(function(tag) {
+    console.log(newTag);
+    console.log("tag added");
+    });
+  });
+});
+
+
+app.get('/tags', function(req, res) {
+  var eachTag = req.params.name;
+  console.log(eachTag);
+  db.tag.find({where: {name: eachTag}}).then(function(tag) {
+    tag.getFavorites().then(function(favorites) {
+    console.log("These favorites are tagged with " + eachTag + ":");
+      favorites.forEach(function(favorite) {
+      console.log("Favorite title: " + favorite.title);
+      });
+    });
+  });
+});
+  
+
+
 
 
 
 app.get("/favorites", function(req,res){
-  db.favorites.findAll().then(function(movies) {
+  db.favorite.findAll().then(function(movies) {
     res.render("favorites", {movies: movies});
   // console.log(movies);  
   });
@@ -72,7 +119,7 @@ app.get('/movies/:imdb', function(req, res){
 app.delete('/favorites', function(req, res) {
   var id = req.body.id;
   console.log(id);
-  db.favorites.find({where: {id: id}}).then(function(id){
+  db.favorite.find({where: {id: id}}).then(function(id){
     id.destroy().then(function(u){
       res.send('success');
     });

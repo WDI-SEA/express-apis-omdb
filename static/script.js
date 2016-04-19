@@ -1,12 +1,12 @@
 $('.add-favorite-btn').click(function(){
-  var imdbID = $('#movieTitle').attr('dataImdbId');
+  var imdbId = $('#movieTitle').attr('dataImdbId');
   var titleFav = $("#movieTitle").text();
   var yearFav = $("#movieDate").text().slice(1,$("#movieDate").text().length-1);
   $.ajax({
     url: '/favorites/',
     method: 'POST',
     data: {
-      imdbID: imdbID,
+      imdbId: imdbId,
       titleFav: titleFav,
       yearFav: yearFav
     },
