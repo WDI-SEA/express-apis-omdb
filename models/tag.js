@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.tag.hasMany(models.favorite)
+        models.tag.belongsToMany(models.favorite, {through: "favoritesTags"});
       }
     }
   });

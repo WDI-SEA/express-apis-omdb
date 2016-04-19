@@ -11,6 +11,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:false}));
 
 
+
+
 app.get("/", function(req, res) {
   res.render('index');
 });
@@ -98,6 +100,30 @@ app.post('/favs/:id/comments', function(req, res) {
     });
   });
 });
+
+
+app.get("/favs/:id/tags", function(req, res) {
+  var movieId = req.params.id;
+
+  db.favorite.find({where: {imdbId: movieId}, include:[db.tag]}).then(function(favorites){
+      res.render("tags", {favorites:favorites});
+  })
+});
+
+
+app.post('/favs/:id/tags', function(req, res) {
+  var movieId = req.params.id;
+  var newTag = req.body;
+
+   db.tag.findOrCreate({where: {tag: newTag}}).spread(function(tag, created){
+     db.favorite.find({where: {imdbId: movieId}}).then(function(favorites){
+      favorite.addTag(tag).then(function(){
+        res.render('/favs/movieId/tags', {favorites:favorites});
+      });
+    });   
+  });
+});
+
 
 
 var port = 3000;
