@@ -35,16 +35,19 @@ app.get('/movies/:imdbID', function(req, res){
   var imdbID = req.params.imdbID;
   var url = 'http://www.omdbapi.com/?i='+imdbID;
 
-  request(url, function(err, response, body) {
-    var data = JSON.parse(body);
-    console.log(data);
-    if(!err && response.statusCode === 200) {
-      db.comment.findAll().then(function() {
-        console.log(comment.comment);
-      })
-      res.render('plot', {movie: data});
-    }
-  });
+  // request(url, function(err, response, body) {
+  //   var data = JSON.parse(body);
+  //   console.log(data);
+  //   if(!err && response.statusCode === 200) {
+  //     db.comment.findAll().then(function(comment) {
+  //       console.log(comment.comment);
+  //     })
+  //     res.render('plot', {movie: data});
+  //   }
+  // });
+ db.favorite.findOne({where:{omdbid:imdbID},include:[db.comment]}).then(function(movie){
+  res.render('plot',{movie:movie});
+ });
 });
 
 app.post('/favorites', function(req, res) {
