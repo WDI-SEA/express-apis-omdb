@@ -1,12 +1,14 @@
-<h1><%= favorites.Title %></h1>
-  <% favorites.comm.forEach(function(comment)  { %>
-    <a href="/favs/<%= comm.id %>"><h3><%= comm.content %></h3></a>
+<h1> comments are linked </h1>
+
+<!-- <h1><%= favorites.Title %></h1>
+  <% favorites.comment.forEach(function(comment)  { %>
+    <a href="/favs/<%= comment.id %>"><h3><%= comment.content %></h3></a>
   <% }); %>
 
 <form method="post" action="/movies/<%= favMovie.imdbId%>/comments/">
   <input type="text" cols="20" rows="30" placeholder="Your comment here">
   <button type="submit" class="addComment">Comments</button>
-</form>
+</form> -->
 
 <!-- Big dreams for this page: display the many comments for each movie page IN THE WAY that the authors page from the relationships example showed each post for the author
 
