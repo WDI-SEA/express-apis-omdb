@@ -81,16 +81,23 @@ app.post("/favs", function(req, res) {
 app.get("/favs/:id/comments", function(req, res) {
   var movieId = req.params.id;
 
-  db.favorite.find({where: {id: movieId}, include: [db.comment]}).then(function(favorites){
+  db.favorite.find({where: {imdbId: movieId}, include: [db.comment]}).then(function(favorites){
       res.render("comments", {favorites:favorites});
   })
 });
 
-app.get("/comment", function(req, res) {
-  db.comment.findOne().then(function(comment){
-    res.render("oneComment", {comment:comment});
-  })
-})
+app.post('/favs/:id/comments', function(req, res) {
+  var movieId=req.params.id;
+  var newComment = req.body;
+
+// CURRENTLY CAN'T REFRESH PAGE AND KEEP FAVORITES DATA
+
+ db.favorite.find({where: {imdbId: movieId}, include: [db.comment]}).then(function(favorites){
+  db.comment.create(newComment).then(function(comment) {
+    res.render("comments", {favorites:favorites});
+    });
+  });
+});
 
 
 var port = 3000;
