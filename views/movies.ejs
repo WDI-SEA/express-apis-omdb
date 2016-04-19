@@ -1,0 +1,21 @@
+<h1 class="movies-title"> Results for "<%= q %>" </h1>
+<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
+<div class="movies-container">
+	<% movies.forEach(function(movie) { %>
+	<div class="result">
+		<div>
+		<h4><a href="/movies/<%= movie.imdbID %>"> <%= movie.Title %> (<%= movie.Year %>) </a></h4>
+		<span id="<%= movie.imdbID %>"
+		<% if ( favorites.indexOf(movie.imdbID) === -1 ) { %>
+				return class="glyphicon glyphicon-star-empty"; 
+		<%	} else { %>
+				return class="glyphicon glyphicon-star"; 
+		<%	}; %> ></span>
+		</div>
+		<img src=" <%= movie.Poster %>"> </a>
+	</div>
+	<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
+	<%	}) %>
+</div>
+
+
