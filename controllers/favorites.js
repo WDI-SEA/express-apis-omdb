@@ -1,18 +1,23 @@
 var express = require("express");
 var request = require("request");
+var bodyParser = require('body-parser');
 var router = express.Router();
 var db = require("../models");
 
+var app = express();
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 router.get("/", function(req, res) {
-	db.favorite_movie.findAll().then(function(favorite_movies) {
+	db.favorite.findAll().then(function(favorites) {
 	//res.send(favorite_movies);
-	res.render('favorites/index', {favorites: favorite_movies});
+	res.render('favorites/index', {favorites: favorites});
 	});
 });
 
 router.delete("/:imdbID", function(req, res) {
   var imdbIDRequested = req.params.imdbID;
-  db.favorite_movie.find({where:{imdb_id:imdbIDRequested}}).then(function(movie){
+  db.favorite.find({where:{imdbID:imdbIDRequested}}).then(function(movie){
   	movie.destroy().then(function(){
   		console.log("Destroyed");
   		res.sendStatus(200);
@@ -26,8 +31,8 @@ router.post("/:imdbID", function(req, res) {
   request('http://www.omdbapi.com/?i=' + imdbIDRequested, function(err, response, body) {
     var data = JSON.parse(body);
     if(!err && response.statusCode === 200){
-      db.favorite_movie.findOrCreate({where:{imdb_id:data.imdbID, title:data.Title, year:data.Year, poster:data.Poster}})
-      	.spread(function(favorite_movie, created) {
+      db.favorite.findOrCreate({where:{imdbID:data.imdbID, title:data.Title, year:data.Year, poster:data.Poster}})
+      	.spread(function(favorite, created) {
       		res.redirect('/movies/' + imdbIDRequested);
     	});
     }
@@ -37,12 +42,18 @@ router.post("/:imdbID", function(req, res) {
   });
 });
 
-// db.user
-//   .findOrCreate({where: { firstName: 'Brian' }})
-//   .spread(function(user, created) {
-//     console.log(user); // returns info about the user
-//   });
+router.post("/:imdbID/comments", function(req, res) {
+  var imdbIDRequested = req.params.imdbID;
+  var newPost = req.body.post;
 
+  //res.send("data: " + newPost);
+  //console.log(newPost)
 
+  db.favorite.find({where:{imdbID:imdbIDRequested}}).then(function(movie){
+    db.comment.findOrCreate({where: {content: newPost, favoriteId: movie.id}}).spread(function(){
+      res.redirect('/movies/' + imdbIDRequested);
+    })
+  })
+});
 
 module.exports = router;

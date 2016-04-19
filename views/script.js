@@ -14,6 +14,7 @@ $('.fav_add').on('click', function(e){
 
         $('.fav_add').toggleClass('hidden');
         $('.fav_del').toggleClass('hidden');
+        $('.comment_group').toggleClass('hidden');
     });
 });
 
@@ -33,6 +34,7 @@ $('.fav_del').on('click', function(e){
     	console.log("done case");
         $('.fav_add').toggleClass('hidden');
         $('.fav_del').toggleClass('hidden');
+        $('.comment_group').toggleClass('hidden');
     })
 });
 

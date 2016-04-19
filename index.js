@@ -1,6 +1,7 @@
 //requires
 var express = require("express");
 var request = require("request");
+var bodyParser = require('body-parser');
 var favCtrl = require("./controllers/favorites");
 var db = require("./models");
 
@@ -9,9 +10,12 @@ app.set('view engine', 'ejs');
 
 var ejsLayouts = require("express-ejs-layouts");
 app.use(ejsLayouts);
-app.use("/favorites", favCtrl);
 
 app.use(express.static(__dirname + '/views'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.use("/favorites", favCtrl);
 
 //routes
 app.get("/", function(req, res) {
@@ -50,12 +54,16 @@ app.get("/movies/:imdbID", function(req, res) {
     var data = JSON.parse(body);
 
     if(!err && response.statusCode === 200){
-      db.favorite_movie.count({where:{imdb_id:imdbIDRequested}}).then(function(num){
+      db.favorite.count({where:{imdbID:imdbIDRequested}}).then(function(num){
         if(num > 0) {
-          res.render('show', {showData: data, favorite:true});
+          db.favorite.find({where:{imdbID:imdbIDRequested}}).then(function(movie){
+            db.comment.findAll({where:{favoriteId:movie.id}}).then(function(comments){
+              res.render('show', {showData: data, favorite:true, comments:comments});
+            });
+          });
         }
         else {
-          res.render('show', {showData: data, favorite:false})
+          res.render('show', {showData: data, favorite:false, comments:[]})
         }
       })
       //res.send(data.Title);
