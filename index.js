@@ -36,13 +36,20 @@ app.get("/", function(req, res) {
 
 app.get("/movies", function(req, res) {
 	var query = req.query.q;
+  var myFavorites = [];
 
   if (query) {
-    request('http://www.omdbapi.com/?s=' + query, function (error, response, body) {
+    request('http://www.omdbapi.com/?s=' + query + '&type=movie', function (error, response, body) {
       var data = JSON.parse(body);
-      console.log(data)
       if (!error && response.statusCode == 200 && data.Search) {
-        res.render("movies", {movies: data.Search, q: query});
+        db.favorites
+          .findAll({attributes: ['imdbCode', 'title', 'year']})
+          .then(function(results) {
+            results.forEach(function(favorite) {
+              myFavorites.push(favorite.imdbCode);
+            });
+              res.render("movies", {movies: data.Search, q: query, favorites: myFavorites});
+          });
       } else {
         res.render('movies-safe');
       }
@@ -56,17 +63,13 @@ app.get('/movies/:index', function(req, res) {
   var movieId = req.params.index;
   if (movieId) {
     request('http://www.omdbapi.com/?i=' + movieId + '&type=movie&plot=full', function (error, response, body) {
-      var data = JSON.parse(body);
-      res.render('show', {myMovie: data});
-      // db.favorites
-      //   .find({where: { imdbCode: movieId }})
-      //   .then(function(result) {
-      //     if (result) {
-      //       res.render('show', {myMovie: data, favorite: true});
-      //     } else {
-      //       res.render('show', {myMovie: data});
-      //     }
+        var data = JSON.parse(body);
+        console.log(movieId);
+        db.favorites.find({where: {imdbCode: movieId}}).then(function(result){
+          console.log(result, 'pizza');
+          res.render('show', {myMovie: data});
         });
+      });
   } else {
     res.render('movies-safe');
   }
@@ -83,6 +86,38 @@ app.post('/favorites/remove/:id', function(req, res) {
   }
 });
 
+
+//***************************************//
+
+app.get('/favorites/:id/comments', function(req, res) {
+  var movieId = req.params.id;
+  console.log(movieId);
+  if (movieId) {
+    db.favorites
+      .findAll({where: {favoritesId: movieId}})
+      .then(function(results) {
+        res.render('comments', comments: results)
+      });
+  };
+});
+
+
+app.post('/comments/:id', function(req, res) {
+  var movieId = req.params.id;
+  db.favorites.find({where: {favoritesId: movieId}}).then(function(favorites) {
+    favorites.createPost({
+      comment: 'Post title',
+      favoritesId: movieId
+  }).then(function(post) {
+    console.log(post.get());
+  });
+  })
+})
+
+
+
+//**************************************//
+
 app.post('/favorites/:id', function(req, res) {
   var movieId = req.params.id;
   if (movieId) {
@@ -90,11 +125,13 @@ app.post('/favorites/:id', function(req, res) {
       var data = JSON.parse(body);
       db.favorites
         .findOrCreate({where: { imdbCode: movieId, title: data.Title, year: data.Year }})
-        .spread(function(user, created) {
-          console.log(user); // returns info about the user
+        .spread(function(fave, created) {
+          if (created) {
+            res.sendStatus('created');
+          }
+        })
       });
-    });
-  };
+    };
 });
 
 app.get("/favorites", function(req, res) {

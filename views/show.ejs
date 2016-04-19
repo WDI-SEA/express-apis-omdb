@@ -4,7 +4,8 @@
 <div class="result">
 	<img id='myMovie-poster' class="col-xs-12 col-sm-5 col-md-6 col-lg-4" src="<%= myMovie.Poster %>">
 		<div id='myMovie-content' class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
-			<h3 id='myMovie-title'> <%= myMovie.Title %> (<%= myMovie.Year %>) </h3><button id="<%= myMovie.imdbID %>" class="btn btn-primary add-favorite"> Add to Favorites </button>
+			<h3 id='myMovie-title'> <%= myMovie.Title %> (<%= myMovie.Year %>) </h3>
+			<button id="<%= myMovie.imdbID %>" class="btn btn-primary add-favorite"> Add to Favorites </button>
 			<p id='myMovie-plot'> <%= myMovie.Plot %> </p>
 			<p> <b>Actors:</b> <%= myMovie.Actors %></p>
 			<p><b>IMDB Rating: </b></p>

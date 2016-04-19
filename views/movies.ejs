@@ -3,10 +3,19 @@
 <div class="movies-container">
 	<% movies.forEach(function(movie) { %>
 	<div class="result">
-		<h4><a href="/movies/<%= movie.imdbID %>"> <%= movie.Title %> (<%= movie.Year %>) </h4>
+		<div>
+		<h4><a href="/movies/<%= movie.imdbID %>"> <%= movie.Title %> (<%= movie.Year %>) </a></h4>
+		<span id="<%= movie.imdbID %>"
+		<% if ( favorites.indexOf(movie.imdbID) === -1 ) { %>
+				return class="glyphicon glyphicon-star-empty"; 
+		<%	} else { %>
+				return class="glyphicon glyphicon-star"; 
+		<%	}; %> ></span>
+		</div>
 		<img src=" <%= movie.Poster %>"> </a>
-		<button id="<%= movie.imdbID %>" class="btn btn-primary add-favorite"> Add to Favorites </button>
 	</div>
 	<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
 	<%	}) %>
 </div>
+
+

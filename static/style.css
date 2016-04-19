@@ -89,7 +89,26 @@ h1, h4, .navbar-brand {
   margin-right: 15px;
   display: inline-block;
 }
-.add-favorite, .remove-favorite, .add-random-favorite {
+h4 {
+  display: inline-block;
+}
+.add-favorite, .remove-favorite, .add-random-favorite, .comment-button {
+  margin-left: 10px;
   margin-bottom: 10px;
   display: inline-block;
+}
+.glyphicon-star-empty {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+.glyphicon-star {
+  font-size: 16px;
+  color: yellow;
+  padding: 0;
+  margin: 0;
+}
+.glyphicon-star:hover {
+  color: goldenrod;
 }

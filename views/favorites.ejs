@@ -5,6 +5,9 @@
 	<div class="result">
 		<h4><a href="/movies/<%= movie.imdbCode %>"> <%= movie.title %> (<%= movie.year %>) </a></h4>
 		<button id="<%= movie.imdbCode %>" class="btn btn-danger remove-favorite"> Remove Favorite </button>
+		<button id="" class='btn btn-info comment-button'>
+		<a href="/favorites/<%=movie.imdbCode%>/comments"><span class="glyphicon glyphicon-comment"></span></a>
+		</button>
 	</div>
 	<div class="col-xs-12 hrspacing"><hr class="hrcolor"></div>
 	<%	}) %>

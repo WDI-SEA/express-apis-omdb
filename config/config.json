@@ -12,7 +12,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "database": "database_production",
+    "database": "omdb",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
