@@ -15,11 +15,7 @@ $('.add-to-favs-btn').click(function(e){
       year: year
     },
     success: function(xhr, status, data){
-      if(status ===200){
-      }
-      
-      window.location.href = 'http://localhost:3000/favorites';
-
+      window.location = '/favorites/';
     }
   })
 
@@ -27,24 +23,19 @@ $('.add-to-favs-btn').click(function(e){
 
 $('.delete').on('click', function(e){
   e.preventDefault();
-  // var imdbId = $('#movie').attr('data');
-  var imdbId =$(this).attr('data');
+  // $(this).closest('h2').attr('data');
+  // var imdbId = $('#movie.id').attr('data');
+  var favId =$(this).attr('id');
 
-  var title = $('#movieTitle').text();
-  var title =$(this).attr('data');
-  var year = $('#movieYear').text();
-
+//ajax sends request
   $.ajax({
       url:'/favorites/',
       method: 'DELETE',
       data: {
-        imdbId: imdbId,
-        title: title,
-        year: year
-    },
-  }).done(function(){
-        //do stuff when the delete action is complete
-        //redirect or update view
-        console.log("deleted success")
-      });
+        favId: favId,
+      },
+      success: function(text, status, data) {
+        $('#'+favId).parent().remove();
+      }
+  });
 });

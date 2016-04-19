@@ -1,0 +1,14 @@
+<h2><%= movie.title %></h2>
+
+<% for(var i=0; i<movie.commentts.length; i++){%> 
+ <p> <%= movie.commentts[i].comment; %> </p>
+<%}%>
+
+
+<form method="post" action="/comments/<%= movie.id%>" role="form">
+<h2> Add a Comment </h2>
+
+<textarea type="text" name="comment" placeholder="enter comment"cols="25" rows="2" name="content"></textarea>
+
+<button type="submit">submit</button>
+</form>
