@@ -52,7 +52,7 @@ app.post('/favorites', function(req, res){
 			year: req.body.Year	
 	}).then(function(){
 		console.log("this works!");
-		res.redirect("/");
+		res.redirect("/favorites");
 	});
 });
 
