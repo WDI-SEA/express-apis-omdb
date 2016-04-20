@@ -1,0 +1,29 @@
+body {
+  background-color: #1c5380;
+}
+
+div {
+  background-color: white;
+  border: solid black 3px;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+#search-results {
+  padding: 10px;
+  list-style: none;
+}
+
+.search-image {
+  height: 60px;
+  width: 40px;
+}
+
+.inline {
+  display: inline;
+}
+
+.padded-right {
+  padding-right: 10px; 
+}
