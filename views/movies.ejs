@@ -4,7 +4,6 @@
     <ul class="title">
       <% movies.forEach(function(movie) { %>
       <li><a href="<%= '/movies/' + movie.imdbID + '/?q=' + q %>"><h3><%= movie.Title %></h3></a></li>
-    
-    <% }); %>
-  </ul>
+      <% }); %>
+</ul>
 </div> 

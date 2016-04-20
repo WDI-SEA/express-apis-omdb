@@ -1,16 +1,18 @@
- <div class="col-sm-6">
+<div class="col-sm-6">
   <h3 class="title"> <%= movie.Title%> </h3> <h4> (<%= movie.Year %>) </h4> 
 
-   <button type="button" id="favorite-btn" data-imdbId="<%= movie.imdbID %>" class="btn btn-success">Add to Favorites</button>
+   <button type="button" id="favorite-btn" data-imdbId="<%= movie.imdbID %>" class="btn btn-success">+ Favorites</button>
 
 
     <h4>Plot:</h4><p><%= movie.Plot %></p>
     <h4>Awards/Nominations:</h4><p><%= movie.Awards %></p>
     <div class="form-group">
-      <label for="comment">Add a Comment:</label>
-      <textarea class="form-control" rows="5" id="comment"></textarea>
-      <button type="button" id="cmt-submit">Submit</button>
-    </div>
+      <form method="POST" action="/favorites/<%= movie.imdbID %>/comments">
+        <input name="author" placeholder="Pseudonym" id="author"> </br>
+        Content: <textarea name="content" class="form-control" rows="3"></textarea>
+      <input class="btn btn-primary" type="submit" value="+ Comment">
+    </form>
+  </div>
 </div>
 
 
@@ -18,12 +20,3 @@
   <img src="<%= movie.Poster %>"> 
 </div> 
 
-
-
-<!-- 
- <form action='/getFavs' method='POST'>
-     <button type="check" id="favButton">Add to Favs!</button>
-     <input type='hidden' name='imbd_id' value='<%= movie.imdbID%>'>
-     <input type='hidden' name='title' value='<%= movie.Title%>'>
-     <input type='hidden' name='year' value='<%= movie.Year%>'>
- </form> -->
