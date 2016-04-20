@@ -1,0 +1,90 @@
+#author {
+  color: black;
+}
+body {
+  background-color: #2d112c;
+
+}
+.container {
+  background-color: #2d112c;
+  color: #fcdac6;
+  background-image: url('film.png');
+  background-repeat: repeat-y;
+  background-position: center;
+  height: auto;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+/*  text-align: center;*/
+  text-rendering: optimizeLegibility;
+  font-size: 90px;  
+}
+.form-group{
+  align-content: center;
+}
+ul.title {
+  list-style-image: url('cam2.png');
+
+  font-size: 20px;
+  color: #fcdac6;
+}
+
+a:link {
+  color: #fcdac6;
+}
+a:visited {
+  color: #c6293c;
+}
+a:hover {
+  color: #fe583d;
+}
+#submit {
+  color: #2d112c;
+}
+#bs-btn {
+  color: white;
+}
+h3 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+h4 {
+  font-family: 'Fjalla One', sans-serif;
+}
+h5 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+/*
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+
+*/
+
+
+
+/*
+
+tan:;
+.color1 { color: #fcdac6}
+
+oranges:;
+.color2 { color: #fe583d}
+.color3 { color: #fe7e4a}
+.color5 { color: #fe6c3f}
+
+orangeish purple:
+.color8 { color: #c6293c};
+
+purples
+.color4 { color: #7d0031}
+.color6 { color: #530031}
+.color7 { color: #7d0032}
+.color9 { color: #820130}
+
+DARK purp
+.color10 { color: #2d112c}
+
