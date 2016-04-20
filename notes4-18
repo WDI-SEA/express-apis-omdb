@@ -1,0 +1,26 @@
+Sequelize 1 to Many relationships --- 1:M
+sequelize automatically gives us columns: id, created at, updated at.
+
+sequelize model:create --name author --attributes name:string
+
+
+sequelize model:create --name post --attributes title:string,content:text,authorId:integer
+
+Insert into models/author.js, inside the associate function:
+
+associate: function(models) {
+  models.author.hasMany(models.post);
+}
+
+associate: function(models) {
+  models.post.belongsTo(models.author);
+}
+
+sequelize db:migrate
+
+Once the association is set up, we can use the helper methods:
+-createModel
+-getModels
+-setModel
+-addModel  
+----in each of these is replaced with the model name you create.

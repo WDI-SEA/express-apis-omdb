@@ -1,0 +1,14 @@
+1. add Procfile - heroku needs it >>>>>> $ touch Procfile
+2. added node command >>>>> $ echo "web: node index.js" >> Procfile
+3. added process.env.PORT >>>>>>>> index.js >> var port = 3000
+^^^^ var port = 3000;   app.listen(process.env.PORT || port);
+4. git push origin master
+5. git push heroku master
+
+
+
+heroku config:set NODE_ENV='production'
+
+
+heroku run node_modules/.bin/sequelize db:migrate    
+^--- run bash to heroku
