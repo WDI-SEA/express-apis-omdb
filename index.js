@@ -9,6 +9,7 @@
 var express = require("express");
 var ejsLayouts = require('express-ejs-layouts');
 var request = require('request');
+var movieCtrl = require('./controllers/movies');
 
 var app = express();
 
@@ -52,44 +53,13 @@ app.get("/", function(req, res) {
   }
 });
 
-app.get("/movies/:imdbID", function(req, res) {
-  // res.redirect('http://imdb.com/title/' + req.params.imdbID);
-  request({
-    url: 'http://omdbapi.com',
-    qs: {
-      i: req.params.imdbID,
-      plot: 'full',
-      r: 'json'
-    }
-  }, function(err, response, body) {
-      if (!err && response.statusCode == 200) {
-        var data = JSON.parse(body);
-        res.render('show-movie', {movie: data});
-      }
-    });
-});
-
-
-
-// app.get("/movies", function(req, res) {
-//   var queryStringObj = {
-//     s: 'star wars'
-//   };
-
-//   request({
-//     url: 'http://www.omdbapi.com',
-//     qs: queryStringObj
-//   }, function (error, response, body) {
-//     if (!error && response.statusCode == 200) {
-//       var dataObj = JSON.parse(body);
-//       res.render('movies', {results: dataObj.Search})
-//     }
-//   });
-// });
+app.use("/movies", movieCtrl);
 
 
 
 ///////////////////
 // Start Server (on port 3000)
 ///////////////////
-app.listen(process.env.PORT || 3000);
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log("Starting express-apis-omdb server on port", port);
