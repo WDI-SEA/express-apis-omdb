@@ -1,0 +1,10 @@
+<ul>
+  <% tags.forEach(function(tag) { %>
+  <li>
+    <a href="/favorites/tag=<% tag.name %>">
+      <%= tag.name %>
+    </a>
+  </li>
+  <%});%> 
+</ul>
+  

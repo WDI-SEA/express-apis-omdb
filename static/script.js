@@ -16,3 +16,10 @@ $('#favorite-btn').click(function(e) {
     }
   })
 });
+
+// $('#cmt-submit').click(function(e) {
+
+//   var newComment = {
+//     author: $('').text()
+//   }
+// })

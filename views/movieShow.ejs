@@ -3,9 +3,14 @@
 
    <button type="button" id="favorite-btn" data-imdbId="<%= movie.imdbID %>" class="btn btn-success">Add to Favorites</button>
 
-  </form> 
+
     <h4>Plot:</h4><p><%= movie.Plot %></p>
     <h4>Awards/Nominations:</h4><p><%= movie.Awards %></p>
+    <div class="form-group">
+      <label for="comment">Add a Comment:</label>
+      <textarea class="form-control" rows="5" id="comment"></textarea>
+      <button type="button" id="cmt-submit">Submit</button>
+    </div>
 </div>
 
 
