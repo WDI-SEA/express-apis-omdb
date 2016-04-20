@@ -1,3 +1,6 @@
+https://wdi_sea.gitbooks.io/notes/content/05-express/express-apis/03apis.html
+^^^ look at this
+
 #Express with APIs - OMDB
 
 We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.

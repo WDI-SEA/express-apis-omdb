@@ -1,0 +1,26 @@
+<div class="col-sm-6">
+  <h3 class="title"> <%= movie.Title%> </h3> <h4> (<%= movie.Year %>) </h4> 
+
+  <h5>Comments</h1>
+  <% comments.forEach(function(comment) { %>
+    <div>
+      <strong><%= comment.author %> says:</strong>
+      <%= comment.content %>
+    </div>
+  <% }); %>
+
+  <div>
+    <form method="POST" action="/favorites/<%= movie.imdbID %>/comments">
+      Author: <input name="author" placeholder="author">
+      Content: <input name="content" placeholder="comment text">
+      <input type="submit" value="add comment">
+    </form>
+  </div>
+</div>
+
+
+<div class="col-sm-6">
+  <img src="<%= movie.Poster %>"> 
+</div> 
+
+

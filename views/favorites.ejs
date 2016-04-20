@@ -1,0 +1,13 @@
+<div class="col-sm-8">
+<ul>
+  <h4> Favorites:</h4>
+  <% favorites.forEach(function(favorite) {%>
+  <a href="/movies/<%= favorite.imdbId %>"><h2><%= favorite.title %>  <small><%= favorite.year %></small></h2></a>
+    
+</ul>
+<a class="btn btn-primary" href="/favorites/<%= favorite.imdbId %>/comments">See Comments</a>
+  <a class="btn btn-primary" href="/favorites/<%= favorite.imdbId %>/tag">add a tag</a>
+<% }); %>
+
+</div>
+
