@@ -1,0 +1,33 @@
+body{
+	background-image: url('film.jpg');
+	align-content: center;
+	color:#9E9E9E;
+	text-align: center;
+
+}
+
+legend{
+	text-align: center;
+	color:black;
+}
+
+/*div{
+	background-color: black;
+	border: solid white 1px;
+}*/
+
+h1{
+	color: black;
+}
+
+form{
+	text-align: center;
+}
+
+label{
+	text-align: center;
+}
+
+movies{
+	
+}

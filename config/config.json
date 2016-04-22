@@ -1,0 +1,10 @@
+{
+  "development": {
+    "database": "express-apis-omdb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_ENV_variable": "DATABASE_URL"
+  }
+}
