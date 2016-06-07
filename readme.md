@@ -2,24 +2,25 @@
 
 We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.
 
-##Note
+##Getting Started
 
-Fork and clone this repository and setup a basic Express app. Make sure to finish the main requirements for this project, because we'll be adding to the assignment over the next week.
+* Fork and clone this repository, which has a starter app provided for you.
+* Run `npm install` to install dependencies
+  * If installed, `nodemon` should start and refresh your app when changes are made
+  * `npm run lint:js` - lint your JS
+    * Note that from here on out, the JS linter will automatically fix most issues with spacing, quotations, and semicolons. [More information here](http://eslint.org/blog/2015/10/eslint-v1.6.0-released#autofixing-of-more-rules)
+  * `npm run lint:css` - lint your CSS
 
-##Requirements
-1. User goes to home page that has a search form field for a movie.
-2. The search form will take the user to a search results page of movie listings on the route.
-3. Each movie link should click into a view with detailed information about the movie.
+## User Stories
+1. As a user, I want to go to a home page to search a database full of movies.
+2. As a user, I want to see movie results based on my search query.
+3. As a user, I want to pick a movie result and see detailed information about the movie.
 
-
-##How to get Started
-1. Create a form that sends a query and gets results from the OMDB API. Read over
-the documentation to see the endpoints needed.
-
-The next step is to turn the movie results into links that will go to a new
-route, and make an additional API requests for additional movie details.
-
-2. From the search results page, we notice along with every movie entry
+## Requirements
+1. Create a form that sends a query and gets a list of results from the OMDB API. Read over the [documentation](http://www.omdbapi.com) to see the endpoints needed.
+2. List the results on a separate page. You may want the route to accept a querystring so users can easily go back to this page.
+  * Example: `/results?q=star+wars`
+3. From the search results page, we notice along with every movie entry
 there is a IMDBid. Have each movie link to a route like `/movie/tt234323`.
 Take the parameter from that url and make an additional API call to
 retrieve movie details related to that `imdbID`
@@ -41,7 +42,7 @@ of the data. Use `JSON.parse(data)` to turn that data back into an object.
 * Make sure you do the `res.render` inside the callback function of the request.
 
 
-##Bonus
+##Bonuses
 
 * Add stars images to reflect the imdb ratings
-* Figure out what parameters are need to access the rotten tomato listings.
+* Figure out what parameters are need to access the Rotten Tomato listings.
