@@ -18,8 +18,10 @@ We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a publ
 
 ## Requirements
 1. Create a form that sends a query and gets a list of results from the OMDB API. Read over the [documentation](http://www.omdbapi.com) to see the endpoints needed.
+  * This form should have a `GET` method, with an action of `/results`
 2. List the results on a separate page. You may want the route to accept a querystring so users can easily go back to this page.
   * Example: `/results?q=star+wars`
+  * Use `req.query` to access querystring parameters.
 3. From the search results page, we notice along with every movie entry
 there is a IMDBid. Have each movie link to a route like `/movie/tt234323`.
 Take the parameter from that url and make an additional API call to
