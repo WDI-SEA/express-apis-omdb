@@ -24,8 +24,7 @@ We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a publ
 there is a IMDBid. Have each movie link to a route like `/movie/tt234323`.
 Take the parameter from that url and make an additional API call to
 retrieve movie details related to that `imdbID`
-
-3. Create a new route that takes the paramaters of the`imdbID`in the url
+4. Create a new route that takes the paramaters of the`imdbID`in the url
 on a `movies` controller. The route you will need to make will look
 like `/movies/:imdbId`. Using the data from `req.params` make a
 second api call to the api to get the movie details.
@@ -39,10 +38,11 @@ of the data. Use `JSON.parse(data)` to turn that data back into an object.
 * [Example Search URL](http://www.omdbapi.com/?s=matrix)
 * [Example Movie Detail URL](http://www.omdbapi.com/?i=tt0133093)
 
-* Make sure you do the `res.render` inside the callback function of the request.
+* Make sure you call `res.render` inside the callback function of the request.
 
 
 ##Bonuses
 
 * Add stars images to reflect the imdb ratings
-* Figure out what parameters are need to access the Rotten Tomato listings.
+* Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
+* Add the ability for users to add movies to a favorites list, and save that list as a JSON file
