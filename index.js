@@ -1,3 +1,4 @@
+// Server Configuration Stuff
 var express = require('express');
 var request = require("request");
 var app = express();
@@ -9,6 +10,7 @@ app.set("view engine", "ejs")
 app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(require('morgan')('dev'));
+app.use(express.static("public"));
 ///////////////////////////////////////////////
 
 app.get('/', function(req, res) {

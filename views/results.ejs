@@ -1,6 +1,23 @@
-<h1>Results</h1>
-  <% results.forEach(function(result) { %>
+<!--   <% results.forEach(function(result) { %>
     <h2>(<%= result.Year %>) <%= result.Title %></h2>
     <img src="<%= result.Poster%>">
     <a href="/details/<%= result.imdbID %>">Get Deets!</a>
-  <% }); %>
+  <% }); %> -->
+
+<div class="container">
+  <h1>Search Results</h1>
+  <div class="row">
+    <% results.forEach(function(result) { %>
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        <img src="<%= result.Poster%>" class="search-img" alt="movie-image">
+        <div class="caption">
+          <h3><%= result.Title%></h3>
+          <p>(<%= result.Year%>) </p>
+          <p><a href="/details/<%= result.imdbID %>" class="btn btn-primary" role="button">Details</a></p>
+        </div>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>
