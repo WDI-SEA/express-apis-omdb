@@ -1,0 +1,11 @@
+<h2><%= dataObj.Search %></h2>
+
+  <% dataObj.forEach(function(data) { %>
+    <h2><%= data.Title %></h2>
+    <h2><%= data.Year %></h2>
+    <p><a href="/moreInfo/<%= data.imdbID %>">More Info</a></p>
+    <div class="displayPic">
+      <img src="<%= data.Poster %> " class="img-responsive" alt="Responsive image">
+    </div>
+
+  <% }); %>

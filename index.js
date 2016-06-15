@@ -33,10 +33,29 @@ app.get('/movies', function(req, res) {
           if(!error && response.statusCode === 200 && body.Response !== 'False' && body[2] !== '<') {
             var dataObj = JSON.parse(body);
             res.render('movies', { dataObj: dataObj.Search });
-      }
+        }
 
-  });
-}
+    });
+  }
+});
+
+app.get('/movie', function(req, res) {
+  if (req.query.q === '') {
+        res.send('No empty string');
+      } else {
+        request({
+          url: 'http://www.omdbapi.com',
+          qs: {
+            s: req.query.q
+          }
+        }, function(error, response, body) {
+          if(!error && response.statusCode === 200 && body.Response !== 'False' && body[2] !== '<') {
+            var dataObj = JSON.parse(body);
+            res.render('movies', { dataObj: dataObj.Search });
+        }
+
+    });
+  }
 });
 
 app.get('/moreInfo/:id', function(req, res) {
