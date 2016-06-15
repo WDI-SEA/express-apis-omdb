@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 });
 
 
-app.get("/userSearch", function (req, res) {
+app.get("/results", function (req, res) {
   request({
     url: "http://www.omdbapi.com",
     qs: {
