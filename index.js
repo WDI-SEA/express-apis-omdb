@@ -29,8 +29,8 @@ app.post('/search', function(req, res){
     if(!error && response.statusCode === 200){
       var dataObj = JSON.parse(body);
 
-      res.send(dataObj.Search);
-      // res.render('results', {results: dataObj.Search});
+      // res.send(dataObj.Search);
+      res.render('results', {results: dataObj.Search});
     }
   });
 });
