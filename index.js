@@ -1,10 +1,13 @@
 var express = require('express');
+var ejsLayouts = require('express-ejs-layouts');
 var app = express();
 
+app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
+app.use(ejsLayouts);
 
 app.get('/', function(req, res) {
-  res.send('Hello Backend!');
+  res.render('main.ejs');
 });
 
 app.get('/results', function(req, res) {
