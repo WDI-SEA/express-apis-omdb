@@ -1,0 +1,12 @@
+<h1>This is the movies page</h1>
+
+<h2><%= dataObj.Search %></h2>
+
+  <% dataObj.forEach(function(data) { %>
+    <h3><%= data.Title %></h3>
+    <h3><%= data.Year %></h3>
+    <p><a href="/moreInfo/<%= data.imdbID %>">More Info</a></p>
+    <img src="<%= data.Poster %>">
+
+  <% }); %>
+
