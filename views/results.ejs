@@ -1,0 +1,7 @@
+
+<ul>
+  <% results.forEach(function(entry) { %>
+    <li><%= entry.Year %> - <%= entry.Title %></li>
+    <a href="/movies/<%= entry.imdbID %>">Find out more about <%= entry.Title %></a>
+  <% }); %>
+</ul>
