@@ -13,16 +13,9 @@ router.get('/:i', function(req, res) {
     if (!error && response.statusCode === 200) {
       var movie = JSON.parse(body);
       // res.send for now (to test) - later, res.render
-      res.send(movie);
-      // res.render('result', { title: movie.Title,
-      // year: movie.Year,
-      // rating: movie.Rated,
-      // genre: movie.Genre,
-      // director: movie.Director,
-      // cast: movie.Actors,
-      // plot: movie.Plot,
-      // imdbRating: movie.imdbRating
-      // });
+      // res.send(movie);
+      res.render('movie.ejs', { movie: movie
+      });
     }
   });
 });
