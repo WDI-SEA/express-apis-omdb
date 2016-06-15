@@ -3,6 +3,11 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
 
+var detailsCtrl = require('./controllers/details');
+app.use('/details', detailsCtrl);
+
+
+
 app.set('view engine', 'ejs');
 
 var ejsLayouts = require('express-ejs-layouts');
@@ -38,21 +43,21 @@ app.get('/query', function(req, res) {
   });
 });
 
-app.get('/details/:id', function(req, res) {
-  request({
-    url: 'http://www.omdbapi.com',
-    qs: {
-      i: req.params.id,
-      plot: "long"
-    }
-  }, function(error, response, body) {
-    if(!error && response.statusCode === 200) {
-      var dataObj = JSON.parse(body);
-      console.log(dataObj);
-      res.render('details.ejs', {result: dataObj});
-    }
-  });
-});
+// app.get('/details/:id', function(req, res) {
+//   request({
+//     url: 'http://www.omdbapi.com',
+//     qs: {
+//       i: req.params.id,
+//       plot: "long"
+//     }
+//   }, function(error, response, body) {
+//     if(!error && response.statusCode === 200) {
+//       var dataObj = JSON.parse(body);
+//       console.log(dataObj);
+//       res.render('details.ejs', {result: dataObj});
+//     }
+//   });
+// });
 
 var server = app.listen(process.env.PORT || 3100);
 
