@@ -2,6 +2,10 @@
 
 <% movies.forEach(function(movie, idx) { %>
   <div class="well">
-    <%= movie.Title %>
+    <h2>
+      <a href="/movies/<%= movie.imdbID %>">
+        <%= movie.Title %>
+      </a>
+    </h2>
   </div>
 <% }); %>

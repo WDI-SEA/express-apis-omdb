@@ -31,7 +31,21 @@ app.get('/results', function(req, res) {
 });
 
 app.get('/movies/:imdbId', function(req, res) {
-  res.send('This is /movies/:imdbId');
+  var imdbId = req.params.imdbId;
+  request({
+    url: 'http://www.omdbapi.com/',
+    qs: {
+      i: imdbId,
+      tomatoes: true
+    }
+  }, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      var movieData = JSON.parse(body);
+      res.render('movie.ejs', { movie: movieData });
+    } else {
+      res.send('error');
+    }
+  });
 });
 
 var server = app.listen(process.env.PORT || 3000);
