@@ -17,35 +17,8 @@ app.get('/', function(req, res) {
   res.render('search');
 });
 
-app.get('/movies', function(req, res) {
-  request({
-    url: 'http://www.omdbapi.com',
-    qs: {
-      s: req.query.search
-    }
-  }, function(error, response, body) {
-    if(!error && response.statusCode === 200) {
-      var dataObj = JSON.parse(body);
-      console.log(dataObj);
-      // res.send(dataObj);
-      res.render('movies', {results: dataObj.Search});
-    }
-  });
-});
-
-app.get('/moreinfo/:id', function(req, res) {
-  request({
-    url: 'http://www.omdbapi.com/',
-    qs: {
-      i: req.params.id
-    }
-  }, function(error, response, body) {
-    if(!error && response.statusCode === 200) {
-      var otherData = JSON.parse(body);
-      res.render('moreinfo', {results: otherData});
-    }
-  });
-});
+//attached router and appends nothing
+app.use('/movies', require('./controllers/movies.js'));
 
 var server = app.listen(process.env.PORT || 3000);
 module.exports = server;
