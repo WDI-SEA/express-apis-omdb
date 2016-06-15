@@ -28,11 +28,9 @@ app.post('/search', function(req, res){
       'Accept': 'application/json'
     }
   }, function(error, response, body){
-    console.log(body);
     if(!error && response.statusCode === 200){
       var dataObj = JSON.parse(body);
 
-      // res.send(dataObj.Search);
       res.render('results', {results: dataObj.Search, queryString: req.body.name});
     }
   });
