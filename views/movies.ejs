@@ -1,0 +1,15 @@
+<h1>Movies</h1>
+
+<ul>
+<% data.forEach(function(movie, idx) { %>
+  <li><%= movie.Title %></li>
+  <li><%= movie.Year %></li>
+  <li><%= movie.imdbID %></li>
+  <li><img src="<%= movie.Poster %>"></li>
+  <li><a href="/movie/<%= movie.imdbID %>">More info</a></li>
+<% }); %>
+</ul>
+
+
+<!-- movie is referring to the parameter -->
+<!-- Title is from the OMDB data that we are using (in "data") -->
