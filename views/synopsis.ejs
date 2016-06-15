@@ -1,3 +1,11 @@
-<% for (key in details) { %>
-  <p><%= key %> – <%= details[key] %> </p>
-<% } %>
+<div class="container">
+
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <img src="<%= details.Poster %>" alt="">
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+    <% for (key in details) { %>
+      <p><b><%= key %></b> – <%= details[key] %> </p>
+    <% } %>
+  </div>
