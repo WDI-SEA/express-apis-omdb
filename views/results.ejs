@@ -1,0 +1,12 @@
+<div class="container">
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/css/results.css">
+  <h1>Here's the movies that matched your search!</h1>
+  <h2><a href="/">Home</a></h2>
+  <div class="listDiv col-xs-8 col-xs-offset-2">
+    <% movies.forEach(function(movie) { %>
+      <a href="/movie/<%= movie.imdbID %>"><h3 class="col-xs-4 col-xs-offset-4"><%= movie.Title%></h3></a>
+      <h4 class="year col-xs-6 col-xs-offset-3"><%= movie.Year %></h4>
+    <% }); %>
+  </div>
+</div>

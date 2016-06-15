@@ -1,0 +1,23 @@
+body {
+  background-image: url('../img/filmBG.jpg');
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+}
+h1 {
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+  color: rgb(0,120,220);
+}
+h3 {
+  color: black;
+}
+ .details{
+  margin-top: 1%;
+  border: 5px solid rgba(0,25,75, 0.75);
+  border-radius: 25px;
+  background-color: rgba(150,150,150, 0.5);
+ }
+img {
+  border: 1px solid black;
+  border-radius: 2%;
+}
