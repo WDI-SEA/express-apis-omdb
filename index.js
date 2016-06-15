@@ -16,6 +16,10 @@ app.get('/', function(req, res) {
   res.render('main');
 })
 
+app.get('/movie', function(req, res) {
+  res.render('movieSearch');
+});
+
 app.get('/movies', function(req, res) {
   if (req.query.q === '') {
         res.send('No empty string');

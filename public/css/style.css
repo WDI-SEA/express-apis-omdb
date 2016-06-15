@@ -1,7 +1,29 @@
 h1 {
-  color: pink;
+  color: white;
+  padding-left: 600px;
+  font-size: 50px;
+}
+
+h2 {
+  color: white;
+}
+
+body {
+ background-image: url(http://www.hittingthestage.com/wp-content/uploads/2013/12/movie_theatre.jpg);
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ margin-left: 20px;
 }
 
 .jumbotron {
   text-align: center;
+}
+
+.movieInfo {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.displayPic {
+  padding-left: 700px;
 }
