@@ -3,19 +3,17 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
 
-var detailsCtrl = require('./controllers/details');
-app.use('/details', detailsCtrl);
-
-
-
 app.set('view engine', 'ejs');
-
 var ejsLayouts = require('express-ejs-layouts');
 app.use(ejsLayouts);
-
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(require('morgan')('dev'));
+
+
+app.use(express.static('public'));
+
+var detailsCtrl = require('./controllers/details');
+app.use('/details', detailsCtrl);
 
 app.get('/', function(req,res) {
   res.render('index.ejs');
