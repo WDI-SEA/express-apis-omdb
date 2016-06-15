@@ -11,42 +11,7 @@ app.get('/', function(req, res) {
   res.render('main.ejs');
 });
 
-app.get('/results', function(req, res) {
-  // how I get my query value
-  // res.send(req.query.searchTerm);
-
-  request({
-    url: 'http://www.omdbapi.com/',
-    qs: {
-      s: req.query.searchTerm
-    }
-  }, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      var movieData = JSON.parse(body);
-      res.render('results.ejs', { movies: movieData.Search });
-    } else {
-      res.send('Error');
-    }
-  });
-});
-
-app.get('/movies/:imdbId', function(req, res) {
-  var imdbId = req.params.imdbId;
-  request({
-    url: 'http://www.omdbapi.com/',
-    qs: {
-      i: imdbId,
-      tomatoes: true
-    }
-  }, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      var movieData = JSON.parse(body);
-      res.render('movie.ejs', { movie: movieData });
-    } else {
-      res.send('error');
-    }
-  });
-});
+app.use('/', require('./controllers/movieRoutes'));
 
 var server = app.listen(process.env.PORT || 3000);
 
