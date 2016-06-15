@@ -24,30 +24,27 @@ app.get('/:search', function(req, res) {
       s: req.query.q
     }
   }, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
+    if (!error && response.statusCode === 200 && body[2] !== '<') {
       var data = JSON.parse(body);
-      res.render('results.ejs', { results: data.Search })
+      res.render('results.ejs', { results: data.Search });
     }
-  })
-})
+  });
+});
 
 app.get('/movies/:imdbID', function(req, res) {
   request({
-    url: 'http://www.omdbapi.com/',
-    qs:{
+    url: 'http://www.omdbapi.com',
+    qs: {
       i: req.params.imdbID
     }
 
-  },function(error, response, body) {
-    if(!error && response.statusCode === 200) {
+  }, function(error, response, body) {
+    if (!error && response.statusCode === 200 && body[2] !== '<') {
       var data = JSON.parse(body);
-      res.render('movies.ejs', {movie: data})
+      res.render('movies.ejs', { movie: data });
     }
-  })
-console.log(req.params.imdbID);
-})
-
-
+  });
+});
 
 var server = app.listen(process.env.PORT || 3000);
 
