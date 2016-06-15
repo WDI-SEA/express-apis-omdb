@@ -1,0 +1,7 @@
+<h1>Article Search List</h1>
+
+<% results.forEach(function(item) { %>
+<div>
+  <a href='/moreinfo/<%= item.imdbID %>'><img src='<%= item.Poster %>'></a>
+</div>
+<% }); %>
