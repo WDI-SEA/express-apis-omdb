@@ -1,0 +1,6 @@
+<h1>Results</h1>
+  <% results.forEach(function(result) { %>
+    <h2>(<%= result.Year %>) <%= result.Title %></h2>
+    <img src="<%= result.Poster%>">
+    <a href="/details/<%= result.imdbID %>">Get Deets!</a>
+  <% }); %>
