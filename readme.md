@@ -48,3 +48,9 @@ of the data. Use `JSON.parse(data)` to turn that data back into an object.
 * Add stars images to reflect the imdb ratings
 * Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
 * Add the ability for users to add movies to a favorites list, and save that list as a JSON file
+
+---
+
+## Licensing
+1. All content is licensed under a CC-BY-NC-SA 4.0 license.
+2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
