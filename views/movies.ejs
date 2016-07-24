@@ -1,0 +1,10 @@
+<ul>
+  <% movies.forEach(function(movie) { %>
+    <li><%= movie.Title %>
+    <%= movie.Year %>
+    </li>
+    <img src="<%= movie.Poster %>">
+    <a href="/flick/<%= movie.imdbID %>">Get Deets!</a>
+
+  <% }); %>
+</ul>
