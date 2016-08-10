@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MOVIE RESULTS</title>
+  <title>OMDB MOVIE RESULTS</title>
 </head>
 
 <body>
@@ -9,7 +9,7 @@
 <h2> Star Wars </h2>
 
 <% results.forEach(function(result) { %>
-  <% include ../partials/movie.ejs %>
+  <a href="/movie/<%= result.imdbID %>"<h3> <%= result.Title %> </h3>
 
 
 <% }); %>
