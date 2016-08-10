@@ -4,8 +4,9 @@
 var express = require("express");
 var request = require("request");
 var ejsLayouts = require("express-ejs-layouts");
-//var bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
 var fs = require('fs');
+
 var app = express();
 
 //sample code for below
@@ -19,19 +20,33 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(ejsLayouts);
 
-
-
 // already included by author ??
-app.use(require('morgan')('dev'));
+//app.use(require('morgan')('dev'));
+
 
 
 
 //requests
+
+
+//basic get to show index.ejs page
+// app.get('/', function(req, res) {
+//   //this doesn't refer to page, so it gets replaced, ref to index
+//   //res.send("Hello World");
+//   res.render("index");
+// });
+
+
+
+
 app.get('/', function(req, res) {
   //console.log(process.env.SEARCH_TERM);
 
+  //res.render('index');
+
   var qs = {
-    s: process.env.SEARCH_TERM, 
+    //s: process.env.SEARCH_TERM, 
+    s: 'darth', 
     plot: 'short', 
     r: 'json'
 
@@ -76,6 +91,21 @@ app.get("/movies", function(req, res) {
       }
     });
 });
+
+
+
+//post new articles, uses the form and text entries
+app.post('/results', function(req, res) {
+  //console.log(req.body);
+  var fileContents = fs.readFileSync('./data.json');
+  var data = JSON.parse(fileContents);
+  //console.log("post is called");
+  data.push(req.body);
+  //console.log(data);
+  fs.writeFileSync('./data.json', JSON.stringify(data));
+  res.redirect('results');
+});
+
 
 
 
