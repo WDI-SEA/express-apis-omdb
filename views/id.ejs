@@ -1,0 +1,22 @@
+<% include ../partials/header.ejs %>
+<div class="row">
+<div class="col-md-6 col-md-offset-2">
+<h1><%= movieData.Title %></h1>
+  <% for(var i = 0; i <= movieData.imdbRating; i++){ %>
+    <i class="fa fa-star"></i>
+  <% } %>
+  <p><%= movieData.imdbRating %></p>
+<div style="width: 400px; height: auto;">
+<img src="<%= movieData.Poster %>"> 
+<h2>Starring</h2>
+
+<h4>
+  <%= movieData.Actors %>
+</h4>
+<p>
+  <%= movieData.Plot %>
+</p>
+</div>
+</div>
+</div>
+<% include ../partials/footer.ejs %>
