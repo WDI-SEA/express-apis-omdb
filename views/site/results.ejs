@@ -1,0 +1,10 @@
+
+<div><h1>RESULTS</h1></div>
+    <ul style="list-style: none;">
+     <% results.forEach(function(data){ %>
+       <li><a href="/movies/:<%= data.imdbID%>"><img src="<%= data.Poster %>" style="width:50px; display:inline-block;""><%= data.Title %> (<%= data.Year %>)</a></li>
+       
+       <br>
+     <% }); %>
+   </ul>
+
