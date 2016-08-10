@@ -16,18 +16,31 @@ app.get('/', function(req, res) {
   res.render('movies/index');
 });
 
-app.get('/results', function(req, res){
+app.get('/results', function(req, res) {
+  //console.log(req.query);
   var qs = {
-    s: req.query['q'],
-    plot: 'short',
-    r: 'json'
+    s: req.query.search
   }
   request({
     url: 'http://www.omdbapi.com/',
     qs: qs
-  }, function(error, respose, body){
+  }, function(error, response, body) {
     var data = JSON.parse(body);
-    res.send(data.Search);
+    res.render('movies/results', {results: data.Search});
+  });
+});
+
+app.get('/movie/:imdbId', function(req, res){
+  var qs  =  {
+    i: req.params.imdbId
+  }
+  request({
+    url: 'http://www.omdbapi.com/',
+    qs: qs
+  }, function(error, response, body) {
+    var data = JSON.parse(body);
+    console.log(data);
+    res.render('movies/show', {movieData: data});
   });
 });
 

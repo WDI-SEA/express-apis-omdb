@@ -1,7 +1,9 @@
-Your search results
+<h2>Your results</h2>
 
-<% results.forEach(function(result) { %>
+<% results.forEach(function(movie) { %>
 
-<% include ../partials/movie.ejs %>
+  <h2>
+    <a href='/movie/<%= movie.imdbID %>'><%= movie.Title %></a>
+  </h2>
 
 <% }); %>
