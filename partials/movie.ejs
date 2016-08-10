@@ -1,6 +1,10 @@
-<h3>
- <a href="/id/<%= result.imdbID %>"><%= result.Title %></a> ( <%= result.Year %> ) 
-</h3>
-<div style="width: 200px; height: auto;">
-  <img src="<%= result.Poster %>">
+<div class="row">
+<div class="col-md-6 col-md-offset-2">
+  <h3>
+   <a href="/id/<%= result.imdbID %>"><%= result.Title %></a> ( <%= result.Year %> ) 
+  </h3>
+  <div style="width: 200px; height: auto;">
+    <img src="<%= result.Poster %>">
+  </div>
+</div>
 </div>

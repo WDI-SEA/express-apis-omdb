@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
+<% include ../partials/header.ejs %>
+<div class="row">
+<div class="col-md-6 col-md-offset-2">
 <h1>RESULTS</h1>
   <% results.forEach(function(result){ %>
     <% include ../partials/movie.ejs %>
   <% }); %>
-</body>
-</html>
+</div>
+</div>
+<% include ../partials/footer.ejs %>
