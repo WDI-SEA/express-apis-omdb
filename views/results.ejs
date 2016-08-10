@@ -1,0 +1,17 @@
+
+  <html>
+    <head>
+      <title>Movie Results</title>
+    </head>
+    <body>
+      <% movies.forEach(function(movie){ %>
+      <ul>
+      <li>
+      <a href="./movies/<%= movie.imdbID %>">
+        <%= movie.Title %>
+      </a>
+      </li>
+      </ul>
+      <% }); %>
+    </body>
+  </html>
