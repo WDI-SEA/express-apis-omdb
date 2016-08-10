@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+<div class="jumbotron">
+  <h1 class="text-center">Movie Search</h1>
+</div>
+
+<div class="container" style="max-width: 500px; margin-top: 4%">
+
+  <form action="/results" method="GET">
+    <div class="form-group form-group-lg">
+      <div class="row">
+        <div class="col-xs-8">
+          <input class="form-control" name="searchTerm" type="text" placeholder="Title or Topic" required=""></input>
+        </div>
+
+        <div class="col-xs-4">
+          <select class="form-control" name="mediaType">
+            <option value="movie" selected="selected">Movies</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-lg">
+      <button class="btn btn-primary btn-block btn-lg">Search</button>
+    </div>
+  </form>
+
+</div>
+
+<% include partials/footer %>
