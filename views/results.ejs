@@ -4,10 +4,13 @@
   <title>Movie results</title>
 </head>
 <body>
-  <h2>Star Wars Results</h2>
+<a href="/">HOME</a>  
+  <h2>Results</h2>
   <ul>
     <% results.forEach(function(data){ %>
-      <li><%= data.Title %></li>
+      <li><a href="/movies/<%= data.imdbID%>"><%= data.Title %></a></li>
+      
+      <br>
     <% }); %>
   </ul>
 </body>
