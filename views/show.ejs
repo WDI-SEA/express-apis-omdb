@@ -9,11 +9,18 @@
 <h2> Movies </h2>
 
 <h3>
-<% movieData.Title %>
+<%= movieData.Title %>
 </h3>
 
+<form method="POST" action="/favorites">
+  <input type="hidden" name="imdbId" value="<%= movieData.imdbId %>">
+  <input type="hidden" name="title" value="<%= movieData.Title %>">
+  <input type="submit" value="favorite">
+
+</form>
+
 <h4>
-<% movieData.Plot %> 
+<%= movieData.Plot %> 
 </h4>
 
 </body>

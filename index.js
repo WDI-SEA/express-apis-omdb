@@ -95,17 +95,29 @@ app.get("/results", function(req, res) {
 
 
 
-// //post new articles, uses the form and text entries
-// app.post('/results', function(req, res) {
-//   //console.log(req.body);
-//   var fileContents = fs.readFileSync('./data.json');
-//   var data = JSON.parse(fileContents);
-//   //console.log("post is called");
-//   data.push(req.body);
-//   //console.log(data);
-//   fs.writeFileSync('./data.json', JSON.stringify(data));
-//   res.redirect('results');
-// });
+
+app.post('/favorites', function(req, res) {
+  //console.log(req.body);
+
+  var fileContents = fs.readFileSync('./favorites.json', 'utf8');
+  var data = JSON.parse(fileContents);
+  // //console.log("post is called");
+  // data.push(req.body);
+  console.log(data);
+  data.favorites.push(req.body);
+  fs.writeFileSync('./favorites.json', JSON.stringify(data));
+  res.redirect('/favorites');
+});
+
+
+
+app.get('favorites', function(res, req) {
+    var fileContents = fs.readFileSync('./favorites.json', 'utf8');
+    res.render('favorites', {favorites: data.favorites});
+});
+
+
+
 
 app.get('/movie/:imdbId', function(req, res) {
   var qs = {
