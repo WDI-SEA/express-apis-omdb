@@ -2,6 +2,8 @@
 var express = require('express');
 var request = require('request');
 var moviesCtrl = require("./controllers/movie");
+var fs = require("fs");
+var bodyParser = require('body-parser');
 
 //Global Variables
 var app = express();
@@ -10,6 +12,7 @@ var app = express();
 app.set("view engine", "ejs");
 app.use(require('morgan')('dev'));
 app.use("/movie", moviesCtrl);
+app.use(bodyParser.urlencoded({extended: false}));
 
 //Routes
 app.get('/', function(req, res) {
@@ -33,6 +36,19 @@ app.get('/results', function(req, res){
       res.send("Nope! Didn't work. Looks like there was an error. :'(");
     }
   });
+});
+
+app.get('/favorites', function(req,res){
+  var jsonData = JSON.parse(fs.readFileSync('./favorites.json', 'utf8'));
+  res.render('favorites', {favorites: jsonData.favorites})
+});
+
+app.post('/favorites', function(req, res){
+  var jsonData = JSON.parse(fs.readFileSync('./favorites.json', 'utf8'));
+  console.log(jsonData);
+  jsonData.favorites.push(req.body);
+  fs.writeFileSync('./favorites.json', JSON.stringify(jsonData));
+  res.redirect('/favorites');
 });
 
 //Listen

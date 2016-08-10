@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Favorites</title>
+  </head>
+  <body>
+  <% favorites.forEach(function(favorite){ %>
+  <a href="/movie"<%= favorite.imdbID %> <ul><li><%= favorite.title%></li></ul>
+  <% }); %>
+  </body>
+</html>

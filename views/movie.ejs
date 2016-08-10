@@ -16,12 +16,17 @@
     </div>
 
     <h1><%= movies.Title%> Page</h1>
-    
+    <form method="POST" action="/favorites">
+      <input type="hidden" name="id" value="<%= movies.imdbID %>">
+      <input type="hidden" name="title" value="<%= movies.Title %>">
+      <input type="submit" value="favorite">
+    </form>
     <img src="<%= movies.Poster %>">
       <div>
         <ul>
           <li>IMDB Rating: <%= movies.imdbRating %></li>
-          <li>Genres <%= movies.Genre %></li>
+          <li>Genres: <%= movies.Genre %></li>
+          <li>Plot: <%= movies.Plot %></li>
         </ul>
       </div>
   </body>
