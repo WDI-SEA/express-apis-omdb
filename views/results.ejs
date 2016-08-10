@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OMDB MOVIE RESULTS</title>
+</head>
+
+<body>
+
+<h2> Star Wars </h2>
+
+<% results.forEach(function(result) { %>
+  <a href="/movie/<%= result.imdbID %>"<h3> <%= result.Title %> </h3>
+
+
+<% }); %>
+
+</body>
+</html>
