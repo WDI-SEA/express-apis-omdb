@@ -1,14 +1,12 @@
 <div><h1>MOVIE</h1></div>
-
-<% results.forEach(function(movie) { %>
-<img src="<%= movie.Poster %>" style="width:100px; display:inline-block;"">
+<img src="<%= movieData.Poster %>" style="width:100px; display:inline-block;"">
 <div  style="display:inline-block;"><h2>
-	<%= movie.Title %>
+	<%= movieData.Title %>
 	</h2>
 	<h3>
-	(<%= movie.Year %>)
+	(<%= movieData.Year %>)
 	</h3>
-	<p><%= movie.Plot %></p>
+	<p><%= movieData.Plot %></p>
 	<%});%>
 </div>
 <br>
