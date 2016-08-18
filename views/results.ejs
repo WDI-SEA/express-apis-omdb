@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OMBD API APP</title>
+</head>
+<body>
+  <% results.forEach(function(result) { %>
+    <a href="<%= result.imbdID %>"><h1><%= result.Title %></h1></a>
+  <% }); %>
+</body>
+</html>
