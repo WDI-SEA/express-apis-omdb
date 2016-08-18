@@ -1,0 +1,9 @@
+<h2>Your results</h2>
+
+<% results.forEach(function(movie) { %>
+
+  <h2>
+    <a href='/movie/<%= movie.imdbID %>'><%= movie.Title %></a>
+  </h2>
+
+<% }); %>
