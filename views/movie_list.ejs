@@ -1,0 +1,8 @@
+<div>
+	<% movies.forEach(function(movie) { %>
+		<h3>
+			<a href="./movie/<%= movie.imdbID %>"><%= movie.Title%></a>
+		</h3>
+		<img src="<%= movie.Poster %>">
+	<% }); %>
+</div>
