@@ -30,7 +30,7 @@ app.get("/results", function(req, res) {
 	}, function(error, response, body) {
 		if(!error && response.statusCode == 200) {
 			var movieData = JSON.parse(body);
-			res.render("movie_list", { movies: movieData.Search });
+			res.render("movie_list", { movies: movieData.Search, search: req.query.q });
 			console.log(movieData);
 		} else {
 			res.send("Error was " + error);
