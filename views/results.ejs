@@ -1,3 +1,7 @@
 <div class="container">
-	<h1><%= results.Title %></h1>
+	<% results.forEach(function(r){%>
+	<h3><%= r.Title %></h3>
+	<hr>
+	<img src="<%= r.Poster %>">
+<%});%>
 </div>
