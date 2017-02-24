@@ -32,6 +32,10 @@ app.get('/results', function(req, res){
 	});
 });
 
+app.get('/details', function(req, res){
+	
+})
+
 //Listen 
 var server = app.listen(process.env.PORT || 3000);
 
