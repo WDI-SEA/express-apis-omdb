@@ -32,6 +32,7 @@ app.get('/results', function(req, res){
 	});
 });
 
+<<<<<<< HEAD
 app.get('/details/:imdbID', function(req, res){
 	var imdbID = {
  		i: req.params.imdbID
@@ -51,6 +52,11 @@ app.get('/details/:imdbID', function(req, res){
  	});	
  
  });
+=======
+app.get('/details', function(req, res){
+	
+})
+>>>>>>> 7a9ad6162710d82d9ce3477067552788846bbda0
 
 //Listen 
 var server = app.listen(process.env.PORT || 3000);
