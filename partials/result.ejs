@@ -1,0 +1,11 @@
+<a href='/movies/<%= result.imdbID %>'>
+  <div class='container-fluid' onclick="console.log(this)">
+    <div class='well'>
+      <h2>
+        <%= result.Year %> <%= result.Title %>
+      </h2>
+
+      <img src="<%= result.Poster %>">
+    </div>
+  </div>
+</a>
