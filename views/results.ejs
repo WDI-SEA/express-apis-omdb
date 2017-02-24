@@ -1,0 +1,5 @@
+<%movieData.forEach(function(movie) {%>
+	<a href='movie/<%= movie['imdbID'] %>'><h1><%= movie['Title']%></h1></a>
+	<img src='<%= movie['Poster'] %>'>
+	<br>
+<%}) %>
