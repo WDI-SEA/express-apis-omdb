@@ -1,0 +1,33 @@
+body{
+  background-color: lightGreen;
+}
+h1{
+  background-color: black;
+  color: white;
+  margin-left: 10%;
+  width: 100%;
+  font-size: 70px;
+  font-family: 'VT323', monospace;
+}
+h2{
+  font-size: 35px;
+  font-family: 'Black Ops One', cursive;
+}
+img{
+  max-height: 350px;
+}
+#resultContainer{
+  display: inline-block;
+  max-width: 45%;
+}
+#result{
+  display: inline-block;
+  max-width: 45%;
+  margin: 2%;
+}
+#returnLink{
+  max-width: 15%;
+  margin-left: 10%;
+  background-color: white;
+  border-radius: 10px;
+}
