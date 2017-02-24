@@ -1,0 +1,16 @@
+	<h1 class='text-center'>Movie Results</h1>
+	<% results.forEach(function(result) {%>
+	<div class="container">
+		<div class='row text-center'>
+			<div class="col-md-6 col-lg-12"><h2><%= result.Title %></h2></div>
+			<div class="col-md-6 col-lg-12"><h4><%= result.Year %></h4></div>
+		</div>
+		<div class='row text-center'>
+			<div class="col-xs-12 col-md-8 col-lg-12"><img src="<%= result.Poster %>"></div>
+			<br>
+			<br>
+			<a class='btn btn-primary' href="/movies/<%= result.imdbID %>">More Details</a>
+		</div>
+	</div>
+	<% }); %>
+
