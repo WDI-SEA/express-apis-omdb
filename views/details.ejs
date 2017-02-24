@@ -1,7 +1,19 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<h1 class="text-center"><%= results.Title%></h1>
+			<h1 class="text-center"><%= info.Title%></h1>
+			<div class="col-sm-6 col-sm-offset-3">
+				<img src="<%= info.Poster %>">
+				<h3>Release Year: <%= info.Year %></h3>
+				<h4>Director: <%= info.Director %></h4>
+				<p><strong>Plot:</strong> <%= info.Plot %></p>
+				<h4>Actors:</h4>
+				<ul>
+				<% info.Actors.split(",").forEach(function(n){%>
+					<li><%= n %></li>
+				<%});%>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

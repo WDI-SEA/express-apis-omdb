@@ -32,6 +32,26 @@ app.get('/results', function(req, res){
 	});
 });
 
+app.get('/details/:imdbID', function(req, res){
+	var imdbID = {
+ 		i: req.params.imdbID
+ 	};
+ 	request({
+ 		url: "http://www.omdbapi.com",
+ 		qs: imdbID
+ 		
+ 		
+ 	}, function(error, response, body) {
+ 		if (!error && response.statusCode === 200) {
+ 			var moreInfo = JSON.parse(body);
+ 			res.render('details', {info: moreInfo});
+ 		} else {
+ 			res.send('Did not work');
+ 		}
+ 	});	
+ 
+ });
+
 //Listen 
 var server = app.listen(process.env.PORT || 3000);
 
