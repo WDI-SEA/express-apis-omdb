@@ -1,0 +1,7 @@
+<h2>Movie Results</h2>
+
+<% if(results.length > 0){results.forEach(function(result){ %>
+  <h3><%= result.Title %></h3>
+  <h4><%-  result.Year %></h4>
+  <a href="/movies/<%= result.imdbID %>" class="btn btn-primary">More Info</a>
+<% }); } %>
