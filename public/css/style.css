@@ -1,0 +1,25 @@
+.mov {
+	margin: 10px 0px 10px 0px;
+	background-color: #696969;
+	height: 570px;
+	text-align: center;
+	border-radius: 25px;
+	padding: 10px;
+	font-family: 'Pangolin', cursive;
+	color: white;
+}
+
+.mov h3 {
+	height: 60px;
+}
+
+.mov img {
+	max-height: 360px;
+	display: block;
+	margin: auto;
+}
+
+.mov a {
+	display: inline-block;
+	margin: auto;
+}
