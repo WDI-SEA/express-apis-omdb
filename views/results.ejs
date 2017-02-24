@@ -1,7 +1,11 @@
 <div class="container">
 	<% results.forEach(function(r){%>
-	<h3><%= r.Title %></h3>
-	<hr>
-	<img src="<%= r.Poster %>">
-<%});%>
+		<div class="col-sm-4">
+		<h3><%= r.Title %></h3>
+		<hr>
+		<img src="<%= r.Poster %>">
+		<br>
+		<a href="/details">Learn More</a>
+		</div>
+	<%});%>
 </div>
