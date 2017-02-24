@@ -1,0 +1,30 @@
+<h2>My Favorite Movies</h2>
+
+<div class="container">
+  <div class="row">
+    <% favMovies.forEach(function(movie){ %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <h3><%= movie.Title %>(<%= movie.Year %>)</h3>
+        <img class="img-responsive" src=<%= movie.Poster %> >
+        <p><%= movie.Rated %> | <%= movie.Runtime%> | <%= movie.Genre %> </p>
+        <p>
+          <% var numStars = Math.floor(movie.imdbRating) %>
+          <% for(var i = 0; i < numStars; i++){ %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <%}%>
+          <%= movie.imdbRating %>/10</p>
+        <% if(parseInt(movie.tomatoMeter) > 60) { %>
+          <img class="img-responsive rt" src="https://staticv2-4.rottentomatoes.com/static/images/icons/cf-lg.png">
+        <% } else if(parseInt(movie.tomatoMeter) <= 60){ %>
+          <img class="img-responsive rt" src="http://videoeta.com/images/eta/rt/rotten.png">
+        <% } %>
+        <p>
+          Tomatometer: <%= movie.tomatoMeter %>%
+        </p>
+        <p><%= movie.Plot %></p>
+        <p>Director: <%= movie.Director %></p>
+        <p>Awards: <%= movie.Awards %></p>
+      </div>
+    <% }); %>
+  </div>
+</div>

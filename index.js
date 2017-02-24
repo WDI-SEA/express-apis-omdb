@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
 var request = require('request');
+var fs = require("fs");
 var app = express();
 var lastQueryResults = {};
 
@@ -27,7 +28,6 @@ app.get('/results', function(req, res) {
 });
 
 app.post("/", function(req, res){
-  console.log(req.body.title);
   var qs = {
     s: req.body.title
   };
@@ -39,7 +39,7 @@ app.post("/", function(req, res){
     if(!error && response.statusCode == 200){
       var dataObj = JSON.parse(body);
       lastQueryResults = dataObj.Search;
-      res.render("results", {results: dataObj.Search});
+      res.render("results", {results: lastQueryResults});
     }
   });
 });
