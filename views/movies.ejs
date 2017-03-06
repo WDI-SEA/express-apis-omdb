@@ -1,0 +1,7 @@
+<h1>Click a Poster to get More Info</h1>
+
+<% results.forEach(function(item) { %>
+<div>
+  <a href='/movies/moreinfo/<%= item.imdbID %>'><img src='<%= item.Poster %>'></a>
+</div>
+<% }); %>
