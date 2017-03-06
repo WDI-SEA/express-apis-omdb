@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="page-header">
+      <h1 class="header">The Movies that matched the search : "<%= queryString %>"</h1>
+    </div>
+    <table class="table table-hover table-striped table-bordered">
+      <% results.forEach(function(result){ %>
+        <tr class="tr">
+          <td class="td">
+            <img src="<%= result.Poster %>">
+          </td>
+          <td class="td">
+            <a href="/info/<%= result.imdbID %>"><h3><%= result.Title %></h3></a>
+          </td>
+          <td class="td">
+            <h3><%= result.Year %></h3>
+          </td>
+        </tr>
+      <% }); %>
+    </table>
+    <a href="/" class="btn btn-warning btn-lrg">Back To Search</a>
+  </div>
+</div>

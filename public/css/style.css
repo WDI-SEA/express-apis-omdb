@@ -1,0 +1,31 @@
+body {
+  background-image: url("http://www.chicproductions.com/wp-content/uploads/2014/10/empty_cinema_room_by_malypluskwiak.jpg");
+  background-color: #f2f2f2; 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ul {
+  background-color: #f2f2f2;
+  height: 445px;
+}
+
+.page-header {
+  background-color: #f2f2f2;
+}
+
+.result {
+  display: inline-block;
+}
+
+.tr img {
+  max-height: 50px;
+}
+
+.header {
+  text-align: center;
+}
+
+.table {
+  background-color: #f2f2f2;
+}
