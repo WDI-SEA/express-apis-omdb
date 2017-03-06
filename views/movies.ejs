@@ -1,0 +1,14 @@
+
+
+<h1 class="text-center">Movies!!</h1>
+
+<% data.Search.forEach(function(movie, idx) { %>
+  <h2 class="text-center"><%= movie.Title %></h2>
+  <p class="text-center"><%= movie.Year %></p>
+  <p class="text-center"><%= movie.Rated %></p>
+  <img src= "<%= movie.Poster %>">
+  <a href= "/movie/<%= movie.imdbID %>">More Movie Info</a>
+
+
+
+  <% }); %>
