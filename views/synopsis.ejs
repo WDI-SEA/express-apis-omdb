@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/synopsis.css">
+<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+  <title></title>
+</head>
+  <body>
+  <h1><a href="/">Home</a></h1>
+    <div class="details col-xs-10 col-xs-offset-1">
+      <h1><%= details.Title %></h1>
+      <br>
+      <h3><img src="<%= details.Poster %>"></h3>
+      <br>
+      <h3>Year - <%= details.Year %></h3>
+      <h3>Rated - <%= details.Rated %></h3>
+      <h3>Genre - <%= details.Genre %></h3>
+      <h3>Actors - <%= details.Actors %></h3>
+      <h3>Plot - <%= details.Plot %></h3>
+      <h3>Director - <%= details.Director %></h3>
+      <h3>Series/Movie - <%= details.Type %></h3>
+    </div>
+  </body>
+</html>

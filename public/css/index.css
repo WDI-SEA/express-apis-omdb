@@ -1,0 +1,11 @@
+body {
+  color: #777;
+  text-align: center;
+  margin-top: 20%;
+  background-image: url(../img/filmBG.jpg);
+  font-family: 'Lobster Two', cursive;
+}
+
+input {
+  border-radius: 10px;
+}
