@@ -1,0 +1,32 @@
+<!-- <h1>(<%= details.Year %>) <%= details.Title %></h1>
+<div>
+  <p><%= details.Rated %></p>
+  <p><%= details.Genre %></p>
+  <p><%= details.Actors %></p>
+  <p><%= details.Plot %></p>
+
+</div> -->
+<div class="container">
+  <div class="media">
+    <div class="media-left">
+      <img class="media-object" src="<%= details.Poster%>" alt="movie-image">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">(<%= details.Year %>) <%= details.Title %></h4>
+      <p><span class="label label-info">Rated: <%= details.Rated %></span></p>
+      <p><b>Rating: </b><%= details.imdbRating %></p>
+      <p><b>Runtime: </b><%= details.Runtime %></p>
+      <p><b>Genre: </b><%= details.Genre %></p>
+      <p><b>Director: </b><%= details.Director %></p>
+      <p><b>Writer: </b><%= details.Writer %></p>
+      <p><b>Actors: </b><%= details.Actors %></p>
+      <p><b>Plot: </b><%= details.Plot %></p>
+      <p><b>Language: </b><%= details.Language %></p>
+      <p><b>Country: </b><%= details.Country %></p>
+      <p><b>Awards: </b><%= details.Awards %></p>
+    </div>
+  </div>
+</div>
+<!-- Metascore: "73",
+imdbRating: "8.7", -->

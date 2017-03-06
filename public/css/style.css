@@ -1,0 +1,45 @@
+.thumbnail {
+  display: inline-block;
+  max-width: 200px;
+}
+.thumbnail img {
+  height: 200px;
+  width: auto;
+  marin: 5px;
+}
+.thumbnail h3 {
+
+}
+.row {
+  display: inline-block;
+}
+
+.media-object img {
+  border: 1px solid gray;
+}
+
+/*Sticky Footer*/
+html, body {
+  height: 100%;
+}
+.wrap {
+  min-height: 100%;
+}
+.main {
+  overflow:auto;
+  padding-bottom: 150px;
+  }  /* must be same height as the footer */
+
+.footer {position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;}
+
+/*Opera Fix*/
+body:before {
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;/
+}
