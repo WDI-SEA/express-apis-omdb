@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie results</title>
+</head>
+<body>
+<a href="/">HOME</a>  
+  <h2>Results</h2>
+  <ul>
+    <% results.forEach(function(data){ %>
+      <li><a href="/movies/<%= data.imdbID%>"><%= data.Title %></a></li>
+      
+      <br>
+    <% }); %>
+  </ul>
+</body>
+</html>
