@@ -1,0 +1,12 @@
+<div class="container">
+	<% results.forEach(function(r){%>
+		<div class="col-sm-4">
+		<h3><%= r.Title %></h3>
+		<hr>
+		<img src="<%= r.Poster %>">
+		<br>
+		<br>
+		<a href="/details/<%= r.imdbID %>" class="btn btn-info">Learn More</a>
+		</div>
+	<%});%>
+</div>
