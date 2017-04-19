@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OMDb Search</title>
+</head>
+<body>
+	<h2>Searching for Movies on OMDB</h2>
+
+	<div>
+	  
+	    <div>
+	      <h3><%= movie.Title %> (<%= movie.Year %>)</h3>
+	      <img src="<%= movie.Poster %>">
+	    </div>
+	    <div> 
+	      <a href="http://www.imdb.com/title/<%= movie.imdbID %>">IMDb Page</a>
+	    </div>
+	    <div>
+	    	<%= movie.Plot %>
+	    </div>
+	</div>
+</body>
+</html>
