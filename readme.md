@@ -7,9 +7,12 @@ We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a publ
 * Fork and clone this repository, which has a starter app provided for you.
 * Run `npm install` to install dependencies
   * If installed, `nodemon` should start and refresh your app when changes are made
-  * `npm run lint:js` - lint your JS
+  * Use [eslint](http://eslint.org/docs/user-guide/getting-started) if you'd like to lint your JS
+    * `npm run lint:js` - lint your JS
     * Note that from here on out, the JS linter will automatically fix most issues with spacing, quotations, and semicolons. [More information here](http://eslint.org/blog/2015/10/eslint-v1.6.0-released#autofixing-of-more-rules)
-  * `npm run lint:css` - lint your CSS
+  * Use [csslint](https://www.npmjs.com/package/css-lint) if you'd like to lint your CSS
+    * `npm run lint:css` - lint your CSS
+* Read the API [documentation](http://www.omdbapi.com).
 
 ## User Stories
 1. As a user, I want to go to a home page to search a database full of movies.
@@ -17,20 +20,18 @@ We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a publ
 3. As a user, I want to pick a movie result and see detailed information about the movie.
 
 ## Requirements
-1. Create a form that sends a query and gets a list of results from the OMDB API. Read over the [documentation](http://www.omdbapi.com) to see the endpoints needed.
+1. On your home page, create a form. The form will ask for the user to input a movie title.
   * This form should have a `GET` method, with an action of `/results`
-2. List the results on a separate page. You may want the route to accept a querystring so users can easily go back to this page.
-  * Example: `/results?q=star+wars`
+  * Example result of submitting the form: sends browser to `/results?q=star+wars`
+2. Write your GET route for `/results`.
   * Use `req.query` to access querystring parameters.
+  * Use the `request` module to make a request to the OMDB API with this data
+  * Send the data back to the browser. Use `res.render` and use an ejs template
 3. From the search results page, we notice along with every movie entry
-there is a IMDBid. Have each movie link to a route like `/movie/tt234323`.
-Take the parameter from that url and make an additional API call to
-retrieve movie details related to that `imdbID`
-4. Create a new route that takes the paramaters of the`imdbID`in the url
-on a `movies` controller. The route you will need to make will look
-like `/movies/:imdbId`. Using the data from `req.params` make a
-second api call to the api to get the movie details.
-
+there is a IMDBid. In the rendered HTML for `/results`, have each movie link
+to a route like `/movies/tt234323` (where `tt234323` is the IMDBid).
+  * Make a new route `/movies/:movie_id`
+  * Make an API call to retrieve movie details related to that `movie_id`
 
 ## Tips
 * The `data` object we get back in a `request` callback, is a `string`
