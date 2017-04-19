@@ -1,8 +1,8 @@
-#Express with APIs - OMDB
+# Express with APIs - OMDB
 
 We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API.
 
-##Getting Started
+## Getting Started
 
 * Fork and clone this repository, which has a starter app provided for you.
 * Run `npm install` to install dependencies
@@ -32,7 +32,7 @@ like `/movies/:imdbId`. Using the data from `req.params` make a
 second api call to the api to get the movie details.
 
 
-##Tips
+## Tips
 * The `data` object we get back in a `request` callback, is a `string`
 of the data. Use `JSON.parse(data)` to turn that data back into an object.
 * The movie api returns an array of movies inside the `Search` Key.
@@ -43,7 +43,7 @@ of the data. Use `JSON.parse(data)` to turn that data back into an object.
 * Make sure you call `res.render` inside the callback function of the request.
 
 
-##Bonuses
+## Bonuses
 
 * Add stars images to reflect the imdb ratings
 * Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
