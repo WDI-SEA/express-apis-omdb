@@ -1,12 +1,37 @@
+// Var and GVs
 var express = require('express');
+var request = require('request');
+// var fs = require('fs');
+// var ejsLayouts = require('express-ejs-layouts');
+var bodyParser = require("body-parser")
 var app = express();
 
-app.use(require('morgan')('dev'));
+// use and set
+// app.use(ejsLayouts);
+app.use(bodyParser.urlencoded({extended: false}));
+app.set('view engine','ejs');
 
-app.get('/', function(req, res) {
-  res.send('Hello Backend!');
+
+// go to result page?
+app.get('/results', function(req, res) {
+  var searchWord = req.query.name
+   var qs= {
+     s: searchWord
+  };
+
+  request({
+    url: 'http://www.omdbapi.com',
+    qs: qs
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var dataObj = JSON.parse(body);
+
+      res.render("results", {results: dataObj.Search});
+    }
+  });
 });
 
-var server = app.listen(process.env.PORT || 3000);
+// search page
 
-module.exports = server;
+
+app.listen(3000);
