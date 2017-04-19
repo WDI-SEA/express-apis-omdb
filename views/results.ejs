@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OMDb Search Results</title>
+</head>
+<body>
+
+<h2>Searching for 'Star Wars' on OMDB</h2>
+
+<div>
+	<div>
+	<% movies.forEach(function(movie){ %>
+	</div>
+		<div>
+			<h3><%= movie.Title %> (<%= movie.Year %>) </h3>
+			<a href="http://www.imdb.com/title/<%= movie.imdbID %>">ID</a>
+			<img src="<%= movie.Poster %>">
+		</div>
+	<% }); %>
+
+</div>
+
+</body>
+</html>
