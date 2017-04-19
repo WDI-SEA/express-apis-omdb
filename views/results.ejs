@@ -1,0 +1,13 @@
+<div class="row">
+	<% results.forEach(function(r) { %>
+		<div class="col-sm-4 col-xs-12">
+			<div class="mov">
+				<h3><%= r.Title %></h3>
+				<p>Release year: <%= r.Year %></p>
+				<img class="img-responsive" src="<%= r.Poster %>">
+				<br>
+				<a class="btn btn-info" href="/movies/<%=r.imdbID%>">More Info</a>
+			</div>
+		</div>
+	<% }); %>
+</div>
