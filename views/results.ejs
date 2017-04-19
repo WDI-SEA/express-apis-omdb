@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+   <title>Search Results</title>
+ </head>
+
+ <body>
+
+  <h2>Here are your seach results:</h2>
+  <h4>Click on a result to view more details.</h4>
+
+  <div>
+    <% movies.forEach(function(movie){ %>
+      <div>
+        <h3 style="margin: 0;"> <a href="./movies/<%= movie.imdbID %>"><%= movie.Title %> (<%= movie.Year %>)</a> </h3>
+        <h5 style="margin-bottom: 25px; margin-top: 0;"> Media Type: <%= movie.Type %> </h5>
+      </div>
+    <% }) %>
+  </div>
+
+ </body>
+ </html>
+
+
