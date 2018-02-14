@@ -16,21 +16,36 @@ app.get('/', function(req, res) {
 
 app.post("/results", function(req, res) {
 	var qs = {
-		s: req.body.title //we put s as the property b/c OMDB requires it
+		s: req.body.title //we put s as the property b/c OMDB requires it for title search
 	}
 	request({
-		url: "http://www.omdbapi.com/?apikey=" + process.env.OMDB_KEY + "&",
+		url: "http://www.omdbapi.com/?apikey=" + process.env.OMDB_KEY + "&", //OMDB docs
 		qs: qs
 	}, function (error, response, body) {
 		console.log(error, response);
 		if (!error && response.statusCode === 200) {
 			var dataObj = JSON.parse(body);
 			console.log('dataObj');
-			res.render('results', {movies: dataObj.Search})
+			res.render('results', {movies: dataObj.Search}) //.Search b/c dataObj structure data in search property
 		}
 	}
   )
 })
+
+app.get('/movie/:id', function(req,res) { // to your results
+   var qs = {
+     i: req.params.id //req.query.title
+   };
+   request({
+     url:'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&', //hard coded API key - not safe
+     qs: qs
+   }, function(error, response, body) {
+     if (!error && response.statusCode === 200) {
+       var dataObj = JSON.parse(body);
+       res.render('idresult', {movie: dataObj.Search}); // change index to whatever your ejs file is called
+     }
+   })
+ });
 
 
 
