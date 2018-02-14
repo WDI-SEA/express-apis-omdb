@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <title>APIs and Express</title>
+    </head>
+    <body>
+      <h1>Here are your movies</h1>
+      <ul>
+      <% movies.forEach(function(movie) {%>
+        <li>"<%= movie.Title %>"></li>
+        <a href="movies/<%= movie.imdbID %>">View more info</a>
+      <%})%>
+      </ul>
+    </body>
+  </html>
