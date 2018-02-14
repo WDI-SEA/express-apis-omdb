@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var request = require("request");
+var fs = require("fs");
 var bodyParser = require("body-parser");
 var path = require("path");
 
@@ -10,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(express.static(path.join(__dirname, "static")));
 
-app.use(express.static(__dirname + '/static/'));
+app.use(express.static('static'));
 
 app.get("/", function(req, res) {
     res.render("search");
@@ -47,6 +48,15 @@ app.get("/movie/:id", function(req, res){
     });
 });
 
+app.post("/favorite", function(req, res){
+    console.log("In the /favorite route...");
+    var fileContents = fs.readFileSync("./favorites.json");
+    fileContents = JSON.parse(fileContents);
+    fileContents.push(req.body.title);
+    fileContents = JSON.stringify(fileContents);
+    fs.writeFileSync('./favorites.json', fileContents);
+    res.send({message: "success"});
+});
 
 
 var server = app.listen(3000);
