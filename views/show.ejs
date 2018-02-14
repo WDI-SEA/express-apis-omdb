@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= movie.Title %></title>
+    <% include ./partials/head %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row card">
+        <div class="col s6">
+          <div class="card-image">
+            <img src="<%= movie.Poster %>" style="margin-top: 10px;">
+          </div>
+        </div>
+        <div class="col s6">
+          <h2><%= movie.Title %></h2>
+          <p>
+            <%= movie.Year %> <br />
+            Rated: <%= movie.Rated %><br />
+            <i class="small material-icons">star</i> <%= movie.imdbRating %>/10 <br />
+            Rotten Tomato: <%= movie.Ratings[1].Value %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <% include ./partials/footer %>
+  </body>
+</html>

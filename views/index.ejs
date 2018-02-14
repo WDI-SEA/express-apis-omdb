@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Search</title>
+    <% include ./partials/head %>
+  </head>
+  <body>
+    <!-- <% include ./partials/header %> -->
+
+    <form method="GET" action="/results">
+      <input type="text" id="search-field" name="search" placeholder="Search For Movie">
+      <input type="submit" value="Search">
+    </form>
+
+
+    <% include ./partials/footer %>
+  </body>
+</html>
