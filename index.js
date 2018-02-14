@@ -11,12 +11,17 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 
-
+// this sets a static directory for the views
+app.use(express.static(path.join(__dirname, 'views')));
+// this sets a static directory for the style, images and javascript
+app.use(express.static(path.join(__dirname, 'static')));
+// this sets a static directory for the partials
+app.use(express.static(path.join(__dirname, 'partials')));
 
 
 // ROUTES
 app.get('/', function(req,res){
-  console.log('whawtup');
+  // console.log('whawtup');
   var qs = {
     s:'star wars'
   };
@@ -50,7 +55,7 @@ app.get('/results', function(req,res){
   }, function(error, response, body){
     if (!error && response.statusCode === 200){
       var dataObj = JSON.parse(body);
-      console.log(dataObj);
+      // console.log(dataObj);
       res.render('results', {movies: dataObj.Search});
     }
   })

@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>APIs and Express</title>
-  </head>
-  <body>
-    <div class="site-info">
-      <h1>OMDB Search Site</h1>
-      <p>With our site you can request movie information from the OMDB API.
-        Below is an example based upon the keyword "Star Wars".</p>
-        <button type="button">Try it out!</button>
-    </div>
-    <div class="example">
-      <% movies.forEach(function(movie){ %>
-        <h1><%= movie.Title %></h1>
-            <img src="<%= movie.Poster %>">
-      <% }); %>
-    </div>
-  </body>
-</html>
+<% include ../partials/header.ejs %>
+
+<div class="site-info">
+  <h1>OMDB Search Site</h1>
+  <p>With our site you can request movie information from the OMDB API.
+    Below is an example based upon the keyword "Star Wars".</p>
+    <a href="/search">Try it out!</a>
+</div>
+<div class="example">
+  <% movies.forEach(function(movie){ %>
+    <h1><%= movie.Title %></h1>
+        <img src="<%= movie.Poster %>">
+  <% }); %>
+</div>
+
+<% include ../partials/footer.ejs %>
