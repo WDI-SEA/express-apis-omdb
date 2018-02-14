@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Info <%= movieDetail.Title %></title>
+  </head>
+  <body>
+    <h1><%= movieDetail.Title %></h1>
+    <img src="<%= movieDetail.Poster %>">
+    <h3>Rotten Tomatoes: <%= movieDetail.Ratings[1].Value %></h3>
+    <h3>IMDB &#9733;: <%= movieDetail.imdbRating %> </h3>
+    <h4>Release: <%= movieDetail.Released %></h4>
+    <h4>Rating: <%= movieDetail.Rated %></h4>
+    <h4>RunTime: <%= movieDetail.Runtime %></h4>
+    <h4>Genre: <%= movieDetail.Genre %></h4>
+    <h4>Director: <%= movieDetail.Director %></h4>
+    <h4>Writer: <%= movieDetail.Writer %></h4>
+    <h4>Actors: <%= movieDetail.Actors %></h4>
+    <h4>Plot: <%= movieDetail.Plot %></h4>
+  </body>
+</html>
