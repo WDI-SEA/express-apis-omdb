@@ -5,7 +5,7 @@ var path = require('path');
 require('dotenv').config();
 
 app.set('view engine', 'ejs');
-// app.use(express.static(path.join(__dirname, '../css')));
+// app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.static(__dirname + '/static'));
 
 app.get('/', function(req, res) {
