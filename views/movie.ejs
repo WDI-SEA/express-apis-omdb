@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>More info on <%= movie.Title %></h1>
+    <p>Rotten Tomato Rating: <%= movie.Ratings[1].Value %></p>
+    <p>IMDB Rating: <div id="stars"></div></p>
+    <form method="POST" action="#">
+        <input type="button" value="Add to Favorites">
+    </form>
+    <ul>
+        <% for(attribute in movie) { %>
+            <li><%= attribute %>: <%= movie[attribute] %></li>   
+        <% } %>
+    </ul>
+</body>
+</html>
