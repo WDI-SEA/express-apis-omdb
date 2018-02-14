@@ -47,11 +47,7 @@ app.get('/search', function(req,res){
 app.get('/results', function(req,res){
   // console.log('in results path');
   var qs = {
-    s:req.query.title,
-    y:req.query.year,
-    type:req.query.type,
-    i:req.query.imdbid,
-    t:req.query.title
+    s:req.query.title
   }
   request({
     url: 'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&',
@@ -60,6 +56,22 @@ app.get('/results', function(req,res){
     if (!error && response.statusCode === 200){
       var dataObj = JSON.parse(body);
       // console.log(dataObj);
+      res.render('results', {movies: dataObj.Search});
+    }
+  })
+});
+
+app.get('/results/:i', function(req,res) {
+  var qs = {
+    s:req.query.i
+  }
+  request({
+    url: 'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&',
+    qs: qs
+  }, function(error, response, body){
+    if (!error && response.statusCode === 200){
+      var dataObj = JSON.parse(body);
+      console.log(dataObj);
       res.render('results', {movies: dataObj.Search});
     }
   })

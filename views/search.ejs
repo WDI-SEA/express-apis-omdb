@@ -4,7 +4,7 @@
 
 <form name="get-by-search" method="get" action="/results">
   <label for="title">Title</label>
-  <input type="text" name="title" value="">
+  <input type="text" name="title" value="" required>
 
   <label for="year">Year</label>
   <input type="text" name="year" value="">
@@ -19,19 +19,10 @@
   <input type="submit" value="Search">
 </form>
 
-<form name="get-by-id" method="get" action="/results">
-  <label for="title">Title</label>
-  <input type="text" name="title" value="">
+<form name="get-by-id" method="get" action="/results/:i">
 
-  <label for="imdbid">imDB ID</label>
-  <input type="text" name="imdbid" value="">
-
-  <label for="type">Type</label>
-  <select class="" name="type">
-    <option value="movie">movie</option>
-    <option value="series">series</option>
-    <option value="episode">episode</option>
-  </select>
+  <label for="i">imDB ID</label>
+  <input type="text" name="i" value="">
 
   <input type="submit" value="Search">
 </form>
