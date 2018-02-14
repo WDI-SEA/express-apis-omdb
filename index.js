@@ -5,7 +5,11 @@ require('dotenv').config();
 
 // this adds some logging to each request
 app.use(require('morgan')('dev'));
+
 app.use(express.static('static'));
+//app.use(express.static(__dirname + '/static'));
+//var path = require('path');
+//app.use(express.static(path.join(__dirname, 'static'))); // the join function makes the path so it inserts the slash
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) { // hit the results route
@@ -35,7 +39,7 @@ app.get('/movie/:movie_id', function(req, res) {
   };
   request( {
     url: 'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&',
-    qs: qs
+    qs: qs // Takes an object and the key needs to be qs
   }, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       var dataObj = JSON.parse(body);
