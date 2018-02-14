@@ -47,7 +47,11 @@ app.get('/search', function(req,res){
 app.get('/results', function(req,res){
   // console.log('in results path');
   var qs = {
-    s:req.query.title
+    s:req.query.title,
+    y:req.query.year,
+    type:req.query.type,
+    i:req.query.imdbid,
+    t:req.query.title
   }
   request({
     url: 'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&',
