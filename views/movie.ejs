@@ -2,20 +2,117 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>API's and Express</title>
+    <title><%= movies.Title %></title>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      header {
+        width: 100%;
+        text-align: center;
+        height: 10%;
+        background-color: #000000;
+        vertical-align: center;
+      }
+      header h1 {
+        display: inline-block;
+        font-family: sans-serif;
+        color: #99BADD;
+        margin: 0px;
+        padding: 25px 0;
+      }
+      div {
+        text-align: center;
+      }
+      main {
+        text-align: center;
+      }
+      .onemovie {
+        display: inline-block;
+      }
+
+      #info {
+        width: 50%;
+        text-align: left;
+        vertical-align: top;
+        padding-left: 30px;
+      }
+
+      table {
+        padding: 5px;
+        margin: 5px;
+      }
+
+      td {
+        padding: 5px;
+        margin: 5px;
+        width: 10%;
+      }
+
+      .id {
+        font-weight: 800;
+        vertical-align: text-top;
+      }
+    </style>
   </head>
   <body>
-    <h1><%= movies.Title %></h1>
+
+    <header>
+      <h1>General Assembly Movie Database</h1>
+    </header>
+
+    <div>
+      <h1><%= movies.Title %></h1>
+    </div>
+
+
+    <main>
+    <div class='onemovie'>
       <img src='<%= movies.Poster %>'>
-      <p><%= movies.Year %></p>
-      <p><%= movies.Rated %></p>
-      <p><%= movies.Released %></p>
-      <p><%= movies.Runtime %></p>
-      <p><%= movies.Genre %></p>
-      <p><%= movies.Director %></p>
-      <p><%= movies.Writer %></p>
-      <p><%= movies.Actors %></p>
-      <p><%= movies.Plot %></p>
+    </div>
+
+    <div id='info' class='onemovie'>
+      <table>
+        <tr>
+          <td class='id'>Rating</td>
+          <td><%= movies.Rated %></td>
+        </tr>
+        <tr>
+          <td class='id'>Release Date</td>
+          <td><%= movies.Released %></td>
+        </tr>
+        <tr>
+          <td class='id'>Runtime</td>
+          <td><%= movies.Runtime %></td>
+        </tr>
+        <tr>
+          <td class='id'>Genre</td>
+          <td><%= movies.Genre %></td>
+        </tr>
+        <tr>
+          <td class='id'>Director</td>
+          <td><%= movies.Director %></td>
+        </tr>
+        <tr>
+          <td class='id'>Writer</td>
+          <td><%= movies.Writer %></td>
+        </tr>
+        <tr>
+          <td class='id'>Actors</td>
+          <td><%= movies.Actors %></td>
+        </tr>
+        <tr>
+          <td class='id'>Plot Summary</td>
+          <td><%= movies.Plot %></td>
+        </tr>
+        <tr>
+          <td class='id'>IMDB Rating</td>
+          <td><%= movies.Ratings[0].Value %></td>
+        </tr>
+      </table>
+    </div>
+  </main>
 
   </body>
 </html>

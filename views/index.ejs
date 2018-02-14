@@ -2,16 +2,68 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>API's and Express</title>
+    <title>GAMDB</title>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+        background-color: #000000;
+      }
+      header {
+        width: 100%;
+        text-align: center;
+        height: 10%;
+        background-color: #000000;
+        vertical-align: center;
+      }
+      header h1 {
+        display: inline-block;
+        font-family: sans-serif;
+        color: #99BADD;
+        margin: 0px;
+        padding: 25px 0;
+      }
+      div {
+        text-align: center;
+        margin: 30px;
+        padding: 10px;
+      }
+      label, input {
+        margin: 5px;
+        padding: 5px;
+      }
+      label {
+        font-size: 20px;
+        color: #99BADD
+      }
+      input {
+        height: 3em;
+        font-size: 20px;
+        text-align: center;
+        color: #99BADD;
+      }
+      #submit {
+        background-color: #000000;
+        color: #99BADD;
+      }
+
+    </style>
   </head>
   <body>
-    <h1>So I hear you like movies...</h1>
-    <form method='GET' action='/results'>
-      <label for='title'>Movie Title:</label>
-      <input type='text' name='title'>
-      <br />
-      <input type='submit' value='Search Database'>
 
-    </form>
+    <header>
+      <h1>General Assembly Movie Database</h1>
+    </header>
+
+    <div>
+      <form method='GET' action='/results'>
+        <label for='title'>Movie Title:</label>
+        <br />
+        <input type='text' name='title'>
+        <br />
+        <input id='submit' type='submit' value='Search Database'>
+      </form>
+    </div>
+
   </body>
 </html>

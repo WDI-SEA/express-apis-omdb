@@ -11,7 +11,7 @@ app.get('/', function(req, res) {
 })
 
 
-app.get('/results', function(req, res) { // hit the /results route
+app.get('/results', function(req, res) {
   var qs = {
     s: req.query.title
   };
@@ -21,8 +21,13 @@ app.get('/results', function(req, res) { // hit the /results route
   }, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       var dataObj = JSON.parse(body);
-      res.render('results', { movies: dataObj.Search }); // change index to whatver your ejs file is called
-    }
+      console.log(dataObj);
+      if (!dataObj.Error) {
+        res.render('results', { movies: dataObj.Search });
+      } else {
+        res.redirect('/');
+      }
+    };
   });
 });
 
@@ -37,8 +42,9 @@ app.get('/movies/:movie_id', function(req, res) {
   }, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       var dataObj = JSON.parse(body);
-      res.render('movie', { movies: dataObj }); // change index to whatver your ejs file is called
-    }
+      console.log(dataObj);
+        res.render('movie', { movies: dataObj });
+      };
   });
 });
 

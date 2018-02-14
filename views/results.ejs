@@ -2,12 +2,54 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>API's and Express</title>
+    <title>Results</title>
   </head>
+  <style>
+    body {
+      padding: 0px;
+      margin: 0px;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      height: 10%;
+      background-color: #000000;
+      vertical-align: center;
+    }
+    header h1 {
+      display: inline-block;
+      font-family: sans-serif;
+      color: #99BADD;
+      margin: 0px;
+      padding: 25px 0;
+    }
+    div {
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+    }
+    img {
+      width: 250px;
+      height: 400px;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
   <body>
-    <h1>Movies</h1>
+
+    <header>
+      <h1>General Assembly Movie Database</h1>
+    </header>
+
+    <h1>Search Results</h1>
+    <div>
     <% movies.forEach(function(movie) { %>
+      <% if (movie.Type === 'movie' && movie.Poster !== 'N/A') { %>
       <a href='movies/<%= movie.imdbID %>'><img src='<%= movie.Poster %>'></a>
+      <% } else { return; } %>
     <% }); %>
+  </div>
   </body>
 </html>
