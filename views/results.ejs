@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Results</title>
+  </head>
+  <body>
+
+  <%  movies.forEach(function(movie){ %>
+  <a href="movies/<%= movie.imdbID %>" > <img src= "<%= movie.Poster %>"> </a>
+
+  <%  }); %>
+
+  </body>
+</html>

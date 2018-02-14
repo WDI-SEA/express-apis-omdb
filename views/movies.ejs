@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>One movie</title>
+  </head>
+  <body>
+    <h1><%= movies.Title %></h1>
+
+  <img src="<%= movies.Poster %>">
+<ul>
+    <li>Release Date: <%= movies.Released %></li>
+    <li>Rating: <%= movies.Rated %></li>
+    <li>Runtime: <%= movies.Runtime %> </li>
+    <li>Director: <%= movies.Director %> </li>
+    <li>Starring Cast: <%= movies.Actors %> </li>
+    <li>Plot: <%= movies.Plot %></li>
+    <li>IMDB rating: <%= movies.Ratings[0].Value %></li>
+</ul>
+
+
+
+
+
+
+
+
+  </body>
+</html>
