@@ -6,7 +6,6 @@ var app = express();
 app.set("view engine", "ejs");
 
 app.get("/results", function(req, res){
-  console.log("running results");
   var qs = {
     s:req.query.search
   };
@@ -34,7 +33,6 @@ app.get("/movies/:movie_id", function(req, res){
   }, function(error, response, body){
     if(!error && response.statusCode == 200){
       var details = JSON.parse(body);
-      console.log(details);
       res.render("specific", {movieDetail: details});
     };
   })
