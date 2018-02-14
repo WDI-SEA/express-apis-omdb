@@ -29,7 +29,6 @@ app.post("/results", function(req, res){
     }, function(error, response, body){
         if (!error && response.statusCode === 200) {
             var dataObj = JSON.parse(body);
-            console.log(dataObj.Search);
             res.render("results", { movies: dataObj.Search });
         }  
     });
@@ -42,7 +41,6 @@ app.get("/movie/:id", function(req, res){
     }, function(error, response, body){
         if (!error && response.statusCode === 200) {
             var dataObj = JSON.parse(body);
-            console.log(dataObj);
             res.render("movie", { movie: dataObj }); // change index to whatever your ejs file is called
         }  
     });
