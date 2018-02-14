@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Results</title>
+  </head>
+  <body>
+    <h1>Movie Search Results</h1>
+    <% movies.forEach(function(movie, i){ %>
+      <h2><%= i+1 %>. <%= movie.Title %></h2>
+      <img src="<%= movie.Poster %>">
+      <a href="movies/<%= movie.imdbID %>">Learn More</a>
+    <% }) %>
+  </body>
+</html>
