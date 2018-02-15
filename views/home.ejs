@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Search</title>
+        <% include ./partials/header %>
+  </head>
+  <body>
+    <header>
+      <h1>Movie search yo!</h1>
+    </header>
+
+<!-- USING MATERIALIZE -->
+    <div class="row">
+        <form class="col s8" action="/results" method="GET" id="movieForm">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="movieTitle" name="title" type="text" class="validate">
+              <label class="active" for="movieTitle">Movie title</label>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+              <i class="material-icons right">search</i>Search
+            </button>
+          </div>
+        </form>
+    </div>
+
+<!-- WITHOUT MATERIALIZE -->
+
+    <!-- <form action="/results" method="GET" id="movieForm">
+      <label for="movieTitle"></label>
+      <input id="movieTitle" type="text" name="title">
+      <input type="submit" value="Search for a movie">
+    </form> -->
+
+    <% include ./partials/header %>
+  </body>
+</html>
