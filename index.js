@@ -4,8 +4,9 @@ var bodyParser = require('body-parser');
 
 require('dotenv').config(); //this node module is just written this way, env way --then process.env.OMDB_KEY
 
-
 var app = express();
+// app.use(express.static(path.join(__dirname, 'static'))); //either way works
+app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.set('view engine', 'ejs');
@@ -34,15 +35,16 @@ app.post("/results", function(req, res) {
 
 app.get('/movie/:id', function(req,res) { // to your results
    var qs = {
-     i: req.params.id //req.query.title
+     i: req.params.id //req.query.title 'i' comes from OMDB Doc
    };
    request({
      url:'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&', //hard coded API key - not safe
-     qs: qs
+     qs: qs //qs in request takes an object
    }, function(error, response, body) {
      if (!error && response.statusCode === 200) {
        var dataObj = JSON.parse(body);
-       res.render('idresult', {movie: dataObj.Search}); // change index to whatever your ejs file is called
+       console.log('dataObj')
+       res.render('idresult', {movie: dataObj}); // change index to whatever your ejs file is called
      }
    })
  });
