@@ -58,12 +58,13 @@ app.get('/results', function(req,res){
       // console.log(dataObj);
       res.render('results', {movies: dataObj.Search});
     }
-  })
+  });
 });
 
-app.get('/results/:i', function(req,res) {
+app.get('/results/:index', function(req,res) {
+  console.log("in results_id path");
   var qs = {
-    s:req.query.i
+    i:req.params.index
   }
   request({
     url: 'http://www.omdbapi.com/?apikey=' + process.env.OMDB_KEY + '&',
@@ -72,9 +73,9 @@ app.get('/results/:i', function(req,res) {
     if (!error && response.statusCode === 200){
       var dataObj = JSON.parse(body);
       console.log(dataObj);
-      res.render('results', {movies: dataObj.Search});
+      res.render('results_id', {movie: dataObj});
     }
-  })
+  });
 });
 
 // listen
