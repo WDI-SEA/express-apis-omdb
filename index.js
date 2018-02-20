@@ -46,6 +46,7 @@ app.get('/movies/:movieid', function(req, res) {
   }, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       var dataObj = JSON.parse(body);
+      console.log(dataObj);
       res.render('movies', {movies: dataObj});
     }
   })
