@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>One movie</title>
+  </head>
+  <body>
+    <h1><%= movies.Title %></h1>
+
+  <img src="<%= movies.Poster %>">
+<ul>
+    <li>Release Date: <%= movies.Released %></li>
+    <li>Rating: <%= movies.Rated %></li>
+    <li>Runtime: <%= movies.Runtime %> </li>
+    <li>Director: <%= movies.Director %> </li>
+    <li>Starring Cast: <%= movies.Actors %> </li>
+    <li>Plot: <%= movies.Plot %></li>
+    <li>IMDB rating: <%= movies.Ratings[0].Value %></li>
+    <li>Rotten Tomatoes: <%= movies.Ratings[1].Value %><img src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/1f345.svg" style="height: 1em"></li>
+</ul>
+
+
+
+
+
+
+
+
+  </body>
+</html>
