@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+
+<div class="site-info">
+  <h1>OMDB Search Site</h1>
+  <p>With our site you can request movie information from the OMDB API.
+    Below is an example based upon the keyword "Star Wars".</p>
+    <a href="/search">Try it out!</a>
+</div>
+<div class="example">
+  <% movies.forEach(function(movie){ %>
+    <h1><%= movie.Title %></h1>
+        <img src="<%= movie.Poster %>">
+  <% }); %>
+</div>
+
+<% include ../partials/footer.ejs %>

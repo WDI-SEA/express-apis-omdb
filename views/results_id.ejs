@@ -1,0 +1,18 @@
+<% include ../partials/header.ejs %>
+
+    <h1><%= movie.Title %></h1>
+    <ul>
+      <li>Year Released: <%= movie.Year %></li>
+      <li>IMDb ID: <%= movie.imdbID %></li>
+      <li>Type: <%= movie.Type %></li>
+    </ul>
+
+    <h2>Movie Poster</h2>
+    <% if (movie.Poster !== "N/A") { %>
+      <img src="<%= movie.Poster %>">
+    <% } else { %>
+      <p>No poster for this movie.</p>
+    <% } %>
+
+
+<% include ../partials/footer.ejs %>
