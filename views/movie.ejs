@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= movies.Title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>General Assembly Movie Database</h1>
+    </header>
+
+    <div>
+      <h1><%= movies.Title %></h1>
+    </div>
+
+
+    <main>
+    <div class='onemovie'>
+      <img src='<%= movies.Poster %>'>
+    </div>
+
+    <div id='info' class='onemovie'>
+      <table>
+        <tr>
+          <td class='id'>Rating</td>
+          <td><%= movies.Rated %></td>
+        </tr>
+        <tr>
+          <td class='id'>Release Date</td>
+          <td><%= movies.Released %></td>
+        </tr>
+        <tr>
+          <td class='id'>Runtime</td>
+          <td><%= movies.Runtime %></td>
+        </tr>
+        <tr>
+          <td class='id'>Genre</td>
+          <td><%= movies.Genre %></td>
+        </tr>
+        <tr>
+          <td class='id'>Director</td>
+          <td><%= movies.Director %></td>
+        </tr>
+        <tr>
+          <td class='id'>Writer</td>
+          <td><%= movies.Writer %></td>
+        </tr>
+        <tr>
+          <td class='id'>Actors</td>
+          <td><%= movies.Actors %></td>
+        </tr>
+        <tr>
+          <td class='id'>Plot Summary</td>
+          <td><%= movies.Plot %></td>
+        </tr>
+        <tr>
+          <td class='id'>IMDB Rating</td>
+          <td><%= movies.Ratings[0].Value %></td>
+        </tr>
+      </table>
+    </div>
+  </main>
+
+  </body>
+</html>

@@ -1,0 +1,92 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #000000;
+  color: #99BADD;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  height: 10%;
+  background-color: #000000;
+  vertical-align: center;
+}
+
+header h1 {
+  display: inline-block;
+  font-family: sans-serif;
+  color: #99BADD;
+  margin: 0px;
+  padding: 25px 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+div {
+  text-align: center;
+  margin: 30px;
+  padding: 10px;
+}
+
+label, input {
+  margin: 5px;
+  padding: 5px;
+}
+
+label {
+  font-size: 20px;
+  color: #99BADD
+}
+
+input {
+  height: 3em;
+  font-size: 20px;
+  text-align: center;
+  color: #99BADD;
+}
+
+#submit {
+  background-color: #000000;
+  color: #99BADD;
+}
+
+img {
+  width: 250px;
+  height: 400px;
+  padding: 10px;
+  margin: 10px;
+}
+
+main {
+  text-align: center;
+}
+
+.onemovie {
+  display: inline-block;
+}
+
+#info {
+  width: 50%;
+  text-align: left;
+  vertical-align: top;
+  padding-left: 30px;
+}
+
+table {
+  padding: 5px;
+  margin: 5px;
+}
+
+td {
+  padding: 5px;
+  margin: 5px;
+  width: 10%;
+}
+
+.id {
+  font-weight: 800;
+  vertical-align: text-top;
+}

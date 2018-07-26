@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Results</title>
+  </head>
+  <link rel="stylesheet" href="/css/style.css">
+  <body>
+
+    <header>
+      <h1>General Assembly Movie Database</h1>
+    </header>
+
+    <h1>Search Results</h1>
+    <div>
+    <% movies.forEach(function(movie) { %>
+      <% if (movie.Type === 'movie' && movie.Poster !== 'N/A') { %>
+      <a href='movies/<%= movie.imdbID %>'><img src='<%= movie.Poster %>'></a>
+      <% } else { return; } %>
+    <% }); %>
+  </div>
+  </body>
+</html>
