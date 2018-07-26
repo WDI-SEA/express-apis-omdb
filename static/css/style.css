@@ -1,0 +1,9 @@
+body {
+    background-color: red;
+}
+
+#stars {
+    background-image: url(/img/star.png);
+    width: 128px;
+    height: 128px;
+}

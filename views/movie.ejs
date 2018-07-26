@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>More info on <span id="title"><%= movie.Title %></span></h1>
+    <p>Rotten Tomato Rating: <%= movie.Ratings[1].Value %></p>
+    <p>IMDB Rating: <div id="stars"></div></p>
+    <form method="POST" action="/favorite" id="favorite-form">
+        <input type="submit" value="Add to Favorites">
+    </form>
+    <ul>
+        <% for(attribute in movie) { %>
+            <li><%= attribute %>: <%= movie[attribute] %></li>   
+        <% } %>
+    </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#favorite-form").on("submit", function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var formUrl = form.attr('action');
+            var movie = { title: $("#title").text() };
+            console.log(movie);
+            $.ajax({
+                method: "POST",
+                url: formUrl,
+                data: movie
+            }).done(function(data){
+                console.log(data);
+            });
+        })
+    </script>
+</body>
+</html>
