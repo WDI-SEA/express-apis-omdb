@@ -1,0 +1,14 @@
+
+<h1>Title: <%= movie.Title %></h1>
+<h3>Year: <%= movie.Year %>, Rating: <%= movie.Rated %></h3>
+<h3>Released: <%= movie.Released %></h3>
+<h3>Director: <%= movie.Director %></h3>
+<% if(movie.Plot != 'N/A'){ %>
+    <h3>Plot:</h3>
+<% } %>
+<p><%= movie.Plot %></p>
+<% if(movie.Poster != 'N/A'){ %>
+    <img src="<%=movie.Poster%>">
+<% } %>
+
+

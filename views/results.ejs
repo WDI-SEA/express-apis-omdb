@@ -1,0 +1,9 @@
+<% movies.forEach( function(m) { %>
+    <div>
+        <a href="movies/<%=m.imdbID%>"><%= m.Title %> (<%=m.Year%>)</a><br>
+        <% if (m.Poster != 'N/A'){ %>
+        <img src="<%= m.Poster %>">
+        <% } %> 
+    </div>
+<% }); %>
+
