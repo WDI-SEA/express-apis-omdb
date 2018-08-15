@@ -1,0 +1,10 @@
+<div class="container">
+	<h1>Results! HOOORAY</h1>
+
+	<% movies.forEach(function(m) {%>
+		<div>
+			<h3><%= m.Title %> (<%= m.Year %></h3>
+			<img src="<%= m.Poster %>">
+		</div>
+	<%});%>
+</div>
