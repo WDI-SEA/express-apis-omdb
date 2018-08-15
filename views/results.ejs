@@ -1,0 +1,16 @@
+<div class="container">
+		
+	<% if(movies){
+	 movies.forEach(function(m){%>
+		<div>
+			<h3><%= m.Title %> (<%= m.Year %>) </h3>
+			<img src="<%= m.Poster %>">
+
+		</div>	
+	<%});
+	} else { %>
+		<h1>no results</h1>
+	<%}%> 
+
+
+</div>
