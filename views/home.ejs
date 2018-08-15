@@ -1,0 +1,16 @@
+<div class="container">
+
+<h1>Oh Hello</h1>
+<h2>More exciting web page coming soon</h2>
+<h2>Check out the movies that I likes</h2>
+
+  <% movies.forEach(function(m){%>
+  
+  <div>
+   <h3><%= m.Title %> (<%= m.Year %>)</h3>
+   <img src="<%= m.Poster %>">
+
+  </div>
+  <%});%>
+  
+</div>
