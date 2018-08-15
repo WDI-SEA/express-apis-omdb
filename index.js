@@ -1,12 +1,33 @@
+
 var express = require('express');
 var app = express();
 
-// this adds some logging to each request
+var request = require("request");
+
 app.use(require('morgan')('dev'));
 
-app.get('/', function(req, res) {
-    res.send('Hello Backend!');
+app.set("view engine", "ejs");
+
+
+
+app.get('/', function(req, res){
+	res.render("home");
 });
+
+app.get('/show', function(req, res) {
+	var input = req.query.search;
+	console.log(input);
+	request("http://www.omdbapi.com?apikey=8a9006e4&s=" + input, function(err, response, body){
+	if(!err && response.statusCode === 200)	{
+		var parsedJson = JSON.parse(body);
+
+		res.render("show", {movies: parsedJson.Search});
+	}
+	else {res.send(err);
+	}
+})
+}); 
+
 
 var server = app.listen(process.env.PORT || 3000);
 
