@@ -1,0 +1,15 @@
+<% include home %>
+
+<% if (results) { %>
+  <p><%= results.length %> results found</p>
+<% results.forEach( movie => { %>
+    <p>Title: <a href="/movies/<%= movie.imdbID %>"><%= movie.Title %></a></p>
+    <p>Year: <%= movie.Year %></p>
+    <% if (movie.Poster !== 'N/A') { %>
+      <img src="<%= movie.Poster %>">
+    <% } %>
+    <hr>
+<% }) %>
+<% } else { %>
+    <h3>No results found</h3>
+<% } %>

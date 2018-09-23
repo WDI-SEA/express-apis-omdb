@@ -1,0 +1,7 @@
+<% include home %>
+
+<h2>More detail: <%= movie.Title %></h2>
+<br>
+<% for (var key in movie) { %>
+    <p><%= key %>: <%= movie[key] %></p>
+<% }; %>
