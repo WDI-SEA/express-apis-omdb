@@ -6,12 +6,6 @@ We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a publ
 
 * Fork and clone this repository, which has a starter app provided for you.
 * Run `npm install` to install dependencies
-  * If installed, `nodemon` should start and refresh your app when changes are made
-  * Use [eslint](http://eslint.org/docs/user-guide/getting-started) if you'd like to lint your JS
-    * `npm run lint:js` - lint your JS
-    * Note that from here on out, the JS linter will automatically fix most issues with spacing, quotations, and semicolons. [More information here](http://eslint.org/blog/2015/10/eslint-v1.6.0-released#autofixing-of-more-rules)
-  * Use [csslint](https://www.npmjs.com/package/css-lint) if you'd like to lint your CSS
-    * `npm run lint:css` - lint your CSS
 * Read the API [documentation](http://www.omdbapi.com).
 
 # Part 1: Search
@@ -68,7 +62,7 @@ to a route like `/movies/tt234323` (where `tt234323` is the IMDBid for that movi
 1. As a user, I want to save movies from my search results to a list of my faves.
 2. As a user, I want to perform this action from the movie detail page.
 
-## Requirements
+## Steps to Achieve
 1. Install the new node modules needed for database access.
 2. Initialize sequelize for this project.
 3. Update the config file and create a database named `omdb`.
