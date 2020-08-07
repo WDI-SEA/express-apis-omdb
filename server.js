@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  let search = req.query.searchBar;
+  let search = req.query.searchMovie;
   let qs = {
     params: {
       s: search,// fix this
