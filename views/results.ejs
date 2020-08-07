@@ -1,6 +1,6 @@
 <h1>Movies</h1>
+<% if (searchResults) { %> <% searchResults.forEach(s => {%>
 
-<% searchResults.forEach(s => {%>
 <div>
   <a href="/movies/<%= s.imdbID %> ">
     <h2><%= s.Title %></h2>
@@ -8,4 +8,6 @@
   </a>
 </div>
 
-<% }) %>
+<% }); %> <% } else { %>
+<div>No movie found... Sorry.</div>
+<% } %>
