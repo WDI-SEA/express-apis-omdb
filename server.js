@@ -34,20 +34,40 @@ app.get('/results', (req, res) => {
   }
   axios.get('http://www.omdbapi.com', qs)
   .then((response) => {
-      console.log(response)
-      let results = response.data.Search;
+      console.log(response.data)
+      let results = response.data;
       res.render('results', {movies: results});
   })
+})
 
-  app.get('./detail/movie_id',(req, res) =>{
-    let qs ={
+app.get('/results', (req, res) => {
+  let qs = {
       params: {
-        i:req.params.id,
+          s: req.query.q,
+          apikey: API_KEY
+      }
+  }
+
+  app.get('/movies/movie_id', (req, res)=>{
+    let qs = {
+      params: {
+        i: req.params.movie_id,
         apikey: API_KEY
       }
     }
   })
+
+  axios.get('http://www.omdbapi.com', qs)
+  .then((response) => {
+      console.log(response.data)
+      let results = response.data
+      res.render('results', {movies: results});
+  })
+  .catch(err =>{
+    console.log(err)
+  })
 })
+
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
