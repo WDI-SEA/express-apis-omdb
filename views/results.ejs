@@ -1,9 +1,16 @@
-<% movieData.forEach(function(movie)
+<% if (movieData)
 { %>
-    <ul>
-        <li>
-            <%= movie.Title %> (<%= movie.Year %>)
-            <a href="/movies/<%= movie.imdbID %>">More Info</a>
-        </li>
-    </ul>
-<% }) %> 
+    <% movieData.forEach(function(movie)
+    { %>
+        <ul>
+            <li>
+                <%= movie.Title %> (<%= movie.Year %>)
+                <a href="/movies/<%= movie.imdbID %>">More Info</a>
+            </li>
+        </ul>
+    <% }) %> 
+<% }
+else
+{ %> 
+    <h2>No movies available!</h2>
+<% } %>
