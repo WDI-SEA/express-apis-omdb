@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const ejsLayouts = require("express-ejs-layouts");
+const { default: Axios } = require("axios");
 const app = express();
 
 // Sets EJS as the view engine
@@ -26,9 +27,27 @@ app.get('/', function(req, res)
 
 app.get("/results", function(req, res)
 {
-  
+  let qs = 
+  {
+    params:
+    {
+      s: req.query.q,
+      apikey: API_KEY
+    }
+  }
+
+  Axios.get("http://www.omdbapi.com", qs)
+  .then(function(response)
+  {
+    console.log(response.data);
+  })
+  .catch(function(err)
+  {
+    console.log(err);
+  });
+
   res.render("results");
-})
+});
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
