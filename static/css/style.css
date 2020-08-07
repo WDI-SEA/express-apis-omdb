@@ -1,0 +1,19 @@
+
+    body{
+        text-align: center;
+        background-color: rgba(12, 12, 48, 0.817);
+        color: rgba(255, 255, 255, 0.844);
+        font-family: monospace;
+    }
+    
+    div{
+        width: 80%;
+        background-color: rgb(31,31,31);
+        margin: 20px auto;
+        padding: 20px 10px;
+        box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.844);
+    
+    }
+    img {
+        border: 2px solid white;
+    }

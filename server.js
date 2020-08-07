@@ -44,11 +44,11 @@ app.get('/results', (req, res) => {
   })
 })
 
-app.get('/detail/:movie_id', (req, res) => {
-  let imdbID = req.params.id
+app.get('/movies/:movie_id', (req, res) => {
+  
   let qs = {
       params: {
-          i:imdbID,
+          i:req.params.movie_id,
           apikey: API_KEY
       }
   }
