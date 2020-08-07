@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    background-color: navy;
+    color: white;
+    font-family: sans-serif;
+}
+
+div {
+    width: 80%;
+    background-color: grey;
+    margin: 20px auto; 
+    padding: 20px 10px;
+    box-shadow: 2px 2px 5px white;
+}
+
+img {
+    border: 2px solid white;
+}
