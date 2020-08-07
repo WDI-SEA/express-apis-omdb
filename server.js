@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+// RESULT ROUTE
 app.get('/results', (req, res)=> {
   let qs = {
     params: {
@@ -32,7 +33,7 @@ app.get('/results', (req, res)=> {
       apikey: API_KEY
     }
   }
-  // req.imdbID.plot
+
   axios.get('http://www.omdbapi.com', qs)
   .then(response => {
     let results = response.data.Search;
@@ -41,6 +42,7 @@ app.get('/results', (req, res)=> {
   })
 })
 
+// MOVIES ROUTE detail.ejs
 app.get('/movies/:movie_id', (req, res)=> {
   let qs = {
     params: {
@@ -48,7 +50,6 @@ app.get('/movies/:movie_id', (req, res)=> {
       apikey: API_KEY
     }
   }
-  // req.imdbID.plot
   axios.get('http://www.omdbapi.com', qs)
   .then(response => {
     let results = response.data;
@@ -56,33 +57,6 @@ app.get('/movies/:movie_id', (req, res)=> {
     res.render('detail', {movies: results});
   })
 })
-// })
-
-//imdbID: 'string'
-
-// app.get('/:id', (req, res)=>{
-
-// })
-
-// app.get('results', (req, res) => {
-//   console.log('results route hit!')
-//   let qs = {
-//     params: {
-//       s: req.query, 
-//       apikey: API_KEY
-//     }
-//   }
-//   console.log(req.query);
-//   axios.get('http://www.omdbapi.com', qs)
-//   .then(response => {
-//     // console.log(response);
-//     let results = response.data.Search;
-//     res.render('index', {results})
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   })
-// })
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);

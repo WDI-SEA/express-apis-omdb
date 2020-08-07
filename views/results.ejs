@@ -3,8 +3,12 @@
 <% movies.forEach(m => { %>
     <div>
         <a href="/movies/<%= m.imdbID %>">
-        <h2><%= m.Title %></h2>
-        <img src="<%= m.Poster %>" alt="poster">
+        <h2><%= m.Title %> (<%= m.Year %>)</h2>
+        <% if (m.Poster !== 'N/A') { %>
+            <img src="<%= m.Poster %>" alt="poster">
+        <% } else {  %>
+            <p>No poster available</p>
+        <% } %>
         </a>
     </div>
 <% }) %>
