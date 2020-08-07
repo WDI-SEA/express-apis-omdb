@@ -1,2 +1,19 @@
-<h1>OMDB Movie Search</h1>
-<p>Search for a movie below...</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Movie Search</title>
+</head>
+<body>
+  <h1>OMDB Movie Search</h1>
+  <p>Search for a movie below...</p>
+
+  <form method="GET" action="/results">
+    <label for="movieSearch">Movie Search</label>
+    <input id="movieSearch" type="text" name="movieSearch">
+    <input type="submit">
+  </form>
+</body>
+</html>
