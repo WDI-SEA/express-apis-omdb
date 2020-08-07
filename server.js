@@ -22,13 +22,49 @@ app.use(require('morgan')('dev'));
 // HOME ROUTE - index.ejs
 app.get('/', (req, res) => {
   console.log('home route hit!');
+  res.render('index');
+  let query = req.query;
+  res.redirect('/results' + {query});
+});
+
+app.get('/results', (req, res)=> {
   let qs = {
     params: {
-      s: req.params,
+      s: req.query.q,
       apikey: API_KEY
     }
   }
-});
+  axios.get('http://www.omdbapi.com', qs)
+  .then(response => {
+    console.log(response);
+    let results = response.data.Search;
+    res.render('results', {results});
+  })
+})
+
+app.get('/:id', (req, res)=>{
+
+})
+
+// app.get('results', (req, res) => {
+//   console.log('results route hit!')
+//   let qs = {
+//     params: {
+//       s: req.query, 
+//       apikey: API_KEY
+//     }
+//   }
+//   console.log(req.query);
+//   axios.get('http://www.omdbapi.com', qs)
+//   .then(response => {
+//     // console.log(response);
+//     let results = response.data.Search;
+//     res.render('index', {results})
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
+// })
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
