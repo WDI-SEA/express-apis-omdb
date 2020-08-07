@@ -23,8 +23,6 @@ app.use(require('morgan')('dev'));
 app.get('/', (req, res) => {
   console.log('home route hit!');
   res.render('index');
-  let query = req.query;
-  res.redirect('/results' + {query});
 });
 
 app.get('/results', (req, res)=> {
@@ -36,15 +34,15 @@ app.get('/results', (req, res)=> {
   }
   axios.get('http://www.omdbapi.com', qs)
   .then(response => {
-    console.log(response);
     let results = response.data.Search;
-    res.render('results', {results});
+    console.log(results);
+    res.render('results', {movies: results});
   })
 })
 
-app.get('/:id', (req, res)=>{
+// app.get('/:id', (req, res)=>{
 
-})
+// })
 
 // app.get('results', (req, res) => {
 //   console.log('results route hit!')
