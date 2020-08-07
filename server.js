@@ -46,6 +46,29 @@ app.get('/results', (req, res) => {
   })
 })
 
+app.get('/movies/:id', (req, res) => {
+  let imdbID = req.params.id;
+  let qs = {
+      params: {
+          i: imdbID,
+          apikey: API_KEY
+      } 
+  }
+
+  axios.get('http://www.omdbapi.com', qs)
+  .then((response) => {
+      //let moviesSearch = response.data;
+      console.log(response.data)
+      res.render('detail', {e: response.data});
+  })
+
+  .catch(err => {
+      console.log(err)
+  })
+
+})
+
+
 
 
 

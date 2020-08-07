@@ -1,3 +1,20 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+<h2>IMDB</h2>
+    <div>
+        <h2><%=e.Title%> (<%=e.Year %>)</h2>
+        <img src="<%=e.Poster%>" alt="Poster">
+        <h4>Rotten Tomatoes Rating: <%= e.Ratings[1].Value %> | <%= e.Rated %> | Runtime: <%= e.Runtime %></h4>
+        <h3>Plot: <%= e.Plot %></h3>
+    </div>
+    <div>
+        <h3>Director(s): <%= e.Director %></h3>
+    </div>
+    <div>
+       <h3> Writer(s): <%= e.Writer %></h3>
+    </div>
+    <div>
+        <h3> Starring: <%= e.Actors %></h3>
+    </div>
+    <div>
+        <h3>Awards: <%= e.Awards %></h3>
+    </div>
 

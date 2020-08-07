@@ -1,7 +1,10 @@
 <h1> Results </h1>
 <% data.forEach(e => { %>
     <div>
-        <h2><%=e.Title%> (<%=e.Year %>)</h2>
-        <img src="<%=e.Poster%>" alt="Poster">
+        <a href="movies/<%= e.imdbID %>"> 
+            <h2><%=e.Title%> (<%=e.Year %>)</h2>
+            <br />
+            <img src="<%=e.Poster%>" alt="Poster">
+        </a>    
     </div>
 <% }) %>
