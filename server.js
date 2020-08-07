@@ -3,6 +3,8 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 
+let API_KEY = process.env.API_KEY;
+
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
 // Specifies the location of the static assets folder
@@ -16,8 +18,15 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+// HOME ROUTE - index.ejs
+app.get('/', (req, res) => {
+  console.log('home route hit!');
+  let qs = {
+    params: {
+      s: '',
+      apikey: API_KEY
+    }
+  }
 });
 
 // The app.listen function returns a server handle
