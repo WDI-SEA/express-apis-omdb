@@ -1,2 +1,15 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<h2>Films: </h2>
+<% if (episodes) { %> 
+    <% episodes.forEach(e => { %>
+        <div>
+            <a href="/movies/<%= e.imdbID %> "><%= e.Title %> </a>
+            <h2><%= e.Year %> </h2>
+            <img src="<%= e.Poster %> " alt="Poster">
+        </div>
+    <% }) %> 
+<% } else { %> 
+    <h3>NO MOVIE FOUND</h3>
+<% } %> 
