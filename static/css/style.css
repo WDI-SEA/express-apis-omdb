@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+}
+
+div {
+    background-color: 	#D3D3D3;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px 10px;
+}
+
+.mainBackground {
+    background-color: black;
+    color: white;
+    width: 30%;
+}
+
+p {
+    font-size: 20px;
+}
