@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
   console.log('home route hit!');
   let qs = {
     params: {
-      s: '',
+      s: req.params,
       apikey: API_KEY
     }
   }
