@@ -1,9 +1,10 @@
 <h1>Search Results</h1>
 
-<% episodes.forEach(e => { %>
+<% movie.forEach(e => { %>
     <div>
         <h2><%= e.Title %> (<%= e.Year %>)</h2>
-        <img src="<%= e.Poster %>">
+        <img src="<%= e.Poster %>" alt="Poster">
+        <a href="/movies/<%= e.imdbID %> ">Click for more details</a>
     </div>
 <% }) %> 
 

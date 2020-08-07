@@ -20,7 +20,7 @@ app.use(require('morgan')('dev'));
 
 // Home Routes
 app.get('/', function(req, res) {
-  res.render('index')
+  res.render('index');
 });
 
 app.get('/results', function(req, res) {
@@ -36,14 +36,34 @@ app.get('/results', function(req, res) {
   axios.get('http://www.omdbapi.com', qs)
     .then((response) => {
         // console.log(response.data);
-        let episodes = response.data.Search;
-        res.render('results', {episodes});
+        let movie = response.data.Search;
+        res.render('results', {movie});
     })
     .catch(err => {
         console.log(err);
-
     })
 })
+
+app.get('/movies/:movie_id', function (req, res) {
+  let imdbId = req.params.movie_id;
+  let qs = {
+    params: {
+        i: imdbId,
+        apikey: API_KEY
+    }
+  };
+
+  axios.get('http://www.omdbapi.com', qs)
+    .then((response) => {
+        // console.log(response.data);
+        let movieData = response.data;
+        res.render('detail', {data: movieData});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+})
+
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
