@@ -21,7 +21,7 @@ app.use(require("morgan")("dev"));
 // Routes
 app.get('/', function(req, res) 
 {
-  res.sendFile("index");
+  res.render("index");
 });
 
 // The app.listen function returns a server handle
