@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+    color: rgb(247, 220, 220);
+    width: 80%;
+    background-color: grey;
+    margin: 20px auto;
+    padding: 20px 10px;
+    box-shadow: 2px 2px 5px white;
+    font-size: 20px;
+}
+
+
+img{
+    border: 2px solid white;
+}
