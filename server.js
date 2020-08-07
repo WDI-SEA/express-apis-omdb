@@ -24,6 +24,12 @@ app.get('/', function(req, res)
   res.render("index");
 });
 
+app.get("/results", function(req, res)
+{
+  
+  res.render("results");
+})
+
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
