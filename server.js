@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
-const axios = require('axios')
+const axios = require('axios');
+const { response } = require('express');
 let API_KEY = process.env.API_KEY
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -29,24 +30,46 @@ module.exports = server;
 
 app.get('/results', (req, res) => {
   let search = req.query.q
-  let qs= {
+  let qs = {
     params: {
       s: search,
       apikey: API_KEY
       
     }
   }
-  
+
   axios.get('http://www.omdbapi.com', qs)
   .then((response)=>{
       console.log(response.data)
-      // let results = response.data.Search
-      res.render('results', {data:response.data.Search})
+      let results = response.data.Search
+      res.render('results', {data:results})
     })
     .catch(err =>{
       console.log(err)
     })
   })
-  
-  
+
+
+app.get('/movies/:movie_id',(req, res)=>{
+  let qs = {
+    params: {
+      i: req.params.movie_id,
+      apikey: API_KEY
+      
+    }
+  }
+
+  axios.get('http://www.omdbapi.com', qs)
+  .then((response)=>{
+      console.log(response.data)
+      let results = response.data
+      res.render('detail', {data:results})
+      console.log(results)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  })
+
+
   var server = app.listen(process.env.PORT || 3000);

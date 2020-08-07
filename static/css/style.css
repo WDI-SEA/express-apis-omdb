@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+#title{
+    color:  rgb(209, 209, 64);
+    text-shadow: white 2px 3px 4px;
+
+}
+div {
+    width: 70%;
+    background-color: black;
+    margin: 20px auto;
+    padding: 20px 10px;
+}
+
+img {
+    box-shadow: 2px 5px 10px rgb(209, 209, 64);
+    border: 2px solid white;
+    
+}
+div {
+    box-shadow: 2px 5px 10px rgb(209, 209, 64);
+    border: 5px white solid;
+    width: 300px;
+
+}
+h2, h3, p, h1:visited {
+    color: white;
+}
