@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
+const { default: Axios } = require('axios');
 const app = express();
 
 // Sets EJS as the view engine
@@ -16,9 +17,50 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+app.get("/", (req, res) => {
+  res.render("index");
 });
+
+app.get("/", (req, res) => {
+  let search = req.query.searchBar;
+  let qs = {
+    params: {
+      s: search,// fix this
+      apikey: API_KEY
+    }
+  }
+  Axios.get("http://www.omdbapi.com", qs)
+  .then((response) => {
+    console.log(response.data)
+    let movies = response.data.Search
+    console.log(movies);
+    res.render("results", {data: movies});
+  })
+  .catch(err => {
+    console.log(err);
+  })
+})
+
+app.get("/movies/:id", (req ,res) => {
+  let movieID = req.params.id;
+  let qs = {
+    params: {
+      i: imdbID,
+      apikey: API_KEY
+    }
+  }
+  Axios.get("http://www.omdbapi.com', qs")
+  .then((response) => {
+    let movieDetails = response.data;
+    console.log(movieDetails)
+    res.render("detail", {data: movieDetails})
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
+
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
