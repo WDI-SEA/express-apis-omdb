@@ -51,24 +51,25 @@ app.get("/results", function(req, res)
   });
 });
 
-app.get("/movie/:movie_id", function(req, res)
+app.get("/movies/:movie_id", function(req, res)
 {
-  let qs =
+  console.log(req.params.movie_id);
+  let qs = 
   {
     params:
     {
-      s: req.params.movie_id,
+      i: req.params.movie_id,
       apikey: API_KEY
     }
   }
 
-  Axios.get("http://omdbapi.com", qs)
+  Axios.get("http://www.omdbapi.com", qs)
   .then(function(response)
   {
-    let movieData = response.data.Search;
-    console.log(movieData);
+    let movie = response.data;
+    console.log(movie);
 
-    res.render("details", {movieData});
+    res.render("detail", {movie});
   })
   .catch(function(err)
   {
