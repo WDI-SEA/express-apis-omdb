@@ -1,7 +1,10 @@
 require('dotenv').config();
 const express = require('express');
+const axios = require('axios')
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
+
+let API_KEY = process.env.API_KEY
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -16,9 +19,37 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
+
+
+app.get('/', (req, res)=>{
+  let qs = {
+    params:{
+      s: 'movie',
+      apikey: API_KEY
+    }
+  }
+    axios.get('http://www.omdbapi.com', qs)
+    .then(function(response){
+      console.log(response.data);
+      let movie = reponse.data.Search
+      res.render('home', {movie})
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+})
+
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  res.send('index');
 });
+
+app.get('/movies/:id', (req, res)=>{
+  let movie = JSON.parse(movie)
+  let movieIndex =parseInt(req.params.id)
+  res.render('movie/detail', {
+
+  })
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
