@@ -4,7 +4,7 @@ body {
 
 div {
     background-color: 	#D3D3D3;
-    width: 80%;
+    width: 70%;
     margin: 20px auto;
     padding: 20px 10px;
 }
@@ -16,5 +16,22 @@ div {
 }
 
 p {
+    font-size: 20px;
+}
+
+form {
+    font-size: 19px;
+}
+
+#searchButton {
+    font-size: 18px;
+}
+
+#movieFilter {
+    width: auto;
+    font-size: 18px;
+}
+
+#movieTitle {
     font-size: 20px;
 }

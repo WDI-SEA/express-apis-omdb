@@ -44,14 +44,14 @@ app.get("/results", (req, res) => {
 
 
 app.get("/movies/:id", (req ,res) => {
-  let movieID = req.params.id;
+  let imdbID = req.params.id;
   let qs = {
     params: {
       i: imdbID,
       apikey: API_KEY
     }
   }
-  axios.get("http://www.omdbapi.com', qs")
+  axios.get("http://www.omdbapi.com", qs)
   .then((response) => {
     let movieDetails = response.data;
     console.log(movieDetails)

@@ -6,8 +6,10 @@
         <h1><%= data.Title%></h1>
         <img src="<%=data.Poster%>" alt="<%=data.title  %> Poster">
         <p><%= data.Plot %> </p>
+        <p><%= data.Genre %> </p>
+        <p><%= data.Released %></p>
         <p><%= data.Director %> </p>
-        <p><%= data.Writer %> </p>
         <p><%= data.Actors %> </p>
         <p><%= data.Awards %> </p>
+        <p><%= data.Ratings[1].Source %> rating is <%= data.Ratings[1].Value %> </p>
     </div>
