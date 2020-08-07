@@ -23,15 +23,15 @@ app.get('/', (req, res) =>{
         let qs = {
           params: {
             s: searchM,
-            apiKey: '60ac4bed'
+            apiKey: API_KEY
           }
         }
       
         axios.get('http://omdbapi.com/', qs)
             .then(response => {
               console.log(response.data)
-              let movie = response.data.Search
-              res.render('results', {movie})
+              let episode = response.data.Search
+              res.render('results', {episode})
             })
             .catch(err => {
               console.log(err)
