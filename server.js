@@ -6,7 +6,7 @@ const app = express();
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
 // Specifies the location of the static assets folder
-app.use(express.static('static'));
+app.use(express.static('public'));
 // Sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
@@ -16,12 +16,12 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+app.get('/', (req, res) => {
+  res.render('index')
 });
 
 // The app.listen function returns a server handle
-var server = app.listen(process.env.PORT || 3000);
+var server = app.listen(process.env.PORT || 8000);
 
 // We can export this server to other servers like this
 module.exports = server;
