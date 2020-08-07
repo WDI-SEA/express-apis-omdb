@@ -1,26 +1,55 @@
 
     body{
         text-align: center;
-        background-color: rgba(82, 12, 3, 0.817);
-        color: rgba(255, 255, 255, 0.844);
-        font-family: monospace;
+        /* background: linear-gradient( #feb300,#ebbf5b,#f0dea9,#ffaaab,#ff5e6c,#9b0740); */
+        /* color: rgba(255, 255, 255, 0.844); */
+        font-family: 'Crimson Text', serif;;
+        font-size: large;
+        background-image: url(https://www.desktopbackground.org/p/2012/10/27/474506_professional-background-images-widescreen-hd-wallpapers_1920x1080_h.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     
     div{
-        width: 80%;
-        background-color: rgb(31,31,31);
+        width: 50%;
+        height: 50%;
+          background: linear-gradient(#ffaaab,#ff5e6c,#9b0740);  
         margin: 20px auto;
-        padding: 20px 10px;
-        box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.844);
+        /* padding: 20px 10px; */
+        border: 8px ridge rgb(39, 32, 9);
+         
+    
     
     }
+
     img {
-        border: 2px solid white;
+        height: 420px;
+        width: 300px;
+        padding: 0;
+        /* border: 2px dashed rgba(172, 134, 9, 0.945); */
     }
-    a{
+     a{
         justify-content: center;
-        text-align: center;
-        font-size: x-large;
+        /* text-align: center; */
+        /* font-size: x-large; */
         display: flex;
         color: black;
+        /* margin: 20px; */
+    } 
+
+    h1{
+        font-size: 50px;
+    
+    }
+    h2{
+        font-size: 40px;
+    }
+    h3{
+        font-size: 29px;
+    }
+    h4{
+        font-size: 20px;
+    }
+    h5{
+        font-size: 25px;
     }
