@@ -1,2 +1,5 @@
-<% // Render your search results here %>
+<% movieData.forEach(function(movie)
+{ %>
+    <h2><%= movie.Title %> (<%= movie.Year %>)</h2>
+<% }) %> 
 <% // This is how to do comments in EJS, by the way... %>

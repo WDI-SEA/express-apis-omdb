@@ -4,6 +4,9 @@ const ejsLayouts = require("express-ejs-layouts");
 const { default: Axios } = require("axios");
 const app = express();
 
+//using .env to hide API KEY
+let API_KEY = process.env.API_KEY;
+
 // Sets EJS as the view engine
 app.set("view engine", "ejs");
 // Specifies the location of the static assets folder
@@ -13,9 +16,6 @@ app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
 
-//using .env to hide API KEY
-let API_KEY = process.env.API_KEY;
-
 // Adds some logging to each request
 app.use(require("morgan")("dev"));
 
@@ -23,6 +23,7 @@ app.use(require("morgan")("dev"));
 app.get('/', function(req, res) 
 {
   res.render("index");
+  
 });
 
 app.get("/results", function(req, res)
@@ -35,18 +36,19 @@ app.get("/results", function(req, res)
       apikey: API_KEY
     }
   }
-
+  
   Axios.get("http://www.omdbapi.com", qs)
   .then(function(response)
   {
-    console.log(response.data);
+    let movieData = response.data.Search;
+    console.log(movieData);
+  
+    res.render("results", {movieData});
   })
   .catch(function(err)
   {
     console.log(err);
   });
-
-  res.render("results");
 });
 
 // The app.listen function returns a server handle
