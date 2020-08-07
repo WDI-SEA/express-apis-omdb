@@ -21,33 +21,52 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', (req, res)=>{
+app.get('/sample', (req, res)=>{
   var qs = {
     params: {
-      s: '',
+      s: 'star wars',
       apikey: API_KEY
     }
   };
   axios.get('http://www.omdbapi.com', qs)
   .then((response)=>{
     console.log(response.data)
-    res.render('index');
+    let episodes = response.data.Search
+    // setting a variable to our data
+    res.render('home', {episodes})
+    
   })
   .catch(err => {
     console.log(err)
 })
 });
 
-// app.get('/results', (req, res)=>{
-//   var qs = {
-//     params: {
-      
-
-//     }
-//   }
-// })
+app.get('/', (req, res)=>{
+  res.render('index')
+});
 
 
+
+app.get('/results', (req, res)=>{
+  console.log('req.query', req.query)
+  var qs = {
+    params: {
+      s: req.query.q,
+      apikey: API_KEY
+    }
+  };
+  axios.get('http://www.omdbapi.com', qs)
+  .then((response)=>{
+    console.log(response.data)
+    let episodes = response.data.Search
+    // setting a variable to our data
+    res.render('results', {episodes})
+    
+  })
+  .catch(err => {
+    console.log(err)
+})
+});
 
 
 
@@ -59,3 +78,4 @@ var server = app.listen(process.env.PORT || 3000);
 
 // We can export this server to other servers like this
 module.exports = server;
+

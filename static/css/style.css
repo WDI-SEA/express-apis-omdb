@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    background-color: rgb(0, 0, 26);
+    color: white;
+    font-family: sans-serif;
+
+}
+
+div {
+    width: 80%;
+    background-color: rgb(31, 31, 31);
+    margin: 20px auto;
+    padding: 20px 10px;
+    box-shadow: 2px 2px 5px white;
+}
+
+img {
+    border: 2px solid white;
+}

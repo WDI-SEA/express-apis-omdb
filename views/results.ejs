@@ -1,3 +1,10 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
 
+<% episodes.forEach(e => { %>
+    <div>
+        <h2> <%= e.Title %> (<%= e.Year %>)</h2>
+        <img src="<%=e.Poster%>" alt="Poster">
+    </div>
+
+<% }) %>   
