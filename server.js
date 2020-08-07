@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
 
+//using .env to hide API KEY
+let API_KEY = process.env.API_KEY;
+
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
 
