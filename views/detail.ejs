@@ -3,7 +3,10 @@
 <div>
         <h1><%= movies.Title %></h1><br /> 
         <img src="<%= movies.Poster %>" alt="poster"><br /> 
-    <p><%= movies.Plot%></p>
+        <h3>Rotten Tomatoes: <%= movies.Ratings[1].Value %> </h3>
+        <h4>Rated: <%= movies.Rated %> </h4>
+        <h5><%= movies.Plot%></h5>
+    
   
 
 </div>
