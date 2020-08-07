@@ -1,6 +1,6 @@
 <div class="container">
     <div id="detail">
-        <h1><%= data.Title %> - (<%= data.Year %>)</h1>
+        <h1><%= data.Title %> (<%= data.Year %>)</h1>
         <h5>Rating: <%= data.Rated%> | Runtime: <%= data.Runtime %> | <%= data.Genre %> | <%= data.Released %></h5>
 
         <% if (data.Ratings[1]) { %>
@@ -25,12 +25,16 @@
         <% if (data.Poster !== "N/A") { %>
             <img src="<%= data.Poster %>" alt="<%= data.Title %> Poster">
         <% } else { %>
-            <img src="https://www.placecage.com/300/450" alt="<%= result.Title %> Poster"/>
+            <img src="https://www.placecage.com/300/450" alt="Placeholder Poster"/>
         <% } %>
 
         <div class="details">
             <div id="plot">
-                <%= data.Plot %>
+                <% if (data.Poster !== "N/A") { %>
+                    <%= data.Plot %>
+                <% } else { %>
+                    No Plot Available
+                <% } %>
             </div>
             <div id="directors">
                 <span>Directors: </span> <%= data.Director%>
