@@ -40,6 +40,22 @@ axios.get('http://www.omdbapi.com', qs)
     console.log(err)
 })
 })
+
+app.get('/movies/:movie_id', function(req, res){
+
+  let qs = {
+    params: {
+        i: req.params.movie_id,
+        apikey: API_KEY
+    }
+}
+axios.get('http://www.omdbapi.com', qs)
+.then((response)=>{
+  console.log(response.data)
+  let movies = response.data
+  res.render('detail', {movies})
+})
+})
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
