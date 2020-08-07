@@ -1,9 +1,26 @@
 body {
-    background-color: black;
+    background-color: lightseagreen;
     color: white;
     text-align: center;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 10px 200px;
 }
+nav {
+    margin: 20px 0 0 0;
+    font-weight: bold;
+}
+
 body a {
+    justify-content: center;
     text-decoration: none;
-    color: lightblue;
+    color: hotpink;
+}
+
+p {
+    justify-content: center;
+    /* padding: 10px 200px; */
+    /* width: 500px;  */
 }

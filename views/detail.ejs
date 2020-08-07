@@ -1,4 +1,6 @@
-<h1><%= movies.Title %></h1>
+<h1><%= movies.Title %> (<%= movies.Year %>)</h1>
 <img src="<%= movies.Poster %>" alt="poster">
+<h2>Metascore: <%= movies.Metascore %> | IMDB Rating: <%= movies.imdbRating %> | MPAA: <%= movies.Rated %></h2>
+<h3>Director: <%= movies.Director %> | Writer: <%= movies.Writer %></h3>
 <p><%= movies.Plot %></p>
 <% // This is how to do comments in EJS, by the way... %>
