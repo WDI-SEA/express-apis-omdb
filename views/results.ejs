@@ -13,7 +13,7 @@
     <h3>Here are the results! </h3>
     <% movies.forEach(m => { %> 
     <ul>
-        <li><%= m.Title  %> (<%= m.Year  %> )</li>
+        <li><a href='/movies/<%= m.imdbID%>'><%= m.Title  %> (<%= m.Year  %> )</a></li>
         
     </ul>
         

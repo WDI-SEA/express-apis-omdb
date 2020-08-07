@@ -44,10 +44,27 @@ app.get('/results', function(req, res) {
     console.log(err)
   })
 
-
-
 });
 
+app.get('/movies/:id', (req, res)=>{
+  let titleFilter = req.params.id
+  let qs = {
+    params: {
+      i:titleFilter,
+      apikey: API_KEY
+    }
+  } 
+  axios.get('http://www.omdbapi.com', qs)
+  .then(response =>{
+    console.log(response.data)
+    let movies = response.data
+    res.render('detail', {movies})
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+})
 
 
 
