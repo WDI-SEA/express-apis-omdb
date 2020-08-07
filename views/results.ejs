@@ -1,2 +1,11 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+<h1>Movies</h1>
+
+<% searchResults.forEach(s => {%>
+<div>
+  <a href="/movies/<%= s.imdbID %> ">
+    <h2><%= s.Title %></h2>
+    <img src="<%=s.Poster%>" alt="Poster" />
+  </a>
+</div>
+
+<% }) %>
