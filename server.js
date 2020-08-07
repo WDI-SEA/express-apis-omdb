@@ -51,6 +51,31 @@ app.get("/results", function(req, res)
   });
 });
 
+app.get("/movie/:movie_id", function(req, res)
+{
+  let qs =
+  {
+    params:
+    {
+      s: req.params.movie_id,
+      apikey: API_KEY
+    }
+  }
+
+  Axios.get("http://omdbapi.com", qs)
+  .then(function(response)
+  {
+    let movieData = response.data.Search;
+    console.log(movieData);
+
+    res.render("details", {movieData});
+  })
+  .catch(function(err)
+  {
+    console.log(err);
+  });
+});
+
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
