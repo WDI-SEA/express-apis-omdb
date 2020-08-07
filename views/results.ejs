@@ -2,10 +2,15 @@
 <% // This is how to do comments in EJS, by the way... %>
 <h1>Film Results</h1>
 
+<% if (data) { %>
 <% data.forEach(t => { %>
     <div>
         <a id="movieTitle" href="/movies/<%=t.imdbID %>"> <%=t.Title%></a>
         <h3> (<%= t.Year %>) </h3>
         <img src="<%= t.Poster %>" alt="Poster">
     </div>
-<% }) %>
+<% }); %>
+<% } else { %> 
+    <div>No movie found... Sorry.</div>
+<% } %> 
+

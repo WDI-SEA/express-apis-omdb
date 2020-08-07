@@ -1,10 +1,11 @@
 body {
     text-align: center;
+    font-family: monospace;
 }
 
 div {
     background-color: 	#D3D3D3;
-    width: 70%;
+    width: 40%;
     margin: 20px auto;
     padding: 20px 10px;
 }
