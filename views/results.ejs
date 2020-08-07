@@ -1,2 +1,24 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>results</title>
+</head>
+<body>
+
+    <h3>Here are the results! </h3>
+    <% movies.forEach(m => { %> 
+    <ul>
+        <li><%= m.Title  %> (<%= m.Year  %> )</li>
+        
+    </ul>
+        
+    <%}) %> 
+    
+</body>
+</html>
+  
