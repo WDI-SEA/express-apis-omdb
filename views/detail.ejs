@@ -2,14 +2,14 @@
 <% // This is how to do comments in EJS, by the way... %>
 <h2>IMDB</h2>
 
-    <div>
-        <h1><%= data.Title%></h1>
-        <img src="<%=data.Poster%>" alt="<%=data.title  %> Poster">
-        <p><%= data.Plot %> </p>
-        <p><%= data.Genre %> </p>
-        <p><%= data.Released %></p>
-        <p><%= data.Director %> </p>
-        <p><%= data.Actors %> </p>
-        <p><%= data.Awards %> </p>
-        <p><%= data.Ratings[1].Source %> rating is <%= data.Ratings[1].Value %> </p>
-    </div>
+<div>
+    <h1><%= data.Title%></h1>
+    <img src="<%=data.Poster%>" alt="<%=data.title  %> Poster">
+    <p>Plot: <%= data.Plot %> </p>
+    <p>Genre: <%= data.Genre %> </p>
+    <p>Release Date: <%= data.Released %></p>
+    <p>Director: <%= data.Director %> </p>
+    <p>Actors: <%= data.Actors %> </p>
+    <p>Awards: <%= data.Awards %> </p>
+    <p><%= data.Ratings[1].Source %> rating is <%= data.Ratings[1].Value %> </p>
+</div>
