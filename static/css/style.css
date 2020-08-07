@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    font-family: monospace;
+    font-size: large;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(#ffaaab, #ff5e6c, #9b0740);
+    margin: 20px auto;
+    border: 8px ridge rgb(39, 32, 9);
+}
+
+img {
+    height: 420px;
+    width: 300px;
+    padding: 0;
+}
