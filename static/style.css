@@ -1,12 +1,12 @@
 body{
     text-align: center;
-    color: rgb(247, 220, 220);
+    color: rgb(247, 194, 194);
     width: 80%;
     background-color: grey;
     margin: 20px auto;
     padding: 20px 10px;
     box-shadow: 2px 2px 5px white;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 
@@ -14,5 +14,39 @@ img{
     border: 2px solid white;
 }
 h1{
-    font-size: 30px;
+    font-size: 45px;
+    text-shadow: 2px 2px 5px black;
+}
+h2{
+    text-shadow: 2px 2px 5px white;
+}
+#float-img{
+    float: left;
+    margin: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(38, 3, 50);
+}
+a:hover{
+    color: rgba(0,0,200, .5)
+}
+#back-arrow{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px black;
+}
+#button{
+    background-color: rgb(247, 194, 194);
+    color:purple;
+    height:60px;
+    width:60px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px black;
+    
+}
+#result-poster{
+    text-shadow: 5px 5px 10px red;
 }
