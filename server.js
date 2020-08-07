@@ -28,18 +28,18 @@ app.get('/', function(req, res) {
 // We can export this server to other servers like this
 module.exports = server;
 
-app.get('/results', (req, res) => {
+app.get('/results', (req, res) => {//results get route
   let search = req.query.q
   let qs = {
     params: {
-      s: search,
+      s: search, //searches url for string
       apikey: API_KEY
       
     }
   }
 
   axios.get('http://www.omdbapi.com', qs)
-  .then((response)=>{
+  .then((response)=>{                    
       console.log(response.data)
       let results = response.data.Search
       res.render('results', {data:results})

@@ -1,12 +1,11 @@
 body {
     text-align: center;
     background-color: black;
-    color: white;
-    font-family: sans-serif;
-}
-#title{
-    color:  rgb(209, 209, 64);
+    color: #F5C518;
+    font-family: roboto;
+    text-decoration: none;
     text-shadow: white 2px 3px 4px;
+    
 
 }
 div {
@@ -27,6 +26,22 @@ div {
     width: 300px;
 
 }
-h2, h3, p, h1:visited {
-    color: white;
+*:visited {
+    color: #F5C518;
+    text-decoration: none; 
+    transition: all 0.3s ease-in-out 0s;
+    text-shadow: white 2px 3px 4px;
+}
+*:link {
+    color: #F5C518;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out 0s;
+    text-shadow: white 2px 3px 4px;
+    
+}
+ h2:hover {
+    transform: scale(1.1);    
+}
+ h3:hover {
+    transform: scale(1.1);    
 }

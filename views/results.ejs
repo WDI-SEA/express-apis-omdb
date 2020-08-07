@@ -3,7 +3,8 @@
 <% data.forEach(r =>{ %>     
     <div>                 
         
-        <a href="/movies/<%=r.imdbID%>"><h2> <%= r.Title %></h2> <img src="<%=r.Poster%>" ><h3>CLICK FOR DETAILS</h3></a>
+        <a href="/movies/<%=r.imdbID%>"><h2 id="ti"> <%= r.Title %></h2> 
+            <img src="<%=r.Poster%>" ><h3>CLICK FOR DETAILS</h3></a>
 
     </div> 
     <% }) %>
