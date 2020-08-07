@@ -813,7 +813,7 @@ nav a.active {
 .s006 {
     background-size: cover;
     background-position: center center;
-    background-image: url("../img/background.jpg");
+    background-image: url("https://d279m997dpfwgl.cloudfront.net/wp/2019/12/Arclight-inside.jpg");
     min-height: 100vh;
     display: -ms-flexbox;
     display: flex;
@@ -948,5 +948,66 @@ nav a.active {
         width: 26px;
         height: 26px;
     }
+}
+
+.container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+}
+
+.movie {
+    display: flex;
+    justify-content: center;
+}
+
+.movie a {
+    text-align: center;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.movie a:hover {
+    color: darkgrey;
+}
+
+.center {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#detail {
+    width: 60%;
+    text-align: center;
+}
+
+#tomatoMeter {
+    padding: 10px 0;
+}
+
+#tomatoMeter span {
+    display: block;
+}
+
+#plot {
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.details {
+    margin: 0 auto;
+}
+
+.details span {
+    color: darkgrey;
 }
 

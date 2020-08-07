@@ -1,2 +1,17 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1 class="center">Results - <%= searchTerm %></h1>
+<div class="grid">
+    <% data.forEach(result => { %>
+        <div class="movie">
+            <a href="/movies/<%= result.imdbID %>">
+                <h3><%= result.Title %> (<%= result.Year%>)</h3>
+                <% if (result.Poster !== "N/A") { %>
+                    <img src="<%= result.Poster%>" alt="<%= result.Title %> Poster"/>
+                <% } else { %>
+                    <img src="https://www.placecage.com/300/450" alt="<%= result.Title %> Poster"/>
+                <% } %>
+            </a>
+        </div>
+    <% }) %>
+</div>

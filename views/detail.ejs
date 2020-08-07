@@ -1,2 +1,49 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+<div class="container">
+    <div id="detail">
+        <h1><%= data.Title %> - (<%= data.Year %>)</h1>
+        <h5>Rating: <%= data.Rated%> | Runtime: <%= data.Runtime %> | <%= data.Genre %> | <%= data.Released %></h5>
+
+        <% if (data.Ratings[1]) { %>
+            <% let percentLength = data.Ratings[1].Value.length - 1 %>
+            <% let tomatoRating = data.Ratings[1].Value.slice(0, percentLength) %>
+            <div id="tomatoMeter">
+                <% if (tomatoRating > 74) { %>
+                    <img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/tomatometer/certified_fresh.75211285dbb.svg" alt="Certified Fresh Badge">
+                <% } else if (tomatoRating > 59) { %>
+                    <img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/tomatometer/tomatometer-fresh.149b5e8adc3.svg" alt="Good Badge">
+                <% } else { %>
+                    <img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/tomatometer/tomatometer-rotten.f1ef4f02ce3.svg" alt="Bad Movie Badge">
+                <% } %>
+                <span><%= data.Ratings[1].Value %></span>
+            </div>
+        <% } else { %>
+            <div id="tomatoMeter">
+                <span>IMDb Rating: <%= data.Ratings[0].Value %></span>
+            </div>
+        <% } %>
+
+        <% if (data.Poster !== "N/A") { %>
+            <img src="<%= data.Poster %>" alt="<%= data.Title %> Poster">
+        <% } else { %>
+            <img src="https://www.placecage.com/300/450" alt="<%= result.Title %> Poster"/>
+        <% } %>
+
+        <div class="details">
+            <div id="plot">
+                <%= data.Plot %>
+            </div>
+            <div id="directors">
+                <span>Directors: </span> <%= data.Director%>
+            </div>
+            <div id="writers">
+                <span>Writers: </span> <%= data.Writer%>
+            </div>
+            <div id="stars">
+                <span>Stars: </span> <%= data.Actors%>
+            </div>
+            <div id="awards">
+                <span>Awards: </span> <%= data.Awards%>
+            </div>
+        </div>
+    </div>
+</div>
