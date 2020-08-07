@@ -1,0 +1,9 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+body a {
+    text-decoration: none;
+    color: lightblue;
+}
