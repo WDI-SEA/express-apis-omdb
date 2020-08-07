@@ -1,17 +1,21 @@
 require('dotenv').config();
+
 const express = require('express');
-const axios = require("axios");
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
+const axios = require('axios');
 
-let API_KEY = process.env.API_KEY
+const API_KEY = process.env.API_KEY;
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
+
 // Specifies the location of the static assets folder
 app.use(express.static('static'));
+
 // Sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }));
+
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
 
@@ -19,58 +23,54 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-// HOME ROUTE - index.ejs
 app.get('/', (req, res) => {
-  console.log('home route hit!');
+  // res.send('Hello, backend!');
   res.render('index');
 });
 
 app.get('/results', (req, res) => {
+  let search = req.query.q;
   let qs = {
-      params: {
-          s: req.query.q,
-          apikey: API_KEY
-      }
-  }
-  axios.get('http://www.omdbapi.com', qs)
-  .then((response) => {
-      console.log(response.data)
-      let results = response.data;
-      res.render('results', {movies: results});
-  })
-})
-
-app.get('/results', (req, res) => {
-  let qs = {
-      params: {
-          s: req.query.q,
-          apikey: API_KEY
-      }
-  }
-
-  app.get('/movies/movie_id', (req, res)=>{
-    let qs = {
-      params: {
-        i: req.params.movie_id,
-        apikey: API_KEY
-      }
+    params: {
+      s: search,
+      apiKey: API_KEY
     }
-  })
+  };
 
-  axios.get('http://www.omdbapi.com', qs)
+  axios.get(`http://www.omdbapi.com`, qs)
   .then((response) => {
-      console.log(response.data)
-      let results = response.data
-      res.render('results', {movies: results});
+    let movies = response.data.Search;
+    console.log(movies);
+    res.render('results', { data: movies });
   })
-  .catch(err =>{
-    console.log(err)
-  })
-})
 
+  .catch(err => {
+    console.log('Error', err);
+  });
+});
+
+app.get('/movies/:movie_id', (req, res) => {
+  let imdbId = req.params.movie_id;
+  let qs = {
+    params: {
+      i: imdbId,
+      apiKey: API_KEY
+    }
+  };
+
+  axios.get('https://www.omdbapi.com', qs)
+  .then(response => {
+    let movieData = response.data;
+    res.render('detail', { data: movieData });
+  })
+
+  .catch(error => {
+    console.log('Error', error);
+  });
+});
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
+// We can export this server to other servers like this
 
-// // We can export this server to other servers like this
 module.exports = server;

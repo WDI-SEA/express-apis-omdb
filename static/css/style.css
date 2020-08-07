@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: large;
+    background-color: navy;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    width: 50%;
+    height: 50%;
+    background: gray;
+    margin: 20px auto;
+    border: 8px ridge(39, 32, 9);
+}
+
+img {
+    height: 420px;
+    width: 300px;
+    padding: 0;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 29px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 25px;
+}
