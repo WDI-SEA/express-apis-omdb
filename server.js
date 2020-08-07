@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
-const axios = require('axios')
+const axios = require('axios');
+const { default: Axios } = require('axios');
 // const url = require('url')
 // const querystring = require('querystring')
 // const results = require('/results')
@@ -68,6 +69,21 @@ app.get('/results', (req, res)=>{
 })
 });
 
+// app.get('/episodes/:movie_id', (req, res)=>{
+//   let imdbId = req.params.movie_id;
+//   let qs = {
+//     params: {
+//       i: imdbId,
+//       APIKey : API_KEY
+//     }
+//   }
+//   Axios.get('http://www.omdbapi.com', qs)
+//   .then(response => {
+//     let movieData = response.data;
+
+//     res.render('detail', { data: movieData });
+//   })
+// })
 
 
 
