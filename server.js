@@ -32,6 +32,7 @@ app.get('/results', (req, res)=> {
       apikey: API_KEY
     }
   }
+  // req.imdbID.plot
   axios.get('http://www.omdbapi.com', qs)
   .then(response => {
     let results = response.data.Search;
@@ -39,6 +40,25 @@ app.get('/results', (req, res)=> {
     res.render('results', {movies: results});
   })
 })
+
+app.get('/movies/:movie_id', (req, res)=> {
+  let qs = {
+    params: {
+      i: req.params.movie_id,
+      apikey: API_KEY
+    }
+  }
+  // req.imdbID.plot
+  axios.get('http://www.omdbapi.com', qs)
+  .then(response => {
+    let results = response.data;
+    console.log(results);
+    res.render('detail', {movies: results});
+  })
+})
+// })
+
+//imdbID: 'string'
 
 // app.get('/:id', (req, res)=>{
 

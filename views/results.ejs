@@ -2,7 +2,9 @@
 
 <% movies.forEach(m => { %>
     <div>
+        <a href="/movies/<%= m.imdbID %>">
         <h2><%= m.Title %></h2>
         <img src="<%= m.Poster %>" alt="poster">
+        </a>
     </div>
 <% }) %>
