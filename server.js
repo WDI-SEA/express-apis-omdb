@@ -18,6 +18,8 @@ app.use(ejsLayouts);
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
 
+app.use(express.static('static'))
+
 // Routes
 app.get('/', function(req, res) {
   res.render('index');
