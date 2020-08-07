@@ -54,7 +54,7 @@ app.get('/movies/:movie_id', (req, res)=> {
   .then(response => {
     let results = response.data;
     console.log(results);
-    res.render('detail', {movies: results});
+    res.render('detail', {movie: results});
   })
 })
 

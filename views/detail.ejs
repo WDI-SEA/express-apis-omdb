@@ -1,6 +1,11 @@
-<h1><%= movies.Title %> (<%= movies.Year %>)</h1>
-<img src="<%= movies.Poster %>" alt="poster">
-<h2>Metascore: <%= movies.Metascore %> | IMDB Rating: <%= movies.imdbRating %> | MPAA: <%= movies.Rated %></h2>
-<h3>Director: <%= movies.Director %> | Writer: <%= movies.Writer %></h3>
-<p><%= movies.Plot %></p>
+<h1><%= movie.Title %> (<%= movie.Year %>)</h1>
+<!-- <img src="<%=// movies.Poster %>" alt="poster"> -->
+<% if (movie.Poster !== 'N/A') { %>
+    <img src="<%= movie.Poster %>" alt="poster">
+<% } else {  %>
+    <p>No poster available</p>
+<% } %>
+<h2>Metascore: <%= movie.Metascore %> | IMDB Rating: <%= movie.imdbRating %> | MPAA: <%= movie.Rated %></h2>
+<h3>Director: <%= movie.Director %> | Writer: <%= movie.Writer %></h3>
+<p><%= movie.Plot %></p>
 <% // This is how to do comments in EJS, by the way... %>
