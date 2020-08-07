@@ -1,6 +1,26 @@
 body {
     text-align: center;
-    background-color: rgb(0, 0, 58);
+    background-color: rgb(0, 0, 11);
     color: white;
     font-family: sans-serif;
+}
+
+div {
+    width: 50%;
+    background: linear-gradient(rgb(167, 167, 167), rgb(60, 60, 60), rgb(38, 38, 38));
+    margin: 20px auto;
+    padding: 20px 10px;
+    box-shadow: 2px 2px 5px white;
+}
+
+img {
+    border: 2px solid white;
+}
+
+a {
+    font-size: 20px;
+    color: aqua;
+}
+a:hover {
+    color: rgb(149, 255, 0);
 }
