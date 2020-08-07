@@ -4,19 +4,40 @@
 // information about the movie.
 
 require('dotenv').config()
-
+let API_KEY = process.env.API_KEY
 const express = require('express')
 const axios = require('axios')
+const { request } = require('express')
 const app = express()
 app.set('view engine', 'ejs')
 app.use(express.static('static'))
 
 app.get('/', (req, res) =>{
-    
-
-
     res.render('index')
 })
+
+
+    app.get('/results', (req, res) => {
+        let searchM = req.query.searchM
+      
+        let qs = {
+          params: {
+            s: searchM,
+            apiKey: '60ac4bed'
+          }
+        }
+      
+        axios.get('http://omdbapi.com/', qs)
+            .then(response => {
+              console.log(response.data)
+              let movie = response.data.Search
+              res.render('results', {movie})
+            })
+            .catch(err => {
+              console.log(err)
+            })
+    })
+
     
 
 
