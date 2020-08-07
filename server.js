@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
-const { default: Axios } = require('axios');
+const axios = require('axios');
 const app = express();
+let API_KEY = process.env.API_KEY
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/", (req, res) => {
+app.get("/results", (req, res) => {
   let search = req.query.searchMovie;
   let qs = {
     params: {
@@ -29,7 +30,7 @@ app.get("/", (req, res) => {
       apikey: API_KEY
     }
   }
-  Axios.get("http://www.omdbapi.com", qs)
+  axios.get("http://www.omdbapi.com", qs)
   .then((response) => {
     console.log(response.data)
     let movies = response.data.Search
@@ -41,6 +42,7 @@ app.get("/", (req, res) => {
   })
 })
 
+
 app.get("/movies/:id", (req ,res) => {
   let movieID = req.params.id;
   let qs = {
@@ -49,7 +51,7 @@ app.get("/movies/:id", (req ,res) => {
       apikey: API_KEY
     }
   }
-  Axios.get("http://www.omdbapi.com', qs")
+  axios.get("http://www.omdbapi.com', qs")
   .then((response) => {
     let movieDetails = response.data;
     console.log(movieDetails)
