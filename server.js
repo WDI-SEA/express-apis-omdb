@@ -40,17 +40,18 @@ app.get('/results', (req, res) => {
   })
 })
 
-app.get('/movies/:id', (req, res) => {
+app.get('/movies/:movie_id', (req, res) => {
+  let imdbId = req.params.movie_id;
   let qs = {
     params: {
-        s: req.params.id,
-        apikey: '1e9edcda'
+        i: imdbId,
+        apikey: API_KEY
     }
 }
 axios.get('http://www.omdbapi.com', qs)
-.then((response) => {
-  let movieData = response.data.Search
-    res.render('detail', {movieData})
+.then(response => {
+  let movieData = response.data
+    res.render('detail', {data: movieData})
 })
 .catch(err => {
     console.log(err)

@@ -1,7 +1,13 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
-
+<div>
     <h1>Results:</h1>
-    <h2>movieData.Title</h2>
-    <h3>movieData.Actors</h3>
-    <p>movieData.plot</p>
+    <h2><%= data.Title %></h2>
+    <% if(data.Ratings[1]) { %>
+        <h3>Rotten Tomatoes Rating: <%= data.Ratings[1].value %> </h3>
+
+    <% } %>
+    <h3><%= data.Director %></h3>
+    <h3><%= data.Actors %></h3>
+    <p><%= data.Plot %></p>
+</div>

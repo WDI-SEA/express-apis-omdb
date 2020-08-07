@@ -3,12 +3,14 @@
 
 <h1>Results:</h1>
 
-<% movies.forEach(movie => { %>
-    <div>
-        <h2>
-            <%= movie.Title %> (<%= movie.Year %>) 
-            <img src="<%= movie.Poster %> " alt="Poster">
-            <a href="/movies/<%= movie.imdbID %>">imdbID</a>
-        </h2>
-    </div>
-<% }) %> 
+
+    <% movies.forEach(movie => { %>
+        <div>
+            <h2>
+                <%= movie.Title %> (<%= movie.Year %>) 
+                <img src="<%= movie.Poster %> " alt="Poster">
+                <a href="/movies/<%= movie.imdbID %>">imdbID</a>
+            </h2>
+        </div>
+    <% }) %> 
+
