@@ -3,6 +3,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const axios = require('axios');
 const app = express();
+const API_KEY = process.env.API_KEY;
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -25,7 +26,7 @@ app.get('/results', (req, res) => {
   let qs = {
       params: {
           s: req.query.id,
-          apikey: '1e9edcda'
+          apikey: API_KEY
       }
   }
   axios.get('http://www.omdbapi.com', qs)
