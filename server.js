@@ -25,7 +25,7 @@ app.get('/results', (req, res) => {
 
   let qs = {
     params: {
-      s: req.query.movieTitle,
+      s: req.query.q,
       apikey: API_KEY
     }
   }
