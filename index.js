@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 //vv paired with line 3 from index.ejs
-app.get('/search', (req, res) => {
+app.get('/results', (req, res) => {
     console.log(req.query.searchTerm)
     axios.get('http://www.omdbapi.com/?apikey=' + API_KEY + '&s=' + req.query.searchTerm)
     .then(response => {
