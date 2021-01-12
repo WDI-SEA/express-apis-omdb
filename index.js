@@ -16,7 +16,7 @@ app.get('/results', (req, res) => {
     console.log(req.query.searchTerm)
     axios.get('http://www.omdbapi.com/?apikey=' + API_KEY + '&s=' + req.query.searchTerm)
     .then(response => {
-        res.send(response.data)
+        res.render('results.ejs')
     }) 
 })
 
