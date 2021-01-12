@@ -2,6 +2,11 @@
 
 We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API. You will need a key. Go to the site to register for a free one. Keep API keys out of public repos!
 
+## Pre-reqs
+* axios
+* node/express/ejs/express-ejs-layouts
+* forms in full-stack
+
 ## Getting Started
 
 * Fork and clone this repository, which has a starter app provided for you.
