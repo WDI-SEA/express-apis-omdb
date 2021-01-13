@@ -15,5 +15,18 @@
     <li>Language: <%= movie.Language %></li>
     <li>Country: <%= movie.Country %></li>
     <li>Awards: <%= movie.Awards %></li>
-
 </ul>
+
+<p style='text-align: center'>Imdb Rating: <%= movie.imdbRating %></p>
+
+<div style='text-align: center'>
+<% let x = 10 %>
+<% for (let i = 0; i < parseFloat(movie.imdbRating); i ++) { %>
+    <img width='30px' src ='../img/yellowStar.png'>
+    <% x = x - 1 %>
+<% } %>
+
+<% for (let i = 0; i < x; i ++) { %>
+    <img width='30px' src='../img/emptyStar.png'>
+<% } %>
+</div>
