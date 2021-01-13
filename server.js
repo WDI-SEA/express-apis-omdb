@@ -21,13 +21,35 @@ app.get('/', function(req, res) {
   res.render('index.ejs');
 });
 
-app.get('/search', (req, res) =>{ 
+app.get('/results', (req, res) =>{ 
   console.log(req)
   axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${req.query.searchTerm}`)
   .then(response => {
-      res.send(response.data)
+      // res.send(response.data)
+      // let data = JSON.parse(response.data)
+      console.log(response.data)
+      res.render('results.ejs', {movies: response.data.Search})
+  })
+  .catch((error)=>{
+    console.log('error', error)
+    res.sendStatus(500)
   })
 })
+
+app.get('/movies/:movie_id', function(req, res) {
+  // res.send(req.params.movie_id)
+  axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${req.params.movie_id}`)
+  .then(response => {
+      // res.send(response.data)
+      // let data = JSON.parse(response.data)
+      console.log(response.data)
+      res.render('detail', {movie: response.data})
+  })
+  .catch((error)=>{
+    console.log('error', error)
+    res.sendStatus(500)
+  })
+});
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
