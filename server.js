@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const AXIOS = require('axios');
+const fs = require('fs');
 const app = express();
 
 // Sets EJS as the view engine
@@ -33,7 +34,9 @@ app.get('/results', (req, res) =>{
     // console.log(response);
     // res.send(response.data);
     //here we will need to res.render the results page with response.data
-    res.render('results')
+    //response.data is an object that has an array of "Search" with each movie listed with key value pairs Title / Year / imdbID / Type / Poster
+      //will i need to call this as data["Search"] or data.Search????
+    res.render('results', {data: response.data})
   })
 })
 
