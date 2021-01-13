@@ -24,8 +24,11 @@ app.get('/', function(req, res) {
 
 //results route
 app.get('/results', (req, res) =>{
-  // console.log(req.query);
-  AXIOS.get(`http://www.omdbapi.com/?s=${req.query}&apikey=${process.env.OMDB_API_KEY}`)
+  let queryTerm = req.query
+  console.log(req.query);
+  console.log(queryTerm.query);
+  console.log(`http://www.omdbapi.com/?s=${queryTerm.query}&apikey=${process.env.OMDB_API_KEY}`)
+  AXIOS.get(`http://www.omdbapi.com/?s=${queryTerm.query}&apikey=${process.env.OMDB_API_KEY}`)
   .then(response => {
     // console.log(response);
     res.send(response.data);
