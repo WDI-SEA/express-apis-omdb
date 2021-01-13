@@ -22,7 +22,11 @@
 <div style='text-align: center'>
 <% let x = 10 %>
 <% for (let i = 0; i < parseFloat(movie.imdbRating); i ++) { %>
-    <img width='30px' src ='../img/yellowStar.png'>
+    <% if (i > parseInt(movie.imdbRating) - 1 && i < parseFloat(movie.imdbRating)) { %>
+        <img width='35px' src ='../img/halfStar.png'>
+    <% } else { %>
+        <img width='30px' src ='../img/yellowStar.png'>
+    <% } %>
     <% x = x - 1 %>
 <% } %>
 
