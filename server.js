@@ -35,10 +35,10 @@ app.get('/results', (req, res) =>{
     // res.send(response.data);
     //here we will need to res.render the results page with response.data
     //response.data is an object that has an array of "Search" with each movie listed with key value pairs Title / Year / imdbID / Type / Poster
-      //will i need to call this as data["Search"] or data.Search????
-    res.render('results', {data: response.data})
-  })
-})
+    console.log(response.data);
+    res.render('results', {data: response.data});
+  });
+});
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
