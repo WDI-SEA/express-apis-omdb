@@ -16,6 +16,7 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
+//home route - form
 app.get('/', function(req, res) {
   res.send('Hello, backend!');
 });
