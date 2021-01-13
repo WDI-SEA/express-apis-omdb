@@ -1,2 +1,8 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<ul>
+    <%= for (const item in data) { %>
+        <li><%= data[item] %></li>
+    <% } %>
+</ul>

@@ -2,6 +2,9 @@
 
 # Created by https://www.gitignore.io/api/node,osx,linux
 
+# env
+.env
+
 ### Node ###
 # Logs
 logs
@@ -78,3 +81,4 @@ Temporary Items
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
+node_modules
