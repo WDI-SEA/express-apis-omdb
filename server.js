@@ -35,8 +35,10 @@ app.get('/results', (req, res) =>{
     // res.send(response.data);
     //here we will need to res.render the results page with response.data
     //response.data is an object that has an array of "Search" with each movie listed with key value pairs Title / Year / imdbID / Type / Poster
-    console.log(response.data);
+    // console.log(response.data);
+    // console.log(response.data.Ratings)
     res.render('results', {data: response.data});
+
   });
 });
 
@@ -50,8 +52,10 @@ app.get('/movies/:movie_id', (req, res) => {
   //new axios call for information
   AXIOS.get(`http://www.omdbapi.com/?i=${req.params.movie_id}&apikey=${process.env.OMDB_API_KEY}`)
   .then(response => {
-      console.log(response.data);
+      console.log(response.data.Ratings);
     //res.send(response.data);
+    let ratings = response.data.Ratings;
+    console.log(ratings[1].Value);
     res.render('detail', {data: response.data});
   });
 });
