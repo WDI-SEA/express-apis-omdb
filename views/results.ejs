@@ -1,2 +1,10 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1>Results Page!</h1>
+
+<% movieResults.forEach(movie => { %>
+    <ul>
+        <li><%= movie.Title %></li>
+
+    </ul>
+<% }) %>
