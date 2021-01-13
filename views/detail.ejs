@@ -1,9 +1,18 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
 
+<img src="<%= data.Poster %>">
+<h4><%= data.Ratings[1].Source %>: <%= data.Ratings[1].Value %> </h4>
+<% for(let i = 0; i < Math.floor(parseInt(data.Ratings[1].Value)/20); i++) {%>
+    <img width="50px" src="https://www.pngitem.com/pimgs/m/138-1381056_rotten-tomatoes-fresh-logo-hd-png-download.png">
+<% } %>
+
+
 <ul>
     <% for (const item in data) { %>
-        <h3><%= item %>:</h3>
-        <li><%= data[item] %></li>
+        <% if(item === 'Poster' || item === 'Ratings' || item === 'Response'){ %>
+        <% } else { %>
+            <h3><%= item %>: <%= data[item] %></h3>
+        <% } %>
     <% } %>
 </ul>
