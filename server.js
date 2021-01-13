@@ -19,13 +19,25 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
-  axios.get(`http://www.omdbapi.com/?s=star+wars&apikey=${process.env.OMDB_API_KEY}&`)
-  .then(response => {
-    console.log(response.data);
-  })
   res.render('index');
 });
 
+// results
+app.get('/results', (req, res) => {
+  axios.get(`http://www.omdbapi.com/?s=${req.query.Title}&apikey=${process.env.OMDB_API_KEY}&`)
+  .then(response => {
+  res.render('results', {movies: response.data.Search})
+  })
+})
+
+app.get('/movies/:id', (req, res) => {
+  let movieID = req.params.id;
+  axios.get(`http://www.omdbapi.com/?s=${movieID}&apikey=${process.env.OMDB_API_KEY}&`)
+    .then(response => {
+    res.render('details', {movie: response.data})
+  })
+  // res.redirect(`/movies/${req.params.id}`)
+})
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000, () => console.log("server is working"));
 

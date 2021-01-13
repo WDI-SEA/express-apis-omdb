@@ -1,2 +1,19 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h3> <%= movie.Title %> </h3>
+<img src="<%= movie.Poster %>">
+
+<ul>
+    <li>Release Year: <%= movie.Year %></li>
+    <li>Movie Rating: <%= movie.Rated %></li>
+    <li>Release Date: <%= movie.Released %></li>
+    <li>Genre: <%= movie.Genre %></li>
+    <li>Director: <%= movie.Director %></li>
+    <li>Actors: <%= movie.Actors %></li>
+    <li>Writer: <%= movie.Writer %></li>
+    <li>Runtime: <%= movie.Runtime %></li>
+    <li>Language: <%= movie.Language %></li>
+    <li>Country: <%= movie.Country %></li>
+    <li>Awards: <%= movie.Awards %></li>
+    <li>Plot Summary:<%= movie.Plot %></li>
+</ul>
