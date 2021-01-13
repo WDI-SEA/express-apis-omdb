@@ -9,10 +9,23 @@
   },
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.1.0",
-    "ejs": "^3.0.1",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0",
     "morgan": "^1.9.1"
-  }
+  },
+  "description": "We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API. You will need a key. Go to the site to register for a free one. Keep API keys out of public repos!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wkoslik/express-apis-omdb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Wkoslik/express-apis-omdb/issues"
+  },
+  "homepage": "https://github.com/Wkoslik/express-apis-omdb#readme"
 }
