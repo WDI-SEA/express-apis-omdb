@@ -6,9 +6,11 @@
   <li>
     <strong><%= movie["Title"] %></strong>
     Year: <%= movie["Year"] %>
-  </br>
-  <% //Ok eventually I should go back and refactor this so if the results for the poster are N/A it displays 'not available' and doesnt render a broken image %>
+    </br>
+    <% //Ok eventually I should go back and refactor this so if the results for the poster are N/A it displays 'not available' and doesnt render a broken image %>
     <img src="<%= movie["Poster"] %>">
+  </br>
+    <a href="/movies/<%= movie["imdbID"] %>"> More Info</a>
   </li>
 
   <% }) %>

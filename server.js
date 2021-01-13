@@ -40,6 +40,14 @@ app.get('/results', (req, res) =>{
   });
 });
 
+//details route
+//similar to how we refactored the prehistoric creatures and dinos will use a get route to display on the details linking from each movie using imdbID in the query results
+//stub it out first
+app.get('/movies/:movie_id', (req, res) => {
+  res.send('something');
+  // res.render()
+});
+
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
