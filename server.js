@@ -31,7 +31,9 @@ app.get('/results', (req, res) =>{
   AXIOS.get(`http://www.omdbapi.com/?s=${queryTerm.query}&apikey=${process.env.OMDB_API_KEY}`)
   .then(response => {
     // console.log(response);
-    res.send(response.data);
+    // res.send(response.data);
+    //here we will need to res.render the results page with response.data
+    res.render('results')
   })
 })
 
