@@ -1,7 +1,11 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
 <ul>
-    <% movies.forEach((movie, index) => { %>
-         <li><%= movie.Title %> </li>
+    <% movies.forEach(movie => { %>
+        <a href="/movie/<%= movie.imdbID %>">
+        <li>
+            <%= movie.Title %>   
+        </li>
+        </a>
     <% }); %>
 </ul>

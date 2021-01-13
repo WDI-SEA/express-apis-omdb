@@ -14,13 +14,25 @@ ROUTER.get('/', (req, res) => {
 })
 
 ROUTER.post('/results', (req, res) => {
-    console.log(process.env.OMDB_API_KEY)
-    console.log(req.body)
+    // console.log(process.env.OMDB_API_KEY)
+    // console.log(req.body)
         AXIOS.get(`http://www.omdbapi.com/?s=${req.body.Title}&apikey=${process.env.OMDB_API_KEY}`)
             .then(response => {
-                console.log(response.data)
+                // console.log(response.data)
                 res.render('results.ejs', {movies: response.data.Search})
-            }).catch(error=> console.log(error))
+            });
+})
+
+ROUTER.get('/movie/:movie_id', (req, res) => {
+    console.log('hello');
+    let movieID = req.params.movie_id;
+    console.log('this is the movie id', movieID);
+    AXIOS.get(`http://www.omdbapi.com/?i=${movieID}&apikey=${process.env.OMDB_API_KEY}`)
+    .then(response => {
+        console.log(response)
+        res.render('detail.ejs', {movie: response.data})
+    });
+    console.log('hey there');
 })
 
 module.exports = ROUTER;
