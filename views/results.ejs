@@ -1,2 +1,17 @@
+<form action='/results' method="GET">
+    <input placeholder="search" type="text" name="results" />
+    <input type="submit" />
+
+</form>
+<ul>
+    <% movies.forEach(movie => { %>
+        <li>
+            <a  href="/movies/ <%= movie.imdbID %>"> <%= movie.Title %> </a>
+        </li>
+    <%   }) %>
+
+</ul>
+
+
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
