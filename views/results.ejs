@@ -1,6 +1,8 @@
 <% movies.forEach(m => { %>
     <ul>
+        <a href="/movies/<%= m.imdbID %>">
         <li><%= m.Title %></li>
+        </a>
     </ul>
 <% }) %>
 

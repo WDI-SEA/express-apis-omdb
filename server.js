@@ -3,7 +3,6 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios');
-console.log(process.env.OMDB_API_KEY)
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -26,7 +25,7 @@ app.get('/results', (req, res) => {
   console.log(req.query)
   axios.get(`http://www.omdbapi.com/?s=${req.query.searchTerm}&apikey=${process.env.OMDB_API_KEY}`)
       .then(response => {
-        console.log(response)
+        console.log(response.data)
         res.render('results', {movies: response.data.Search})
       })
       .catch((error)=>{
@@ -34,8 +33,15 @@ app.get('/results', (req, res) => {
       })
 });
 
-app.get('/movies/:', function(req, res) {
 
+app.get('/movies/:movie_id', function(req, res) {
+  let movieID = req.params.movie_id;
+  console.log(movieID)
+  axios.get(`http://www.omdbapi.com/?i=${movieID}&apikey=${process.env.OMDB_API_KEY}`)
+    .then(response => {
+      console.log(response.data);
+      res.render('show', {movie: response.data});
+    })
 })
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
