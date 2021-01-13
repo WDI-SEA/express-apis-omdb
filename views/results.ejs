@@ -1,5 +1,5 @@
-<h1>this is working</h1>
-
-
-
-
+<ul>
+    <% movies.forEach((movie)=> { %>
+       <li><a href="/movies/<%=movie.imdbID%>"><%= movie.Title %></a></li>
+    <% }) %>
+</ul>
