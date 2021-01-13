@@ -40,7 +40,7 @@ app.get('/movie/:movie_id', function(req, res) {
   axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&i=${req.params.movie_id}`)
   .then((response) => {
     console.log(response.data)
-    res.render('details', {data: response.data})
+    res.render('detail', {data: response.data})
   })
 });
 

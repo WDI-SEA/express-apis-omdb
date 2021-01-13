@@ -3,6 +3,6 @@
 
 <ul>
     <% items.forEach((movie) => { %>
-        <li><%= movie.Title %></li>
+        <li><a href='http://localhost:3000/movie/<%= movie.imdbID %>'><%= movie.Title %></a></li>
     <% }) %>
 </ul>

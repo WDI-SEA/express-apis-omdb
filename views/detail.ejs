@@ -2,7 +2,8 @@
 <% // This is how to do comments in EJS, by the way... %>
 
 <ul>
-    <%= for (const item in data) { %>
+    <% for (const item in data) { %>
+        <h3><%= item %>:</h3>
         <li><%= data[item] %></li>
     <% } %>
 </ul>
