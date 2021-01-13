@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
     res.render('index')
 })
-//vv paired with line 3 from index.ejs
+//vv paired with line 4 from index.ejs
 app.get('/results', (req, res) => {
     console.log(req.query.searchTerm)
     axios.get('http://www.omdbapi.com/?apikey=' + API_KEY + '&s=' + req.query.searchTerm)
