@@ -1,2 +1,16 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h2>Here's the details of your film:</h2>
+
+<h3>Title: <%=data["Title"]%></h3>
+<h3>Director: <%=data["Director"]%></h3>
+<h3>Year: <%=data["Year"]%></h3>
+<img src="<%=data["Poster"]%>" />
+<p>Genre: <%=data["Genre"]%></p>
+<p>Language: <%=data["Language"]%></p>
+<p>Country: <%=data["Country"]%></p>
+<p>Summary:<%=data["Plot"]%></p>
+<p>IMDB Rating: <%=data["imdbRating"]%></p>
+<% // Must refactor the json data into an observable array %>
+<%= // <p>Rotten Tomatoes: <%=data["Ratings"[2].Value]%></p> %>
+

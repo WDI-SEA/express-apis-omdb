@@ -50,9 +50,9 @@ app.get('/movies/:movie_id', (req, res) => {
   //new axios call for information
   AXIOS.get(`http://www.omdbapi.com/?i=${req.params.movie_id}&apikey=${process.env.OMDB_API_KEY}`)
   .then(response => {
-
-    res.send(response.data);
-  // res.render()
+      console.log(response.data);
+    //res.send(response.data);
+    res.render('detail', {data: response.data});
   });
 });
 // The app.listen function returns a server handle
