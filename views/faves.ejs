@@ -1,0 +1,11 @@
+<h1>Your Faves!</h1>
+
+<% if (faveMovies.length === 0) { %>
+    <p>No results</p>
+    <a href="/">Search a different title</a>
+<% } else { %>
+    <% faveMovies.forEach(movie => { %>
+       <h3><%= movie.title %></h3>
+       <a href="https://www.imdb.com/title/<%=movie.imdbid%>">Check this out on IMDb</a>
+    <% }) %>
+<% } %>
