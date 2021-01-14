@@ -4,9 +4,12 @@ const app = express()
 const ejsLayouts = require('express-ejs-layouts')
 require('dotenv').config()
 const API_KEY = process.env.API_KEY
+const db = require('./models')
+
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(express.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
   res.render('index')
@@ -35,6 +38,23 @@ app.get('/movies/:movie_id', (req, res) =>{
   .catch((error) => {
     console.log('Error! Please reload the page.')
     res.sendStatus(500)
+  })
+})
+
+app.get('/faves', (req, res) =>{
+  db.fave.findAll().then(faves =>{
+    res.render('faves', {faves})
+  })
+})
+
+app.post('/faves', (req, res) =>{
+  console.log(req.body)
+  db.fave.create({
+    title: req.body.title,
+    imdbid: req.body.imdbid
+  }).then(createdFav =>{
+    console.log(createdFav)
+    res.redirect("/faves")
   })
 })
 

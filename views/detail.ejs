@@ -1,6 +1,5 @@
 <h1><%= movie.Title %></h1>
 <ul>
-  </li>
   <li><%= movie.Year %></li>
   <li><%= movie.Rated %></li>
   <li><%= movie.Runtime %></li>
@@ -10,3 +9,8 @@
   <li><%= movie.Plot %></li>
 </ul>
 <img src="<%= movie.Poster%>" alt="movie poster <%= movie.Title%>">
+<form action="/faves" method="POST">
+  <button id="fave" type="submit">Add to Favorites</button>
+  <input type="hidden" name="title" value="<%= movie.Title %>">
+  <input type="hidden" name="imdbid" value="<%= movie.imdbID %>">
+</form>
