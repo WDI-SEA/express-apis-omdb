@@ -1,0 +1,8 @@
+sequelize mode:create --name fave --attributes title:string,imdbid:string
+
+// migration
+
+sequelize db:migrate
+
+<p>Rotten Tomatoes Rating: <%=ratings.[1].Value%></p>
+<p>Rotten Tomatoes Rating: <%=data.Ratings[1].Value%></p>

@@ -11,7 +11,14 @@
 <p>Country: <%=data["Country"]%></p>
 <p>Summary:<%=data["Plot"]%></p>
 <p>IMDB Rating: <%=data["imdbRating"]%></p>
+<p>Rotten Tomatoes Rating: <%=data.Ratings[1].Value%></p>
 
+<h2> Add this as a Favorite:<h2>
+  <form method="POST" action="/faves">
+    <input type="hidden" name="title" value="<%=data["Title"]%>">
+    <input type="hidden" name="imdbid" value="<%=data["imdbID"]%>">
+    <input type="submit" value="Favorite">
+  </form>
 <% // Must refactor the json data into an observable array %>
 
 

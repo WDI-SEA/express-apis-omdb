@@ -4,7 +4,7 @@ const ejsLayouts = require('express-ejs-layouts');
 const AXIOS = require('axios');
 const methodOverride = require('method-override');
 const fs = require('fs');
-
+const DB = require('./models');
 const app = express();
 
 // Sets EJS as the view engine
@@ -61,6 +61,29 @@ app.get('/movies/:movie_id', (req, res) => {
     res.render('detail', {data: response.data});
   });
 });
+
+// Create Route - POST /faves
+app.post('/faves', (req, res) =>{
+
+  console.log('something', req.body);
+  DB.fave.create({
+    title: req.body.title,
+    imdbid: req.body.imdbid
+  }).then(fave =>{
+    console.log(`Fave ${fave.title} was created!🤯 `);
+    res.redirect('/faves');
+  }).catch(err =>{ 
+    console.log(err);
+    res.redirect('/movies/:movie_id/');
+  });
+});
+
+// Faves Route - GET /faves
+app.get('/faves', (req, res) => {
+  DB.fave.findAll()
+  .then(faves =>
+    res.render('faves', {faves}));
+})
 
 
 // // 404

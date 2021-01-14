@@ -1,0 +1,8 @@
+<h1> Here are your faves: </h1>
+<ul>
+  <% faves.forEach(fave => { %>
+    <li>
+      Title: <%=fave.title%>, imdbID: <%=fave.imdbid%> 
+    </li>
+  <% }) %>
+</ul>
