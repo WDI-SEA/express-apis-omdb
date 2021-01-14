@@ -34,12 +34,32 @@ app.get('/movies/:id', (req, res) => {
   let movieID = req.params.id;
   axios.get(`http://www.omdbapi.com/?s=${movieID}&apikey=${process.env.OMDB_API_KEY}&`)
     .then(response => {
-    res.render('details', {movie: response.data})
+      console.log(movieID)
+      console.log(response.data)
+    res.render('detail', {movie: response.data})
   })
   // res.redirect(`/movies/${req.params.id}`)
 })
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000, () => console.log("server is working"));
+
+// app.get('/faves', (req, res) => {
+//   debugger.faves.findAll()
+//   .then(movies => {
+//     res.render('faves', {movies})
+//   })
+// });
+
+// app.post('/faves', (req, res) => {
+//   debugger.faves.create({
+//     title: req.body.title,
+//     imdbid: req.body.imdbID
+//   })
+//   .then(newMovie => {
+//     console.log("fave movie added")
+//   })
+// })
+
 
 // We can export this server to other servers like this
 module.exports = server;
