@@ -2,7 +2,7 @@ Welcome to Favorites
 <ul>
 <% faves.forEach(fave => { %>
     <li style="margin-bottom:10px">
-        Movie Title: <%= fave.title %><br>
+        Movie Title: <a href='/movies/<%= fave.imdbid %>'><%= fave.title %></a><br>
         Movie IMDB ID: <%= fave.imdbid %>
 
     <form action="/faves/<%= fave.imdbid %>/?_method=DELETE" method="POST">

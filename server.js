@@ -53,18 +53,29 @@ app.get('/faves', (req, res) => {
 })
 
 app.post('/movies/:movie_id', (req, res) => {
-  db.fave.create({
-    title: req.body.title,
-    imdbid: req.body.imdbid
-  }).then(createdFave => {
+  db.fave.findOrCreate({
+    where: {
+      title: req.body.title,
+      imdbid: req.body.imdbid
+    },
+    defaults: {
+      title: req.body.title,
+      imdbid: req.body.imdbid
+    }
+  }).then( ([fave, wasCreated]) => {
     res.redirect(`/movies/${req.params.movie_id}`)
-    // process.exit()
   })
+  
+//   db.fave.create({
+//     title: req.body.title,
+//     imdbid: req.body.imdbid
+//   }).then(createdFave => {
+//     res.redirect(`/movies/${req.params.movie_id}`)
+//     // process.exit()
+//   })
 })
 
 app.delete('/faves/:imdbid', (req, res) => {
-  console.log("Hitting the delete route")
-  console.log(req.params.imdbid)
   db.fave.destroy({
     where: {
       imdbid: `${req.params.imdbid}`
@@ -73,25 +84,8 @@ app.delete('/faves/:imdbid', (req, res) => {
     res.redirect('/faves')
   })
 })
-
-// <input type="hidden" name="imdbid" value="<%= fave.imdbid %>">
   
-  // Find or Create was taking too long.
-  // db.fave.findOrCreate({
-  //   where: {
-  //     title: req.body.title,
-  //     imdbid: req.body.imdbid
-  //   },
-  //   defaults: {
-  //     title: req.body.title,
-  //     imdbid: req.body.imdbid
-  //   }
-  // }).then( ([fave, wasCreated]) => {
-  //   console.log(fave)
-  //   res.redirect('/faves')
-  //   process.exit()
-  // })
-
+  
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000)
 
