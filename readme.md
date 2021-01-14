@@ -74,6 +74,7 @@ to a route like `/movies/tt234323` (where `tt234323` is the IMDBid for that movi
 4. Create a `fave` model with two fields- `title:string` and `imdbid:string`
 5. Run migrations.
 6. Require your model into the location of your routes.
+
 7. Modify your `detail.ejs` to include a form for adding this movie as a fave:
   * This form should have a `POST` method, with an action of `/faves`
   * It should contain two *hidden* fields containing the title and IMDB ID of this movie. These fields should be named the same as your model attribute names.

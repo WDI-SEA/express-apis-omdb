@@ -1,0 +1,8 @@
+<h1>My Favorite Movies!</h1>
+<ul>
+    <% movies.forEach(movie => { %>
+        <li>
+            <a href="/show/<%= movie.imdbid%>"><%= movie.title%></a>
+         </li>
+    <% }) %> 
+</ul>

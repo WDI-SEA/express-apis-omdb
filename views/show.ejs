@@ -1,0 +1,11 @@
+<form action="/faves" method="POST">
+    <h1>
+        <%= movie.Title %>
+    </h1>
+    <img src="<%= movie.Poster %>" alt="">
+
+    <input type="hidden" name="title" value="<%= movie.Title %>" >
+    <input type="hidden" name="imdbid" value= "<%= movie.imbdid %>" >
+    <input type="submit" name="favorite" placeholder="add to favorites">
+</form>
+
