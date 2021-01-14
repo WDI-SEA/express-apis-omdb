@@ -7,3 +7,9 @@
 <h4>directed by: <%= movie.Director %></h4>
 
 <img src="<%= movie.Poster  %>">
+
+<form action="/faves" method="POST"> 
+    <input type="submit" value="add to faves">
+    <input type="hidden" name="title" value="<%= movie.Title %>">
+    <input type="hidden" name="imdbid" value="<%= movie.imdbID %>">
+</form>
