@@ -1,9 +1,20 @@
 
-<%= movie.Title %>
 
-<img src="<%= document.data.illustration.url %>" />
-<%= movie.Director %>
+<img src="<%= movie.Poster %>" />
+<br>
 
+
+<h2>
+    <%= movie.Title %>
+</h2>
+
+<ul>
+    <li>
+        <%= movie.Genre %>
+        <%= movie.Year %>
+        <%= movie.Actors %>
+    </li>
+</ul>
 
 
 

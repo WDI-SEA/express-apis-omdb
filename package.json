@@ -16,6 +16,8 @@
     "express-ejs-layouts": "^2.5.0",
     "morgan": "^1.9.1",
     "node": "^15.4.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
   }
 }
