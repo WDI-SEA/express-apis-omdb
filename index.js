@@ -5,11 +5,13 @@ const ejsLayouts = require('express-ejs-layouts')
 require('dotenv').config()
 const API_KEY = process.env.API_KEY
 const db = require('./models')
+const methodOverride = require('method-override')
 
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   res.render('index')
@@ -19,7 +21,6 @@ app.get('/results', (req, res) =>{
   console.log(req.query)
   axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${req.query.searchTerm}`)
   .then(response => {
-    // let data =JSON.parse(response.data)
     console.log(response.data.Search)
     res.render('results', {movies: response.data.Search})
   })
@@ -55,6 +56,20 @@ app.post('/faves', (req, res) =>{
   }).then(createdFav =>{
     console.log(createdFav)
     res.redirect("/faves")
+  }).catch((error) => {
+    console.log('Error! Please reload the page.')
+    res.sendStatus(500)
+  })
+})
+
+app.delete('/:movieId', (req, res) => {
+  db.fave.destroy({
+    where: {
+      imdbid: req.params.movieId
+    }
+  }).then(rowsDeleted => {
+    console.log(rowsDeleted)
+    res.redirect('/faves')
   })
 })
 

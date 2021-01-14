@@ -1,6 +1,10 @@
 <h1>Favorite Movies</h1>
 <ul>
   <% faves.forEach(fave =>{ %>
-    <li><%= fave.title %> - <%= fave.imdbid %></li>
+    <!-- <li><%= fave.title %> - <%= fave.imdbid %></li> -->
+    <li><a href="/movies/<%= fave.imdbid %>"><%= fave.title %> - <%= fave.imdbid %></a></li>
+    <form action="/<%= fave.imdbid %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete">
+    </form>
   <% }) %>
 </ul>
