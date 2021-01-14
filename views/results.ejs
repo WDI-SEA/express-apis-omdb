@@ -5,8 +5,8 @@
 <%= data[0].Title %>
 <ul>
 <% data.forEach(movie => { %>
-    <li><%= movie.Title %></li>
-    <li><a href="/movies/<%= movie.imdbID %>"><%=  %></a></li>
+    <!-- <li><%= movie.Title %></li> -->
+    <li value="<%= movie.imdbID %>" name="movieId"><a href=/movies/<%= movie.imdbID %>><%= movie.Title %></a></li>
 <% }) %>
 
 </ul>
