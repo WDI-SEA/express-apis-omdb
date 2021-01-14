@@ -1,3 +1,4 @@
+const db = require('./models')
 const axios = require('axios')
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
