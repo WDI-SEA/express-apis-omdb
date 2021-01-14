@@ -5,6 +5,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const API_KEY = process.env.API_KEY
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -42,7 +43,8 @@ app.get('/movies/:id', (req, res) => {
   })
 })
 
-app.get('/faves', (req, res) => {
+// 
+app.get('/faves', (req, res) = > {
   
 })
 
