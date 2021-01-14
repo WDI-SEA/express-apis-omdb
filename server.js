@@ -38,6 +38,7 @@ app.get('/results', function(req, res) {
 
 app.get('/movie/fave', function(req, res) {
   db.movie.findAll().then(movies=>{
+    console.log(movies)
     res.render('faves', {faves: movies})
   })
 })
@@ -56,10 +57,20 @@ app.put('/movie/fave/:movie_id', function(req, res) {
       imdbid: req.body.id,
   }).then(createdUser => {
       console.log(createdUser)
-      process.exit()
+      res.redirect('/movie/fave')
+      //process.exit()
   })
+})
 
-  res.redirect('/movie/fave')
+app.delete('/movie/fave/delete/:movie_id', function(req, res) {
+    console.log('delete')
+      db.movie.destroy({
+        where: { imdbid: req.params.movie_id }
+    }).then(numRowsDeleted=>{
+        console.log(numRowsDeleted)
+        res.redirect('/movie/fave')
+        //process.exit()
+    })
 })
 
 // The app.listen function returns a server handle
