@@ -4,14 +4,16 @@
 <ul>
 
     <% response.forEach(detail=>{%>
-        <li><h2>Movie name is <%= detail.Title %> </h2></li>
+        <li> <a href='/movies/<%= detail.imdbID%>'><h2>Movie name is <%= detail.Title %> </h2> </a> </li>
         <ul>
             <li>The Year is <%= detail.Year%></li>
-            <li>The imdbID is <a href='/movies/<%= detail.imdbID%>'><%= detail.imdbID%></a> </li>
             
             <li>The Type is <%= detail.Type%></li>
             <br>
             <img src="<%= detail.Poster%>">
+            <form action="/:<%= detail.Title%>/<%= detail.imdbID%>" method="POST">
+                <input type="submit" value="Fave">
+            </form>
         </ul>
     <%})%>
 </ul>
