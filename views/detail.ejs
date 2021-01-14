@@ -8,4 +8,10 @@
 <p>Director:<%=data.Director%></p>
 <p>Actors:<%=data.Actors%></p>
 <p>Rating:<%=data.imdbRating%></p>
+<form action="/faves" method="POST">
+    <input type="hidden" name="title" value=<%=data.Title%>>
+    <input type="hidden" name="imdbid" value=<%=data.imdbID%>>
+    <input type="submit" value="Add to fave">
+</form>
 
+<a href="/">Home</a>

@@ -3,8 +3,15 @@ const express = require('express')
 let app = express()
 require('dotenv').config()
 const API_KEY = process.env.API_KEY
+const db = require("./models")
 
+
+// middleware
 app.set('view engine','ejs')
+// allow to get the req.body
+app.use(express.urlencoded({extended:false}))
+
+
 
 app.get('/', (req,res)=>{
     res.render('index')
@@ -25,6 +32,30 @@ app.get('/movies/:movie_id',(req,res)=>{
         // res.sendStatus(200)
         res.render('detail',{data: response.data})
     })
+})
+
+app.get('/faves', (req,res)=>{
+    db.fave.findAll().then(titles =>{
+    console.log(titles)
+    console.log('entrou2')
+    //  res.sendStatus(200)
+    res.render('faves',{titles})
+    // process.exit()
+    
+})
+})
+
+app.post('/faves',(req,res)=>{
+    db.fave.create({
+    title: req.body.title,
+    imdbid: req.body.imdbid,
+}).then(createdUser =>{
+    console.log(createdUser)
+    console.log('entrou1')
+    res.redirect('/faves')
+    // process.exit()        
+})
+// console.log(req.body)
 })
 
 app.listen(3000,()=>{
