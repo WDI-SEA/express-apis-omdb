@@ -1,0 +1,26 @@
+<ul>
+<li><%= movie.Title %></li>
+<img src="<%= movie.Poster%>">
+<li><%= movie.Year %></li>
+<li><%= movie.Rated %></li>
+<li><%= movie.Released %></li>
+<li><%= movie.Runtime %></li>
+<li><%= movie.Genre %></li>
+<li><%= movie.Director %></li>
+<li><%= movie.Actors %></li>
+<li><%= movie.Plot %></li>
+<li><%= movie.Language %></li>
+<li><%= movie.Awards %></li>
+<li><%= movie.Poster %></li>
+<li><%= movie.Metascore %></li>
+<li><%= movie.BoxOffice %></li>
+<li><%= movie.Production %></li>
+<li><%= movie.Website %></li>
+<li><%= movie.Response %></li>
+
+</ul>
+<form method="POST" action="/faves")>
+    <input type="hidden" name="title" value="<%= movie.Title %>">
+    <input type="hidden" name="imdbid" value="<%= movie.imdbID%>">
+    <button type="submit">FUCKYESFUCKYESFUCKYES!</button>
+ </form>`

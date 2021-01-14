@@ -1,0 +1,8 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "newFire2020",
+    "database": "omb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }}
