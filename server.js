@@ -4,6 +4,7 @@ const axios = require('axios')
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const app = express()
+const db = require('./models') // Import our sequelize models (interface for our psql tables)
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs')
@@ -41,6 +42,40 @@ app.get('/movies/:movie_id', (req, res) => {
     res.render('detail', {movie: axiosResults.data})
   })
   .catch( error => console.log("Gretchen, stop trying to make fetch happen."))
+})
+
+app.get('/faves', (req, res) => {
+  db.fave.findAll().then(faves => {
+    res.render('faves.ejs', {faves: faves})
+  })
+  
+})
+
+app.post('/movies/:movie_id', (req, res) => {
+  db.fave.create({
+    title: req.body.title,
+    imdbid: req.body.imbdib
+  }).then(createdFave => {
+    console.log(createdFave)
+    res.redirect(`/movies/${req.params.movie_id}`)
+    process.exit()
+  })
+  
+  // Find or Create was taking too long.
+  // db.fave.findOrCreate({
+  //   where: {
+  //     title: req.body.title,
+  //     imdbid: req.body.imdbid
+  //   },
+  //   defaults: {
+  //     title: req.body.title,
+  //     imdbid: req.body.imdbid
+  //   }
+  // }).then( ([fave, wasCreated]) => {
+  //   console.log(fave)
+  //   res.redirect('/faves')
+  //   process.exit()
+  // })
 })
 
 // The app.listen function returns a server handle

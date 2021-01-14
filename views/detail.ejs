@@ -1,7 +1,19 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
 <h3><%= movie.Title %></h3>
-<img src=" <%= movie.Poster %> ">
+<img style="display:block" src=" <%= movie.Poster %> ">
+
+<form style="display:inline-block; margin-top:10px" action="/movies/<%= movie.imdbID %>" method="POST">
+    <label for="title"></label>
+    <input type="hidden" id="title" name="title" value="<%=movie.Title%>">
+
+    <label for="imdbID"></label>
+    <input type="hidden" id="imdbID" name="imdbid" value="<%=movie.imdbID%>">
+
+    <input type="submit" value="Add to Favorites">
+</form>
+
+<a href="/faves"><input style="display:inline-block" type="button" value="View Favorites"></a>
 
 <ul>
     <li>Release Year: <%= movie.Year %></li>
@@ -34,3 +46,4 @@
     <img width='30px' src='../img/emptyStar.png'>
 <% } %>
 </div>
+
