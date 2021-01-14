@@ -1,9 +1,10 @@
 require('dotenv').config();
 const express = require('express');
-const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
-const app = express();
+const methodOverride =require('method-override');
 
+//app set up
+const app = express();
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -11,37 +12,26 @@ app.set('view engine', 'ejs');
 app.use(express.static('static'));
 // Sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }));
-// Enables EJS Layouts middleware
+// // Enables EJS Layouts middleware
 app.use(ejsLayouts);
+//bodyparingmiddleware
+app.use(methodOverride('_method'));
 
-// Adds some logging to each request
-app.use(require('morgan')('dev'));
+// // Adds some logging to each request
+// app.use(require('morgan')('dev'));
 
-// Routes
+// Default Routes
 app.get('/', function(req, res) {
   res.render('index');
 });
 
-//get results
-app.get('/results', (req, res)=>{
-  // console.log('RESULTS');
-  axios.get(`http://omdbapi.com/?s=${req.query.movie_title}&apikey=${process.env.OMDB_API_KEY}`)
-    .then(response => {
-      res.render('results', {movies: response.data.Search});
-    });
-})
+//Controller
+app.use('/', require('./routes/movies'));
 
-//get details
-app.get('/details/:id', (req, res) =>{
-  // console.log("DETAILS");
-  let param = req.params.id;
-  // console.log(param);
-  axios.get(`http://omdbapi.com/?i=${param}&apikey=${process.env.OMDB_API_KEY}`)
-    .then(response => {
-      // console.log(response.data);
-      // console.log(response.data.Poster);
-      res.render('details', {details: response.data});
-    });
+//error 404
+
+app.get('/*', (req, res) =>{
+  res.send("This is not the page you're looking for...");
 })
 
 // The app.listen function returns a server handle

@@ -6,3 +6,9 @@
 <h4><%= details.Year %> | <%= details.Genre %> | <%= details.imdbRating %></h4>
 <h4> </h4>
 <h4> <%= details.Plot %> </h4>
+
+<form method="POST" action='/faves'>
+    <input type="hidden" name='title' value='<%= details.Title %>'>
+    <input type="hidden" name='imdbid' value='<%= details.imdbID %> '>
+    <input type="submit" value="Add to Favorites">
+</form>

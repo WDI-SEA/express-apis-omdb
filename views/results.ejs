@@ -2,7 +2,6 @@
 <% // This is how to do comments in EJS, by the way... %>
 
 <ul>
-    <% console.log(movies) %>
     <% movies.forEach(movie => { %>
     <li><a href="/details/<%=  movie.imdbID %>"><%= movie.Title %>, <%= movie.Year %> </a></li>
     <% }) %>
