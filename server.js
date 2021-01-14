@@ -4,7 +4,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const API_KEY = process.env.API_KEY
-
+const db = require('./models')
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
 // Specifies the location of the static assets folder
@@ -41,6 +41,13 @@ app.get('/movies/:movieid', (req, res)=>{
     console.log(response)
     res.render('detail.ejs', {movie:response.data})
   })
+})
+
+app.post('/faves', (req,res)=>{
+  db.faves.create(req.body).then(createdFave =>{
+    res.redirect('/faves')
+  }) 
+
 })
 
 // The app.listen function returns a server handle

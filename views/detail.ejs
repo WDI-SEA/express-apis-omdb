@@ -1,7 +1,9 @@
+<form action="/faves" method="POST">
+<input type="submit" value="add to favorites">
+<input type="hidden" name="title" value="<%= movie.Title %>">
+<input type="hidden" name="imdbid" value="<%= movie.imdbID %>">
 
-
-<img src="<%= movie.Poster %>" />
-<br>
+</form>
 
 
 <h2>
