@@ -36,6 +36,12 @@ app.get('/results', function(req, res) {
   })
 });
 
+app.get('/movie/fave', function(req, res) {
+  db.movie.findAll().then(movies=>{
+    res.render('faves', {faves: movies})
+  })
+})
+
 app.get('/movie/:movie_id', function(req, res) {
   console.log(req.params.movie_id)
   axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&i=${req.params.movie_id}`)
@@ -45,11 +51,6 @@ app.get('/movie/:movie_id', function(req, res) {
 });
 
 app.put('/movie/fave/:movie_id', function(req, res) {
-  console.log('Hello!')
-  console.log(req.body)
-  console.log(req.body.title)
-  console.log(req.body.id)
-
     db.movie.create({
       title: req.body.title,
       imdbid: req.body.id,
@@ -58,7 +59,7 @@ app.put('/movie/fave/:movie_id', function(req, res) {
       process.exit()
   })
 
-  res.redirect('/')
+  res.redirect('/movie/fave')
 })
 
 // The app.listen function returns a server handle
