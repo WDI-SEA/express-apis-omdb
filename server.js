@@ -4,6 +4,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const db = require('./models');
+const fave = require('./models/fave');
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -40,6 +41,15 @@ app.get('/movies/:movie_id', (req, res) => {
   })
 });
 
+app.get('/fave', (req, res) => {
+  db.fave.findAll()
+  .then(faves => {
+    res.render('fave', { faves })
+  }).catch(error => {
+    console.log(error);
+  })
+})
+
 app.post('/fave', (req, res) => {
   db.fave.findOrCreate({
     where: {
@@ -47,7 +57,7 @@ app.post('/fave', (req, res) => {
       imdbid: req.body.imdbid
     }
   }).then(favorite => {
-    res.redirect('/')
+    res.redirect('/fave')
   }).catch(error => {
     console.log(error);
   })
