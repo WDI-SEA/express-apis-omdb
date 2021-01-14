@@ -4,6 +4,7 @@ const AXIOS = require('axios');
 require('dotenv').config();
 const FS = require('fs');
 const { Router } = require('express');
+const DB = require('../models');
 
 //initialize our express server
 const ROUTER = EXPRESS.Router();
@@ -22,6 +23,33 @@ ROUTER.post('/results', (req, res) => {
                 res.render('results.ejs', {movies: response.data.Search})
             });
 })
+
+//POST route for /faves
+ROUTER.post('/faves', (req,res) => {
+//create a new favorite w info from req.body
+    DB.fave.create({
+        title: req.body.Title,
+        imdbid: req.body.imdbID
+    }).then((fave) => {
+        console.log("my new fave", fave.title);
+        console.log(fave.imdbid)
+        res.redirect('/')
+        //redirect to the index for all users
+    })
+});
+
+//GET all of my faves
+ROUTER.get('/faves', (req, res) => {
+    console.log('------FAVORITES--------');
+    DB.fave.findAll()
+    .then((faves) => {
+        res.render('faves.ejs', {faves});
+    })
+});
+
+
+
+
 
 ROUTER.get('/movie/:movie_id', (req, res) => {
     console.log('hello');
