@@ -7,6 +7,11 @@
     <img width="50px" src="https://www.pngitem.com/pimgs/m/138-1381056_rotten-tomatoes-fresh-logo-hd-png-download.png">
 <% } %>
 
+<form action="/movie/fave/<%= data.imdbID %>/?_method=PUT" method="POST">
+    <input type="hidden" value="<%= data.imdbID %>" name="id">
+    <input type="hidden" value="<%= data.Title %>" name="title">
+    <input type="submit" value="Add Movie As Fave">
+</form>
 
 <ul>
     <% for (const item in data) { %>
