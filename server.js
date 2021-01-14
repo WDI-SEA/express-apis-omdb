@@ -45,7 +45,7 @@ app.get('/movies/:id', (req, res) => {
 app.get('/faves', (req, res) => {
   db.fav.findAll()
   .then(favMovieDB => {
-    res.render('/fav', {faveMovie: favMovieDB});
+    res.render('/fav', {favMovieDB});
     console.log(favMovieDB)
   });
 });
@@ -57,8 +57,9 @@ app.post('/fav', (req, res) => {
     omdbID: req.body.omdbID,
     imgURL: req.body.imgURL
   }).then(favoredMovie => {
-    res.redirect(`/movies/${req.params.id}`)
-    process.exit();
+    console.log(favoredMovie)
+    res.redirect(`/movies/${req.body.omdbID}`)
+    // process.exit();
   }).catch(err => {
     console.log(err);
   })
