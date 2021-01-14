@@ -1,5 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
+const { response } = require('express');
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
@@ -19,22 +20,38 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index');
-});
+  res.render('index')
+})
 
 app.get('/results', (req, res) => {
   console.log(req.query.searchTerm)
   axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${req.query.searchTerm}`)
   .then(response => {
     console.log(response.data)
-      res.render('results', {movie: response.data.Search})
+    res.render('results', {movies: response.data.Search})
   })
 })
 
-app.get('/results/:id', (req, res) => {
-  axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&s=n${req.params.id}`)
+app.get('/movies/:id', (req, res) => {
+  axios.get(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${req.params.id}`)
   .then(response => {
-    res.send('show', {movie: response.data})
+    console.log(response.data)
+  res.render('detail', {movie: response.data})
+  })
+  .catch((error) => {
+  })
+})
+
+app.get('/faves', (req, res) => {
+  
+})
+
+//post to faves
+
+app.post('/faves', (req, res) => {
+  db.fave.create(req.body).then(createdFav => {
+    console.log(createdFav)
+    res.redirect('/faves')
   })
 })
 
