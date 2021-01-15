@@ -3,6 +3,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios');
+const db = require("./models");
 
 
 // Sets EJS as the view engine
@@ -39,6 +40,26 @@ app.get('/movies/:movie_id', (req, res) => {
       .then(response => {
         res.render('show', {movie: response.data});
       });
+});
+
+
+app.get('/faves', (req, res) => {
+  db.faves.findAll()
+  .then(faves => {
+    res.render('faves', {faves: faves})
+  })
+});
+
+app.post('/faves', (req, res) => {
+  console.log(req.body);
+  db.faves.findOrCreate({
+    where: {
+      title: req.body.Title,
+      imdbid: req.body.imdbID
+    }
+  }).then(([fave, created]) => {
+    res.redirect('/faves')
+  }).catch(err => console.log(err))
 });
 
 // The app.listen function returns a server handle

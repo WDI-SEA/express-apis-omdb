@@ -1,1 +1,6 @@
 <%= movie.Title %>
+<form method="POST" action="/faves">
+    <input type="hidden" name="Title" value="<%= movie.Title %>">
+    <input type="hidden" name="imdbID" value="<%= movie.imdbID %>">
+    <input type="submit" value="addToFavorites">
+</form>
