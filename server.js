@@ -4,6 +4,7 @@ const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios');
 
+
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
 // Specifies the location of the static assets folder
