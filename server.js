@@ -17,7 +17,9 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  // res.send('Hello, backend!');
+  //send to homepage
+  res.render('index')
 });
 
 // The app.listen function returns a server handle
