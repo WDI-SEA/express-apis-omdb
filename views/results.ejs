@@ -1,2 +1,9 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h2>Results</h2>
+<%= console.log(data[0]) %>
+<%# Loop through array of data %>
+<% data.forEach(movie=> { %>
+    <img src='<%= movie.Poster %>' alt='poster of <%= movie.Title %>'/>
+    <a href='<%= movie.imdbID %>'><%= movie.Title %></a>
+<% }) %>

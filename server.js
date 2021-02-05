@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
+const axios = require('axios')
 const app = express();
 
 // Sets EJS as the view engine
@@ -21,6 +22,25 @@ app.get('/', function(req, res) {
   //send to homepage
   res.render('index')
 });
+
+// route to handle query from search form
+app.get('/results', (req, res)=> {
+  let q = req.query.q
+  var qs = {
+    params: {
+      s: q,
+      apikey: process.env.API_KEY
+    }
+  };
+
+  axios.get('http://www.omdbapi.com', qs)
+    .then(function (response) {
+      // handle success, carefule to see how the data comes back
+      let data = response.data.Search
+      res.render('results', {data})
+    })
+
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
