@@ -5,5 +5,5 @@
 <%# Loop through array of data %>
 <% data.forEach(movie=> { %>
     <img src='<%= movie.Poster %>' alt='poster of <%= movie.Title %>'/>
-    <a href='<%= movie.imdbID %>'><%= movie.Title %></a>
+    <a href='movies/<%= movie.imdbID %>'><%= movie.Title %></a>
 <% }) %>

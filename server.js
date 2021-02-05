@@ -32,14 +32,31 @@ app.get('/results', (req, res)=> {
       apikey: process.env.API_KEY
     }
   };
-
   axios.get('http://www.omdbapi.com', qs)
     .then(function (response) {
       // handle success, carefule to see how the data comes back
       let data = response.data.Search
       res.render('results', {data})
     })
+})
 
+// Make a new route on your backend: GET /movies/:movie_id
+app.get('/movies/:movie_id', (req, res)=> {
+  // new call to axios to get specific information on a movie
+  let movie_id = req.params.movie_id
+  var qs = {
+    params: {
+      i: movie_id,
+      apikey: process.env.API_KEY
+    }
+  };
+  axios.get('http://www.omdbapi.com', qs)
+    .then(function (response) {
+      // handle success, carefule to see how the data comes back
+      let data = response.data
+      console.log(data)
+      res.render('detail', {data})
+    })
 })
 
 // The app.listen function returns a server handle
