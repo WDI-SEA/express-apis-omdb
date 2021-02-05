@@ -5,3 +5,8 @@
 <p><%= data.Title %></p>
 <p>Year: <%= data.Title %></p>
 <p>Genres: <%= data.Genre %></p>
+<form action='/faves' method='POST'>
+    <input type='hidden' id='imdbid' value='<%= data.imdbID %>' name='imdbid'>
+    <input type='hidden' id='title' value='<%= data.Title %>' name='title'>
+    <button type='submit'>Add to Favs</button>
+</form>

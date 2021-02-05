@@ -3,6 +3,8 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const axios = require('axios')
 const app = express();
+//bring it in
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -50,6 +52,8 @@ app.get('/movies/:movie_id', (req, res)=> {
       apikey: process.env.API_KEY
     }
   };
+  // constructing a url
+  // `http://www.omdbapi.com?i=${qs.params.i}&apikey=3040234`
   axios.get('http://www.omdbapi.com', qs)
     .then(function (response) {
       // handle success, carefule to see how the data comes back
@@ -58,6 +62,31 @@ app.get('/movies/:movie_id', (req, res)=> {
       res.render('detail', {data})
     })
 })
+
+// post route to /faves from the favorite button
+app.post('/faves', (req, res)=> {
+  // with a post from a form we will have acess on req.body
+  const favMovie = req.body
+  // checks if this movie exists, if it is not it will create,
+  // if it is it will return it
+  db.favorite.findOrCreate({
+    where: {
+      imdbid: favMovie.imdbid,
+      title: favMovie.title
+    }
+  })
+  .then(([movie, didCreate])=> {
+    if(didCreate) {
+      console.log(movie.get())
+    }
+    res.redirect('/')
+  })
+  .catch( (err)=> {
+    console.log(err)
+  })
+
+})
+
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
