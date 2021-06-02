@@ -1,6 +1,10 @@
-require('dotenv').config();
+// import modules
 const express = require('express');
+const axios = require('axios')
 const ejsLayouts = require('express-ejs-layouts');
+require('dotenv').config();
+
+// utilize modules
 const app = express();
 
 // Sets EJS as the view engine
@@ -13,15 +17,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 
 // Adds some logging to each request
-app.use(require('morgan')('dev'));
+// app.use(require('morgan')('dev'));
+
+// misc. variables
+const PORT = 5000
+const log = console.log
+const omdbApiKey = process.env.OMDB_API_KEY
 
 // Routes
 app.get('/', function(req, res) {
   res.send('Hello, backend!');
 });
 
-// The app.listen function returns a server handle
-var server = app.listen(process.env.PORT || 3000);
+// listen to port
+app.listen(PORT, () => {
+  log(`Welcome to Port ${PORT}.`)
+})
 
 // We can export this server to other servers like this
-module.exports = server;
+// module.exports = server;
