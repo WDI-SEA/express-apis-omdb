@@ -37,7 +37,25 @@ app.get('/results', (req, res) => {
       .catch(err => {console.log(err)})  
 })
 
-// GET /moveResults/:id -- READ specific movie details
+app.get('/detail/:imdbID', (req, res) => {
+  let qs = {
+    params: {
+      i: req.params.imdbID,
+      apikey: omdbApiKey
+    }
+  }
+  axios.get('http://www.omdbapi.com/', qs)
+  .then((response) => {
+    let movieData = response.data
+    res.render('detail', ( {q: movieData} ))
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+})
+
+
+// GET /movieResults/:id -- READ specific movie details
 app.get('/movies/:movies_id', (req, res) => {
   axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
       .then((res) => {

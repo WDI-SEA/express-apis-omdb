@@ -1,4 +1,6 @@
 
 <% results.forEach((unicorn) => { %>
-    <h2><%=unicorn.Title%></h2>
+    <h2><%= unicorn.Title %></h2>
+    <img src="<%= unicorn.Poster %>" alt="poster">
+    <a href='/detail/<%=unicorn.imbID%>'> More Info</a>
     <% }) %>
