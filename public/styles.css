@@ -1,6 +1,7 @@
 * {
     text-align: center;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: cornsilk;
 }
 
 #home-link {
@@ -9,12 +10,40 @@
     color: white;
     position: fixed;
     top: 10px;
-    left: 10px;
+    left: 60px;
     background-color: black;
     width: 180px;
     height: 25px;
     border-radius: 8%;
     transition-duration: 0.3s;
+}
+
+#basic-info {
+    background-color: rgb(51,51,51);
+    margin-left: 50px;
+    margin-right: 120px;
+}
+
+h1, ul {
+    margin-left: 50px;
+    margin-right: 120px;
+}
+
+h3 {
+    background-color: goldenrod;
+    height: 40px;
+}
+
+.basic-info-detail {
+    background-color: rgb(51,51,51);
+    color: rgb(175,175,175);
+    display: inline-block;
+    margin: 10px 60px 10px 60px;
+}
+
+.all-details {
+    margin-left: 50px;
+    margin-right: 120px;
 }
 
 #home-link:hover {
@@ -43,6 +72,14 @@ ul {
 
 li {
     margin: 5px;
+}
+
+#detail-title {
+    background-color: rgb(51,51,51);
+    color: white;
+    margin: 0 120px 0 50px;
+    height: 50px;
+    font-size: 40px;
 }
 
 .list-box {
@@ -76,7 +113,7 @@ a, .source-item {
 
 img {
     max-width: 200px;
-    border: 5px solid black;
+    border: 5px solid white;
     border-radius: 10%;
     transition-duration: 0.3s;
 }
@@ -92,7 +129,8 @@ img {
 }
 
 .stars-outer::before, .stars-outer-meta::before {
-    content: "☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆"
+    content: "☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆";
+    color: goldenrod;
 }
 
 .stars-inner, .stars-inner-meta {
@@ -105,7 +143,8 @@ img {
 }
 
 .stars-inner::before, .stars-inner-meta::before {
-    content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
+    content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★";
+    color: goldenrod;
 }
 
 .star-rating {
