@@ -50,6 +50,24 @@ app.get('/results', (req, res) => {
     })
 })
 
+app.get('/detail/:imdbID', (req, res) => {
+  let qs = {
+    params: {
+      i: req.params.imdbID,
+      apikey: ombdApiKey,
+    },
+  }
+  axios
+    .get('http://www.omdbapi.com', qs)
+    .then((responseFromAPI) => {
+      let movieData = responseFromAPI.data
+      res.render('detail', { q: movieData })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+})
+
 app.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}`)
 })
