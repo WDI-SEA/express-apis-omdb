@@ -9,10 +9,11 @@
   },
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.1.0",
-    "ejs": "^3.0.1",
+    "axios": "^0.21.1",
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
-    "morgan": "^1.9.1"
+    "morgan": "^1.10.0"
   }
 }
