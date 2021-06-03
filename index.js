@@ -18,7 +18,7 @@ const layouts = require('express-ejs-layouts')
 
 app.set('view engine', 'ejs')
 // Site starts at /public ->
-app.use(express.static(__dirname + '/'))
+app.use(express.static('static'))
 app.use(layouts)
 
 // create home route
