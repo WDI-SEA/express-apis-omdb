@@ -55,18 +55,6 @@ app.get('/detail/:imdbID', (req, res) => {
 })
 
 
-// GET /movieResults/:id -- READ specific movie details
-app.get('/movies/:movies_id', (req, res) => {
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
-      .then((res) => {
-          console.log(res.data)
-          res.render(res.data)
-          // res.send(resFromAPI.data)
-      })
-      .catch(err => {console.log(err)})
-      res.send("Am I even working??")
-})
-
 // The app.listen function returns a server handle
 app.listen(4000, () => {
   console.log("Can you hear me now???")
