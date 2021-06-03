@@ -1,2 +1,7 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+<% results.forEach(res => { %>
+<div>
+    <h2><%= res.Title %></h2>
+    <img src="<%= res.Poster %>" alt="poster">
+    <a href="/detail/<%= res.imdbID %>">More Info</a>
+</div>
+<% }) %>
