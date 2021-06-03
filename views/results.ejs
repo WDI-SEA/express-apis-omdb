@@ -2,18 +2,17 @@
 <ul>
     <% result.forEach((e) => { %>
         <li>
-            <img src="<%= e.Poster %>"/>
+            <div class="list-box">
+                <a class="movie-title" href="/movies/<%= e.imdbID %>">
+                    <img class="link-image" src="<%= e.Poster %>"/>
+                </a>
                 <div class="list-item">
-                    <%=e.Title %>
+                    <a class="movie-link" href="/movies/<%= e.imdbID %>"><%=e.Title %></a>
                 </div>
                 <div class="list-item">
                     <%=e.Year %>
                 </div>
-                <div class="list-item">
-                    <a href="/movies/<%= e.imdbID %>">
-                        <%=e.imdbID %>
-                    </a>
-                </div>
+            </div>
         </li>
     <% }) %>
 </ul>
