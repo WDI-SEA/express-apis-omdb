@@ -21,6 +21,7 @@ const rowdyResults = rowdy.begin(app)
 app.set('view engine', 'ejs')
 // Sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static(__dirname + '/public')) // where css will live
 // Enables EJS Layouts middleware
 app.use(ejsLayouts)
 
@@ -39,7 +40,6 @@ app.get('/results', (req,res) => {
   axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&s=${movies}`)
     .then((response) => {
       // render data to page
-      console.log(response.data)
         res.render('results.ejs', {data:response.data})
         
     })
@@ -52,7 +52,6 @@ app.get('/movies/:movie_id', (req,res) => {
     axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&i=${req.params.movie_id}`)
     .then((response) => {
       // render data to page
-      console.log(response.data)
         res.render('detail.ejs', {data:response.data})
     })
     .catch(err => {console.log(err)})  

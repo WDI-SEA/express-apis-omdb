@@ -1,4 +1,77 @@
 * {
     text-align: center;
+    font-family: 'Source Code Pro', monospace;
+}
+
+a {
+    text-decoration: none;  
+}
+
+nav {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+nav a {
+    color: black;
+    display: inline;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    border: 2px solid black;
+  } 
+
+nav a:hover {
     background-color: black;
+    color: white;
+}
+
+.title {
+    margin: 40px 0px;
+}
+
+form {
+    margin: 40px 0px;
+}
+
+.search {
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.search-button:hover {
+    background-color: black;
+    color: white;
+}
+
+ul {
+    list-style-type: none; 
+    color: black;
+}
+
+li {
+    margin-right: 25px;
+    display: inline-block;
+    background-color: white;
+    border: 2px solid black;
+    padding: 15px;
+    margin: 15px;
+    color: black;
+}
+
+ul li a:active {
+    color: black;
+}
+
+.ratings {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 15px;
 }
