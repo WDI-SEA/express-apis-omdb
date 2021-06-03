@@ -41,7 +41,6 @@ app.get('/results', (req,res) => {
     .then((response) => {
       // render data to page
         res.render('results.ejs', {data:response.data})
-        
     })
     .catch(err => {console.log(err)})  
 })

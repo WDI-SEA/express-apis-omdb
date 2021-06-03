@@ -75,6 +75,10 @@ li:hover, a:hover{
     align-content: center;
 }
 
+img {
+    margin: 20px 0px;
+}
+
 .container {
     flex-wrap: wrap;
     padding: 10px;
@@ -86,4 +90,8 @@ li:hover, a:hover{
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+span {
+    font-weight: 800;
 }
