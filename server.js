@@ -22,20 +22,26 @@ app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
 
-//Not sure if I need since we didn't use in class
-// Adds some logging to each request
-// app.use(require('morgan')('dev'));
-
 // Routes
+app.get('/', (req,res) => {
+  res.render('index')
+})
 
 //Create home route
-app.get('/', (req, res) => {
+app.get('/results', (req, res) => {
+  let newObject = {
+    params:{
+      s: req.query.search,
+      apikey: omdbApiKey
+    }
+  }
   //ORIGINAL REQUEST for information
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
+  axios.get('http://www.omdbapi.com/', newObject)
   //RESPONSE FROM API (ACCESS to informaiton)
       .then((resFromAPI) => {
-          console.log(resFromAPI.data.Title)
-          res.send(resFromAPI.data.Title)
+          console.log(resFromAPI.data.data)
+          let movies = resFromAPI.data.Search
+          res.render('results.ejs', {movies: movies})
       })
       .catch(err => {console.log(err)})
 })
