@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
   res.render('index.ejs')
 })
 
-// SEARCH
+// SEARCH MOVIE
 app.get('/results', (req, res) => {
   let searchInput = req.query.query
   axios.get(`http://www.omdbapi.com/?s=${searchInput}&apikey=${omdbApiKey}`)
@@ -43,9 +43,9 @@ app.get('/results', (req, res) => {
     })
 })
 
-// GET DETAILS
+// GET MOVIE DETAILS
 app.get('/movies/:id', (req, res) => {
-  const id = req.params.id
+  let id = req.params.id
   axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${omdbApiKey}`)
   .then(resFromAPI => {
     let result = resFromAPI.data

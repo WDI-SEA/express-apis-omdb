@@ -86,16 +86,16 @@ img {
     transition-duration: 0.3s;
 }
 
-.stars-outer {
+.stars-outer, .stars-outer-meta {
     display: inline-block;
     position: relative;
 }
 
-.stars-outer::before {
+.stars-outer::before, .stars-outer-meta::before {
     content: "☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆"
 }
 
-.stars-inner {
+.stars-inner, .stars-inner-meta {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,7 +104,7 @@ img {
     width: 0;
 }
 
-.stars-inner::before {
+.stars-inner::before, .stars-inner-meta::before {
     content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
 }
 
