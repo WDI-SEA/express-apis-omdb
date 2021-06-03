@@ -36,15 +36,27 @@ app.get('/results', (req,res) => {
   const movies = req.query.q
 
   // search omdb data
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}&t=${movies}`)
+  axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&s=${movies}`)
     .then((response) => {
       // render data to page
-        res.send(JSON.stringify(response.data))
+      console.log(response.data)
+        res.render('results.ejs', {data:response.data})
+        
     })
     .catch(err => {console.log(err)})  
 })
 
+app.get('/movies/:movie_id', (req,res) => {
 
+    // search omdb data
+    axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&i=${req.params.movie_id}`)
+    .then((response) => {
+      // render data to page
+      console.log(response.data)
+        res.render('detail.ejs', {data:response.data})
+    })
+    .catch(err => {console.log(err)})  
+})
 
 
 // open up a port for the app to listen on
