@@ -19,13 +19,41 @@ const omdbApiKey = process.env.OMDB_API_KEY
 
 // Routes
 app.get('/', (req, res) => {
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
+  res.render('index')
+})
+
+app.get('/results', (req, res) => {
+  let newObject = {
+    params: {
+      s: req.query.search,
+      apikey: omdbApiKey
+    }
+  }
+  axios.get("http://www.omdbapi.com/", newObject)
       .then(resFromAPI => {
-          console.log(resFromAPI.data)
-          res.send(resFromAPI.data.Title)
+          let results = resFromAPI.data.Search
+          res.render('results', { results: results })
       })
       .catch(err => {
           console.log(err)
+      })
+})
+
+app.get('/detail/:movie_id', (req, res) => {
+  let newObject = {
+    params: {
+      i: req.params.movie_id,
+      apikey: omdbApiKey
+    }
+  }
+  axios.get("http://www.omdbapi.com/", newObject)
+      .then(resFromAPI => {
+        let movieData = resFromAPI.data
+        console.log(resFromAPI.data)
+        res.render('detail', { movieData: movieData })
+      })
+      .catch(err => {
+        console.log(err)
       })
 })
 
