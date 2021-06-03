@@ -1,2 +1,17 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+<h1>Results</h1>
+<ul>
+    <% result.forEach((e) => { %>
+        <li>
+            <img src="<%= e.Poster %>"/>
+                <div>
+                    <%=e.Title %>
+                </div>
+                <div>
+                    <%=e.Year %>
+                </div>
+                <div>
+                    <%=e.imdbID %>
+                </div>
+        </li>
+    <% }) %>
+</ul>

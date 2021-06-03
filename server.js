@@ -1,38 +1,50 @@
-// import modules
-const express = require('express');
-const axios = require('axios')
-const ejsLayouts = require('express-ejs-layouts');
-require('dotenv').config();
+// APP SETUP ------------------------------------
 
-// utilize modules
+// MODULE SETUP
+const express = require('express')
+const axios = require('axios')
+const ejsLayouts = require('express-ejs-layouts')
+require('dotenv').config()
+
+
+// MODULE IMPLEMENTATION
 const app = express();
 
-// Sets EJS as the view engine
+// MIDDLEWARE
 app.set('view engine', 'ejs');
-// Specifies the location of the static assets folder
-app.use(express.static('static'));
-// Sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }));
-// Enables EJS Layouts middleware
+app.use(express.static(__dirname + "/public"))
 app.use(ejsLayouts);
 
-// Adds some logging to each request
-// app.use(require('morgan')('dev'));
-
-// misc. variables
+// OPTIONAL CONSTANTS
 const PORT = 5000
 const log = console.log
 const omdbApiKey = process.env.OMDB_API_KEY
 
-// Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
-});
+// var searchResults
 
-// listen to port
+// ROUTES ---------------------------------------
+
+// HOME
+app.get('/', (req, res) => {
+  res.render('index.ejs')
+})
+
+// SEARCH
+app.get('/results', (req, res) => {
+  let searchInput = req.query.query
+  axios.get(`http://www.omdbapi.com/?s=${searchInput}&apikey=${omdbApiKey}`)
+  .then(resFromAPI => {
+      let result = resFromAPI.data.Search
+      log(resFromAPI.data.Search)
+      res.render('results.ejs', {result: result})
+    })
+    .catch(err => {
+      log(err)
+    })
+})
+
+// LISTEN TO PORT
 app.listen(PORT, () => {
   log(`Welcome to Port ${PORT}.`)
 })
-
-// We can export this server to other servers like this
-// module.exports = server;
