@@ -5,8 +5,9 @@
   <% movies.forEach(movie => { %>
     <li>
       <a href="/movies/<%= movie.imdbID %>"><%= movie.Title %></a>
+      <br>
       <img src=<%= movie.Poster %> style="width:300px">
-
+      <br>
     </li>
   <% }) %>
 </ul>
