@@ -1,8 +1,8 @@
 <% // Render your search results here %>
 <ul>
     <% data.Search.forEach((movie, index) => { %>
-       <li>
-            <a href="/movies/<%= movie.imdbID %>"><%= movie.Title %></a>
+       <li id="hover">
+            <a href="/movies/<%= movie.imdbID %>" class="result-titles"><%= movie.Title %></a>
        </li> 
     <% }) %>
 </ul>
