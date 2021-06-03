@@ -44,7 +44,7 @@ app.get('/results', (req, res) => {
       })
 })
 
-app.get('/detail/:movie_id', (req, res) => {
+app.get('/movies/:movie_id', (req, res) => {
   let newObject = {
     params: {
       i: req.params.movie_id,
