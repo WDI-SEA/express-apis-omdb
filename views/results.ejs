@@ -1,2 +1,13 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<ol id="movieTitle">
+    <% movieTitles.forEach((title, index) => { %>
+        <li>
+            <%=title.Title %> made in <%= title.Year %> 
+            <br>
+            <a href="/movies/<%= title.imdbID %>">View movie details</a> 
+        </li> 
+   <% }) %>
+
+</ol>
+ 

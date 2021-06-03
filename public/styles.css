@@ -1,0 +1,27 @@
+*{
+    text-align: center;
+    background-color: lightgray;
+    
+}
+
+nav{
+    margin-left: 15px;
+}
+
+
+p {
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#movieTitle li {
+   margin: 30px;
+   text-align: center;   
+}
+
+#movieDetails{
+    margin-top: 30px;
+}

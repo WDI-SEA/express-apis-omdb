@@ -1,2 +1,19 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+
+<ul id="movieDetails">
+    <img src="<%=details.Poster%>" alt="">
+        <li>
+            Plot: <%= details.Plot %>
+        </li>
+    
+        <li>
+            Starring: <%= details.Actors %>
+        </li>
+        <li>
+            Rating: <%= details.imdbRating %>
+        </li>
+        
+    </li>
+</ul>
