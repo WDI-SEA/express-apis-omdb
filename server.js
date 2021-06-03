@@ -17,25 +17,37 @@ app.use(ejsLayouts);
 // Routes
 // Home page with form to ask about specific movie
 app.get('/', (req, res) => {
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
-      .then((resFromAPI) => {
-          console.log(resFromAPI.data.Title)
-          res.send(resFromAPI.data.Title)
-      })
-      .catch(err => {console.log(err)})
+  res.render('home')
 })
+
 // GET /movieResults
 app.get('/results', (req, res) => {
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
-      .then((resFromAPI) => {
-          console.log(resFromAPI.data)
-          res.send(resFromAPI.data)
+  let newObject = {
+    params: {
+      s: req.query.Search, 
+      apikey: omdbApiKey
+    }
+  }
+  axios.get('http://www.omdbapi.com/', newObject)
+      .then((response) => {
+          console.log(response.data)
+          let results = response.data.Search
+          res.render('results', {results: results} )
       })
-      .catch(err => {console.log(err)})
+      .catch(err => {console.log(err)})  
 })
 
 // GET /moveResults/:id -- READ specific movie details
-
+app.get('/movies/:movies_id', (req, res) => {
+  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
+      .then((res) => {
+          console.log(res.data)
+          res.render(res.data)
+          // res.send(resFromAPI.data)
+      })
+      .catch(err => {console.log(err)})
+      res.send("Am I even working??")
+})
 
 // The app.listen function returns a server handle
 app.listen(4000, () => {
