@@ -1,7 +1,7 @@
 <% results.forEach(res => { %>
-    <h1><%= res.Title %></h1>
+    <h1 class="movieTitle"><%= res.Title %></h1>
     <ul>
-        <li><img src="<%= res.Poster %>" style="width: 300px" /></li>
+        <li><img src="<%= res.Poster %>" /></li>
         <li>IMDB Link: <a href="/detail/<%= res.imdbID %>">More Info</a></li>
     </ul>
 <% }) %>

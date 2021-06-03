@@ -1,9 +1,9 @@
 <ul>
-    <li><%= movieData.Title %></li>
-    <li><%= movieData.Released %></li>
-    <li><%= movieData.Director %></li>
-    <li><%= movieData.Genre %></li>
-    <li><%= movieData.Plot %></li>
-    <li><%= movieData.Ratings[0].Source %> Rating: <%= movieData.Ratings[0].Value %></li>
-    <img src=<%= movieData.Poster %> style="width:300px">
+    <li><span class="descriptors">Title: </span><%= movieData.Title %></li>
+    <li><span class="descriptors">Released: </span><%= movieData.Released %></li>
+    <li><span class="descriptors">Director: </span><%= movieData.Director %></li>
+    <li><span class="descriptors">Genre: </span><%= movieData.Genre %></li>
+    <li><span class="descriptors">Plot: </span><%= movieData.Plot %></li>
+    <li><span class="descriptors">Rating: </span><%= movieData.Ratings[0].Source %> Rating: <%= movieData.Ratings[0].Value %></li>
+    <li><img src="<%= movieData.Poster %>" /></li>
   </ul>

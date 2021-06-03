@@ -25,14 +25,19 @@ app.get('/', (req, res) => {
 app.get('/results', (req, res) => {
   let newObject = {
     params: {
-      s: req.query.search,
+      s: req.query.q,
       apikey: omdbApiKey
     }
   }
   axios.get("http://www.omdbapi.com/", newObject)
       .then(resFromAPI => {
+        console.log(resFromAPI.data)
+        if(resFromAPI.data.Response === 'False') {
+          res.render('index')
+        } else {
           let results = resFromAPI.data.Search
           res.render('results', { results: results })
+        }
       })
       .catch(err => {
           console.log(err)

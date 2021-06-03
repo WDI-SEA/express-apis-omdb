@@ -1,0 +1,46 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #111;
+}
+
+.movieTitle {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;;
+}
+
+li {
+    margin: 10px;
+}
+
+img {
+    width: 300px
+}
+
+.descriptors {
+    font-weight: bold;
+}
