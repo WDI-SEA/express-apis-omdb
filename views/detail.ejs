@@ -1,2 +1,11 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<ul>
+    <img src="<%= detailApi.Poster %>">
+    <li><%= detailApi.Title %> </li>
+        <li><%= detailApi.Released %> | <%= detailApi.Genre %> | <%= detailApi.Director %></li>
+        <li>Actors: <%= detailApi.Actors %></li>
+        <li>Plot: <%= detailApi.Plot %></li>
+        <!-- <li><%= detailApi.Ratings %></li> -->
+        <li>Box Office Revenue: <%= detailApi.BoxOffice %></li>
+</ul>

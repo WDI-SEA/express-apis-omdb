@@ -3,9 +3,10 @@ const axios = require('axios')
 require('dotenv').config()
 const ejs = require('ejs')
 const layouts = require('express-ejs-layouts')
-const PORT = 7778
+const PORT = 7779
 const app = express()
 const fs = require('fs')
+const { json } = require('express')
 const omdbApiKey = process.env.OMDB_API_KEY
 
 //middleware
@@ -34,10 +35,21 @@ app.get('/results', (req, res) => {
         console.log(apiData)
     res.render('results.ejs', {apiData})
     })
-    .catch (err => {console.log(err)})
-    console.log(searchTitle)
+    .catch (err => {console.log(err)
+    })
 })
 
+app.get('/movies/:id', (req, res) => {
+    axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&i=${req.params.id}`)
+    .then((resApi) => {
+    const detailApi = resApi.data
+    JSON.stringify(detailApi)
+    console.log(detailApi)
+    res.render('./detail.ejs', {detailApi} )
+    })
+    .catch (err => {console.log(err)
+    })
+})
 
 
 app.listen(PORT, () => {

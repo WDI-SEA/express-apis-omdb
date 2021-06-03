@@ -1,10 +1,9 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+
 
 <ul>
     <% apiData.forEach ((movie) => { %> 
         <li>
-            <%= movie.Title %> | <%= movie.Year %>
+            <%= movie.Title %><a href="/movies/<%= movie.imdbID %>">details </a>
         </li>
     <% }) %> 
 </ul>
