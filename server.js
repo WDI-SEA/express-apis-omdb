@@ -14,9 +14,12 @@ const fs = require('fs')
 
 //import and config dotenv library
 require('dotenv').config()
-
+// sets ejs as view engine
 app.set('view engine', 'ejs')
+
+// sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }))
+
 app.use(express.static(__dirname + '/public')) // where the css will live
 app.use(layouts)
 
@@ -28,7 +31,7 @@ const omdbApiKey = process.env.OMDB_API_KEY
 
 
 
-
+//Standard Home route
 //define routes
 app.get('/', (req,res) => {
   res.render('index')
