@@ -22,11 +22,20 @@ ul {
 }
 
 li {
-    margin: 40px 0 40px 0;
+    margin: 5px;
 }
 
 .list-item {
     margin: 5px;
+}
+
+.detail-item {
+    text-align: left;
+    padding: 5px;
+}
+
+a, .source-item {
+    font-weight: bold;
 }
 
 img {

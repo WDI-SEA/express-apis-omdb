@@ -46,11 +46,10 @@ app.get('/results', (req, res) => {
 // GET DETAILS
 app.get('/movies/:id', (req, res) => {
   const id = req.params.id
-  axios.get(`http://www.ombdapi.com/?i=${id}&apikey=${omdbApiKey}`)
-  .then(result => {
-    // let result2 = resFromAPI2.data.Search
-    // res.render('detail.ejs', {result2: result2})
-    log("yes")
+  axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${omdbApiKey}`)
+  .then(resFromAPI => {
+    let result = resFromAPI.data
+    res.render('detail.ejs', {result})
   })
   .catch(err => {
     log(err)
