@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/results', (req, res) => {
-  console.log(`http://www.omdbapi.com/?apikey=${omdbApiKey}&s=${req.query.q}`);
+  // console.log(`http://www.omdbapi.com/?apikey=${omdbApiKey}&s=${req.query.q}`);
   axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&s=${req.query.q}`)
       .then((response) => {
         console.log('*** movies: ', response);
