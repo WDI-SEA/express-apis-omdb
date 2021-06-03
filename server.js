@@ -39,11 +39,25 @@ app.get('/results', (req, res) => {
   axios.get('http://www.omdbapi.com/', newObject)
   //RESPONSE FROM API (ACCESS to informaiton)
       .then((resFromAPI) => {
-          console.log(resFromAPI.data.data)
           let movies = resFromAPI.data.Search
           res.render('results.ejs', {movies: movies})
       })
       .catch(err => {console.log(err)})
+})
+
+app.get('/detail/:imdbID', (req, res) => {
+  let newObject = {
+    params: {
+      i: req.params.imdbID,
+      apikey:omdbApiKey
+    }
+  }
+  axios.get('http://www.omdbapi.com/', newObject)
+  .then((resFromAPI) => {
+    console.log(resFromAPI.data.Plot)
+    let details = resFromAPI.data
+    res.render('detail', {detailsX: details})
+  })
 })
 
 //open up a port for app to listen
@@ -51,5 +65,3 @@ app.listen(PORT, () => {
   console.log(`Working PORT: ${PORT}`)
 })
 
-// We can export this server to other servers like this
-// module.exports = server;
