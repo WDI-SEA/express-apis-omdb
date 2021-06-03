@@ -107,3 +107,7 @@ img {
 .stars-inner::before {
     content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
 }
+
+.star-rating {
+    margin: 20px;
+}

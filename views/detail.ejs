@@ -4,6 +4,16 @@
     <li>
         <a><%= result.Title %></a>
     </li>
+    <div class="star-rating">
+        <li>
+            <a>imdbRating:</a> <%= result.imdbRating %>
+        </li>
+        <li>
+            <div class="stars-outer">
+                <div class="stars-inner"></div>
+            </div>
+        </li>
+    </div>
     <div class="detail-box">
         <li class="detail-item">
             <a>Year:</a> <%= result.Year %>
@@ -51,18 +61,6 @@
                     <%= e.Value %>
                 </li>
             <% }) %>
-        </li>
-        <li class="detail-item">
-            <a>imdbRating:</a> <%= result.imdbRating %>
-            <table>
-                <tbody>
-                    <td>
-                        <div class="stars-outer">
-                            <div class="stars-inner"></div>
-                        </div>
-                    </td>
-                </tbody>
-            </table>
         </li>
         <li class="detail-item">
             <a>imdbVotes:</a> <%= result.imdbVotes %>
