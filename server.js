@@ -1,27 +1,30 @@
-require('dotenv').config();
-const express = require('express');
-const ejsLayouts = require('express-ejs-layouts');
-const app = express();
+// import express
+const express = require('express')
+//import axios
+const axios = require('axios')
+// import and conifg dotenv library
+require('dotenv').config() 
 
-// Sets EJS as the view engine
-app.set('view engine', 'ejs');
-// Specifies the location of the static assets folder
-app.use(express.static('static'));
-// Sets up body-parser for parsing form data
-app.use(express.urlencoded({ extended: false }));
-// Enables EJS Layouts middleware
-app.use(ejsLayouts);
+//define PORT
+const PORT = 3000
 
-// Adds some logging to each request
-app.use(require('morgan')('dev'));
+//define API key var
+const omdbApiKey = process.env.OMDB_API_KEY
 
-// Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
-});
+//declare the app
+const app = express()
 
-// The app.listen function returns a server handle
-var server = app.listen(process.env.PORT || 3000);
+//create a home route
+app.get('/', (req, res) => {
+    axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=${omdbApiKey}`)
+        .then((resFromAPI) =>{
+            console.log(resFromAPI)
+            res.render('.views/results.ejs', { resFromAPI })
+        })
+        .catch(err => {console.log(err)})
+})
 
-// We can export this server to other servers like this
-module.exports = server;
+//open up port for the app to listen on + define port
+app.listen(PORT, () => {
+    console.log("welcome to our show ")
+})
