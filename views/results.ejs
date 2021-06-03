@@ -3,14 +3,16 @@
     <% result.forEach((e) => { %>
         <li>
             <img src="<%= e.Poster %>"/>
-                <div>
+                <div class="list-item">
                     <%=e.Title %>
                 </div>
-                <div>
+                <div class="list-item">
                     <%=e.Year %>
                 </div>
-                <div>
-                    <%=e.imdbID %>
+                <div class="list-item">
+                    <a href="/movies/<%= e.imdbID %>">
+                        <%=e.imdbID %>
+                    </a>
                 </div>
         </li>
     <% }) %>

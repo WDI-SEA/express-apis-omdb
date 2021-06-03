@@ -36,12 +36,25 @@ app.get('/results', (req, res) => {
   axios.get(`http://www.omdbapi.com/?s=${searchInput}&apikey=${omdbApiKey}`)
   .then(resFromAPI => {
       let result = resFromAPI.data.Search
-      log(resFromAPI.data.Search)
       res.render('results.ejs', {result: result})
     })
     .catch(err => {
       log(err)
     })
+})
+
+// GET DETAILS
+app.get('/movies/:id', (req, res) => {
+  const id = req.params.id
+  axios.get(`http://www.ombdapi.com/?i=${id}&apikey=${omdbApiKey}`)
+  .then(result => {
+    // let result2 = resFromAPI2.data.Search
+    // res.render('detail.ejs', {result2: result2})
+    log("yes")
+  })
+  .catch(err => {
+    log(err)
+  })
 })
 
 // LISTEN TO PORT
