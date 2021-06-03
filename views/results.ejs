@@ -1,8 +1,9 @@
-<% // Render your search results here %> <% movies.forEach((e)=>{ %>
+<% movies.forEach((e)=>{ %>
 
 <h2><%= e.Title %></h2>
 <ul>
   <li><img src="<%= e.Poster %>" style="width: 300px" /></li>
+  <li>IMDB Link: <a href="/movies/<%=e.imdbID%>"><%=e.imdbID%></a></li>
 </ul>
 <hr />
 <% }) %>

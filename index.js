@@ -42,7 +42,7 @@ app.get('/results', (req, res) => {
       res.render('results', { movies: movie })
 
       let imdbRes = responseFromAPI.data.imdbID
-      //   res.render('results', { movies: imdbID })
+      res.render('results', { movies: imdbID })
     })
 
     .catch((err) => {
