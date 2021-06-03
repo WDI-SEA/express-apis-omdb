@@ -1,2 +1,31 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<% let stars = '' %>
+<% for(let i = Math.floor(details.imdbRating); i > 0; i--) {%>
+    <% stars += '⭐' %>
+<% } %>
+<h1><%= details.Title %></h1>
+<h2><%= stars %></h2>
+<div>
+    <h2>Details</h2>
+    <p><%= details.Year %></p>
+    <p><%= details.Rated %></p>
+    <p><%= details.Runtime %></p>
+    <p><%= details.Genre %></p>
+    <p><%= details.Language %></p>
+    <p><%= details.Awards %></p>
+</div>
+<div>
+    <h2>Cast and Crew</h2>
+    <p>Directed by: <%= details.Director %></p>
+    <p>Written by: <%= details.Writer %></p>
+    <p>Starring: <%= details.Actors %></p>
+</div>
+<p>Plot Summary: <%= details.Plot %></p>
+<img src=<%= details.Poster %>>
+<div>
+    <h2>Ratings: </h2>
+    <% details.Ratings.forEach(rating => { %>
+        <p><%= rating.Source %>: <%= rating.Value %></p>
+    <% }) %>
+</div>

@@ -1,2 +1,10 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1>Search results for "<%= search %>"</h1>
+<% if(searchResults){ %>
+    <% searchResults.forEach(result => { %>
+        <a href="/movies/<%= result.imdbID %>"><%= result.Title %> (<%= result.Year %>)</a></br>
+    <% }) %>
+<% } else { %>
+    <p> No results found.</p>
+<% } %>
