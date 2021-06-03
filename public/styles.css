@@ -54,6 +54,10 @@ li {
     margin: 5px;
 }
 
+.detail-box {
+    margin-top: 70px;
+}
+
 .detail-item {
     text-align: left;
     padding: 10px;

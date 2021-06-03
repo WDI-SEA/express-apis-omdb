@@ -2,77 +2,79 @@
 <ul>
     <img src="<%=result.Poster%>"/>
     <li>
-        <a class="movie-title"><%= result.Title %></a>
+        <a><%= result.Title %></a>
     </li>
-    <li class="detail-item">
-        <a>Year:</a> <%= result.Year %>
-    </li>
-    <li class="detail-item">
-        <a>Rated:</a> <%= result.Rated %>
-    </li>
-    <li class="detail-item">
-        <a>Released:</a> <%= result.Released %>
-    </li>
-    <li class="detail-item">
-        <a>Runtime:</a> <%= result.Runtime %>
-    </li>
-    <li class="detail-item">
-        <a>Genre:</a> <%= result.Genre %>
-    </li>
-    <li class="detail-item">
-        <a>Director:</a> <%= result.Director %>
-    </li>
-    <li class="detail-item">
-        <a>Writers:</a> <%= result.Writer %>
-    </li>
-    <li class="detail-item">
-        <a>Actors:</a> <%= result.Actors %>
-    </li>
-    <li class="detail-item">
-        <a>Plot:</a> <%= result.Plot %>
-    </li>
-    <li class="detail-item">
-        <a>Language:</a> <%= result.Language %>
-    </li>
-    <li class="detail-item">
-        <a>Country:</a> <%= result.Country %>
-    </li>
-    <li class="detail-item">
-        <a>Awards:</a> <%= result.Awards %>
-    </li>
-    <li class="detail-item">
-        <a>Ratings:</a> 
-        <% result.Ratings.forEach((e) => { %>
-            <li class="source-item">
-                <%= e.Source %>
-            </li>
-            <li>
-                <%= e.Value %>
-            </li>
-        <% }) %>
-    </li>
-    <li class="detail-item">
-        <a>Metascore:</a> <%= result.Metascore %>
-    </li>
-    <li class="detail-item">
-        <a>imdbRating:</a> <%= result.imdbRating %>
-    </li>
-    <li class="detail-item">
-        <a>imdbVotes:</a> <%= result.imdbVotes %>
-    </li>
-    <li class="detail-item">
-        <a>imdbID:</a> <%= result.imdbID %>
-    </li>
-    <li class="detail-item">
-        <a>DVD:</a> <%= result.DVD %>
-    </li>
-    <li class="detail-item">
-        <a>Box Office:</a> <%= result.BoxOffice %>
-    </li>
-    <li class="detail-item">
-        <a>Production:</a> <%= result.Production %>
-    </li>
-    <li class="detail-item">
-        <a>Website:</a> <%= result.Website %>
-    </li>
+    <div class="detail-box">
+        <li class="detail-item">
+            <a>Year:</a> <%= result.Year %>
+        </li>
+        <li class="detail-item">
+            <a>Rated:</a> <%= result.Rated %>
+        </li>
+        <li class="detail-item">
+            <a>Released:</a> <%= result.Released %>
+        </li>
+        <li class="detail-item">
+            <a>Runtime:</a> <%= result.Runtime %>
+        </li>
+        <li class="detail-item">
+            <a>Genre:</a> <%= result.Genre %>
+        </li>
+        <li class="detail-item">
+            <a>Director:</a> <%= result.Director %>
+        </li>
+        <li class="detail-item">
+            <a>Writers:</a> <%= result.Writer %>
+        </li>
+        <li class="detail-item">
+            <a>Actors:</a> <%= result.Actors %>
+        </li>
+        <li class="detail-item">
+            <a>Plot:</a> <%= result.Plot %>
+        </li>
+        <li class="detail-item">
+            <a>Language:</a> <%= result.Language %>
+        </li>
+        <li class="detail-item">
+            <a>Country:</a> <%= result.Country %>
+        </li>
+        <li class="detail-item">
+            <a>Awards:</a> <%= result.Awards %>
+        </li>
+        <li class="detail-item">
+            <a>Ratings:</a> 
+            <% result.Ratings.forEach((e) => { %>
+                <li class="source-item">
+                    <%= e.Source %>
+                </li>
+                <li>
+                    <%= e.Value %>
+                </li>
+            <% }) %>
+        </li>
+        <li class="detail-item">
+            <a>Metascore:</a> <%= result.Metascore %>
+        </li>
+        <li class="detail-item">
+            <a>imdbRating:</a> <%= result.imdbRating %>
+        </li>
+        <li class="detail-item">
+            <a>imdbVotes:</a> <%= result.imdbVotes %>
+        </li>
+        <li class="detail-item">
+            <a>imdbID:</a> <%= result.imdbID %>
+        </li>
+        <li class="detail-item">
+            <a>DVD:</a> <%= result.DVD %>
+        </li>
+        <li class="detail-item">
+            <a>Box Office:</a> <%= result.BoxOffice %>
+        </li>
+        <li class="detail-item">
+            <a>Production:</a> <%= result.Production %>
+        </li>
+        <li class="detail-item">
+            <a>Website:</a> <%= result.Website %>
+        </li>
+    </div>
 </ul>
