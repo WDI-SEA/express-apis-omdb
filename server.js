@@ -31,14 +31,26 @@ app.get('/results', function(req, res) {
       let title = APIres.data.Title
       let year = APIres.data.Year
       let plot = APIres.data.Plot
+      let imdbID = APIres.data.imdbID
       
-      console.log(title, year, plot)
       // res.render results to results.ejs
-      res.render('results', {title: title, year: year, plot: plot})
+      res.render('results', {title: title, year: year, plot: plot, imdbID: imdbID})
     })
     .catch(err => {
       console.log(err)
     })
+})
+
+app.get('/movies/:movie_id', function(req, res) {
+  // store movie_id to a variable
+  let imdbID = req.params.movie_id
+
+  // make an axios call to the OMDB API for full data obj for movie_id
+  axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${imdbID}`)
+    .then(APIres => {
+      res.send(APIres.data)
+    })
+    .catch(err => console.log(err))
 })
 
 app.listen(process.env.PORT || 3000, () => {
