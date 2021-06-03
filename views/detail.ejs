@@ -1,2 +1,29 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+<h2><%= movieDetails.Title %></h2>
+<img src="<%= movieDetails.Poster %>" alt="<%= movieDetails.Title %>">
+
+<form action="/faves" method="POST">
+  <input type="text" name="title" value="<%= movieDetails.Title %>" style="display: none">
+  <input type="text" name="imdbid" value="<%= movieDetails.imdbID %>" style="display: none">
+  <input type="text" name="poster" value="<%= movieDetails.Poster %>" style="display: none">
+  <input type="submit" value="Add to Faves">
+</form>
+
+<% for (let [key, value] of Object.entries(movieDetails)) { %>
+<% if (key !== 'Title' 
+  && key !== 'Poster' 
+  && key !== 'Ratings'
+  && key !== 'Metascore' 
+  && key !== 'imdbRating'
+  && key !== 'imdbVotes'
+  && key !== 'imdbID'
+  && key !== 'Response') { %>
+<p><%= key + ': ' + value; %></p>
+<% } else if (key === 'Ratings') { %>
+<p><%= key + ':'; %></p>
+<ul>
+  <% value.forEach(element => { %>
+  <li><%= element.Source + ': ' + element.Value; %></li>
+  <% }); %>
+</ul>
+<% } %>
+<% } %>
