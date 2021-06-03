@@ -53,10 +53,16 @@
             <% }) %>
         </li>
         <li class="detail-item">
-            <a>Metascore:</a> <%= result.Metascore %>
-        </li>
-        <li class="detail-item">
             <a>imdbRating:</a> <%= result.imdbRating %>
+            <table>
+                <tbody>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                    </td>
+                </tbody>
+            </table>
         </li>
         <li class="detail-item">
             <a>imdbVotes:</a> <%= result.imdbVotes %>
@@ -78,3 +84,9 @@
         </li>
     </div>
 </ul>
+<script>
+    const starTotal = 10
+    const starRating = <%= result.imdbRating %>
+    const starPercentage = Math.round((starRating/starTotal)*100)
+    document.querySelector(".stars-inner").style.width = `${starPercentage}%`
+</script>

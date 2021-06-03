@@ -13,7 +13,7 @@
     background-color: black;
     width: 180px;
     height: 25px;
-    border-radius: 10%;
+    border-radius: 8%;
     transition-duration: 0.3s;
 }
 
@@ -55,11 +55,11 @@ li {
 }
 
 .detail-box {
-    margin-top: 70px;
+    margin: 70px 120px 0 50px;
 }
 
 .detail-item {
-    text-align: left;
+    text-align: justify;
     padding: 10px;
 }
 
@@ -84,4 +84,26 @@ img {
 .link-image:hover {
     transform: scale(1.15);
     transition-duration: 0.3s;
+}
+
+.stars-outer {
+    display: inline-block;
+    position: relative;
+}
+
+.stars-outer::before {
+    content: "☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆"
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "★ ★ ★ ★ ★ ★ ★ ★ ★ ★"
 }
