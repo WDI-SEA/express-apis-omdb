@@ -33,8 +33,7 @@ app.get("/results", (req ,res) => {
   .then((resFromAPI) => {
       const movieTitles = resFromAPI.data.Search
       JSON.stringify(movieTitles)
-      // let string= JSON.stringify(movieTitle)
-      // res.send(`movies: ${movieTitles}`)
+      
       res.render("./results.ejs", {movieTitles})
       
   })
@@ -63,12 +62,8 @@ app.get("/movies/:movie_id", (req,res) => {
 
 
 
-// use req.query to access query strings parameters
-
-// The app.listen function returns a server handle
 app.listen(PORT, () => {
   console.log("Welcome to our basic movie app")
 })
 
-// We can export this server to other servers like this
-// module.exports = server;
+
