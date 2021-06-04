@@ -33,8 +33,8 @@
     </div>
     <h3><%= result.Awards %></h3>
     <div class="detail-box">
-        <li class="detail-item">
-            <a>Plot:</a> <%= result.Plot %>
+        <li>
+            <%= result.Plot %>
         </li>
         <hr>
         <li class="detail-item">
@@ -44,7 +44,7 @@
             <a>Writers:</a> <%= result.Writer %>
         </li>
         <li class="detail-item">
-            <a>Cast:</a> <%= result.Actors %>
+            <a>Starring:</a> <%= result.Actors %>
         </li>
         <li class="detail-item">
             <a>Language:</a> <%= result.Language %>
@@ -84,7 +84,7 @@
 </ul>
 <script>
     const starRating = <%= result.imdbRating %>
-    const starPercentage = Math.round((starRating/10)*100)
+    const starPercentage = starRating*10
     document.querySelector(".stars-inner").style.width = `${starPercentage}%`
 
     const metaRating = <%= result.Metascore %>

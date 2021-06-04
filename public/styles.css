@@ -18,20 +18,31 @@
     transition-duration: 0.3s;
 }
 
+.submit-button {
+    transform: scaleY(-1);
+    font-size: 20px;
+    height: 29px;
+    margin-left: -5px;
+    border-bottom: 3px solid deepskyblue;
+    border-top: 1px solid deepskyblue;
+    background-color:deepskyblue;
+    color: white;
+}
+
 #basic-info {
     background-color: rgb(51,51,51);
     margin-left: 50px;
     margin-right: 120px;
 }
 
-h1, ul {
+form, h1, ul {
     margin-left: 50px;
     margin-right: 120px;
 }
 
 h3 {
     background-color: goldenrod;
-    height: 40px;
+    font-size:larger;
 }
 
 .basic-info-detail {
