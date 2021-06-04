@@ -11,7 +11,7 @@ const omdbApiKey = process.env.OMDB_API_KEY
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
 // Specifies the location of the static assets folder
-app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '/static/'))
 // Sets up body-parser for parsing form data
 app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
@@ -27,15 +27,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/results', (req, res) => {
-  //get to external location using axios
-  let qs = {
+  //store the value of the param string from req.query
+  //annas - let movieTitle = req.query.q
+   let qs = {
     params: {
       s:req.query.q,
       apikey:omdbApiKey
     }
   }
+   //get to external location using axios
+   // annas - make call to omdb api with query string
+   //if key is saved in env file --- process.env
+   //axios.get(`http://www.omdbapi.com/?t=${movieTitle}&apikey=${process.env.OMDB_API_KEY}`)
   axios.get('http://www.omdbapi.com', qs)
-    .then((response) => {
+    .then(response => {
       let results = response.data.Search
       console.log(results)
       res.render('results', {movies:results})
@@ -55,7 +60,7 @@ app.get('/movies/:id', (req, res) => {
     }
   }
   axios.get('http://www.omdbapi.com/', qs)
-    .then((result) => {
+    .then(result => {
       console.log(result)
       res.render('detail')
     }) 
