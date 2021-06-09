@@ -61,9 +61,7 @@ app.get('/detail/:imdbID', (req, res) => {
       let movieData = responseFromAPI.data
       res.render('detail', { q: movieData })
     })
-    .catch((err) => {
-      console.log(err)
-    })
+    .catch((err) => console.log(err))
 })
 
 app.listen(PORT, () => {
