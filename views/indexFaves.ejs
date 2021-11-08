@@ -3,4 +3,7 @@
     <h3>
         <a href="/movies/<%= result.imdbId %>"><%= result.title %></a>
     </h3>
+    <form action="/faves/<%= result.id %>?_method=DELETE" method="post">
+        <button type="submit" class="btn btn-danger">Remove From Faves</button>
+    </form>
 <%})%>

@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const axios = require('axios')
+const methodOverride = require('method-override')
 const app = express();
 
 // Sets EJS as the view engine
@@ -12,6 +13,8 @@ app.use(express.static('static'));
 app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
+// method-override allows you to override methods with a query parameter
+app.use(methodOverride('_method'))
 
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
