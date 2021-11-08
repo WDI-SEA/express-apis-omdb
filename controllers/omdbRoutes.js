@@ -25,7 +25,7 @@ router.get('/:movie_id', function(req, res) {
   // we used this console log, to check out our request object
   // console.log('this is req.query', req.query)
   let imdbId = req.params.movie_id
-  console.log('this should be the movie title', imdbId)
+//   console.log('this should be the movie title', imdbId)
   // now we can use the movieTitle, to build the request url, and make the call with axios
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${imdbId}`)
     .then(apiRes => {

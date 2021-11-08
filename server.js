@@ -49,6 +49,7 @@ app.get('/', function(req, res) {
 // })
 
 app.use('/movies', require('./controllers/omdbRoutes'))
+app.use('/faves', require('./controllers/faveRoutes'))
 
 // sets our entry point to run our app/server
 app.listen(process.env.PORT || 3000, () => {

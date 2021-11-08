@@ -13,3 +13,8 @@
     <%= plot %>
 </p>
 <img src="<%= poster %>" alt="movie poster">
+<form method="POST" action="/faves/addFave">
+    <input hidden type="text" name="title" value='<%= title %>'>
+    <input hidden type="text" name="imdbId" value='<%= imdbID %>'>
+    <button type="submit">Add to Favorites</button>
+</form>
