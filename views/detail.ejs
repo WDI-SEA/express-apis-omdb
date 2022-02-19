@@ -1,2 +1,5 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<% for( const [key,value] of Object.entries(details)) { %>
+<h4><%= `${key}: ${value}` %></h4>
+<% } %>
