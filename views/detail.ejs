@@ -1,2 +1,31 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+Title : <%=Title%><br />
+
+Year: <%= Year%><br />
+Rated: <%= Rated%><br />
+Released: <%= Released%><br />
+Runtime: <%= Runtime%><br />
+Genre: <%= Genre%><br />
+Director: <%= Director%><br />
+Writer: <%= Writer%><br />
+Starring:<%= Actors%><br />
+Plot: <%= Plot%><br />
+Language/s: <%= Language%><br />
+Country: <%= Country%><br />
+Awards: <%= Awards%><br />
+<img src="<%= Poster%>"><br />
+Ratings : <br />
+<% Ratings.forEach(e => {%>
+    <%=e.Source%> : <%=e.Value%>
+    <br />
+    <%})%>
+Meta Score : <%= Metascore%><br />
+IMDB Rating: <%= imdbRating%><br />
+IMDB Votes: <%= imdbVotes%><br />
+IMDB ID: <%= imdbID%><br />
+Type: <%= Type%><br />
+DVD Release: <%= DVD%><br />
+Box Office: <%= BoxOffice%><br />
+Production: <%= Production%><br />
+Website: <%= Website%><br />
+Response: <%= Response%><br />
+

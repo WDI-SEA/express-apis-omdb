@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,800;1,300&display=swap');
+:root {
+    
+}
+html {
+    background-color: white;
+    font-family: 'Exo 2', sans-serif;
+}
+body {
+    margin: 0 0 0 0;
+    width: 100vw;
+}
+
+input {
+    border-radius: 5px;
+    /* font-size: 20px;    */
+    padding: 5px 10px 5px 10px;
+    border: .1rem solid gray;
+    background-color: white;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
+    
+
+    
+}
+input:focus {
+    border: .1rem solid yellowgreen; 
+    background-color: white;
+}
+
+.main-container {
+    margin: 0;
+    
+}
+.header {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    padding: 5px 5px 5px 10px;
+    background-color: bisque;
+}
+.sub-header {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+    padding: 5px 5px 15px 10px;
+    background-color: bisque;
+}
+.nav-container {
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    border-top: .1rem solid gray;
+    border-bottom: .1rem solid gray;
+}
+.container {
+    padding-left: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(40, 63, 30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }

@@ -1,2 +1,8 @@
-<h1>OMDB Movie Search</h1>
-<p>Search for a movie below...</p>
+<div class="main-container">
+
+    <%searchResults.forEach(element => {%>
+        <br />
+        <a href="/detail?i=<%=element.imdbID%>"><%=element.Title%> - <%=element.Year%> - <%=element.imdbID%></a>
+        <%})%>
+    <!-- content goes here -->
+</div>
