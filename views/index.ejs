@@ -1,10 +1,13 @@
 <h1>OMDB Movie Search</h1>
 <p>Search for a movie below...</p>
 <!-- GET method is required [client is sending data]-->
-<form method="GET" action="/omdb">
+<!-- action must equal the app.get('___' in index.js) -->
+<form method="GET" action="/results">
     <label for="omdb-search">Search</label>
     <!-- id must be = to the for label -->
-    <input type="text" name="search" placeholder="enter your search" id="omdb-search">
+
+    <!-- WHY DOES changing the name from search to something not work? -->
+    <input type="text" name="q" placeholder="enter your search" id="omdb-search">
     <!-- submit button -->
     <input type="submit">
 </form>

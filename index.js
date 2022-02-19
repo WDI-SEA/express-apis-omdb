@@ -2,7 +2,7 @@
 // define PORT
 const PORT = 8000;
 require('dotenv').config()
-console.log(process.env.OMDB_API_KEY)
+// console.log(process.env.OMDB_API_KEY)
 
 
 // import axios module
@@ -43,17 +43,30 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/omdb', (req, res) => {
-  const url = `http://www.omdbapi.com/?t=${req.query.search}&apikey=${process.env.OMDB_API_KEY}`
-  let imbID = req.params.movie_id;
-  // console.log(url)
+// create a route for the list of movies when searched
+// from form [action] it must match the app.get('____')
+app.get('/results', (req,res) => {
+  // req.query.[___] <= THIS MUST MATCH THE NAME FROM THE INPUT TEXT
+  const url = `http://www.omdbapi.com/?s=${req.query.q}&apikey=${process.env.OMDB_API_KEY}`
   axios.get(url)
     .then(response => {
-      // console.log(response.data)
-      const pathWay = response.data
-      res.render('detail.ejs', {result: pathWay})
+      const movieResults = response.data.Search
+      // console.log(movieResults)
+      // res.json(response.data)
+      res.render('result.ejs', {results: movieResults})
     })
 })
+
+
+// app.get('/results/:movie_id', (req, res)=> {
+//   const url = `http://www.omdbapi.com/?s=${req.query.q}&apikey=${process.env.OMDB_API_KEY}`
+//   axios.get(url)
+//   .then(response => {
+//     let imdbID = response.data.Search.imdbID;
+//     console.log(imdbID)
+//   })
+// })
+
 
 // The app.listen function returns a server handle
 app.listen(PORT, (err) => {
