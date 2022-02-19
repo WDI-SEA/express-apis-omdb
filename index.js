@@ -45,9 +45,10 @@ app.get('/', (req, res) => {
 
 // create a route for the list of movies when searched
 // from form [action] it must match the app.get('____')
-app.get('/results', (req,res) => {
+app.get('/movies', (req,res) => {
   // req.query.[___] <= THIS MUST MATCH THE NAME FROM THE INPUT TEXT
-  const url = `http://www.omdbapi.com/?s=${req.query.q}&apikey=${process.env.OMDB_API_KEY}`
+  const movieTitle = req.query.q
+  const url = `http://www.omdbapi.com/?s=${movieTitle}&apikey=${process.env.OMDB_API_KEY}`
   axios.get(url)
     .then(response => {
       const movieResults = response.data.Search
@@ -58,14 +59,15 @@ app.get('/results', (req,res) => {
 })
 
 
-// app.get('/results/:movie_id', (req, res)=> {
-//   const url = `http://www.omdbapi.com/?s=${req.query.q}&apikey=${process.env.OMDB_API_KEY}`
-//   axios.get(url)
-//   .then(response => {
-//     let imdbID = response.data.Search.imdbID;
-//     console.log(imdbID)
-//   })
-// })
+app.get('/movies/:movie_id', (req,res) => {
+  const imdbID = req.params.movie_id
+  const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.OMDB_API_KEY}`
+  axios.get(url)
+    .then(response => {
+      const detail = response.data
+      res.render('detail.ejs', {results : detail})
+    })
+})
 
 
 // The app.listen function returns a server handle

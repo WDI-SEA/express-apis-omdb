@@ -8,7 +8,7 @@
 } -->
 <% results.forEach(result => { %>
     <% if (result.Type === 'movie') { %>
-        <h4>Movie Name: <a href="./detail.ejs"><%= result.Title %></a></h4>
+        <h4>Movie Name: <a href="/movies/:movie_id"><%= result.Title %></a></h4>
         <img src="<%= result.Poster %>" alt="">
         <p>imdbID: <b><%= result.imdbID %></b></p>
         <p>Type: <%= result.Type %></p>
