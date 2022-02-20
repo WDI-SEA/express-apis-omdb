@@ -22,14 +22,24 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
-//  const objTest = [{Test: 'test1', Value: 'value1'},{Test: 'test2', Value: 'value2'}]
- const url = `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${req.query.search}`
- axios.get(url)
- .then(response => {
-    res.render('index',{searchResults : response.data.Search})
- })
- 
+  res.render('index')
 });
+app.get('/results', function(req, res) {  
+  if(req.query.search=="") {
+    res.render('error')
+  } else {
+    const url = `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${req.query.search}`
+   axios.get(url)
+   .then(response => {
+      res.render('results',{searchResults : response.data.Search,
+      searchQuery : req.query.search})
+   })
+   .catch((err)=> {
+     if (err) res.render('error')
+   })   
+  }
+  
+  });
 
 app.get('/detail', (req,res)=> {
   let queryString = req.query.i
@@ -64,7 +74,6 @@ app.get('/detail', (req,res)=> {
       Website: r.data.Website,
       Response: r.data.Response
     })  
-
   })
   // .catch(err)  
 })

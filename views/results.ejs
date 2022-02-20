@@ -1,2 +1,25 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+<div class="main-container">
+    <div class="results-header">Search results for <i>"<%=searchQuery%>"</i></div>
+
+    <%searchResults.forEach(element => {%>    
+    <div class="container container-hr">
+        <div>
+            <a href="/detail?i=<%=element.imdbID%>"><img src="<%=element.Poster%>" class="image-resize"></a>
+        </div>
+        <div class="container">
+            <p><a href="/detail?i=<%=element.imdbID%>"><%=element.Title%> (<%=element.Year%>)</a></p>    
+        </div>
+    </div>
+    <%})%>
+    
+    <div class="container-hr">           
+        
+        
+        
+    </div>
+    
+</div>
+</div>
+</div>
+
+    

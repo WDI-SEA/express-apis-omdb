@@ -1,70 +1,190 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,800;1,300&display=swap');
-:root {
-    
-}
 html {
-    background-color: white;
-    font-family: 'Exo 2', sans-serif;
+  background-color: rgb(201, 201, 201);
+  font-family: 'Exo 2', sans-serif;
 }
 body {
-    margin: 0 0 0 0;
-    width: 100vw;
+  margin: 0 0 0 0;
+  width: 100vw;
 }
 
 input {
-    border-radius: 5px;
-    /* font-size: 20px;    */
-    padding: 5px 10px 5px 10px;
-    border: .1rem solid gray;
-    background-color: white;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: 400;
-    
-
-    
+  border-radius: 5px;
+  /* font-size: 20px;    */
+  padding: 5px 10px 5px 10px;
+  border: 0.1rem solid gray;
+  background-color: white;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
 }
 input:focus {
-    border: .1rem solid yellowgreen; 
-    background-color: white;
+  border: 0.1rem solid yellowgreen;
+  background-color: white;
+}
+a:link {
+  color: rgba(40, 42, 53, 255);
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  padding: 10px 10px 10px 10px;
+}
+
+a:visited {
+  color: rgba(40, 42, 53, 255);
+}
+
+a:hover {
+  color: rgb(194, 72, 1);
+}
+
+a:active {
+  color: rgba(40, 42, 53, 255);
+}
+
+a.db:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+}
+
+a.db:visited {
+  color: rgb(255, 255, 255);
+}
+
+a.db:hover {
+  color: rgb(252, 117, 7);
+}
+
+a.db:active {
+  color: rgb(255, 255, 254);
 }
 
 .main-container {
-    margin: 0;
-    
+  margin: 0;
+  padding: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 .header {
-    font-family: 'Exo 2', sans-serif;
-    font-weight: 800;
-    font-size: 30px;
-    padding: 5px 5px 5px 10px;
-    background-color: bisque;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  padding: 5px 5px 5px 10px;
+  background-color: black;
+  color: white;
 }
 .sub-header {
-    font-family: 'Exo 2', sans-serif;
-    font-weight: 300;
-    padding: 5px 5px 15px 10px;
-    background-color: bisque;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 300;
+  padding: 5px 5px 15px 10px;
+  background-color: black;
+  color: white;
 }
 .nav-container {
-    padding: 10px 10px 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
-    border-top: .1rem solid gray;
-    border-bottom: .1rem solid gray;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  border-top: 0.1rem solid gray;
+  border-bottom: 0.1rem solid gray;
+  background-color: rgb(36, 35, 35);
 }
 .container {
-    padding-left: 10px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 200%;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    background-color: rgb(40, 63, 30);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: rgb(40, 63, 30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.image-resize {
+  max-width: 170px;
+}
+.results-list {
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  width: max-content;
+}
+div.results {
+  display: flex;
+  width: 400vw;
+  height: 260px;
+  padding: 5px;
+  align-items: flex-start;
+  justify-content: baseline;
+}
+
+div.results-header {
+  display: flex;
+  padding: 5px 5px 10px 5px;
+  align-items: flex-start;
+  justify-content: baseline;
+  font-family: 'Exo2', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+div.detail-header {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+  padding: 5px 5px 5px 10px;
+}
+div.detail-sub-header {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 300;
+  padding: 5px 5px 15px 10px;
+}
+div.box {
+  height: 450px;
+  inline-size: 600px;
+  overflow-wrap: break-word;
+  border: 0.1rem solid gray;
+  padding: 0 10px 0 10px;
+  margin-left: 10px;
+}
+.poster {
+  height: 450px;
+  border: .1rem solid gray;
+}
+.genre {
+  border-radius: 20px;
+  background-color: rgb(36, 35, 35);
+  border: 0.1rem solid rgb(255, 255, 255);
+  color: rgb(235, 235, 233);
+  padding: 5px 15px 5px 15px;
+  width: fit-content;
+  margin-right: 5px;
+}
+.container-hr {
+  border-bottom: 0.1rem solid gray;
+  padding: 20px 10px 20px 10px;
+  font-size: 15px;
+  font-weight: 400;
+}
+button {
+    border: 0 ;
+    background-color: rgb(201, 201, 201);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+button:hover {
+    color: rgb(252, 117, 7);
+    border: 0;
+    background-color: rgb(201, 201, 201);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}

@@ -1,31 +1,49 @@
-Title : <%=Title%><br />
+<div class="main-container">
+  <div class="container"><button onclick="history.back()">back to search</button></div>
+  <div class="detail-header"><%=Title%></div>
+  <div class="detail-sub-header"><%= Year%> &middot; <%= Rated%> &middot; <%= Runtime%> </div>
+  <div class="container">
+    <div>
+      <img src="<%= Poster%>" class="poster" />
+    </div>
+    <div class="box">
+      <div class="container container-hr"><%= Plot%></div>
+      <div class="container">
+        Released: <%= Released%><br />
+        Type: <%= Type%><br />
+        DVD Release: <%= DVD%><br />
+        Box Office: <%= BoxOffice%><br />
+        Production: <%= Production%><br />
+        Website: <%= Website%><br />
+        <!-- Response: <%=  // Response%><br /> -->
+      </div>
+    </div>
+  </div>
+  <div class="container container-hr">
+    <div class="genre"><%=Genre%></div>
+    <div class="genre">
+      <a href="https://www.imdb.com/title/<%= imdbID%>" class="db"
+        >Link to IMDB</a
+      >
+    </div>
+    <div class="genre">Rated : <%=Rated%></div>
+  </div>
 
-Year: <%= Year%><br />
-Rated: <%= Rated%><br />
-Released: <%= Released%><br />
-Runtime: <%= Runtime%><br />
-Genre: <%= Genre%><br />
-Director: <%= Director%><br />
-Writer: <%= Writer%><br />
-Starring:<%= Actors%><br />
-Plot: <%= Plot%><br />
-Language/s: <%= Language%><br />
-Country: <%= Country%><br />
-Awards: <%= Awards%><br />
-<img src="<%= Poster%>"><br />
-Ratings : <br />
-<% Ratings.forEach(e => {%>
-    <%=e.Source%> : <%=e.Value%>
+  <div class="container container-hr">
+    Director: <%= Director%><br />
+    Writer: <%= Writer%><br />
+    Starring: <%= Actors%><br />
+  </div>
+  <div class="container container-hr">
+    Language/s: <%= Language%><br />
+    Country: <%= Country%><br />
+    Awards: <%= Awards%><br />
+  </div>
+  <div class="container container-hr">
+    Ratings : <br />
+    <% Ratings.forEach(e => {%> <%=e.Source%> : <%=e.Value%>
     <br />
-    <%})%>
-Meta Score : <%= Metascore%><br />
-IMDB Rating: <%= imdbRating%><br />
-IMDB Votes: <%= imdbVotes%><br />
-IMDB ID: <%= imdbID%><br />
-Type: <%= Type%><br />
-DVD Release: <%= DVD%><br />
-Box Office: <%= BoxOffice%><br />
-Production: <%= Production%><br />
-Website: <%= Website%><br />
-Response: <%= Response%><br />
-
+    <%})%> Meta Score : <%= Metascore%><br />
+    IMDB Rating: <%= imdbRating%> &middot; IMDB Votes: <%= imdbVotes%><br />
+  </div>  
+</div>
