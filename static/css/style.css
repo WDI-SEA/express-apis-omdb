@@ -25,7 +25,7 @@ a:link {
   color: rgba(40, 42, 53, 255);
   text-decoration: none;
   font-family: 'Exo 2', sans-serif;
-  padding: 10px 10px 10px 10px;
+  /* padding: 10px 10px 10px 10px; */
 }
 
 a:visited {
@@ -168,7 +168,7 @@ div.box {
   margin-right: 5px;
 }
 .container-hr {
-  border-top: 0.1rem solid gray;
+  border-bottom: 0.1rem solid gray;
   padding: 20px 10px 20px 10px;
   font-size: 15px;
   font-weight: 400;
@@ -191,4 +191,12 @@ button:hover {
 .imdbRating {
     width: 150px;
     height: 22px;
+}
+.image-holder {
+    width: fit-content;
+    min-width: 170px;
+    min-height: 170px;
+    height: fit-content;
+    max-height: 220px;
+    background-color: rgb(252, 252, 252); 
 }
