@@ -56,16 +56,20 @@ app.get('/movies', (req,res) => {
       // res.json(response.data)
       res.render('result.ejs', {results: movieResults})
     })
+    .catch((err)=> {
+      console.log(err)
+    })
 })
 
 
 app.get('/movies/:movie_id', (req,res) => {
   const imdbID = req.params.movie_id
   const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.OMDB_API_KEY}`
-  axios.get(url)
+axios.get(url)
     .then(response => {
-      const detail = response.data
-      res.render('detail.ejs', {results : detail})
+      let movieData = response.data
+      // console.log(movieData)
+      res.render('detail.ejs', { id: movieData})
     })
 })
 

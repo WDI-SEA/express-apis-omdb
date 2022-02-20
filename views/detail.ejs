@@ -1,21 +1,24 @@
 <% // Render your movie details  here %>
 <% // This is how to do comments in EJS, by the way... %>
 
-
-
-<h4>Movie Name: <%= results.Title %></h4>
-<img src="<%= results.Poster %>" alt="">
-<p>Year: <%= results.Year %></p>
-<p>Rated: <%= results.Rated %></p>
-<p>Released: <%= results.Released %></p>
-<p>Runtime: <%= results.Runtime %></p>
-<p>Genre: <%= results.Genre %></p>
-<p>Director: <%= results.Director %></p>
-<p>Writers: <%= results.Writer %></p>
-<p>Actors: <%= results.Actors %></p>
-<p>Plot: <%= results.Plot %></p>
-<p>Language: <%= results.Language %></p>
-<p>Country: <%= results.Country %></p>
-<p>Awards: <%= results.Awards %></p>
-<p>BoxOffice: <%= results.BoxOffice %></p>
-<p>imdbID: <%= results.imdbID %></p>
+<h4>Movie Name <%= id.Title %></h4>
+<img src="<%= id.Poster %>" alt="">
+<p>Year: <%= id.Year %></p>
+<p>Rated: <%= id.Rated %></p>
+<p>Released: <%= id.Released %></p>
+<p>Runtime: <%= id.Runtime %></p>
+<p>Genre: <%= id.Genre %></p>
+<p>Director: <%= id.Director %></p>
+<p>Writers: <%= id.Writer %></p>
+<p>Actors: <%= id.Actors %></p>
+<p>Plot: <%= id.Plot %></p>
+<p>Ratings: <% for( let i = 1; i < 2; i++ ) { %>
+    <p> <%= id.Ratings[0].Source %>:  <%=id.Ratings[0].Value %></p>
+    <p> <%= id.Ratings[1].Source %>:  <%=id.Ratings[1].Value %></p>
+    <p> <%= id.Ratings[2].Source %>:  <%=id.Ratings[2].Value %></p>
+    <% } %></p>
+<p>Language: <%= id.Language %></p>
+<p>Country: <%= id.Country %></p>
+<p>Awards: <%= id.Awards %></p>
+<p>BoxOffice: <%= id.BoxOffice %></p>
+<p>imdbID: <%= id.imdbID %></p>
