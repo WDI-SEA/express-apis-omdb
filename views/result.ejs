@@ -1,17 +1,20 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
-
+<link rel="stylesheet" href="../css/result.css">
 <!-- if (type of the movie is 'movie') {
     then print the name, poster, imdbID
 } if not {
     then do not print it
 } -->
+
 <% results.forEach(result => { %>
     <% if (result.Type === 'movie') { %>
-        <h4>Movie Name: <%= result.Title %></h4>
-        <img src="<%= result.Poster %>" alt="<%= result.Title %> Poster">
-        <p>imdbID: <a href="/movies/<%=result.imdbID%>"><%= result.imdbID %></a></p>
-        <p>Type: <%= result.Type %></p>
+    <container id="result-container">
+        <h4 id="movie-Name"><%= result.Title %></h4>
+        <img id="image-poster" src="<%= result.Poster %>" alt="<%= result.Title %> Poster">
+        <p class="detail">imdbID: <a href="/movies/<%=result.imdbID%>"><%= result.imdbID %></a></p>
+        <p class="detail">Type: <%= result.Type %></p>
+    </container>
     <% } else {%>
     <% } %>
 <% }) %>

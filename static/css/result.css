@@ -1,0 +1,24 @@
+/* STYLING FOR RESULT.EJS */
+#movie-Name {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.detail {
+    font-size: 24px;
+    padding: 10px;
+}
+
+#result-container {
+    display: flexbox;
+    text-align: center;
+    justify-content: center;
+}
+
+#image-poster {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    padding: 10px;
+}
