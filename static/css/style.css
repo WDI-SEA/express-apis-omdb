@@ -1,0 +1,39 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); */
+
+body {
+  background-color: white;
+  
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+nav {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+li{
+    font-weight: bold;
+    padding: 10px;
+}
+
+form {
+ 
+    
+}
+
+
+::placeholder {
+    font-family: 'Courier New', Courier, monospace;
+}
