@@ -168,7 +168,7 @@ div.box {
   margin-right: 5px;
 }
 .container-hr {
-  border-bottom: 0.1rem solid gray;
+  border-top: 0.1rem solid gray;
   padding: 20px 10px 20px 10px;
   font-size: 15px;
   font-weight: 400;
@@ -187,4 +187,8 @@ button:hover {
     font-family: 'Exo 2', sans-serif;
     font-weight: 400;
     font-size: 15px;
+}
+.imdbRating {
+    width: 150px;
+    height: 22px;
 }

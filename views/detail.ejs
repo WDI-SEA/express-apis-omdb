@@ -39,11 +39,22 @@
     Country: <%= Country%><br />
     Awards: <%= Awards%><br />
   </div>
+  
   <div class="container container-hr">
     Ratings : <br />
     <% Ratings.forEach(e => {%> <%=e.Source%> : <%=e.Value%>
     <br />
     <%})%> Meta Score : <%= Metascore%><br />
     IMDB Rating: <%= imdbRating%> &middot; IMDB Votes: <%= imdbVotes%><br />
+    
   </div>  
+
+  <div class="container">
+    <div class="imdbRating">
+        <div class="imdbRatingPlugin" data-user="ur150085566" data-title="<%= imdbID%>" data-style="p1"><a href="https://www.imdb.com/title/tt1877830/?ref_=plg_rt_1"><img src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_46x22.png" alt=" The Batman
+            (2022) on IMDb" />
+            </a></div>
+        </div>
+  </div>
 </div>
+<script>(function(d,s,id){var js,stags=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js";stags.parentNode.insertBefore(js,stags);})(document,"script","imdb-rating-api");</script>
