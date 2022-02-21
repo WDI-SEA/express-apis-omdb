@@ -15,9 +15,13 @@ app.use(ejsLayouts);
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
 
+// //CONTROLLERS 
+app.use('/results', require('./controllers/search.js'))
+
 // Routes
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  // res.send('Hello, backend!');
+  res.render('index.ejs');
 });
 
 // The app.listen function returns a server handle
