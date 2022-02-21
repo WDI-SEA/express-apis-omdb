@@ -1,2 +1,64 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+<div class="main-container">
+  <div class="container"><button onclick="history.back()">back to search</button></div>
+  <div class="detail-header"><%=Title%></div>
+  <div class="detail-sub-header"><%= Year%> &middot; <%= Rated%> &middot; <%= Runtime%> </div>
+  <div class="container">
+    <div>
+      <% let imgPoster = Poster %>
+      <%if(imgPoster == "N/A") {%>
+        <%imgPoster = "/img/no-image-icon-23494.png"%>
+      <%}%>
+      <img src="<%= imgPoster%>" class="poster" />
+    </div>
+    <div class="box">
+      <div class="container container-hr"><%= Plot%></div>
+      <div class="container">
+        Released: <%= Released%><br />
+        Type: <%= Type%><br />
+        DVD Release: <%= DVD%><br />
+        Box Office: <%= BoxOffice%><br />
+        Production: <%= Production%><br />
+        Website: <%= Website%><br />
+        <!-- Response: <%=  // Response%><br /> -->
+      </div>
+    </div>
+  </div>
+  <div class="container container-hr">
+    <div class="genre"><%=Genre%></div>
+    <div class="genre">
+      <a href="https://www.imdb.com/title/<%= imdbID%>" class="db"
+        >Link to IMDB</a
+      >
+    </div>
+    <div class="genre">Rated : <%=Rated%></div>
+  </div>
+
+  <div class="container container-hr">
+    Director: <%= Director%><br />
+    Writer: <%= Writer%><br />
+    Starring: <%= Actors%><br />
+  </div>
+  <div class="container container-hr">
+    Language/s: <%= Language%><br />
+    Country: <%= Country%><br />
+    Awards: <%= Awards%><br />
+  </div>
+  
+  <div class="container container-hr">
+    Ratings : <br />
+    <% Ratings.forEach(e => {%> <%=e.Source%> : <%=e.Value%>
+    <br />
+    <%})%> Meta Score : <%= Metascore%><br />
+    IMDB Rating: <%= imdbRating%> &middot; IMDB Votes: <%= imdbVotes%><br />
+    
+  </div>  
+
+  <div class="container">
+    <div class="imdbRating">
+        <div class="imdbRatingPlugin" data-user="ur150085566" data-title="<%= imdbID%>" data-style="p1"><a href="https://www.imdb.com/title/tt1877830/?ref_=plg_rt_1"><img src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_46x22.png" alt=" The Batman
+            (2022) on IMDb" />
+            </a></div>
+        </div>
+  </div>
+</div>
+<script>(function(d,s,id){var js,stags=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js";stags.parentNode.insertBefore(js,stags);})(document,"script","imdb-rating-api");</script>
