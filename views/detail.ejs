@@ -1,2 +1,38 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+
+<h2><%= idResults.Title %> </h3>
+
+<table>
+    <tr>
+        <td>Release Date</td>
+        <td><%= idResults.Released %></td>
+    </tr>
+    <tr>
+        <td>Rating</td>
+        <td><%= idResults.Rated %></td>
+    </tr>
+    <tr>
+        <td>Director</td>
+        <td><%= idResults.Director %></td>
+    </tr>
+    <tr>
+        <td>Box Office</td>
+        <td><%= idResults.BoxOffice %> </td>
+    </tr>
+    <tr>
+        <td>Reviews</td>
+        <td>
+            <ul>
+                <% idResults.Ratings.forEach(ratings => { %>
+                    <li> <%= ratings.Source %>: <%= ratings.Value %>  </li>
+                <% }) %>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Plot</td>
+        <td><%= idResults.Plot %></td>
+    </tr>
+</table>
+
+
+<img src="<%= idResults.Poster %> " alt="Movie Poster">

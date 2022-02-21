@@ -1,5 +1,7 @@
+// API key stored in gitignored .env file and accessible
 require('dotenv').config();
 const express = require('express');
+const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 
@@ -16,9 +18,40 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
+// home page
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  res.render('index.ejs');
 });
+
+// search bar leads to results page
+app.get('/results', (req, res)=> {
+  const url = `http://www.omdbapi.com/?s=${req.query.search}&apikey=${process.env.OMDB_API_KEY}`
+  // console.log(url)
+  axios.get(url)
+    .then(response => {
+      const searchResults = response.data.Search;
+      res.render('results.ejs', {
+        results: searchResults,
+      })
+    })
+    .catch(res.render('error.ejs'))
+})
+
+app.get('/movies/:movie_id', (req, res) => {
+  const idUrl = `http://www.omdbapi.com/?i=${req.params.movie_id}&apikey=${process.env.OMDB_API_KEY}`
+  axios.get(idUrl)
+    .then (response => {
+      // console.log(response.data)
+      const idResults = response.data
+      res.render('detail.ejs', {
+        idResults
+      })
+    })
+})
+
+app.use((req, res) => {
+  res.send('404 error, page not found 🔎')
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
