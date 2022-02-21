@@ -10,4 +10,21 @@
 <h3>Metascore: <%=movie.Metascore%></h3>
 <h3>BoxOffice: <%=movie.BoxOffice%></h3>
 <h3>Plot: <%=movie.Plot%></h3>
+<h3>IMDB Rating: <%=movie.imdbRating%></h3>
+
+<%let rating = ""%>
+<%let movieNum = parseInt(movie.imdbRating)%>
+<%if(movieNum < 2){%>
+    <%rating = "⭐"%>
+<%} else if (movieNum >=2 && movieNum < 4){%>
+        <% rating = "⭐⭐"%>
+        <%} else if (movieNum >=4 && movieNum <6){%>
+            <%rating = "⭐⭐⭐"%>
+            <%} else if (movieNum >=6 && movieNum <8){%>
+                <%rating = "⭐⭐⭐⭐"%>
+                <%} else {%>
+                    <%rating = "⭐⭐⭐⭐⭐"%>
+                    <%}%>
+
+<h3>IMDB Star Rating: <%=rating%></h3>
 <% // This is how to do comments in EJS, by the way... %>

@@ -44,7 +44,7 @@ app.get('/movies', (req, res)=>{
   .then(response =>{
     let movieDetails = response.data
     res.render('detail',{movie: movieDetails})
-    console.log(response.data)
+    // console.log(response.data)
   // res.render('detail.ejs', )
 
   })
