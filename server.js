@@ -24,16 +24,15 @@ app.use(require('morgan')('dev'))
 app.get('/', function (req, res) {
   res.render('index')
 })
-app.get('/results', function (req, res) {
-  console.log("🚀 ~ file: server.js ~ line 28 ~  res",  res)
+app.get('/results', function (req, res) {  
   if (req.query.search == '') {
-    res.render('error')
+    res.render('error', {errMessage: "Search field cannot be blank."})
   } else {
     const url = `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${req.query.search}`
     axios.get(url)
       .then(response => {
         if(response.data.Search == null) {
-          res.render('error')
+          res.render('error',{errMessage: "Search returned 0 results."})
         } else {
           res.render('results', {
           searchResults: response.data.Search,
