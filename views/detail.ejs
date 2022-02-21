@@ -4,7 +4,11 @@
   <div class="detail-sub-header"><%= Year%> &middot; <%= Rated%> &middot; <%= Runtime%> </div>
   <div class="container">
     <div>
-      <img src="<%= Poster%>" class="poster" />
+      <% let imgPoster = Poster %>
+      <%if(imgPoster == "N/A") {%>
+        <%imgPoster = "/img/no-image-icon-23494.png"%>
+      <%}%>
+      <img src="<%= imgPoster%>" class="poster" />
     </div>
     <div class="box">
       <div class="container container-hr"><%= Plot%></div>

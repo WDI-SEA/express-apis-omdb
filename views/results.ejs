@@ -2,9 +2,13 @@
     <div class="results-header">Search results for <i>"<%=searchQuery%>"</i></div>
 
     <%searchResults.forEach(element => {%>    
+    <% let poster = element.Poster%>
+    <% if(element.Poster == "N/A") { %>
+        <%poster = "/img/no-image-icon-23494.png" %>
+    <%} %>
     <div class="container">
         <div class="image-holder">
-            <a href="/detail?i=<%=element.imdbID%>"><img src="<%=element.Poster%>" class="image-resize"></a>
+            <a href="/detail?i=<%=element.imdbID%>"><img src="<%=poster%>" class="image-resize"></a>
         </div>
         <div class="container">
             <p><a href="/detail?i=<%=element.imdbID%>"><%=element.Title%> (<%=element.Year%>)</a></p>    
