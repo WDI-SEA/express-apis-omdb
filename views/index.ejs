@@ -1,2 +1,7 @@
-<h1>OMDB Movie Search</h1>
+<h1>Hello <%=name%>!<br> Welcome to OMDB Movie Search</h1>
 <p>Search for a movie below...</p>
+<form action="/results" method="GET">
+    <labal for="OMDB-search">Search:</labal>
+    <input id="OMDB-search" placeholder="enter your search" type="text" name="search">
+    <input type="submit">
+</form>

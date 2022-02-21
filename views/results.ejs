@@ -1,2 +1,14 @@
 <% // Render your search results here %>
+<h1>Here are your search results</h1>
+
+
+<ul>
+<%movies.forEach(elem=>{%>
+    <li><a href="./movies?id=<%=elem.imdbID%>"><%=elem.Title%> </a></li>
+    <%})%>
+</ul>
+
+
+
+</h2>
 <% // This is how to do comments in EJS, by the way... %>
