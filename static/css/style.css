@@ -1,8 +1,9 @@
 * {
   background-color: aqua;
 }
+
 h3,
 p,
 img {
-  display: inline-block;
+  display: inline-flex;
 }

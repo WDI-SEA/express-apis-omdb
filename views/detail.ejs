@@ -4,17 +4,19 @@
 <h1> <%=results.Title %> </h1>
 <img src="<%= results.Poster%>"/>
 
-<% for(const index in results){ %>
 <div>
-    <h3><%= index%>: </h3>
-    <p><%= results[index]%></p>
-<% if(index === 'Ratings'){ %>
-    <% for(const inside in results[index]) { %>
-        <h3><%= inside%></h3>
-        <p><%= results[index][inside]%></p>
-    <% } %>
- <%}%>
-
+<% for(const index in results){ %>
+    <%if(index === 'Ratings'){%>
+        <h3>Ratings: ➡️</h3>
+        <%rates.forEach(inside => {%>
+        <h3><%=inside.Source%>:</h3>
+        <p><%=inside.Value  %>|</p>
+        <%}) %>
+<%} else{%>
+   <h3><%=index%>:</h3>
+   <p><%=results[index] %></p></br>
+<%}%>
+ 
+<% } %>
 </div>
-    
-<%} %>
+

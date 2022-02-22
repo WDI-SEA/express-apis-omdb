@@ -21,7 +21,8 @@ router.get('/movies/:movie_id', (req, res) => {
     axios.get(url)
         .then(response => {
             const searchResults = response.data
-            res.render('detail.ejs', {results:searchResults})
+            const ratings = response.data.Ratings
+            res.render('detail.ejs', {results:searchResults, rates:ratings})
             // res.send(searchResults)
             // res.render('detail.ejs', {results:req.params.movieId})
         })
