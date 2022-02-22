@@ -32,11 +32,12 @@ app.get('/results', (req, res) => {
 })
 
 app.get(`/movies/:movie_id`, (req, res) => {
-  const url = `http://www.omdbapi.com/?i=/:movie_id&apikey=${process.env.OMDB_API_KEY}`
-  axios.get(url)
+  let movieID = req.params.movie_id
+  const idUrl = `http://www.omdbapi.com/?i=${movieID}&apikey=${process.env.OMDB_API_KEY}`
+  axios.get(idUrl)
     .then(response => {
-      console.log(url)
-      console.log(response.data)
+      const searchResults = response.data
+      res.render('detail.ejs', { results: searchResults })
     })
 })
 

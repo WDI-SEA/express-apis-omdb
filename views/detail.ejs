@@ -1,8 +1,10 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
-<table>
-     <tr>
-        <th>Movie Title</th>
-        <td><% results %></td>
-    </tr>
+<table id="details">
+    <% for (const key in results) { %>
+        <tr>
+            <th><%= key %></th>
+            <td><%= results[key] %></td>
+        </tr>
+    <% } %>
 </table>

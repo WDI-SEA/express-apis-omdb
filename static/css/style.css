@@ -17,9 +17,17 @@ h1 {
 input {
     font-size: 30px;
 }
-table {
+
+#results {
     position: relative;
     transform: translate(100%, 10%);
+    width: 500px;
+    background: rgb(0, 0, 0, 0.8);
+}
+
+#details {
+    position: relative;
+    transform: translate(30%, 0%);
     width: 500px;
     background: rgb(0, 0, 0, 0.8);
 }
