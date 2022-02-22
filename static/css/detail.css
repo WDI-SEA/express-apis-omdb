@@ -1,19 +1,32 @@
-#container-detail {
+/* #container-detail {
     display: flexbox;
     text-align: center;
     justify-content: center;
-}
+} */
 
 
 .detail-poster {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: auto;
+    width: 250px;
+    height: auto;
     padding: 10px;
 }
 
 
 p {
-    font-size: 24px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.title {
+    display: flexbox;
+    text-align: center;
+    justify-content: center;
+}
+
+form {
+    display: flexbox;
+    justify-content: center;
 }

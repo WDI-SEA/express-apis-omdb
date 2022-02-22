@@ -54,7 +54,7 @@ app.get('/movies', (req,res) => {
   axios.get(url)
     .then(response => {
       const movieResults = response.data.Search
-      console.log(movieResults)
+      // console.log(movieResults)
       // res.json(response.data)
       res.render('result.ejs', {results: movieResults})
     })

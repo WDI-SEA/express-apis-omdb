@@ -6,7 +6,21 @@
 } if not {
     then do not print it
 } -->
+<div class="header">
+    <div>
+         <h1>OMDb API - The Open Movie Database </h1>
+    </div>
+    <form method="GET" action="/movies">
+        <label for="omdb-search" id="search">Search</label>
+        <!-- id must be = to the for label -->
 
+        <!-- WHY DOES changing the name from search to something not work? -->
+        <input type="text" name="q" placeholder="enter your search" id="omdb-search">
+        <!-- submit button -->
+        <input type="submit" class="submitBtn">
+    </form>
+</div>
+<hr>
 <% results.forEach(result => { %>
     <% if (result.Type === 'movie') { %>
     <container id="result-container">
@@ -14,6 +28,7 @@
         <img id="image-poster" src="<%= result.Poster %>" alt="<%= result.Title %> Poster">
         <p class="detail">imdbID: <a href="/movies/<%=result.imdbID%>"><%= result.imdbID %></a></p>
         <p class="detail">Type: <%= result.Type %></p>
+        <hr>
     </container>
     <% } else {%>
     <% } %>
