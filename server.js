@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3030
 const axios = require("axios")
 
 

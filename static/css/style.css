@@ -1,6 +1,6 @@
 :root {
     --primary: #5D5C61;
-    --secondary: #B0A295;
+    --secondary: cornsilk;
     --dark-accent: #557A95;
     --light-accent: #7395AE;
 }
@@ -8,31 +8,36 @@
 *{
     margin: 0 auto;
     /* padding: 2%; */
-   color: var(--primary);
+    color: var(--secondary);
 }
 
 body {
-
+    
     text-align: center;
     background-color: var(--dark-accent);
+}
+a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 25px;
 }
 nav {
     padding: 0;
     margin: 0;
-    background-color: var(--secondary);
-    color: white;
+    background-color: var(--primary);
+    /* color: white; */
 }
 .container {
-    background-color: var(--secondary);
-    padding: 5%;
-        margin-top: 5%;
+    /* background-color: var(--secondary); */
+    padding: 2%;
+        margin-top: 2%;
     width: 70%;
     border-radius: 10px;
 }
 
 h1 {
-    font-size: 25px;
-    padding: 5%;
+    /* font-size: 100px; */
+    padding: 2%;
 }
 
 .searchLabel {
@@ -42,20 +47,37 @@ h1 {
 
 label {
     font-size: 20px;
-    padding-top: 2%;
+    padding-top: 1%;
 }
 
 input {
     padding: 1%;
     font-size: 1rem;
     border-radius: 10px;
+    color: var(--dark-accent);
 }
 ul {
     text-align: left;
-    font-size: 20px;
+    font-size: 10px;
     text-decoration: none;
 }
-.resultsH2 {
-    text-align: left;
-    padding-bottom: 4%;
+img{
+    padding: 2%;
 }
+p {
+    padding: 1%;
+}
+span {
+    font-size: 15px;
+}
+.resultsH2 {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.resultDiv {
+    /* font-size: 100px; */
+    padding-top: 2%;
+    text-align: center;
+}
+

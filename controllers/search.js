@@ -3,6 +3,9 @@ const router = express.Router()
 const axios = require("axios")
 require("dotenv").config
 
+//static css
+// router.use(express.static("public"))
+
 router.get("/movies/:movie_id", (req,res) => {
     const url = (`http://www.omdbapi.com/?i=${req.params.movie_id}&apikey=${process.env.OMDB_API_KEY}`)
     axios.get(url)
