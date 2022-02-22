@@ -1,2 +1,4 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+<h1><a href="/movies/<%= results.imdbID %> "><%= results.Title %></a></h1>
+<h3><%= results.Year %></h3>
+<h4><%= results.imdbID %></h4>
+<img src="<%= results.Poster %>" alt="">
