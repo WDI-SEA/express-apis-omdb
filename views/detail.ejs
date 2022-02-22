@@ -5,3 +5,10 @@
 <p><%=  movie.Director %></p>
 
 <img src="<%= movie.Poster %>" />
+
+<form method="POST" action="/faves">
+  <input hidden value="<%= movie.Title %>" name="title" />
+  <input hidden value="<%= movie.imdbID %>" name="id" />
+
+  <input type="submit" value="add to faves" />
+</form>

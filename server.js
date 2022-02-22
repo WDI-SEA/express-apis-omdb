@@ -3,6 +3,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios')
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -12,7 +13,6 @@ app.use(express.static('static'));
 app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
-
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
 
@@ -34,8 +34,24 @@ app.get('/details/:id', (req, res) => {
   axios.get(`http://www.omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`)
     .then(response => {
       res.render('detail.ejs', { movie: response.data })
+      // res.json(response.data)
     })
     .catch(console.log)
+})
+
+app.get('/faves', async (req, res) => {
+  const faves =  await db.fave.findAll()
+  console.log(faves)
+  res.render('faves.ejs', { faves })
+})
+
+app.post('/faves', async (req, res) => {
+  console.log(req.body)
+  await db.fave.create({
+    title: req.body.title,
+    imdbId: req.body.id
+  })
+  res.redirect('/faves')
 })
 
 app.listen(process.env.PORT || 3000);
