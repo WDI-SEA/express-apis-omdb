@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    background-image: url('https://i.imgur.com/6VDZ0MO.jpg');
+    background-size: cover;
+    color: white;
+}
+
+nav {
+    border-bottom: 2px solid white;
+    padding: 0 0 5px 0;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+input {
+    font-size: 30px;
+}
+table {
+    position: relative;
+    transform: translate(100%, 10%);
+    width: 500px;
+    background: rgb(0, 0, 0, 0.8);
+}
+
+table, th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+
+a:link {
+    color: lightblue;
+}
+
+a:visited {
+    color: plum;
+}

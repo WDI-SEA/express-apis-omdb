@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const axios = require('axios')
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 
@@ -16,9 +17,28 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
-});
+app.get('/', (req, res) => {
+  res.render('index.ejs')
+})
+
+
+app.get('/results', (req, res) => {
+  const url = `http://www.omdbapi.com/?s=${req.query.search}&apikey=${process.env.OMDB_API_KEY}`
+  axios.get(url)
+    .then(response => {
+      const searchResults = response.data
+      res.render('results.ejs', { results: searchResults })
+    })
+})
+
+app.get(`/movies/:movie_id`, (req, res) => {
+  const url = `http://www.omdbapi.com/?i=/:movie_id&apikey=${process.env.OMDB_API_KEY}`
+  axios.get(url)
+    .then(response => {
+      console.log(url)
+      console.log(response.data)
+    })
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
