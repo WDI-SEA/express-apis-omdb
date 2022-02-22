@@ -1,6 +1,10 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<%if(results != null){%>
 <h1>Search Results: </h1>
 <% results.forEach(element => { %>
     <a href="/results/movies/<%=element.imdbID%>"> <h3><%= element.Title%></h3></a></br>
 <% }) %>
+<%} else {%>
+    <h1>Error: Invalid input!</h1>
+<%}%>
