@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
+const axios = require('axios')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -17,11 +18,24 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
-});
+  res.render('index.ejs')
+})
 
-// The app.listen function returns a server handle
-var server = app.listen(process.env.PORT || 3000);
+app.get('/results', (req, res) => {
+  axios.get(`http://www.omdbapi.com/?s=${req.query.movieSearch}&apikey=${process.env.OMDB_API_KEY}`)
+    .then(response => {
+      res.render('results.ejs', { movies: response.data.Search })
+    })
+    .catch(console.log)
+})
 
-// We can export this server to other servers like this
-module.exports = server;
+app.get('/details/:id', (req, res) => {
+  console.log(req.params.id)
+  axios.get(`http://www.omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`)
+    .then(response => {
+      res.render('detail.ejs', { movie: response.data })
+    })
+    .catch(console.log)
+})
+
+app.listen(process.env.PORT || 3000);
