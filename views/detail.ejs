@@ -1,2 +1,23 @@
 <% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+<h1><%= movieDetails.Title%></h1>
+
+<ul>
+  <% for (property in movieDetails) { %> <% if (property === 'Poster') { %>
+  <li>
+    <a href="<%=movieDetails['Poster']%>"> Link To Poster Image</a>
+  </li>
+  <% } else if (property === 'Ratings') { %>
+  <li><%= property %></li>
+  <ul>
+    <% for (let i = 0; i < movieDetails[property].length; i++) { %>
+
+    <li>
+      <%= movieDetails[property][i].Source %>: <%=
+      movieDetails[property][i].Value %>
+    </li>
+    <% } %>
+  </ul>
+  <% } else { %>
+  <li><%= property%>: <%= movieDetails[property] %></li>
+  <%} %> <% } %>
+</ul>
