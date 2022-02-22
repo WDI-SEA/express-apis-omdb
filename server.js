@@ -14,6 +14,8 @@ app.use(express.static('static'));
 app.use(express.urlencoded({ extended: false }));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
+//static css
+app.use(express.static("public"))
 
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
@@ -33,9 +35,11 @@ app.get('/results', function(req, res) {
       const searchResults = response.data.Search
             res.render("results.ejs", {results: searchResults})
       // res.send(response.data)
+    }).catch(err => {
+      console.log(`error. cannot find what you're looking for.`)
     })
-});
-
+    
+})
 
 
 // The app.listen function returns a server handle

@@ -1,0 +1,61 @@
+:root {
+    --primary: #5D5C61;
+    --secondary: #B0A295;
+    --dark-accent: #557A95;
+    --light-accent: #7395AE;
+}
+
+*{
+    margin: 0 auto;
+    /* padding: 2%; */
+   color: var(--primary);
+}
+
+body {
+
+    text-align: center;
+    background-color: var(--dark-accent);
+}
+nav {
+    padding: 0;
+    margin: 0;
+    background-color: var(--secondary);
+    color: white;
+}
+.container {
+    background-color: var(--secondary);
+    padding: 5%;
+        margin-top: 5%;
+    width: 70%;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 25px;
+    padding: 5%;
+}
+
+.searchLabel {
+    font-size: 25px;
+    padding: 2%;
+}
+
+label {
+    font-size: 20px;
+    padding-top: 2%;
+}
+
+input {
+    padding: 1%;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+ul {
+    text-align: left;
+    font-size: 20px;
+    text-decoration: none;
+}
+.resultsH2 {
+    text-align: left;
+    padding-bottom: 4%;
+}

@@ -1,8 +1,11 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
-<h2>Showing Details for <%= results.Title  %> </h2>
+<h2>Showing Details for: <%= results.Title  %> </h2>
+<div>
 
-<% for(let index in results){ %> 
-    <p><span> <strong><%= index.toUpperCase() %>: </strong> </span> 
-     <span><%= results[index] %> </span> </p>
-<% } %> 
+    <% for(let index in results){ %> 
+        
+        <p><span> <strong><%= index.toUpperCase() %>: </strong> </span> 
+            <span><%= results[index] %> </span> </p>
+            <% } %> 
+</div>
