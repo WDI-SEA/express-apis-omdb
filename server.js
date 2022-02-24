@@ -3,6 +3,8 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios')
+const db = require('./models');
+const { RowDescriptionMessage } = require('pg-protocol/dist/messages');
 
 // const url = `http://www.omdbapi.com/?t=${req.query.search}&apikey=${process.env.OMDB_API_KEY}`
 
@@ -24,17 +26,23 @@ app.get('/',(req,res)=>{
   res.render('index.ejs')
 })
 
-app.get('/results',(req,res)=>{
-  const url = `http://www.omdbapi.com/?s=${req.query.s}&apikey=${process.env.OMDB_API_KEY}`
-  axios.get(url)
-    .then(response=>{
-        console.log(response.data.Search)
-        const searchResults = response.data.Search
-        // res.send(searchResults)
-        res.render('results.ejs', {results: searchResults})
+//
+app.get('/results', async (req,res)=>{
+  // axios.get(`http://www.omdbapi.com/?s=${req.query.s}&apikey=${process.env.OMDB_API_KEY}`)
+  //   .then(response=>{
+  //       console.log(response.data.Search)
+  //       const searchResults = response.data.Search
+  //       // res.send(searchResults)
+  //       res.render('results.ejs', {results: searchResults})
         
-    })
-    .catch()
+  //   })
+  //   .catch()
+    try{
+      const response = await axios.get(`http://www.omdbapi.com/?s=${req.query.s}&apikey=${process.env.OMDB_API_KEY}`)
+      res.render('results.ejs', {results: response.data.Search})
+    }catch(error){
+      console.log(error)
+    }
 })
 
 app.get('/movies',(req,res)=>{
@@ -42,14 +50,37 @@ app.get('/movies',(req,res)=>{
   axios.get(url)
     .then(response=>{
         console.log(response.data)
-        const detailsResults = response.data
-        // res.send(detailsResults)
-        res.render('detail.ejs', {results: detailsResults})
+      
+    
+        
+        res.render('detail.ejs', {results: response.data})
+
     })
     .catch()
 })
+//get /faves -- read all faves from database
+app.get('/faves',async (req,res)=>{ 
+  try {
+    const allFaves = await db.fave.findAll()
+    res.json(allFaves)
+  }catch (error){
+    console.log(error)
+  }
+})
+//post /faves == create a fave and redirect to faves
+app.post('/faves', async (req,res)=>{
+  try {
+    await db.fave.create({
+      title: req.body.title,
+      imdbId: req.body.imdbId
 
-
+    })
+    res.redirect('/faves')
+  }catch(error){
+    console.log(error)
+  }
+  
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000,err=>{

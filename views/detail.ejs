@@ -26,3 +26,10 @@
 </ul>
 
 </div>
+
+<form action="/faves" method="post">
+  <input hidden name="title" value="<%=results.Title%>">
+  <input hidden name="imdbId" value="<%=results.imdbID%>">
+  <input type="submit" value="fave this movie">
+
+</form>

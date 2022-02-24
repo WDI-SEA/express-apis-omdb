@@ -1,0 +1,9 @@
+sequelize model:create --name fave --attributes title:string,imdbId:string
+
+npm i sequelize pg
+sequelize init
+createdb omdb
+touch model_create.txt
+sequelize model:create --name fave --attributes title:string,imdbId:string
+
+
