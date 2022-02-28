@@ -49,9 +49,9 @@ app.get('/movies/:movie_id', (req, res) => {
     })
 })
 
-app.use((req, res) => {
-  res.send('404 error, page not found 🔎')
-})
+// app.use((req, res) => {
+//   res.send('404 error, page not found 🔎')
+// })
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
