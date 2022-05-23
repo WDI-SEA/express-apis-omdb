@@ -17,11 +17,26 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  res.render('index.ejs');
 });
+
+app.get('/search', async (req, res) => {
+  try {
+      //route logic here
+      const searchUrl = `https://www.omdbapi.com/?s=${req.query.userInput}&apikey=${process.env.API_KEY}`
+      const response = await axios.get(searchUrl)
+      res.render('results.ejs', {
+          people: response.data.results,
+          input: req.query.userInput 
+     })
+  } catch(err) {
+      console.log(err)
+  }
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
+
 
 // We can export this server to other servers like this
 module.exports = server;
