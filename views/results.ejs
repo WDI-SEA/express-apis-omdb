@@ -1,2 +1,38 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+   
+    <h1>Click To See Details Of <%=movie.Title%> </h1>
+    <img src="/img/robin-williams-how-exciting.png"/>
+    <style> 
+        #list li {
+            list-style-type: none;
+        }
+
+        body {
+            background-color: darkgrey;
+            text-align: center;
+        }
+        
+        h1 {
+            color: black;
+        }
+        li {
+            font-size: 1.5rem;
+        }
+    </style>
+    <div class="container">
+
+    
+  <ul id="list">
+            <% movie.forEach(function(movie) {%>
+                <li><a href="/result/detail?id=<%=movie.imdbID%>"><%=movie.Title%></a></li>
+            <%})%>
+  </ul>
+  </div>
+
+    
+
+        
+
+
+
+
+

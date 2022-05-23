@@ -1,2 +1,28 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+
+<h1> Welcome to <%=movie.Title%> </h1>
+<style>
+    body {
+        background-color: darkgrey;
+    }
+</style>
+<ul>
+  
+
+    <img src="<%=movieDetails[13][1]%>"/>
+
+    <% for(let i=0; i < 12; i++){ %>
+        <li><%=movieDetails[i][0]%>  <%=movieDetails[i][1]%></li>
+    <%}%>
+         
+
+    <!-- <% movieDetails.forEach(detail => { %>
+        <div>
+            <li><%= detail %> </li>
+        </div>
+    <% }) %>
+          -->
+</ul>
+
+
+
+
