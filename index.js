@@ -1,5 +1,6 @@
 // require packages
 const express = require('express')
+require('dotenv').config();
 const axios = require('axios')
 const ejsLayouts = require('express-ejs-layouts')
 // app config
@@ -11,6 +12,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.static('static'))
 
+
 // routes
 app.get('/', (req, res) => {
     res.render('index.ejs')
@@ -18,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res)=>{
     const searchUrl = `https://www.omdbapi.com/?s=${req.query.userInput}&apikey=${process.env.API_KEY}`
+    console.log(searchUrl)
     axios.get(searchUrl)
         .then(response => {
             console.log(response.data.Search)

@@ -16,10 +16,41 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
-});
+pp.get('/', (req, res) => {
+  res.render('index.ejs')
+})
 
+app.get('/search', (req, res)=>{
+  const searchUrl = `https://www.omdbapi.com/?s=${req.query.userInput}&apikey=${process.env.API_KEY}`
+  console.log(searchUrl)
+  axios.get(searchUrl)
+      .then(response => {
+          console.log(response.data.Search)
+          res.render('results.ejs', {
+              searches: response.data.Search,
+              input: req.query.userInput,
+          })
+          
+      })
+      .catch(console.warn)
+})
+app.get('/movies/:movieId', (req, res) => {
+  const searchUrl = `https://www.omdbapi.com/?i=${req.params.movieId}&apikey=b4e369a1`
+  
+  axios.get(searchUrl)
+  
+      .then(response => {
+          
+          console.log(response.data)
+          res.render('detail.ejs', {
+              data: response.data,
+              input: req.query.userInput,
+              
+          })
+          
+      })
+      .catch(console.warn)
+})
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
