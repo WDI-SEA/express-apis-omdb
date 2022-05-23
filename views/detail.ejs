@@ -1,2 +1,42 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<% if (movie.Poster === 'N/A') { %>
+    <p>Poster not available</p>
+<%} else { %>
+    <img src="<%= movie.Poster %>" alt="<%= movie.Title %> Poster Image"/>
+
+<% } %>
+<hr>
+<ul>
+    <li><span class='category'>Title:</span> <%= movie.Title %>  </li>
+    <li><span class='category'>Year: </span><%= movie.Year %>  </li>
+    <li><span class='category'>Rated: </span><%= movie.Rated %>  </li>
+    <li><span class='category'>Released: </span><%= movie.Released %>  </li>
+    <li><span class='category'>Runtime: </span><%= movie.Runtime %>  </li>
+    <li><span class='category'>Genre: </span><%= movie.Genre %>  </li>
+    <li><span class='category'>Director: </span><%= movie.Director %>  </li>
+    <li><span class='category'>Writer: </span><%= movie.Writer %>  </li>
+    <li><span class='category'>Actors: </span><%= movie.Actors %>  </li>
+    <li><span class='category'>Plot: </span><%= movie.Plot %>  </li>
+    <li><span class='category'>Awards: </span><%= movie.Awards %>  </li>
+    <li><span class='category'>Box Office: </span><%= movie.BoxOffice %>  </li>
+    <li><span class='category'>IMDB Rating: </span><%= movie.imdbRating %>  </li>
+    <li class='category'id="stars">
+        <% for (let i=0;i<=Number(movie.imdbRating);i++) { %> 
+             <span class="fa fa-star checked"></span>
+            <% } %> 
+        <% for (let i=10;i>=Number(movie.imdbRating);i--) { %> 
+            <span class="fa fa-star"></span>
+            <% } %> 
+    </li>
+    <% movie.Ratings.forEach(rating => {     
+         if (rating.Source==='Rotten Tomatoes') {  %> 
+            <li>Rotten Tomatoes Score: <%=  rating.Value %></li>
+            <% } %>
+        <% }) %>
+  
+            
+        
+    </li>
+</ul>

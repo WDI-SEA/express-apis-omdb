@@ -1,2 +1,18 @@
 <h1>OMDB Movie Search</h1>
 <p>Search for a movie below...</p>
+
+<!-- 
+    fullstack forms need a method 
+    property and an action property 
+    method: type of http request
+    action: url to perform the request on 
+    inputs need name properties
+    name = key in the query string of a 
+    GET request form 
+-->
+
+<form method="GET" action="/results">
+    <label for="search">Movie</label>
+    <input type="text" name="q" id="search" placeholder="Movie Name">
+    <input type="submit" value="Search"/>
+</form>

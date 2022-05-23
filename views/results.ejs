@@ -1,2 +1,23 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h2>Your search: <%= query %> </h2>
+<h2>Results:</h2>
+<div id="results-container">
+    
+    <% if (movies) {
+        movies.forEach(movie => { %>
+        <div class="movie-container">
+            <a class="movie-titles"href="/movies/<%= movie.imdbID %>"><%=movie.Title%></a>    
+        </div>
+    <% }) %>
+    
+     <% } else { %>
+        
+        <p>No movies found. Change your search and try again.</p>
+    <%}%>
+   
+    
+
+
+</div> 
+
