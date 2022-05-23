@@ -1,2 +1,8 @@
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
+<% const { Title, Runtime, Director, Actors, Plot, Poster } = movieDetails %>
+
+<img src="<%= Poster %>" alt="<%= Title %>" />
+<h2><%= Title %></h2>
+<p>Runtime: <%= Runtime %></p>
+<p>Director/s: <%= Director %></p>
+<p>Actors: <%= Actors %></p>
+<p>Plot: <%= Plot %></p>
