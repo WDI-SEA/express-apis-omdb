@@ -1,2 +1,19 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<% const {Title, Poster, Actors, Director, Plot, Rated, Released, Runtime, Awards}=movie %> 
+<h1><%= Title %></h1>
+<img src="<%= Poster %>"/>
+<h2><%= Released %></h2>
+<h3><%= Plot %></h3>
+<h3><%= Rated %></h3>
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+<ul>
+    <li>Directors: <%= Director %></li>
+    <li>Actors: <%= Actors %></li>
+    <li>Runtime: <%= Runtime %></li>
+    <li>Awards: <%= Awards %></li>
+</ul>
