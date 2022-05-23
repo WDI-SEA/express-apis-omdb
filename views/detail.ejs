@@ -1,2 +1,11 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<% const detailsArr = Object.entries(details) %>
+<h2><%=details.Title%> Details</h2>
+<img src="<%=detailsArr[13][1]%>">    
+<ul>
+    <% for(i=0;i<13;i++){%>
+        <li><%=detailsArr[i][0]%>: <%=detailsArr[i][1]%></li>
+    <%}%> 
+</ul>
