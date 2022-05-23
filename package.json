@@ -3,16 +3,23 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run start:dev",
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production node server.js",
     "lint:js": "node_modules/eslint/bin/eslint.js ./ ./**/*.js --fix; exit 0",
     "lint:css": "node_modules/csslint/cli.js public/css/; exit 0"
   },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^8.1.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "nodemon": "^2.0.16"
   }
 }
