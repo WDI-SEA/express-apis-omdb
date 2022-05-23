@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 // search route
 app.get('/search', async (req, res)=>{
   try{
-    const searchUrl = `http://www.omdbapi.com/?apikey=1a0630f7&s=${req.query.userInput}`
+    const searchUrl = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${req.query.userInput}`
     const response = await axios.get(searchUrl)
     // console.log(response.data.Search)
     res.render('results.ejs', {
@@ -41,7 +41,7 @@ app.get('/search', async (req, res)=>{
 app.get('/movies/:movie_id', async (req, res)=>{
   // console.log(req.params.movie_id)
   try{
-    const searchUrl = `http://www.omdbapi.com/?apikey=1a0630f7&i=${req.params.movie_id}`
+    const searchUrl = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${req.params.movie_id}`
     const response = await axios.get(searchUrl)
     // console.log(searchUrl)
     // res.render('detail.ejs', {movie: response.data})
