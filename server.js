@@ -6,6 +6,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios')
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -42,7 +43,7 @@ app.get('/results', function(req,res) {
   
 })
 
-app.get('/movies/:movie_id', (req,res) => {
+app.get('/details/:movie_id', (req,res) => {
   console.log(req.params, 'query')
   const detailsURL = `https://www.omdbapi.com/?i=${req.params.movie_id}&apikey=${process.env.API_KEY}`
   axios.get(detailsURL) 
@@ -56,6 +57,23 @@ app.get('/movies/:movie_id', (req,res) => {
     console.log(err)
   })
 })
+app.post('/faves', async (req,res) => {
+  // create a new fave in the db
+  await db.fave.create({
+    title: req.body.title,
+    imdbid: req.body.imdbid
+  })
+  // redirect to show all faves
+  res.redirect('/faves')
+})
+app.get('/faves', async (req,res) => {
+  // get all faves from db 
+  const faves = await db.fave.findAll()
+  res.render('faves', {
+    faves: faves
+  })
+})
+
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3001);

@@ -8,6 +8,13 @@
 
 <% } %>
 <hr>
+<!-- form to create a new fave -->
+<form method="POST" action="/faves">
+    <input hidden value="<%=movie.Title%>" name="title"/>
+    <input hidden value="<%=movie.imdbID%>" name="imdbid"/>
+    <button type="submit">FAVE this movie!</button>
+</form >
+<hr>
 <ul>
     <li><span class='category'>Title:</span> <%= movie.Title %>  </li>
     <li><span class='category'>Year: </span><%= movie.Year %>  </li>
@@ -32,7 +39,7 @@
     </li>
     <% movie.Ratings.forEach(rating => {     
          if (rating.Source==='Rotten Tomatoes') {  %> 
-            <li>Rotten Tomatoes Score: <%=  rating.Value %></li>
+            <li><span class='category'>Rotten Tomatoes Score:</span> <%=  rating.Value %></li>
             <% } %>
         <% }) %>
   

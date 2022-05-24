@@ -7,9 +7,10 @@
     <% if (movies) {
         movies.forEach(movie => { %>
         <div class="movie-container">
-            <a class="movie-titles"href="/movies/<%= movie.imdbID %>"><%=movie.Title%></a>    
+            <a class="movie-titles"href="/details/<%= movie.imdbID %>"><%=movie.Title%></a>   
         </div>
     <% }) %>
+    
     
      <% } else { %>
         

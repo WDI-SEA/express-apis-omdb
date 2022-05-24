@@ -1,0 +1,6 @@
+table: fave
+
+title: VARCHAR(255)
+imdbid: VARCHAR(255)
+
+sequelize model:create --name fave --attributes title:string,imdbid:string
