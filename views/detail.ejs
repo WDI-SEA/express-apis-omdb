@@ -1,2 +1,28 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h2><%= movie.Title %> (<%= movie.Year %>)</h2>
+<img src="<%= movie.Poster %>" alt="Poster from <%= movie.Title %>">
+<p><span style="font-weight: bold">Rating: </span><%= movie.Rated %><br>
+<span style="font-weight: bold">Released: </span><%= movie.Released %><br>
+<span style="font-weight: bold">Runtime: </span><%= movie.Runtime %><br>
+<span style="font-weight: bold">Genre(s): </span><%= movie.Genre %><br>
+<span style="font-weight: bold">Director(s): </span><%= movie.Director %><br>
+<span style="font-weight: bold">Writer(s): </span><%= movie.Writer %><br>
+<span style="font-weight: bold">Actor(s): </span><%= movie.Actors %><br>
+<span style="font-weight: bold">Plot: </span><%= movie.Plot %><br>
+<span style="font-weight: bold">Language: </span><%= movie.Language %><br>
+<span style="font-weight: bold">Country: </span><%= movie.Country %><br>
+<span style="font-weight: bold">Award(s): </span><%= movie.Awards %><br>
+<span style="font-weight: bold">Rating(s): </span><br>
+<% movie.Ratings.forEach(rating => { %>
+    <%= rating.Source %>: <%= rating.Value %><br>
+<% }) %>
+<span style="font-weight: bold">Metascore: </span><%= movie.Metascore %><br>
+<span style="font-weight: bold">IMDb Rating: </span><%= movie.imdbRating %><br>
+<span style="font-weight: bold">IMDb Votes: </span><%= movie.imdbVotes %><br>
+<span style="font-weight: bold">IMDb ID: </span><%= movie.imdbID %><br>
+<span style="font-weight: bold">Type: </span><%= movie.Type %><br>
+<span style="font-weight: bold">DVD Released: </span><%= movie.DVD %><br>
+<span style="font-weight: bold">Box Office Earnings: </span><%= movie.BoxOffice %><br>
+<span style="font-weight: bold">Production: </span><%= movie.Production %><br>
+<span style="font-weight: bold">Website: </span><%= movie.Website %></p>

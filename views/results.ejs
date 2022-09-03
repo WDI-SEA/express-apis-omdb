@@ -1,2 +1,11 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h3><%= searchResult.Search.length %> results for <%= searchInput %></h3>
+<% searchResult.Search.forEach(result => { %>
+        <span style="display: inline-block; max-width: 300px">
+            <a href="/movies/<%= result.imdbID %>">
+                <p style="text-align: center"><%= result.Title %> (<%= result.Year %>)</p>
+                <img src="<%= result.Poster %>" alt="Poster from <%= result.Title %>">
+            </a>
+        </span>
+<% }) %>
