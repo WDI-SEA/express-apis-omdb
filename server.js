@@ -20,19 +20,38 @@ app.use(require('morgan')('dev'));
 app.get('/', function(req, res) {
   res.render('index.ejs');
 });
-app.get('/movies/:movie_id', (req,res) =>{
-  
-})
+
+//initial API call
 app.get('/results', (req,res)=>{
   // console.log(req.query)
   const url = `https://www.omdbapi.com/?apikey=6efcb7db&s=${req.query.userInput}`
   axios.get(url)
     .then(response =>{
       // console.log(url)
-      console.log(response.data.Search)
+      // console.log(response.data.Search)
       res.render('results.ejs', {
         input: req.query.userInput,
         movies: response.data.Search
+      })
+      
+    })
+    .catch(console.warn)
+
+})
+
+//second call for details
+app.get('/movies/:movie_id', (req,res)=>{
+  console.log(req.query)
+  const movie_id = req.params.movie_id
+  const url = `http://www.omdbapi.com/?apikey=6efcb7db&i=${movie_id}`
+  console.log(url)
+  axios.get(url)
+    .then(response =>{
+      // console.log(url)
+      console.log(response.data)
+      res.render('detail.ejs', {
+        data: response.data,
+        title: response.data.title
       })
       
     })

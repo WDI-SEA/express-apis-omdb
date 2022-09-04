@@ -3,6 +3,6 @@
 <h1>Results for <%- input %></h1>
 <% movies.forEach(movie =>{ %>
     <div>
-         <h3><a href="https://www.imdb.com/title/<%=movie.imdbID%>"><%= movie.Title %></a></h3>
+         <h3><%= movie.Title %> <a href="/movies/<%=movie.imdbID%>">more details...</a></h3>
     </div>
 <%})%>
