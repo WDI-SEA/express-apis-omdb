@@ -53,5 +53,3 @@ var server = app.listen(process.env.PORT);
 
 // We can export this server to other servers like this
 module.exports = server;
-
-// omdb data request: http://www.omdbapi.com/?apikey=ab979836&?s=
