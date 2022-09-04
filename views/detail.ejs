@@ -1,6 +1,6 @@
 <div style="text-align: center;">
 <h1> <%= movie.Title %></h1>
-<img src="<%=movie.Poster%>"/>
+<img src="<%=movie.Poster%>" alt="<%= movie.Title %>"/>
 <p>Rated level: <%= movie.Rated %></p>
 <p>Released on: <%= movie.Released %></p>
 <p>Runtime: <%= movie.Runtime %></p>
@@ -14,9 +14,13 @@
 <p>Awards: <%= movie.Awards %></p>
 <p> Ratings:</p>
 <% movie.Ratings.forEach(info => { %>
-    <li> <%= `${info.Source} ${info.Value}`%> </li>
+    <li> <%= `${info.Source} - ${info.Value}`%> </li>
 <% }) %>
-
+<p>Metascore: <%= movie.Metascore %></p>
+<p>IMDB Rating: <%= movie.imdbRating %></p>
+<p>IMDB Votes: <%= movie.imdbVotes %></p>
+<p>DVD Release: <%= movie.DVD %></p>
+<p>Box Office Estimate: <%= movie.BoxOffice %></p>
 </div>
 
 

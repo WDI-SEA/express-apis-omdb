@@ -18,6 +18,9 @@ app.get('/', (req, res) => {
 
 app.get('/results', (req,res) => {
     // console.log(req.query)
+    if(req.query.userInput === '') {
+        res.render('index.ejs')
+    }
     const url = `http://www.omdbapi.com/?s=${req.query.userInput}${apiKey}`
     axios.get(url)
         .then(response => {
@@ -39,7 +42,7 @@ app.get('/movies/:movie_id', (req, res) => {
             movie: response.data,
         })
     })
-    .catch(console.error)
+    .catch(console.error('go back to homepage son'))
 })
 
 
