@@ -27,7 +27,7 @@ app.get('/results', (req,res) => {
                 movie: response.data.Search,
             })
         })
-        .catch(console.error)
+        .catch(console.error('go back to homepage son'))
 })
 
 app.get('/movies/:movie_id', (req, res) => {

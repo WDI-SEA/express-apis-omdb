@@ -1,14 +1,20 @@
-<h1> movie.Title</h1>
-<p>movie.Year</p>
-movie.Rated
-movie.Released. 
-movie.Runtime
-movie.Genre
-movie.Director
-movie.Writer
-movie.Actors
-movie.Plot
-movie.Language
-movie.Country
-movie.Awards
-movie.Poster
+<div style="text-align: center;">
+<h1> <%= movie.Title %></h1>
+<img src="<%=movie.Poster%>"/>
+<p>Rated level: <%= movie.Rated %></p>
+<p>Released on: <%= movie.Released %></p>
+<p>Runtime: <%= movie.Runtime %></p>
+<p>Genre: <%= movie.Genre %></p>
+<p>Director: <%= movie.Director %></p>
+<p>Writer(s): <%= movie.Writer %></p>
+<p>Actor(s): <%= movie.Actors %></p>
+<p>Plot: <%= movie.Plot %></p>
+<p>Language: <%= movie.Language %></p>
+<p>Country produced: <%= movie.Country %></p>
+<p>Awards: <%= movie.Awards %></p>
+<p> Ratings:</p>
+<% movie.Ratings.forEach(info => { %>
+    <li> <%= `${info.Source} ${info.Value}`%> </li>
+<% }) %>
+
+</div>
