@@ -31,7 +31,7 @@ app.get('/results', (req,res) => {
 })
 
 app.get('/movies/:movie_id', (req, res) => {
-    const url = `http://www.omdbapi.com/?i=${req.query}${apiKey}`
+    const url = `http://www.omdbapi.com/?i=${req.params.movie_id}${apiKey}`
     axios.get(url)
     .then(response => {
         console.log(response.data)

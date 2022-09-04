@@ -4,8 +4,7 @@
 <h1>Results for <%=input %></h1>
 
 <% movie.forEach(title => { %>
-<a href="/movies/<%=title.imdbID%>&apikey=e40f21b5">    
+<a href="/movies/<%=title.imdbID%>">    
     <li> <%= title.Title %> </li>
 </a>
    <% }) %>
-
