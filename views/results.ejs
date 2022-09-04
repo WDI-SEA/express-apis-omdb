@@ -3,6 +3,9 @@
 
 <h1>Results for <%=input %></h1>
 
-<h3> <%= movie.Title  %></h3>
+<% movie.forEach(title => { %>
+<a href="/movies/<%=title.imdbID%>&apikey=e40f21b5">    
+    <li> <%= title.Title %> </li>
+</a>
+   <% }) %>
 
-<p> <%= movie.imdbID %> </p>
