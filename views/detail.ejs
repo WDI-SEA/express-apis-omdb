@@ -1,2 +1,24 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<p><%=data.Title %> (<%=data.Year %>)</p>
+<!-- Displays movie title and year released -->
+<img src="<%=data.Poster %>" alt="<%=data.Title %>">
+<p><%=data.Plot %></p>
+<!-- Displays poster of selected movie -->
+<br>
+<%=data.Title %>was released in <%=data.Year %>. It was directed by <%=data.Director %> and stars <%=data.Actors %>."
+<!-- displays year released, director, and actors of the film -->
+<br>
+<%=data.Title %> was rated <%=data.Rated %> and has a runtime of <%=data.Runtime %>.
+<!-- displays rating and runtime of the film -->
+<br>
+<%=data.Title %> was released in <%=data.Country %> and has a language of <%=data.Language %>.
+<!-- displays country of origin and language of the film -->
+<br>
+<%=data.Title %> has a rating of <%=data.imdbRating %> on IMDB.
+<!-- displays IMDB rating of the film -->
+<br>
+<%=data.Title %> has a rating of <%=data.Ratings[1].Value %> on Rotten Tomatoes.
+<!-- displays Rotten Tomatoes rating of the film -->
+<br>
+

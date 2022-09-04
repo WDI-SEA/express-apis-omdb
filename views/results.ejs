@@ -1,21 +1,14 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
 
-<% if (data == null) { %>
-    <p>No results. Please try refining your search terms.</p>
-    <% } else { %>
-     
-    <ul>
-        <% data["Search"].forEach(function(movie) { %>
-        <li>
-            <strong>
-                <%= movie["Title"] %>
-            </strong>
-            - <%=movie["Year"]%>
-        </li>
-        <% }) %>
-    </ul>
-     
-    <% } %>
-     
-    <a href="/">Search Again!</a>
+
+<!-- total results found -->
+<h2>Results found: <%= data.Search.length %><h2>
+<% data.Search.forEach(result => { %>
+            <a href="/movies/<%= result.imdbID %>">
+                <p><%= result.Title %> (<%= result.Year %>)</p>
+                <img src="<%= result.Poster %>"<%= result.Title %>">
+            </a>
+        </span>
+<% }) %
+// a for each loop that displays the title, year, and poster of each movie in the search results
