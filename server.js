@@ -20,6 +20,9 @@ app.use(require('morgan')('dev'));
 app.get('/', function(req, res) {
   res.render('index.ejs');
 });
+app.get('/movies/:movie_id', (req,res) =>{
+  
+})
 app.get('/results', (req,res)=>{
   // console.log(req.query)
   const url = `https://www.omdbapi.com/?apikey=6efcb7db&s=${req.query.userInput}`
