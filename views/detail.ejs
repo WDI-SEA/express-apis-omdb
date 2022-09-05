@@ -1,16 +1,29 @@
-
-<h1>Details for <%= data.Title %></h1>
-<ul>
-<% data.Ratings.forEach(rating =>{ %>
-    <li><%= rating.Source %>: <%= rating.Value %></li>
-<%})%>
-</ul>
 <img src="<%= data.Poster %>" alt="<%=data.Title%> poster">
+<br />
+<%if(data.imdbRating <= 2){%>
+        <%= data.imdbRating = "⭐️" %>
+    <%}else if(data.imdbRating <= 4){%>
+        <%=data.imdbRating = "⭐️⭐️" %>
+    <%}else if(data.imdbRating <=6){%>
+        <%=data.imdbRating = "⭐️⭐️⭐️" %>
+    <%}else if(data.imdbRating <= 8){%>
+        <%=data.imdbRating = "⭐️⭐️⭐️⭐️" %>
+    <%}else if(data.imdbRating <=10){ %>
+        <%= data.imdbRating = "⭐️⭐️⭐️⭐️⭐️" %>
+    <%}%>
+<h3><%=data.Title%></h3>
 <ul>
-    <li>Year: <%= data.Year %></li>
+    <li>Genre: <%= data.Genre %></li>
+    <li>Rated: <%= data.Rated %></li>
+    <li>Runtime: <%= data.Runtime%></li>
     <li>Released: <%= data.Released %></li>
     <li>Director: <%= data.Director %></li>
     <li>Actors: <%= data.Actors %></li>
-    <li>BoxOffice: <%= data.BoxOffice %></li>
+    <li>Box Office: <%= data.BoxOffice %></li>
     <li>Plot: <%= data.Plot %></li>
 </ul>
+<p>Ratings:</p>
+<ul>
+    <% data.Ratings.forEach(rating =>{ %>
+        <li><%= rating.Source %>: <%= rating.Value %></li>
+    <%})%>
