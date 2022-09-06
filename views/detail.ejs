@@ -1,2 +1,12 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<p> <img src = <%= movies.Poster %>></p>
+<p> <%= movies.Title %></p>
+<p> <%= movies.Year %></p>
+<p> <%= movies.Director %></p>
+<p> <%= movies.Actors %></p>
+<p> <%= movies.Plot %></p>
+<p>imdbRating: <%= movies.imdbRating %></p>
+<% if (movies.Ratings.length > 1) { %>
+    <p>Rotten Tomatoes: <%= movies.Ratings[1].Value %></p>
+<% } %>
