@@ -1,2 +1,18 @@
 <h1>OMDB Movie Search</h1>
 <p>Search for a movie below...</p>
+
+<!-- 
+    form -- a way to deliver a data payload from the user to our server
+    two import properties for a form element to have when it communicates with a server
+    1. method = what kind of http request its going to do
+        * you can make GET (READ) requests <-- finding search results
+        * you can make POST (CREATE) request
+    2. action = is the url (route) that takes in the form data
+ -->
+
+<form method="GET" action="/search">
+    <label for="search-input">Search:</label>
+    <input id="search-input" type="text" placeholder="enter your query..." name="userInput" />
+
+    <button type="submit">Submit</button>
+ </form>
