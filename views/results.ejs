@@ -1,2 +1,18 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h2>Results for <%= input %></h2>
+<img src="<%= movies.Poster %>">
+<% for(const item in movies) { %>
+    <% if(item === 'imdbID') { %>
+        <%= item %>: <a href="/movies/<%= movies[item] %>" style="color:aqua;"><%= movies[item] %></a>
+    <% } else if(item === "Ratings") { %>
+        <p style="margin:0;"><%= item %>: <% for(let i = 0; i < movies[item].length; i++) { %>
+            <% for(const ratingItem in movies[item][i]) { %>
+                <p style="margin:0; margin-left: 20px;"><%= ratingItem %>: <%= movies[item][i][ratingItem]%></p>
+            <% } %> </p>
+        <% }%>    
+    <% } else if(item != "Ratings" && item != "Poster" && item != "Response" && item != "imdbID") {  %>
+        <p style="margin:0;"><%= item %>: <%= movies[item] %></p>
+    <% }%>   
+<% } %>   
+
