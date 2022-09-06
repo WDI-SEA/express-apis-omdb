@@ -1,2 +1,26 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+
+<h2>Results for <%= input %></h2>
+
+<% movies.forEach(movie => { %>
+    <div>
+        <h3><%= movie.title %></h3>
+        
+        <p> <%= movie.actors %></p>
+
+        <a href="<%= movie %>"></a>
+    </div>
+<% }) %>
+
+
+<% moviesList.forEach(title => { %>
+    <div>
+        <h3><%= title %></h3>
+        
+        <p> <%= console.log("what the f*ck are we doing out here in the middle of the desert, man?") %></p>
+
+        <a href="<%= title %>"></a>
+    </div>
+<% }) %>
