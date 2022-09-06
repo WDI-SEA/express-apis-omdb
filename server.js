@@ -29,14 +29,41 @@ app.use(require('morgan')('dev'));
 //         })
 // })
 
-console.log('process.ens:', process.env.API_KEY)
-// 
-console.log(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.API_KEY}`)
+// console.log('process.ens:', process.env.API_KEY)
+// // 
+// console.log(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.API_KEY}`)
 
-// Routesq
+// Routes
+// GET / -- show search form for OMDB
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  res.render(`index.ejs`)
 });
+
+// GET /results -- take in data from search form, render search results from OMDB
+app.get('/results', (req, res) => {
+  console.log(req.query)
+  const userSearch = req.query.movieInput  
+  // res.send(`this should be search research`)
+  // make HTTP request to the ape, supplyin to the uers inpute to a searh query string
+  axios.get(`http://www.omdbapi.com/?s=${userSearch}&apikey=${process.env.API_KEY}`)
+  // pass the data to the results template and render the data
+      .then(response => {
+        console.log(response.data)
+        res.render('results.ejs') {
+          movies: response.data.Search,
+          // userSearch: userSearch
+          userSearch
+      })
+      .catch(err => {
+        console.log(err)
+        res.send('server error 😭')
+      })
+})
+
+// GET /movies/:id -- render a page of details about a single movie with an id 
+app.get('/movies/:id', (req, res) => {
+  res.send(`show the deets on the movie with id: ${req.params.is}`)
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);

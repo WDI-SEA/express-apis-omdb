@@ -1,9 +1,17 @@
-<h2>Results for <%= input %></h2>
+<% // render your search results here %>
+<% // this is how to comment in ejs btw %>
 
-<% people.forEach(person => { %>
+<h1>Search Results for</h1>
+<h1><%= userSearch %></h1>
+
+<% movies.forEach(movie => { %>
     <div>
-        <h3><%= person.name %></h3>
-        <p>eye color: <%= person.eye_color %></p>
-        <a href="<%= person.homeworld %>">Homeworld</a>
+        <h3><%= movie.Title %></h3>
+        
+        <p><%= movie.year %></p>
+
+
+
+        <a href="/movies/<%= movie.imdbID %>">gimme the deets</div>a>
     </div>
-<% }) %> 
+})

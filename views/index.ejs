@@ -2,17 +2,13 @@
 <p>Search for a movie below...</p>
 
 <!-- 
-    form -- a way to deliver a data payload from the user to our server
-    two import properties for a form element to have when it communicates with a server
-    1. method = what kind of http request its going to do
-        * you can make GET (READ) requests <-- finding search results
-        * you can make POST (CREATE) request
-    2. action = is the url (route) that takes in the form data
+    search form that lets user search the OMBD api
+
  -->
 
- <form method="GET" action="/search">
+ <form method="GET" action="/results">
     <label for="search-input">Search:</label>
-    <input id="search-input" type="text" placeholder="enter your query..." name="userInput" />
+    <input id="search-input" type="text" placeholder="enter your search..." name="movieInput" />
 
-    <button type="submit">Submit</button>
+    <button type="submit">Search OMBD</button>
  </form>
