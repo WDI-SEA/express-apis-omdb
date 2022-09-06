@@ -3,6 +3,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const axios = require('axios');
 const app = express();
+const API_KEY = process.env.API_KEY
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
 // Specifies the location of the static assets folder
@@ -25,7 +26,7 @@ app.get('/', function(req, res) {
 //initial API call
 app.get('/results', (req,res)=>{
   // console.log(req.query)
-  const url = `https://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${req.query.userInput}`
+  const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${req.query.userInput}`
   axios.get(url)
     .then(response =>{
       console.log(url)
