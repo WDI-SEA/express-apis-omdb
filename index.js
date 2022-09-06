@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { default: axios } = require("axios")
 const express = require("express")
 
@@ -13,7 +14,7 @@ console.log(process.env)
 
 app.get("/results", (req, res) => {
     console.log(req.query)
-    const url = `http://www.omdbapi.com/?t=${req.query.q}&apikey=${API_KEY}&`
+    const url = `http://www.omdbapi.com/?t=${req.query.q}&apikey=${process.env.API_KEY}&`
     axios.get(url)
         .then(response => {
             // console.log(response.data)
@@ -28,7 +29,7 @@ app.get("/results", (req, res) => {
 
 app.get("/movies/:movie_id", (req, res) => {
     console.log(req.query)
-    const url = `http://www.omdbapi.com/?i=${req.query.i}&apikey=${API_KEY}&`
+    const url = `http://www.omdbapi.com/?i=${req.query.i}&apikey=${process.env.API_KEY}&`
     axios.get(url)
         .then(response => {
             console.log(response.data)
