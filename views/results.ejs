@@ -1,2 +1,20 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<h1>Search results for <%= userSearch %> </h1>
+<% movies.forEach(movie => { %>
+    <div>
+        <h3><%= movie.Title %></h3>
+
+        <p><%= movie.Year %> </p>
+
+        <% if (movie.Poster != 'N/A') { %>
+            <img src="<%= movie.Poster %>" alt="<%= movie.Title %>" />
+
+        <% } else { %>
+            <p>no movie poster found</p>
+        <% } %>
+
+        <a href="/movies/<%= movie.imdbID %>">gimme the deets</a>
+    </div>
+<% }) %>
