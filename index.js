@@ -48,5 +48,5 @@ app.get('/search', (req, res) => {
 })
 // listen on a port
 app.listen(PORT, () => {
-    console.log(`LIstening to ${PORT}`)
+    console.log(`Listening to ${PORT}`)
 })
