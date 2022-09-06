@@ -2,5 +2,15 @@
 <% // This is how to do comments in EJS, by the way... %>
 
 
-<h2>Your Movie Details</h2>
-    href = movies/movieID
+<h2><%= data.Title %></h2>
+
+<ul>
+    <li>Genre:<%=  data.Genre %></li>
+    <li>Rated:<%=  data.Rated %></li>
+    <li>Runtime:<%=  data.Runtime %></li>
+    <li>Released:<%=  data.Released %></li>
+    <li>Director:<%=  data.Director %></li>
+    <li>Actors:<%=  data.Actors %></li>
+    <li>Plot:<%=  data.Plot %></li>
+    <li>Box Office: <%= data.BoxOffice%></li>
+</ul>
