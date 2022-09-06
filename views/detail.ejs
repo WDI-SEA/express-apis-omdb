@@ -1,2 +1,27 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<h1> <%= movie.Title %> released in <%= movie.Year %> </h1>
+<h2> <%= movie.Plot %> </h2>
+<img src="<%=movie.Poster%>" alt="<%=movie.Title%> Poster" >
+<h3> Starring <%= movie.Actors %> 
+<br> Written by: <%= movie.Writer %> 
+<br> Directed by: <%= movie.Director %> </h3>
+
+<div>
+    <p> IMDB rated this movie a <%= movie.imdbRating %> out of <%= movie.imdbVotes %> votes</p>
+    <!-- <div id="rating">
+         if (<%= movie.imdbRating %> <= 2){
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Star_rating_1_of_5.png" alt="one star" >
+        } else (<%= movie.imdbRating %> <= 3 && <%= movie.imdbRating %> > 2) {
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Star_rating_2_of_5.png/640px-Star_rating_2_of_5.png" alt="two star rating" >
+        } else (<%= movie.imdbRating %> <= 4 && <%= movie.imdbRating %> > 3) {
+            <img src="https://static.wixstatic.com/media/aeae34_7be09a030be845cca499789210eca3a4~mv2.png/v1/fit/w_850%2Ch_162%2Cal_c/file.png" alt="three star rating" >
+        } else (<%= movie.imdbRating %> <= 5 && <%= movie.imdbRating %> > 4) {
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Star_rating_4_of_5.png" alt="four star rating" >
+        } else (<%= movie.imdbRating %> === 5) {
+            <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2021/08/a-guide-to-star-ratings-on-google-and-how-they-work-6123be39b9f2d-sej-1520x800.jpg" alt="five star rating" >
+        }
+    </div> -->
+    <p> <%= movie.Ratings[1].Source %> rated this movie <%= movie.Ratings[1].Value %> </p>
+</div>
