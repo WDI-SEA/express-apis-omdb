@@ -36,7 +36,7 @@ app.get('/movies/:movie_id', function(req, res) {
   axios.get(url)
     .then(response => {
       res.render("detail.ejs", {
-        details: response.data,
+        details: response.data
       })
          })
     })
