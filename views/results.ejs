@@ -1,2 +1,14 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h2>Result for <%= searched %></h2>
+<% let count =0 %>
+<% movieResult.forEach(movie=>{ %>
+    <%count ++ %>
+    <ul>
+        <li>
+            <div>
+                <a href="/detail/<%= movie.imdbID%>"><%= movie.Title %></a> 
+            </div>
+    </li>
+</ul>
+<%})%>
