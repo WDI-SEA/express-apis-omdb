@@ -1,2 +1,10 @@
-<% // Render your search results here %>
-<% // This is how to do comments in EJS, by the way... %>
+<img src="<%=img%>" alt="<%= infoPacket.Title %>">
+<% for (const property in infoPacket) { %> 
+    <div>
+        <%=property%>
+        <%= infoPacket[property]%> 
+    </div>
+<% } %>
+<a href="/movies/<%= id %>">
+    <%= infoPacket.Title %>
+</a>
