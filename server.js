@@ -15,6 +15,12 @@ app.use(ejsLayouts);
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
 
+const API_KEY = process.env.API_KEY
+
+console.log('process.env:', process.env.API_KEY)
+// https://www.omdbapi.com/?i=tt3896198&apikey=4f54b295
+
+console.log(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`)
 // Routes
 app.get('/', function(req, res) {
   res.send('Hello, backend!');
