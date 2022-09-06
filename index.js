@@ -20,8 +20,8 @@ app.get('/search', (req, res) => {
     // GET forms create query strings
     console.log(req.query)
     const url = `http://www.omdbapi.com/?s=${req.query.userInput}&page=1&apikey=6c951869`
-    const url2 = `http://www.omdbapi.com/?s=${movie.imdbID}&apikey=6c951869`
-    // make a http request to the SWAPI
+    
+    // make a http request to the omdbapi
     axios.get(url)
         .then(response => {
             console.log(response.data)
@@ -30,16 +30,22 @@ app.get('/search', (req, res) => {
                 input: req.query.userInput,
                 movies: response.data.Search
             })
-        }).catch(console.error)
-        
-        // .then(forEach.movie => {
-        //     res.render('detail.ejs', {
-        //         imdb: response.data.Search
-        //     })
-        // })
-        
+        }).catch(console.error)  
 })
 
+app.get('/search', (req, res) => {
+    const url2 = `http://www.omdbapi.com/?s=${movie.imdbID}&apikey=6c951869`
+    axios.get(url)
+        .then(response => {
+            // render the data to the user
+            res.render('detail.ejs', {
+                movies: movie.imdbID
+            })
+        }).catch(console.error)  
+
+
+
+})
 // listen on a port
 app.listen(PORT, () => {
     console.log(`LIstening to ${PORT}`)

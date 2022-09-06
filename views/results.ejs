@@ -5,13 +5,12 @@
 
 
 
-<h2>Results for <%= input %></h2>
+<h2>Results for <%= movie.imdbID %></h2>
 
 <% movies.forEach(movie => { %>
     <div>
         <h3><%= movie.Title %></h3>
         <p>imdbID: <%= movie.imdbID %></p>
-        <p>Release Year: <%= movie.Year %></p>
-        <img src="<%= movie.Poster %>"></img>
+        
     </div
 <% }) %>  -->
