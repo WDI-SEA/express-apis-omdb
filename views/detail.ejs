@@ -1,2 +1,31 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1><%= Title %></h1>
+<img src="<%= Poster %>" alt="Poster for <%= Title %>" />
+<h3>Released: <%= Released %></h3>
+<h3>Rated: <%= Rated %></h3>
+<h3>Runtime: <%= Runtime %></h3>
+<h3>Genre: <%= Genre %></h3>
+<h4>Plot Summary: <%= Plot %></h4>
+<p>Director: <%= Director %></p>
+<p>Writer: <%= Writer %></p>
+<p>Actors: <%= Actors %></p>
+<p>Awards: <%= Awards %></p>
+<p>DVD Release: <%= DVD %></p>
+<p>Box Office Earnings: <%= BoxOffice %></p>
+<p>IMDB Rating:
+    <% const imdbRating = Ratings[0].Value.split('/') %>
+    <%= imdbRating[0] %>
+    <% if (Number(imdbRating[0]) > 0 && Number(imdbRating[0]) < 2) { %>
+        <%= '⭐' %> 
+    <% } else if (Number(imdbRating[0]) >= 2 && Number(imdbRating[0]) < 4) { %>
+        <%= '⭐⭐' %> 
+    <% } else if (Number(imdbRating[0]) >= 4 && Number(imdbRating[0]) < 6) { %>
+        <%= '⭐⭐⭐' %>
+    <% } else if (Number(imdbRating[0]) >= 6 && Number(imdbRating[0]) < 8) { %>
+        <%= '⭐⭐⭐⭐' %>
+    <% } else if (Number(imdbRating[0]) >= 8 && Number(imdbRating[0]) < 11) { %>
+        <%= '⭐⭐⭐⭐⭐' %>
+    <% } %>
+</p>
+<p>Rotten Tomatoes: <%= Ratings[1].Value %></p>
