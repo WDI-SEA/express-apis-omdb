@@ -1,2 +1,19 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+
+<h3><%= data.Title %></h3>
+<ul>
+    <li>Genre: <%= data.Genre %></li>
+    <li>Rated: <%= data.Rated %></li>
+    <li>Runtime: <%= data.Runtime %></li>
+    <li>Released: <%= data.Released %></li>
+    <li>Director: <%= data.Director %></li>
+    <li>Actors: <%= data.Actors %></li>
+    <li>Box Office: <%= data.BoxOffice %></li>
+    <li>Plot: <%= data.Plot %></li>
+</ul>
+<p>Ratings:</p>
+<ul>
+    <% data.Ratings.forEach(rating =>{ %>
+        <li><%= rating.Source %>: <%= rating.Value %></li>
+    <%})%>

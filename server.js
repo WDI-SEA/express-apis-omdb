@@ -15,6 +15,8 @@ app.use(ejsLayouts);
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
 
+console.log('process.env:', process.env)
+
 // Routes
 app.get('/', function(req, res) {
   res.send('Hello, backend!');
