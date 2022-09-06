@@ -1,10 +1,10 @@
-
+require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const axios = require('axios')
 
-const PORT = 8080
+// const PORT = 8080
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
