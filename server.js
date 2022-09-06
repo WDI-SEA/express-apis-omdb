@@ -17,12 +17,22 @@ app.use(require('morgan')('dev'));
 
 const API_KEY = process.env.API_KEY
 
+console.log('process.env:', process.env.API_KEY)
+// http://www.omdbapi.com/?i=tt3896198&apikey=3f1299c3
+
 console.log(`http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`)
 // Routes
 app.get('/', function(req, res) {
   res.send('Hello, backend!');
 });
 
+// GET / results -- take in data from the search form, render search results from OMDB
+app.get('/results', (req, res) => {
+  res.send('this should be search results')
+})
+app.get('/movies/:id', (req, res) => {
+  res.send(`show the deets on movie with id: ${req.params.id}`)
+})
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
