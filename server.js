@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
+const axios = require('axios')
 const app = express();
 
 // Sets EJS as the view engine
@@ -23,7 +24,7 @@ console.log('process.env:', process.env.API_KEY)
 console.log(`http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`)
 // Routes
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  res.render('index.ejs');
 });
 
 // GET / results -- take in data from the search form, render search results from OMDB
