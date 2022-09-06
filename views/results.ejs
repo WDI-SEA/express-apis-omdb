@@ -7,10 +7,11 @@
 
 <h2>Results for <%= input %></h2>
 
-<% people.forEach(person => { %>
+<% movies.forEach(movie => { %>
     <div>
-        <h3><%= person.name %></h3>
-        <p>eye color: <%= person.eye_color %></p>
-        <a href="<%= person.homeworld %>">Homeworld</a>
-    </div>
-<% }) %> 
+        <h3><%= movie.Title %></h3>
+        <p>imdbID: <%= movie.imdbID %></p>
+        <p>Release Year: <%= movie.Year %></p>
+        <img src="<%= movie.Poster %>"></img>
+    </div
+<% }) %>  -->
