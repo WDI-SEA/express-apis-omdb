@@ -49,7 +49,7 @@ app.get('/results', (req, res) => {
   // pass the data to the results template and render the data
       .then(response => {
         console.log(response.data)
-        res.render('results.ejs') {
+        res.render('results.ejs', {
           movies: response.data.Search,
           // userSearch: userSearch
           userSearch
@@ -62,7 +62,20 @@ app.get('/results', (req, res) => {
 
 // GET /movies/:id -- render a page of details about a single movie with an id 
 app.get('/movies/:id', (req, res) => {
-  res.send(`show the deets on the movie with id: ${req.params.is}`)
+  // make request to the api and supply id
+  axios.get(`http://www.omdbapi.com/?i=${req.params.id}&apikey=${process.env.API_KEY}`)
+  // render page deets
+    .then(response => {
+      res.json(response.data)
+      res.render('detail.ejs', {
+        deets: response.data
+      })
+    })
+    .catch(err => {
+      console.warn(err)
+      res.send('the server is upsetti spaghetti')
+    })
+  // res.send(`show the deets on the movie with id: ${req.params.is}`)
 })
 
 // The app.listen function returns a server handle
