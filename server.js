@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 
 app.get("/results", (req, res) => {
   let searchTerm = req.query.search;
-  let url = "https://www.omdbapi.com/?s=" + searchTerm + "&apikey=2fdc7ef0 ";
+  let url = `https://www.omdbapi.com/?i=" ${movieId} ${process.env.OMDB_API_KEY}`
   axios.get(url)
   // Sends the user to the results page
   .then(response => {
@@ -36,7 +36,7 @@ app.get("/results", (req, res) => {
 // sends the user to the selected movie page
 app.get("/movies/:id", (req, res) => {
   let movieId = req.params.id;
-  let url = "https://www.omdbapi.com/?i=" + movieId + "&apikey=2fdc7ef0 ";
+  let url = `https://www.omdbapi.com/?i=" ${movieId} ${process.env.OMDB_API_KEY}` ;
   axios.get(url)
   
   .then(response => {
@@ -46,7 +46,9 @@ app.get("/movies/:id", (req, res) => {
     });
   }).catch(console.warn);
 })
-// The app.listen function returns a server handle
+
+console.log('process.env', process.env.API_KEY)
+
 var server = app.listen(process.env.PORT || 8000);
 
 // We can export this server to other servers like this
