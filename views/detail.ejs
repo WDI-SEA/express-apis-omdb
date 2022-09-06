@@ -1,2 +1,30 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1><%= movie.Title %> (<%= movie.Year %>)</h1>
+<img src="<%= movie.Poster %>" alt="Poster from <%= movie.Title %>"><br>
+<span>Rated:</span> <%= movie.Rated %><br>
+<span>Released: </span><%= movie.Released %><br>
+<span>Runtime: </span><%= movie.Runtime %><br>
+<span>Genre: </span><%= movie.Genre %><br>
+<span>Director: </span><%= movie.Director %><br>
+<span>Writer: </span><%= movie.Writer %><br>
+<span>Actor: </span><%= movie.Actors %><br>
+<span>Plot: </span><%= movie.Plot %><br>
+<span>Language: </span><%= movie.Language %><br>
+<span>Country: </span><%= movie.Country %><br>
+<span>Award: </span><%= movie.Awards %><br>
+<span>Metascore: </span><%= movie.Metascore %><br>
+<span>IMDb Rating: </span><%= movie.imdbRating %><br>
+<span>IMDb Votes: </span><%= movie.imdbVotes %><br>
+<span>IMDb ID: </span><%= movie.imdbID %><br>
+<span>Type: </span><%= movie.Type %><br>
+<span>DVD Released: </span><%= movie.DVD %><br>
+<span>Box Office Earnings: </span><%= movie.BoxOffice %><br>
+<span>Production: </span><%= movie.Production %><br>
+<span>Website: </span><%= movie.Website %>
+
+<style>
+    span{
+        font-weight: bolder;
+    }
+</style>
