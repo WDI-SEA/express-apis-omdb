@@ -19,7 +19,7 @@ app.get('/search', (req, res) => {
     // take in form data
     // GET forms create query strings
     console.log(req.query)
-    const url = `http://www.omdbapi.com/?s=${req.query.userInput}&page=1&apikey=6c951869`
+    const url = `http://www.omdbapi.com/?s=${req.query.userInput}&page=1&apikey=${process.env.API_Key}`
     
     // make a http request to the omdbapi
     axios.get(url)
@@ -34,7 +34,7 @@ app.get('/search', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    const url2 = `http://www.omdbapi.com/?s=${movie.imdbID}&apikey=6c951869`
+    const url2 = `http://www.omdbapi.com/?s=${movie.imdbID}&apikey=${process.env.API_Key}`
     axios.get(url)
         .then(response => {
             // render the data to the user
