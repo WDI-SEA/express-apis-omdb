@@ -23,6 +23,7 @@ app.get('/', function(req, res) {
 
 app.get("/results", (req, res) => {
   let searchTerm = req.query.search;
+ // let url = "https://www.omdbapi.com/?i= + movieid+ apikey" 
   let url = `https://www.omdbapi.com/?i=" ${movieId} ${process.env.OMDB_API_KEY}`
   axios.get(url)
   // Sends the user to the results page
