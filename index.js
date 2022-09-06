@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express')
 const axios = require('axios')
-// const MY_KEY = "b4ede9e0"
 const app = express()
 const PORT = 8000
 app.set('view engine', 'ejs')
