@@ -1,2 +1,17 @@
 <h1>OMDB Movie Search</h1>
 <p>Search for a movie below...</p>
+
+<form method="GET" action="/results">
+    <label for="search-input">Search based on words:</label>
+    <input id="search-input" type="text" placeholder="Find your favorite movie..." name="q" />
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<form method="GET" action="/movies/:movie_id">
+    <label for="movieid-input">Search based on movie id:</label>
+    <input id="movieid-input" type="text" placeholder="Enter movie id." name="i" />
+
+    <button type="submit">Submit</button>
+</form>
