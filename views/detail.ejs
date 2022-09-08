@@ -1,2 +1,17 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1 style="color: #fcd966;"><%= deets.Title %></h1>
+
+<p style="color: #fcd966;"> Year: <%= deets.Year %> Type: <%= deets.Type %></p>
+
+
+<h2 style="color: #fcd966;">Director: <%= deets.Director %> Writer <%= deets.Writer %></h2>
+
+<h3 style="color: #fcd966;"> Starrting: <%= deets.Actors %></h3>
+
+<% if (deets.Poster != 'N/A') { %>
+    <img style="box-shadow: 8px 8px 8px 18px  #ffd900; margin: 15px;" src="<%= deets.Poster %>" alt="<%= deets.Title %>"
+<% } else { %>
+
+    <p style="color: #fcd966;">no movie poster found</p>
+    <% } %>

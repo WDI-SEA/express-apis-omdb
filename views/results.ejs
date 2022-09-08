@@ -1,2 +1,33 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
+<div>
+    <h1 style="text-align: center; display: inline-block; color: #fff3c1d5; text-shadow: 2px 2px 4px #000000;" id="search-results"> Search Results for: </h1>
+    <h2 style="display: inline-block; color: #fceaa3d5" id="user-search"> <%= userSearch %></h2>
+</div>
+
+
+<% movies.forEach(movie => { %>
+    <div class="movie-box" style="text-align: center; background-color: #ffebb8d5; width: 13cm; margin-left: 30%; padding: 10px; border: 10px solid #000000;" >
+        <h3 class="m-titles" style="color: #d7a634"><%= movie.Title %></h3>
+
+        <p style="color: #d7a634"><%= movie.Year %></p>
+
+        <% if (movie.Poster != 'N/A') { %>
+            
+            <div class="poster-box">
+                <img src="<%= movie.Poster %>" alt="<%= movie.Title %>" >
+            </div>
+
+       <% } else { %>
+
+            <p style="color: #d7a634">no movie poster found</p>
+            <% } %>
+        
+        <div id="the-deeds" style="display: flex; align-self:flex-end; background-color: black; width: 110px; border-radius: 10px;">
+            <a style="color: beige; margin: 10px;" href="/movies/<%= movie.imdbID %>">More Details</a>
+        </div>
+        
+    </div>
+    
+<% }) %>
+

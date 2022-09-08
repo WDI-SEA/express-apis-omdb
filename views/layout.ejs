@@ -4,12 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
   <title>OMDB Movie Search</title>
 </head>
+<style>
+  body {
+    text-align: center;
+    background: linear-gradient(0.25turn, #a71818, #020202, #a71818);
+  }
+</style>
 <body>
-  <nav>
-    <a href="/">home</a>
+  <div id="home-btn" style="background-color: #bb0a1e; width: 100px; border-radius: 10px; text-align: center; padding: 10px;">
+    <nav>
+    <a href="/" style="color:beige">home</a>
   </nav>
+  </div>
+  
   <main>
     <%- body %>
   </main>
