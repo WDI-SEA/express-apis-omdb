@@ -3,13 +3,18 @@
 
 <div style="margin: 0 auto; text-align: center;">
 
-    <img style="width: 400px;" src="<%= movie_details.Poster %>" alt="">
+    <img style="width: 400px;" src="<%= movie.Poster %>" alt="">
 
-    <h2 style="text-align: center;"><%= movie_details.Title %></h2>
-    <h2 style="text-align: center;">Release Year: <%= movie_details.Year %></h2>
-    <h2 style="text-align: center;">Genre: <%= movie_details.Genre %></h2>
-    <h2 style="text-align: center;">Directed By: <%= movie_details.Director %></h2>
-    <p style="text-align: center;"><span style="font-size: 18px; font-weight: bold;">Plot: </span><%= movie_details.Plot %></p>
+    <p><span style="font-size: 18px; font-weight: bold;"> Movie: </span><%= movie.Title %></p>
+    <p><span style="font-size: 18px; font-weight: bold;">Year: </span><%= movie.Year %></p>
+    <p><span style="font-size: 18px; font-weight: bold;">Genre: </span><%= movie.Genre %></p>
+    <p><span style="font-size: 18px; font-weight: bold;">Directed By: : </span><%= movie.Director %></p>
+    <p><span style="font-size: 18px; font-weight: bold;">Runtime: </span><%= movie.Runtime %></p>
+    <p><span style="font-size: 18px; font-weight: bold;">IMDB Rating: </span><%= movie.imdbRating %></p>
 
+    <!-- Not consistent -->
+    <p><span style="font-size: 18px; font-weight: bold;">Rotten Tomato Score: </span><%= movie.Ratings[1].Value %></p>
+
+    <p style="text-align: center;"><span style="font-size: 18px; font-weight: bold;">Plot: </span><%= movie.Plot %></p>
 
 </div>

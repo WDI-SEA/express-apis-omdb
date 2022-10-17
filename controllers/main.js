@@ -40,13 +40,13 @@ router.get('/results', (req, res) => {
         url = url + `&s=${s}`
     }
 
-    if(y !== ''){
-        url = url + `&y=${y}`
-    }
+    // if(y !== ''){
+    //     url = url + `&y=${y}`
+    // }
 
-    if(plot === 'full'){
-        url = url + `&plot=${plot}`
-    }
+    // if(plot === 'full'){
+    //     url = url + `&plot=${plot}`
+    // }
 
 
 
@@ -107,8 +107,12 @@ router.get('/movies/:movie_id', (req, res) => {
 
     // Process the data
     // send to views
-    context.movie_details = response.data
+    context.movie = response.data
     
+    // I can find the imdb score here then send it
+    // movie.Ratings[1].Value
+    // but the Rating[1] is not always the same
+    // so maybe add filter to find Ratings with source of Rotten Tomatoes
 
     // Render the page incase of success
     res.render('detail.ejs', context);
