@@ -12,8 +12,16 @@
     <p><span style="font-size: 18px; font-weight: bold;">Runtime: </span><%= movie.Runtime %></p>
     <p><span style="font-size: 18px; font-weight: bold;">IMDB Rating: </span><%= movie.imdbRating %></p>
 
-    <!-- Not consistent -->
-    <p><span style="font-size: 18px; font-weight: bold;">Rotten Tomato Score: </span><%= movie.Ratings[1].Value %></p>
+    <!-- Find if it has Rotten Tomatoes scores -->
+    <% for( let i = 0; i < movie.Ratings.length; i++ ) { %>
+    
+        <% if (movie.Ratings[i].Source === 'Rotten Tomatoes') { %>
+        
+            <p><span style="font-size: 18px; font-weight: bold;">Rotten Tomato Score: </span><%= movie.Ratings[1].Value %></p>
+
+            <% break %> 
+        <% } %>
+    <% } %>
 
     <p style="text-align: center;"><span style="font-size: 18px; font-weight: bold;">Plot: </span><%= movie.Plot %></p>
 
