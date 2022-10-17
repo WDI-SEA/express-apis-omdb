@@ -2,3 +2,18 @@
 <% // This is how to do comments in EJS, by the way... %>
 
 <h1>Results pages</h1>
+
+    
+<% moviesList.forEach(movie=> { %>
+    <div style="text-align: center; display: inline-block; margin: 10px;">
+
+        <img src="<%= movie.Poster %>" alt="">
+        <p><span style="font-size: 18px; font-weight: bold;"> Movie: </span><%= movie.Title %></p>
+        <p><span style="font-size: 18px; font-weight: bold;">Year: </span><%= movie.Year %></p>
+        <p><span style="font-size: 18px; font-weight: bold;">imdbID: </span><%= movie.imdbID %></p>
+        <p><span style="font-size: 18px; font-weight: bold;">Type: </span><%= movie.Type %></p>
+                    
+    </div>
+<% }) %>
+    
+

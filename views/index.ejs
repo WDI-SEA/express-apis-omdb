@@ -3,8 +3,8 @@
 
 <form action="/results" method="GET">
 
-    <label for="t">Title</label>
-    <input type="text" name="t" id="t">
+    <label for="s">Title</label>
+    <input type="text" name="s" id="s">
 
     <br>
     <br>
@@ -15,14 +15,20 @@
     <br>
     <br>
 
-    Plot:<br>
+    <!-- Plot:<br> -->
 
-    <input type="radio" name="plot" id="short" value="short">
+    <!-- <input type="radio" name="plot" id="short">
     <label for="short">Short</label>
 
     <br>
-    <input type="radio" name="plot" id="long" value="long">
-    <label for="long">Long</label>
+    <input type="radio" name="plot" id="full" value="full">
+    <label for="full">Full</label> -->
+
+
+    <select name="plot" id="">Plot
+        <option value selected>Short</option>
+        <option value="full">Full</option>
+    </select>
 
     <br>
     <br>
