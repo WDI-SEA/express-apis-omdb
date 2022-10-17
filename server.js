@@ -17,8 +17,13 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
+  console.log(process.env.RANDOM_ENV_VAR)//API KEY access is from another page
   res.send('Hello, backend!');
 });
+
+app.get('/results', (req, res)=>{
+  res.render('index')
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
