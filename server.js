@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 
@@ -17,7 +18,12 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
+  console.log(process.env.RANDOM_ENV_VAR)
   res.send('Hello, backend!');
+});
+
+app.get('/results', function(req, res) {
+  // req.query
 });
 
 // The app.listen function returns a server handle
