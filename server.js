@@ -30,11 +30,12 @@ app.get('/results', function(req, res) {
   })
   app.get("/movies/:idx",(req,res)=>{
     
-    axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${req.params.idx}}`)
+    axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${req.params.idx}`)
   .then(function (response) {
-    console.log(response)
-  
-    res.render("detail",{result:"hi"})
+    //to convert to array
+    // let i =JSON.parse(JSON.stringify(response.data))
+    // i = Object.entries(i)
+    res.render("detail",{result:response.data})
   })
   })
 
