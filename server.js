@@ -26,6 +26,7 @@ app.get('/results', function(req, res) {
   let actualRes = req.query.movName
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=${actualRes}`)
   .then(function (response) {
+    console.log(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=${actualRes}`)
     res.render("results",{resultTitle: response.data.Title, imdbID: response.data.imdbID})
   })
   app.get("/movies/:idx",(req,res)=>{
@@ -35,7 +36,7 @@ app.get('/results', function(req, res) {
     //to convert to array
     // let i =JSON.parse(JSON.stringify(response.data))
     // i = Object.entries(i)
-    res.render("detail",{result:response.data})
+    res.render("detail",{result:JSON.stringify(response.data)})
   })
   })
 
