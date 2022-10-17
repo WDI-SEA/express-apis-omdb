@@ -16,12 +16,17 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
-app.get('/', function(req, res) {
-  res.send('Hello, backend!');
-});
+// app.get('/', function(req, res) {
+//   console.log(process.env.RANDOM_ENV_VAR)
+//   // res.send('Hello, backend!');
+//   res.render('index.ejs');
+// });
+
+// Route with controller
+app.use('/', require('./controllers/main.js'))
 
 // The app.listen function returns a server handle
-var server = app.listen(process.env.PORT || 3000);
+let server = app.listen(process.env.PORT || 3000);
 
 // We can export this server to other servers like this
 module.exports = server;
