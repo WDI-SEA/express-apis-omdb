@@ -36,7 +36,7 @@ app.get('/results',(req , res)=>{
 
 })
 
-app.get('//movies/:movie_id',(req , res)=>{
+app.get('/movies/:movie_id',(req , res)=>{
   let id = req.params.movie_id
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${id}`)
     .then((response)=>{
