@@ -10,3 +10,8 @@
 <p>Language: <%= Language %></p>
 <p>IMDB Rating: <%= imdbRating %></p>
 
+<form action="/faves" method="POST">
+    let title = <% Title %> 
+    let imdbid = <% imdbID %> 
+    <button type="submit">Favorite⭐️</button>
+</form>

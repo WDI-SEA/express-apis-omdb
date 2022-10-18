@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -50,6 +51,11 @@ app.get('/movies/:id', (req, res)=>{
 })
 
 
+app.post('/detail.ejs',(req,res)=>{
+
+  
+  res.redirect('/faves');
+})
 
 // The app.listen function returns a server handle
 const server = app.listen(process.env.PORT || 3000);
