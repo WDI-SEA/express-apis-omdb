@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "mohd.bin.salman",
+    "password": "Mohammed",
+    "database": "omdb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

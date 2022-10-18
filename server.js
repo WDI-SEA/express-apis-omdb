@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -34,8 +35,8 @@ app.get('/results', (req, res)=> {
 app.get('/movies/:idx', (req,res)=>{
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&&i=${req.params.idx}`)
   .then((response)=>{
-    res.send(response.data);
-      // res.render('detail', {movie: response.data})
+    // res.send(response.data);
+      res.render('detail', {movie: response.data})
   })
 })
 
