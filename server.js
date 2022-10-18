@@ -28,7 +28,7 @@ app.get('/results', (req, res)=>{
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${userInput}`)
   .then((response)=>{
     let movie = response.data.Search
-    console.log(response.data.Search)
+    // console.log(response.data.Search)
     console.log("user input " + userInput)
     
     if(userInput){
@@ -46,16 +46,15 @@ app.get('/results', (req, res)=>{
 })
 
 
-// //movie details
-// app.get('/movies/:movie_id', (req, res)=>{
-//   axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${req.params.movie_id}`)
-//   .then((response)=>{
-//     let movieIndex = parseInt(req.params.movie_id)
-//     console.log(response.data)
-//     res.render('detail', {mDetails:response.data[movieIndex]})
-//   })
+//movie details
+app.get('/movies/:movie_id', (req, res)=>{
+  axios.get(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&i=${req.params.movie_id}`)
+  .then((response)=>{
+    console.log(response.data)
+    res.render('detail', {mDetails:response.data})
+  })
 
-// })
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);

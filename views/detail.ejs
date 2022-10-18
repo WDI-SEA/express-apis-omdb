@@ -1,13 +1,15 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
 
-<ul>
-    <%mDetails.forEach((title, movie_id)=>{%> 
-        <li><%=title.Title%></li>
-        <li><%=title.Year%></li>
-        <li><%=title.Type%></li>
-        <li><%=title.Poster%></li>
-        </a>
-   <% })%>
+<h2>Movie Details:</h2>
+ <p>Title: <%=mDetails.Title %> </p>
+ <p>Year: <%=mDetails.Year %> </p>
+ <p>Rated: <%=mDetails.Rated %> </p>
+ <p>Released: <%=mDetails.Released %> </p>
+ <p>Runtime: <%=mDetails.Runtime %> </p>
+ <p>Genre: <%=mDetails.Genre %> </p>
+ <p>Director: <%=mDetails.Director %> </p>
+ <p>Plot: <%=mDetails.Plot %> </p>
+ <p>Actors: <%=mDetails.Actors %> </p>
+ <p><img src="<%=mDetails.Poster %>"> </p>
 
-</ul>

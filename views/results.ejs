@@ -4,7 +4,8 @@
 <h2>You searched for: <%=userInput%></h2>
 
 <ul>
-    <%movies.forEach((title, movie_id)=>{%>
+    <%movies.forEach((title, id)=>{%>
+        <%let movie_id = title.imdbID %>
         <a href="/movies/<%= movie_id %>">  
         <li><%=title.Title%></li>
         </a>
