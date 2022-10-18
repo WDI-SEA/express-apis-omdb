@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const request = require('request')
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 
@@ -17,8 +18,30 @@ app.use(require('morgan')('dev'));
 
 // Routes
 app.get('/', function(req, res) {
-  res.send('Hello, backend!');
+  console.log(process.env.OMDP_API_KEY)
+
+  request(`http://www.omdbapi.com/?apikey=[${process.env.OMDP_API_KEY}]&`, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log('request error')
+      res.send(body)
+    }
+    res.render('index.ejs');
+  })
+
 });
+
+app.get('/results', function(req, res) {
+  // let movieFilter = req,query.movieFilter
+
+  res.render('results.ejs')
+})
+
+
+
+
+
+
+
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
