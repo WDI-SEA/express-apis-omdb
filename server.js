@@ -24,10 +24,9 @@ app.get('/', function(req, res) {
 });
 app.get('/results', function(req, res) {
   let actualRes = req.query.movName
-  axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=${actualRes}`)
+  axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${actualRes}`)
   .then(function (response) {
-    console.log(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=${actualRes}`)
-    res.render("results",{resultTitle: response.data.Title, imdbID: response.data.imdbID})
+    res.render("results", {results:response.data.Search})
   })
   app.get("/movies/:idx",(req,res)=>{
     

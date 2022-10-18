@@ -1,5 +1,7 @@
 <ul>
-    
-    <li><a href="/movies/<%=imdbID%>"><%=resultTitle%></a></li>
+    <% results.forEach(ele=>{%>
+        <li><a href="/movies/<%=ele.imdbID%>"><%= ele.Title%></a></li> 
+        <%})%>
+        
 </ul>
 <% // This is how to do comments in EJS, by the way... %>
