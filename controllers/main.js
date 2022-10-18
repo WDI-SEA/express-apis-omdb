@@ -6,6 +6,10 @@ router.get('/', (req,res) => {
     res.render('index.ejs')
 })
 
+router.get('/movies', (req,res) => {
+    res.send('<img style="display: block;margin-left: auto;margin-right: auto;width: 50%;" src="/images/uc.jpeg">');
+})
+
 router.get('/results', (req, res) => {
     console.log(req.query)
 
