@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "layla",
+    "database": "cmdb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
