@@ -51,11 +51,39 @@ app.get('/movies/:id', (req, res)=>{
 })
 
 
-app.post('/detail.ejs',(req,res)=>{
+app.post('/faves',(req,res)=>{
+  async function addFave (){
+    try {
+      const newFave = await db.fave.creat({
+        title: req.body.title, 
+        imdbid: req.body.imdbid
+      } , res.redirect('/faves'))
+      console.log(newFave)
+      newFave.push(req.body)
+    } catch (err) {
+      console.log(err)
+    }
+    }
 
-  
-  res.redirect('/faves');
+    addFave()
 })
+
+app.get('/faves',(req,res)=>{
+  async function readAllFave() {
+    try {
+      const allFave = await db.fave.findAll({
+        attributes: ['title', 'imdbid']
+      })
+      res.render('faves', {allFave})
+      console.log(allFave);
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  
+  readAllFave()
+})
+
 
 // The app.listen function returns a server handle
 const server = app.listen(process.env.PORT || 3000);

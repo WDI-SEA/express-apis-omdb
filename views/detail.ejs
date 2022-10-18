@@ -11,7 +11,7 @@
 <p>IMDB Rating: <%= imdbRating %></p>
 
 <form action="/faves" method="POST">
-    let title = <% Title %> 
-    let imdbid = <% imdbID %> 
+    <input type="hidden" value="<%=Title%>" name="title">
+    <input type="hidden" value="<%=imdbID%>" name="imdbid">
     <button type="submit">Favorite⭐️</button>
 </form>
