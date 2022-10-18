@@ -1,0 +1,10 @@
+<h1 style="text-align: center;">My Favorite Movies!!</h1>
+    
+<% allFaves.forEach(fave=> { %>
+    <div style="text-align: center; display: inline-block; margin: 10px;">
+        <p><span style="font-size: 18px; font-weight: bold;"> Movie Title: </span><%= fave.dataValues.title %></p>
+        <p><span style="font-size: 18px; font-weight: bold;">imdbID: </span><%= fave.dataValues.imdbid %></p>  
+        <a href="/movies/<%= fave.dataValues.imdbid %> ">Details Page</a>
+    </div>
+<% }) %>
+    
