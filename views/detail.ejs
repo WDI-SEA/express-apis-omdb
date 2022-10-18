@@ -2,6 +2,13 @@
 <% // This is how to do comments in EJS, by the way... %>
 
 <h2>Movie Details:</h2>
+
+<form action="/faves" method="POST">
+    <input type="hidden" value="<%=mDetails.Title%>" name="title">
+    <input type="hidden" value="<%=mDetails.imdbID%>" name="imdbid">
+    <button type="submit">Add To Favorite⭐</button>
+</form>
+
  <p>Title: <%=mDetails.Title %> </p>
  <p>Year: <%=mDetails.Year %> </p>
  <p>Rated: <%=mDetails.Rated %> </p>

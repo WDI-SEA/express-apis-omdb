@@ -3,6 +3,7 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const axios = require('axios');
 const app = express();
+const db = require('./models')
 
 // Sets EJS as the view engine
 app.set('view engine', 'ejs');
@@ -30,13 +31,7 @@ app.get('/results', (req, res)=>{
     let movie = response.data.Search
     // console.log(response.data.Search)
     console.log("user input " + userInput)
-    
-    if(userInput){
-      movie = movie.filter(title=>{
-         return title.Title.toLowerCase().includes(userInput.toLowerCase())
-      })
-  }
-  res.render('results', {movies:movie, userInput})
+    res.render('results', {movies:movie, userInput} )
 
   })
   .catch(error=>{
@@ -53,6 +48,44 @@ app.get('/movies/:movie_id', (req, res)=>{
     console.log(response.data)
     res.render('detail', {mDetails:response.data})
   })
+
+})
+
+//Add To Fave Routes:
+app.post('/faves', (req,res)=>{
+console.log(`Movie Title: ${req.body.title}`)
+console.log(`Movie Id: ${req.body.imdbid}`)
+  async function addToFaves(){
+    try{
+        const newFave = await db.fave.create({
+            title: req.body.title, 
+            imdbid: req.body.imdbid
+        }, res.redirect('/faves'))
+        
+        console.log("Added to Fave", newFave)
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+addToFaves()
+})
+
+
+app.get('/faves', (req,res)=>{
+
+  async function readAllFavMovies() {
+    try {
+      const allFave = await db.fave.findAll({
+        attributes: ['title', 'imdbid']
+      })
+      res.render('faves', {allFave})
+      console.log(allFave);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  readAllFavMovies()
 
 })
 

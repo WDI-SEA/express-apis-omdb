@@ -1,0 +1,16 @@
+<style>
+    span{
+        font-weight: bold;
+        color: blue;
+    }
+</style>
+
+<h1>My Favourite Movies:</h1>
+
+<ul>
+    <%allFave.forEach((movie)=>{%> 
+        <li><span>Title:</span> <%=movie.title%> <span>Id:</span> <%=movie.imdbid%></li>
+        </a>
+   <% })%>
+
+</ul>
