@@ -40,6 +40,10 @@ app.get('/movies/:idx', (req,res)=>{
   })
 })
 
+app.post('/faves', (req,res) =>{
+  
+})
+
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);
 
