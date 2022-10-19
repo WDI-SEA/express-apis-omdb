@@ -1,4 +1,16 @@
 <ul>   
-    <li><%=result%></li> 
+    <li><%=result.Title%></li> 
+    <ul>
+        <li><%=result.Year%></li> 
+        <li><%=result.Rated%></li> 
+        <li><%=result.Runtime%></li> 
+        <li><%=result.Genre%></li> 
+    </ul>
 
+
+    <form method="post" action="/faves">
+        <input type="hidden" name="id" value="<%=result.imdbID%>"/>
+        <input type="hidden" name="title" value="<%=result.Title%>"/>
+        <input type="submit" value="Add to favorites"/>
+    </form>
 </ul>

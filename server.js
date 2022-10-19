@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const db = require('./models');
 
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
@@ -19,6 +20,7 @@ app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 
 // Routes
+
 app.get('/', function(req, res) {
   res.render("index")
 });
@@ -35,7 +37,7 @@ app.get('/results', function(req, res) {
     //to convert to array
     // let i =JSON.parse(JSON.stringify(response.data))
     // i = Object.entries(i)
-    res.render("detail",{result:JSON.stringify(response.data)})
+    res.render("detail",{result:response.data})
   })
   })
 
@@ -46,5 +48,35 @@ var server = app.listen(process.env.PORT || 3000,()=>{
   console.log("LETS GOOOOO")
 });
 
+
+
+app.post('/faves', (req,res)=>{
+  console.log('id'+ req.body.id)
+ async function addFav(){
+  const add_fave = await db.fave.create(
+    {
+      title: req.body.title,
+      imdbid: req.body.id
+    })}
+    addFav().then(
+      res.redirect("faves")
+    )
+  })
+app.get("/faves",(req,res)=>{
+ let allUsers;
+  async function findAllUsers(){
+    try{
+         allUsers= await db.fave.findAll();
+        res.render("faves",{result:allUsers})
+
+
+    }catch(err){
+        console.log(err)
+    }
+  
+}
+findAllUsers();
+  
+})
 // We can export this server to other servers like this
 module.exports = server;
