@@ -3,6 +3,8 @@ const express = require('express');
 const ejsLayouts = require('express-ejs-layouts');
 const axios = require('axios')
 const app = express();
+const db = require('./models')
+// const fs = require('fs')
 
 
 // Sets EJS as the view engine
@@ -29,20 +31,53 @@ app.get('/', function(req, res) {
 app.get('/results',(req , res)=>{
   let Search = req.query.s
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${Search}`)
-    .then((response)=>{
-      // res.send(response.data)
-        res.render ('results',{ movieArrya:response.data.Search})
-    })
+  .then((response)=>{
+    // res.send(response.data)
+     res.render ('results',{ movieArrya:response.data.Search})
+  })
+  .catch (err=>{
+    console.log("there was an issue retrieving  API")
+  })
+    
 
 })
 
 app.get('/movies/:movie_id',(req , res)=>{
   let id = req.params.movie_id
   axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${id}`)
-    .then((response)=>{
-      // res.send(response.data)
-        res.render ('detail',{ movies:response.data})
-    })
+  .then((response)=>{
+    // res.send(response.data)
+    res.render ('detail',{ movies:response.data})
+    
+  })
+  .catch (err=>{
+     console.log(err)
+  })
+    
+
+})
+
+app.post('/faves',(req , res)=>{
+// console.log(req.body)
+  async function createUser() {
+    try {
+      
+      const favesData = await db.fave.create({
+        
+        title: 'req.body.title',
+        imdbid:'req.body.imdbi'
+        
+          
+      })
+      console.log(favesData)
+
+      
+    } catch (err) {
+      console.log(err)
+    }
+  }
+//  res.redirect('/faves')
+ createUser()
 
 })
 

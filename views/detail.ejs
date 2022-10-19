@@ -2,8 +2,8 @@
 <% // This is how to do comments in EJS, by the way... %>
 
 <h2>Movies Details </h2>
+<h4>Movies Title: <%= movies.Title %> </h4>
 <img src="<%= movies.Poster %> " >
-<h3>Movies Title: <%= movies.Title %> </h3>
 <p>Movies Year: <%= movies.Year %> </p>
 <p>Movies Released: <%= movies.Released %> </p>
 <p>Movies Genre: <%= movies.Genre%> </p>
@@ -11,6 +11,14 @@
 <p>Movies Writer: <%= movies.Writer %> </p>
 <p>Movies Actors: <%= movies.Actors%> </p>
 
+<form method="POST" action="/faves">
+    <input type="hidden" name="title" id="title" value="favesTitle">
+    <input type="hidden" name="imdbid" id="imdbid" value="favesid">
+
+    <button type="submit">My Favorite</button>
+    
+
+</form>
 
 
 

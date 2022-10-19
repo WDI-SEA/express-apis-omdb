@@ -1,13 +1,13 @@
 <% // Render your search results here %>
 <% // This is how to do comments in EJS, by the way... %>
 
-<h1>OMDB Movie Search</h1>
+<h1>OMDB Movie </h1>
 
 <% movieArrya.forEach(element=>{%>
 
     <a href="movies/<%= element.imdbID %> ">
 
-        <h3><%= element.Title %> </h3>
+        <h4><%= element.Title %> </h4>
     </a>
     
 <%}) %> 
