@@ -59,28 +59,33 @@ app.get('/movies/:movie_id',(req , res)=>{
 
 app.post('/faves',(req , res)=>{
 // console.log(req.body)
-  async function createUser() {
+  async function UserFaves() {
     try {
       
       const favesData = await db.fave.create({
         
-        title: 'req.body.title',
-        imdbid:'req.body.imdbi'
+        title: req.body.title,
+        imdbid:req.body. imdbid
         
           
       })
-      console.log(favesData)
+      // console.log(favesData)
+       res.redirect('/faves')
 
       
     } catch (err) {
       console.log(err)
     }
   }
-//  res.redirect('/faves')
- createUser()
+ UserFaves()
 
 })
 
+app.get('/faves',(req , res)=>{
+  res.render ('faves',{ favemovies:req.body.title})
+
+
+})
 
 // The app.listen function returns a server handle
 var server = app.listen(process.env.PORT || 3000);

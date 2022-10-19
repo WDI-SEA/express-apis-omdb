@@ -12,8 +12,8 @@
 <p>Movies Actors: <%= movies.Actors%> </p>
 
 <form method="POST" action="/faves">
-    <input type="hidden" name="title" id="title" value="favesTitle">
-    <input type="hidden" name="imdbid" id="imdbid" value="favesid">
+    <input type="hidden" name="title" id="title" value="<%=movies.Title  %>">
+    <input type="hidden" name="imdbid" id="imdbid" value="<%=movies.imdbID  %> ">
 
     <button type="submit">My Favorite</button>
     
