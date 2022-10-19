@@ -68,9 +68,9 @@ app.post('/faves',(req , res)=>{
         imdbid:req.body. imdbid
         
           
-      })
+      },res.redirect('/faves')
+      )
       // console.log(favesData)
-       res.redirect('/faves')
 
       
     } catch (err) {
@@ -87,7 +87,7 @@ app.get('/faves',(req , res)=>{
       const allFaves = await db.fave.findAll({
         attributes: ['title', 'imdbid']
       
-      })
+      } )
       // console.log(allFaves)
       res.render('faves', {allFaves})
     } catch (error) {
