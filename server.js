@@ -12,6 +12,7 @@ app.use(express.static('static'));
 app.use(bodyParser.urlencoded({extended: true}));
 // Enables EJS Layouts middleware
 app.use(ejsLayouts);
+const db = require("./models");
 
 // Adds some logging to each request
 app.use(require('morgan')('dev'));
@@ -35,6 +36,30 @@ app.get('/movies/:id', (req,res)=>{
   .then(function(response){
     res.render('detail', {movie: response.data})
   })
+})
+
+
+app.get('/faves', (req,res)=>{
+  try{
+    db.fave.findAll()
+    .then( response=>{
+      res.render('faves', {faves: response});
+      // res.send(response);
+    })
+}catch (err){
+    console.log(err);
+}
+})
+
+app.post('/faves', (req,res)=>{
+    try{
+        db.fave.create({title: req.body.title, imdbid: req.body.imdbid})
+        .then( response=>{
+          res.redirect('/faves');
+        })
+    }catch (err){
+        console.log(err);
+    }
 })
 
 
