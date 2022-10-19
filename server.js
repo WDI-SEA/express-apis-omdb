@@ -82,7 +82,20 @@ app.post('/faves',(req , res)=>{
 })
 
 app.get('/faves',(req , res)=>{
-  res.render ('faves',{ favemovies:req.body.title})
+  async function readAllFaves() {
+    try {
+      const allFaves = await db.fave.findAll({
+        attributes: ['title', 'imdbid']
+      
+      })
+      // console.log(allFaves)
+      res.render('faves', {allFaves})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  readAllFaves()
 
 
 })
