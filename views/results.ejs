@@ -1,9 +1,13 @@
-//Render your Search results here %>
-// this is show to do comments in EJS, by the wey
+<!-- //Render your Search results here %>
+// this is show to do comments in EJS, by the wey -->
+
+<h2>You searched for: <%=userInput%></h2>
+
 <ul>
-    <% results.forEach(m=>{ %>
+    <% movies.forEach((title, id)=>{%>
+        <%let movie_id = title.imdbID%>
         <a href="/movies/<%=m.imID
     <li><% m.title %></li>
-
+     </a> 
      <% }) %>
 </ul>

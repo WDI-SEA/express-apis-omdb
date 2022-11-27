@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "Rnya",
+    "username": "postgres",
     "password": "Ranyamahmood",
-    "database": "database_development",
+    "database": "omdb",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
