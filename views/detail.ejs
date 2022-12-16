@@ -1,2 +1,17 @@
 <% // Render individual movie details here %>
 <% // This is how to do comments in EJS, by the way... %>
+<h1><%= film.Title %></h1>
+
+<p>year: <%= film.Year %> rated: <%= film.Rated %> runtime: <%= film.Runtime %></p>
+
+<% if (film.Poster !== "N/A") { %>
+    <img alt="<%= film.Title %>" src="<%= film.Poster %>" />
+<% } else { %>
+    <p>no film poster found 😩</p>
+<% } %>
+
+<h2>Directed by: <%= film.Director %></h2>
+
+<h3>Starring: <%= film.Actors %></h3>
+
+
