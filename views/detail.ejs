@@ -14,4 +14,11 @@
 
 <h3>Starring: <%= film.Actors %></h3>
 
+<form method="POST" action="/faves">
+    <input hidden type="text" value="<%= film.Title %>" name="title" />
+    <input hidden type="text" value="<%= film.imdbID %>" name="imdbID" />
+
+    <button type="submit">Add to my faves</button>
+</form>
+
 
